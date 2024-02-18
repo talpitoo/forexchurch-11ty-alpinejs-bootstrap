@@ -7,6 +7,19 @@ header {
 }
 
 .btn-navbar {
+  &:hover,
+  &:focus {
+    span,
+    svg {
+      color: $tertiary;
+      transition: transform .3s ease-in-out;
+    }
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
   @include media-breakpoint-up(lg) {
     display: inline-flex;
     align-items: center;
@@ -26,11 +39,16 @@ header {
     right: 0;
     left: 0;
     display: flex;
+    gap: map-get($spacers, 4);
     justify-content: space-between;
     padding: map-get($spacers, 4);
     background-color: $white;
     box-shadow: $box-shadow;
     // transition: opacity 0.3s ease-in-out;
     // opacity: 1;
+
+    li {
+      flex-grow: 1;
+    }
   }
 }

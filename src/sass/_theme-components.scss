@@ -3,6 +3,7 @@
   // padding-top: map-get($spacers, '64px');
   // padding-bottom: map-get($spacers, '64px');
 
+  // stylelint-disable scss/selector-no-union-class-name
   &-lg {
     padding-top: map-get($spacers, "72px");
     padding-bottom: map-get($spacers, "72px");

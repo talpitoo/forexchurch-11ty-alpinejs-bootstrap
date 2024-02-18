@@ -55,13 +55,16 @@
                             </ul>
                           {% else %}
                             <a href="{{ child.url }}" class="{{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
+                            <p class="text-white text-lg-body">{{ child.excerpt }}</p>
                           {% endif %}
                         </li>
                       {% endfor %}
                       {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
                       {% if entry.includeSelf != false %}
-                        <li>
-                          <a href="{{ entry.url }}" class="text-white text-lg-body">{{ entry.title }}</a>
+                        <li class="bg-tertiary-light p-4 rounded-4 w-25">
+                          <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
+                          <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
+                          <a href="{{ entry.url }}" class="text-white text-lg-body">Advanced Search</a>
                         </li>
                       {% endif %}
                     </ul>
