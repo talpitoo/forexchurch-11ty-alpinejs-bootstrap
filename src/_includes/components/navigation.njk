@@ -8,7 +8,7 @@
           type='button'
           aria-label='menu'
           id="burger-menu"
-          class="btn btn-link p-0 d-lg-none"
+          class="btn btn-link p-0 d-xl-none"
         >
           <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
             <use :href="isOpen ? '/img/icons/symbol/svg/sprite.css.svg#close' : '/img/icons/symbol/svg/sprite.css.svg#hamburger'"></use>
@@ -24,7 +24,7 @@
           </a>
 
           {% set navPages = collections.all | eleventyNavigation %}
-          <ul class="bg-primary d-none d-lg-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isOpen}">
+          <ul class="bg-primary d-none d-xl-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isOpen}">
             {% for entry in navPages %}
 
               {% if entry.children.length %}
@@ -33,7 +33,7 @@
                   <div x-data="{ dropdownOpen: false }" 
                       @mouseleave="if (window.innerWidth >= 992) dropdownOpen = false"
                       @mouseover="if (window.innerWidth >= 992) dropdownOpen = true">
-                    <button @click="if (window.innerWidth < 992) dropdownOpen = !dropdownOpen" type="button" id="dropdown{{ entry.title }}Button" class="btn btn-link p-0 {{ 'text-tertiary' if entry.url in page.url else 'text-white'}}" >
+                    <button @click="if (window.innerWidth < 992) dropdownOpen = !dropdownOpen" type="button" id="dropdown{{ entry.title }}Button" class="btn btn-link p-0 text-nowrap {{ 'text-tertiary' if entry.url in page.url else 'text-white'}}" >
                       <span>{{ entry.title }}</span>
                       <svg class="ms-1" aria-hidden="true" width="24" height="24">
                         <use href="/img/icons/symbol/svg/sprite.css.svg#chevron-down"></use>

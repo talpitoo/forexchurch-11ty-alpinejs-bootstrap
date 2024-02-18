@@ -1,4 +1,15 @@
 .py-section {
   padding-top: 64px;
   padding-bottom: 64px;
+
+  &-lg {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
+
+.container-max-xl {
+  @include media-breakpoint-up(xxl) { 
+    max-width: map-get($container-max-widths, xl);
+  }
 }
