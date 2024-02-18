@@ -1,15 +1,16 @@
 .py-section {
-  padding-top: 64px;
-  padding-bottom: 64px;
+  // TODO: refactor
+  // padding-top: map-get($spacers, '64px');
+  // padding-bottom: map-get($spacers, '64px');
 
   &-lg {
-    padding-top: 72px;
-    padding-bottom: 72px;
+    padding-top: map-get($spacers, "72px");
+    padding-bottom: map-get($spacers, "72px");
   }
 }
 
 .container-max-xl {
-  @include media-breakpoint-up(xxl) { 
+  @include media-breakpoint-up(xxl) {
     max-width: map-get($container-max-widths, xl);
   }
 }

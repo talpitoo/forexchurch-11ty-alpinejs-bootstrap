@@ -1,8 +1,12 @@
-# ForexChurch frontend using 11ty/Bootstrap/Alpine.js/Axios (and maybe Flowbite, GSAP, Swiper)
+# 📈 ForexChurch frontend using 11ty/Bootstrap/Alpine.js/Axios (and maybe Flowbite, GSAP, Swiper)
 
 This boilerplate/skeleton uses bits and pieces from the [Minimal 11ty Starter](https://github.com/tomreinert/minimal-11ty-tailwind-starter), please check it out first for the basics.
 
-## Getting started
+## 🔗 Demo
+
+https://forexchurch-ten.vercel.app/
+
+## 🚶 Getting started
 
 1. git clone the repository
 2. `cd forexchurch-11ty-alpinejs-bootstrap` (or the name of the folder you've cloned into)
@@ -10,11 +14,11 @@ This boilerplate/skeleton uses bits and pieces from the [Minimal 11ty Starter](h
 4. watch for changes and serve locally on http://localhost:8080 with `npm run start`
 5. compile the website with `npm run build` and serve it from the `_site` folder.
 
-## UI Library
+## 🖱️ UI Library
 
 Take a look at the reusable snippets at http://localhost:8080/ui-library/
 
-## Development notes
+## 👨‍💻 Development notes
 
 * the top navbar (and the footer) uses semantic, auto-generated nested navigation. It is based on the folder structure, the template `/src/_includes/components/navigation.njk` and the front matter in individual files, e.g.
 
@@ -57,7 +61,7 @@ tags: ["tools", "calculators"]
 * `TODO`: Update the `robots.txt` once deployed to production.
 * The main entry point for all CSS work is in `/src/sass/main.scss`. The order of `@import`-s is important.
 
-## Search (optional, TODO)
+## 🔍 Search (optional, TODO)
 
 Since this is 11ty, there are no API calls neither a DB to fetch posts, rather `collections.all`. We are fetching all posts with
 

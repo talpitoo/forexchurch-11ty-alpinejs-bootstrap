@@ -432,8 +432,14 @@ $spacers: (
   3: $spacer, // 16px
   "18px": 18px,
   4: $spacer * 1.5, // 20px
+  "24px": 24px,
+  "32px": 32px,
+  "40px": 40px,
   5: $spacer * 3, // 48px
-  "navbar": 73px, // 73px
+  "64px": 64px,
+  "section": 64px,
+  "72px": 72px,
+  "navbar": 73px, // 73px, the height of the top navbar
 );
 // scss-docs-end spacer-variables-maps
 
@@ -762,7 +768,7 @@ $table-th-font-weight:        null !default;
 
 $table-striped-color:         $table-color !default;
 $table-striped-bg-factor:     .05 !default;
-$table-striped-bg:            rgba(var(--#{$prefix}emphasis-color-rgb), $table-striped-bg-factor) !default;
+$table-striped-bg:            $tertiary-light;
 
 $table-active-color:          $table-color !default;
 $table-active-bg-factor:      .1 !default;

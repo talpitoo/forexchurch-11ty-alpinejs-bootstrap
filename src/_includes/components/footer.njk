@@ -1,17 +1,42 @@
-<footer class="">
+<footer class="position-relative">
   <div class='bg-primary text-white'>
     <div class='container'>
-      <div class='row py-5'>
-        <div class='col-lg-4'>
+      <div class='row pt-section pb-3 py-md-section'>
+        <div class='col-md-12 col-xl-4 text-center text-md-start'>
           <a
-          href='/' class=""
+          href='/' class="d-inline-block mb-2"
         >
             <img src="/img/logo.svg" alt='TODO' width='172' height='73' class=""/>
           </a>
+          <h3>Follow us</h3>
+          <ul class="list-inline mb-3">
+            <li class="list-inline-item">
+              <a href="#">
+                <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                  <use href="/img/icons/symbol/svg/sprite.css.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                  <use href="/img/icons/symbol/svg/sprite.css.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                  <use href="/img/icons/symbol/svg/sprite.css.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class='col-lg-2'>
-          <h3>Top Brokers</h3>
-          <ul class="list-unstyled lh-lg">
+        <div class='col-md-3 col-xl-2'>
+          <h3 class="text-uppercase text-md-capitalize">Top Brokers</h3>
+          {# TODO: mobile dropdonws: d-none d-md-block #}
+          <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
             <li>
               <a href="/forex-brokers/eToro">eToro</a>
             </li>
@@ -32,9 +57,9 @@
             </li>
           </ul>
         </div>
-        <div class='col-lg-2'>
-          <h3>Resources</h3>
-          <ul class="list-unstyled lh-lg">
+        <div class='col-md-3 col-xl-2'>
+          <h3 class="text-uppercase text-md-capitalize">Resources</h3>
+          <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
             <li>
               <a href="/about-us">About us</a>
             </li>
@@ -55,9 +80,9 @@
             </li>
           </ul>
         </div>
-        <div class='col-lg-2'>
-          <h3>Top comparisons</h3>
-          <ul class="list-unstyled lh-lg">
+        <div class='col-md-3 col-xl-2'>
+          <h3 class="text-uppercase text-md-capitalize">Top comparisons</h3>
+          <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
             <li>
               <a href="/forex-brokers/vs?selectedBrokers=5%2C1">eToro vs IC Markets</a>
             </li>
@@ -90,9 +115,9 @@
             </li>
           </ul>
         </div>
-        <div class='col-lg-2'>
-          <h3>Broker Categories</h3>
-          <ul class="list-unstyled lh-lg">
+        <div class='col-md-3 col-xl-2'>
+          <h3 class="text-uppercase text-md-capitalize">Broker Categories</h3>
+          <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
             <li>
               <a href="/forex-brokers?mt4Server=1">MT4 Forex Brokers</a>
             </li>
@@ -129,18 +154,19 @@
     </div>
     <div class='bg-primary-dark'>
       <div class='container'>
-        <div class='row py-5'>
-          <div class="col-lg-4">
-            <p>Copyright © 2024 forexchurch.com</p>
-            <p>All rights reserved.</p>
+        <div class='row py-24px'>
+          <div class="col-md-7 order-md-2 text-md-end d-flex flex-column flex-md-row justify-content-end mb-3 mb-md-0">
+            <a href="#" class="mx-md-2 mb-2">Privacy policy</a>
+            <a href="#" class="mx-md-2 mb-2">Contact Us.</a>
+            <a href="#" class="mx-md-2 mb-2">Terms and Conditions</a>
           </div>
-          <div class="col-lg-8 text-end">
-            <a href="#" class="mx-2">Privacy policy</a>
-            <a href="#" class="mx-2">Contact Us.</a>
-            <a href="#" class="mx-2">Terms and Conditions</a>
+          <div class="col-md-5 order-md-1">
+            <p class="mb-0">Copyright © 2024 forexchurch.com</p>
+            <p class="mb-0">All rights reserved.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <img src="/img/footer_logo.svg" class="d-none d-md-block position-absolute bottom-0 start-0 mb-72px"/>
 </footer>
