@@ -5,3 +5,15 @@ header {
     text-decoration: none;
   }
 }
+
+[data-dropdown-open="true"] {
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    top: map-get($spacers, "navbar");
+    right: 0;
+    left: 0;
+    padding: map-get($spacers, 4);
+    background-color: $white;
+    box-shadow: $box-shadow;
+  }
+}

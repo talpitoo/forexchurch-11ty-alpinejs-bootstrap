@@ -1,30 +1,27 @@
-<header x-data="{ isOpen: false }">
+<header x-data="{ isTopNavbarOpen: false }">
   <div class='bg-primary text-white'>
     <div class='container'>
-
       <div class="d-flex align-items-center justify-content-between">
         <button
-          @click="isOpen = !isOpen"
-          type='button'
-          aria-label='menu'
-          id="burger-menu"
-          class="btn btn-link p-0 d-xl-none"
-        >
+            @click="isTopNavbarOpen = !isTopNavbarOpen"
+            type='button'
+            aria-label='menu'
+            id="burger-menu"
+            class="btn btn-link p-0 d-xl-none"
+          >
           <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
-            <use :href="isOpen ? '/img/icons/symbol/svg/sprite.css.svg#close' : '/img/icons/symbol/svg/sprite.css.svg#hamburger'"></use>
+            <use :href="isTopNavbarOpen ? '/img/icons/symbol/svg/sprite.css.svg#close' : '/img/icons/symbol/svg/sprite.css.svg#hamburger'"></use>
           </svg>
           <span class="visually-hidden">Menu</span>
         </button>
 
         <div class="d-flex flex-grow-1 align-items-center justify-content-center">
-          <a
-          href='/' class=""
-        >
+          <a href='/'>
             <img src="/img/logo.svg" alt='TODO' width='172' height='73' class=""/>
           </a>
 
           {% set navPages = collections.all | eleventyNavigation %}
-          <ul class="bg-primary d-none d-xl-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isOpen}">
+          <ul class="bg-primary d-none d-xl-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isTopNavbarOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isTopNavbarOpen}">
             {% for entry in navPages %}
 
               {% if entry.children.length %}
@@ -41,29 +38,29 @@
                     </button>
                     <ul x-show="dropdownOpen" 
                         @click.away="dropdownOpen = false" 
+                        :data-dropdown-open="dropdownOpen ? 'true' : 'false'"
                         class="list-unstyled" 
-                        :class="{'d-none': !dropdownOpen, 'position-lg-absolute bg-primary p-4': dropdownOpen}" 
                         id="dropdown{{ entry.title }}" 
                         aria-labelledby="dropdown{{ entry.title }}Button">
                       {% for child in entry.children %}
                         <li>
                           {% if child.children.length %}
-                            <h6 class="text-white">{{ child.title }}</h6>
+                            <h6 class="text-white text-lg-body">{{ child.title }}</h6>
                             <ul class="ps-4 list-unstyled">
                               {% for subchild in child.children %}
                                 <li>
-                                  <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white' }}">{{ subchild.title }}</a>
+                                  <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
                                 </li>
                               {% endfor %}
                             </ul>
                           {% else %}
-                            <a href="{{ child.url }}" class="{{'text-tertiary' if child.url in page.url else 'text-white'}}">{{ child.title }}</a>
+                            <a href="{{ child.url }}" class="{{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
                           {% endif %}
                         </li>
                         {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
                         {% if entry.includeSelf != false %}
                           <li>
-                            <a href="{{ entry.url }}" class="text-white">{{ entry.title }}</a>
+                            <a href="{{ entry.url }}" class="text-white text-lg-body">{{ entry.title }}</a>
                           </li>
                         {% endif %}
                       {% endfor %}
@@ -85,9 +82,9 @@
 
         <button
           type='button'
-          id="search"
-          class="btn btn-link p-0 ms-4"
-        >
+            id="search"
+            class="btn btn-link p-0 ms-4"
+          >
           <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
             <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
           </svg>
