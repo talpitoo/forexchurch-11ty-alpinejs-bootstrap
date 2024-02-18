@@ -1,0 +1,48 @@
+---
+title: Search
+excerpt: "Excerpt for Search"
+layout: layouts/base.njk
+permalink: /search/
+---
+
+<section class='py-section-sm bg-dark text-light'>
+    <div class='forexchurch-container'>
+        <div class="monz-grid">
+            <h1 class="h2">{{ title }}</h1>
+        </div>
+        <form class="mt-spacer-2" id="search">
+            <div class="monz-grid">
+                <div class="monz-col-6 relative">
+                    <label class="block">
+                        <input type="search" name="search" class="rounded-none block w-full text-body pr-spacer-3" placeholder="Search" required aria-label="Search">
+                    </label>
+                    <button type="submit" class="text-body absolute top-0 bottom-0 right-spacer-1/2">
+                        <span class="sr-only">Submit</span>
+                        <svg class="w-spacer-2 h-spacer-2" aria-hidden="true" width="16" height="16">
+                            <use href="/img/icons/dist/sprite.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                </div>
+                {# NOTE: a 'yellow' submit button
+                <div class="monz-col-1">
+                    <button type="submit" class="bg-primary block w-full uppercase p-spacer-1 text-left text-spacer-1 leading-none text-body">Search</button>
+                </div> #}
+            </div>
+        </form>
+        <div class="monz-grid">
+            <div class="monz-col-6 mt-spacer-4">
+                <div id="search-result"></div>
+
+                <div id="search-all-posts">
+                    {# NOTE: the content comes from collections.all #}
+                    {% set posts = collections.all %}
+                    {% include "components/article-list-search-results.njk" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="min-h-screen">
+    {# NOTE: to avoid showing the footer #}
+</div>

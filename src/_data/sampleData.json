@@ -1,0 +1,116 @@
+{
+    "featuredArticles": [
+        {
+            "title": "What is this? Philosophy 101",
+            "date": "2019-03-11",
+            "description": "The first English translation of the french philosopher Axelos Kostas' magnum opus.",
+            "coverPhoto": {
+                "webP": "/img/pexels-daniel-cid-17505905-640x448.webp",
+                "webP2x": "/img/pexels-daniel-cid-17505905-640x448@2x.webp",
+                "jpg": "/img/pexels-daniel-cid-17505905-640x448.jpg",
+                "jpg2x": "/img/pexels-daniel-cid-17505905-640x448@2x.jpg",
+                "height": "small"
+            },
+            "tags": ["work", "books"],
+            "categories": ["books", "translation", "philosophy"]
+        },
+        {
+            "title": "The Best Book: Magic Philosophy",
+            "date": "2019-03-11",
+            "description": "This book is not for everyone. This book is only for the best. Only the best know the best.",
+            "coverPhoto": {
+                "webP": "/img/pexels-oleksandr-tiupa-192136-640x427.webp",
+                "webP2x": "/img/pexels-oleksandr-tiupa-192136-640x427@2x.webp",
+                "jpg": "/img/pexels-oleksandr-tiupa-192136-640x427.jpg",
+                "jpg2x": "/img/pexels-oleksandr-tiupa-192136-640x427@2x.jpg",
+                "height": "medium"
+            },
+            "tags": ["work", "books"],
+            "categories": ["books", "philosophy", "theft"]
+        },
+        {
+            "title": "The Real Truth of The Reality",
+            "date": "2019-03-11",
+            "description": "A book too beautiful to be left unwritten.",
+            "coverPhoto": {
+                "webP": "/img/pexels-rdne-stock-project-8474487-640x424.webp",
+                "webP2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
+                "jpg": "/img/pexels-rdne-stock-project-8474487-640x424.jpg",
+                "jpg2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
+                "height": "small"
+            },
+            "tags": ["work", "movies"],
+            "categories": ["books", "philosophy", "magic"]
+        },
+        {
+            "title": "The Lorem Ipsum of The Reality",
+            "date": "2019-03-11",
+            "description": "A lorem ipsum book.",
+            "coverPhoto": {
+                "webP": "/img/pexels-rdne-stock-project-8474487-640x424.webp",
+                "webP2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
+                "jpg": "/img/pexels-rdne-stock-project-8474487-640x424.jpg",
+                "jpg2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
+                "height": "large"
+            },
+            "tags": ["work", "movies"],
+            "categories": ["books", "philosophy", "translation"]
+        },
+        {
+            "title": "The Lorem Ipsum of The Reality",
+            "date": "2019-03-11",
+            "description": "A lorem ipsum book.",
+            "coverPhoto": {
+                "webP": "/img/pexels-rdne-stock-project-8474487-640x424.webp",
+                "webP2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
+                "jpg": "/img/pexels-rdne-stock-project-8474487-640x424.jpg",
+                "jpg2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
+                "height": "medium"
+            },
+            "tags": ["work", "movies"],
+            "categories": ["books", "translation", "philosophy"]
+        },
+        {
+            "title": "The Lorem Ipsum of The Reality",
+            "date": "2019-03-11",
+            "description": "A lorem ipsum book.",
+            "coverPhoto": {
+                "webP": "/img/pexels-rdne-stock-project-8474487-640x424.webp",
+                "webP2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
+                "jpg": "/img/pexels-rdne-stock-project-8474487-640x424.jpg",
+                "jpg2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
+                "height": "medium"
+            },
+            "tags": ["work", "podcasts"],
+            "categories": ["books", "translation", "philosophy"]
+        },
+        {
+            "title": "The Lorem Ipsum of The Reality",
+            "date": "2019-03-11",
+            "description": "A lorem ipsum book.",
+            "coverPhoto": {
+                "webP": "/TODO/img/pexels-rdne-stock-project-8474487-640x424.webp",
+                "webP2x": "/TODO/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
+                "jpg": "/TODO/img/pexels-rdne-stock-project-8474487-640x424.jpg",
+                "jpg2x": "/TODO/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
+                "height": "medium"
+            },
+            "tags": ["work", "books"],
+            "categories": ["books", "translation", "philosophy"]
+        },
+        {
+            "title": "The Lorem Ipsum of The Reality",
+            "date": "2019-03-11",
+            "description": "A lorem ipsum book.",
+            "coverPhoto": {
+                "webP": "/TODO/img/pexels-rdne-stock-project-8474487-640x424.webp",
+                "webP2x": "/TODO/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
+                "jpg": "/TODO/img/pexels-rdne-stock-project-8474487-640x424.jpg",
+                "jpg2x": "/TODO/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
+                "height": "medium"
+            },
+            "tags": ["work", "books"],
+            "categories": ["books", "translation", "philosophy"]
+        }
+    ]
+}

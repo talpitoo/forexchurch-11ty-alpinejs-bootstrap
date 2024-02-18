@@ -1,0 +1,28 @@
+<section class='py-section'>
+    <div class='container'>
+        <div x-data="{ test: 'Alpine is working!' }" x-text="test"></div>
+
+        <div x-data="loadBreweries()" x-init="getBreweries">
+            <table class="table w-full">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>City</th>
+                        <th>State</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="brewery in breweries" :key="brewery.id">
+                        <tr>
+                            <td x-text="brewery.name"></td>
+                            <td x-text="brewery.brewery_type"></td>
+                            <td x-text="brewery.city"></td>
+                            <td x-text="brewery.state"></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

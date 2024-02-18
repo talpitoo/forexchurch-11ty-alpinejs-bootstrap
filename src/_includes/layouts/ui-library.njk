@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    {% include "../components/meta.njk" %}
+  </head>
+  <body>
+
+    <main>
+      {{ content | safe }}
+    </main>
+
+    {# NOTE: modals at the very end so their z-index is above everything else #}
+    {% include "components/modals/modal-gallery.njk" %}
+
+    <script src="/main.js" defer></script>
+  </body>
+</html>

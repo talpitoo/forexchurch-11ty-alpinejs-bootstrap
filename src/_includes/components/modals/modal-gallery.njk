@@ -1,0 +1,77 @@
+{# TODO: add <html class="overflow-hidden"> when the modal is open #}
+<div id="modal-gallery" tabindex="-1" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-screen h-screen overflow-hidden bg-dark text-light">
+    <div class="relative w-screen h-screen">
+        {# modal content #}
+        <div class="flex flex-col h-full">
+            {# modal header #}
+            <nav class="fixed top-0 left-0 right-0">
+                <div class='forexchurch-container'>
+                    <div class="monz-grid">
+                        <div class="col-span-6 justify-between flex pt-spacer-3 pb-spacer-2">
+                            <p class="text-top-navbar leading-none uppercase font-sans">
+                                <span id="modal-gallery-current">1</span>/<span id="modal-gallery-total">8</span>
+                            </p>
+                            <button
+                                type='button'
+                                aria-label='full screen'
+                                data-btn-fullscreen
+                                class="hidden lg:block"
+                                >
+                                <svg class="w-spacer-2 h-spacer-2 text-light" aria-hidden="true">
+                                    <use href="/img/icons/dist/sprite.svg#icon-fullscreen"></use>
+                                </svg>
+                                <span class="sr-only">Full screen</span>
+                            </button>
+
+                            <button
+                                type='button'
+                                aria-label='menu'
+                                id="burger-menu"
+                                class="lg:absolute lg:top-spacer-3 lg:mr-spacer-2 lg:right-spacer-1"
+                                data-monz-modal-hide
+                                >
+                                {# NOTE: use data-modal-hide="modal-gallery" for automatic show/hide via markup #}
+                                <svg class="w-spacer-2 h-spacer-2 text-light" aria-hidden="true">
+                                    <use href="/img/icons/dist/sprite.svg#icon-close"></use>
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            {# modal body #}
+            <div class="grow overflow-y-auto mt-spacer-7 pb-spacer-2">
+                <div class='forexchurch-container'>
+                    <div class="monz-grid">
+                        <div class="monz-col-6">
+                            <div class="relative">
+                                <div class="mb-spacer-2" id="modal-gallery-active">
+                                    {# NOTE: the active item will appear here #}
+                                </div>
+
+                                <button type="button" class="text-light swiper-button-prev -left-spacer-1.5 lg:-left-spacer-3">
+                                    <span class="sr-only">previous image</span>
+                                    <svg class="w-spacer-1 h-spacer-1" aria-hidden="true" width="16" height="16">
+                                        <use href="/img/icons/dist/sprite.svg#icon-caret-left"></use>
+                                    </svg>
+                                </button>
+                                <button type="button" class="text-light swiper-button-next -right-spacer-1.5 lg:-right-spacer-3">
+                                    <span class="sr-only">next image</span>
+                                    <svg class="w-spacer-1 h-spacer-1" aria-hidden="true" width="16" height="16">
+                                        <use href="/img/icons/dist/sprite.svg#icon-caret-right"></use>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <ul class="lg:columns-3 gap-x-spacer-2" id="modal-gallery-list">
+                                {# NOTE: this list gets populated in modalGallery.js #}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

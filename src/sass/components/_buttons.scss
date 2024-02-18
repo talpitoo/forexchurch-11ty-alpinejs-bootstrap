@@ -1,0 +1,12 @@
+.btn-primary {
+  font-weight: 600;
+  color: $secondary;
+  text-transform: uppercase;
+  transition: transform 150ms cubic-bezier(.4, 0, .2, 1);
+
+  &:hover,
+  &:focus {
+    color: $secondary;
+    transform: translateX(5px);
+  }
+}

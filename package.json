@@ -1,0 +1,69 @@
+{
+  "name": "forexchurch-11ty-alpinejs-bootstrap",
+  "version": "1.0.0",
+  "description": "Find the best forex broker for you",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev:sass": "sass src/sass/main.scss:css/main.css --watch",
+    "dev:js": "esbuild src/js/main.js --bundle --outfile=_site/js/main.js --sourcemap --watch",
+    "build:sass": "sass src/sass/main.scss:css/main.css --no-source-map && postcss css/main.css --use autoprefixer -d css/",
+    "build:js": "esbuild src/js/main.js --bundle --minify --outfile=_site/js/main.js",
+    "build:eleventy": "eleventy",
+    "watch:eleventy": "eleventy --serve",
+    "dev": "run-p dev:sass dev:js watch:eleventy",
+    "build": "run-s build:sass build:js build:eleventy",
+    "start": "npm run dev",
+    "svg": "npx svg-sprite --symbol --dest src/img/icons/ src/img/icons/*.svg",
+    "lint:css": "stylelint 'src/sass/**/*.scss'",
+    "precommit": "npm run lint:css"
+  },
+  "keywords": [
+    "11ty",
+    "Bootstrap",
+    "Flowbite",
+    "Alpine.js",
+    "Axios",
+    "GSAP",
+    "Swiper"
+  ],
+  "author": "ForexChurch",
+  "contributors": [
+    {
+      "name": "Ryan Healy",
+      "url": "https://www.forexchurch.com/"
+    },
+    {
+      "name": "Tóth Tamás",
+      "url": "https://talpitoo.com/"
+    }
+  ],
+  "license": "TODO",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@popperjs/core": "^2.11.8",
+    "alpinejs": "^3.13.5",
+    "axios": "^1.6.7",
+    "bootstrap": "^5.3.2",
+    "flowbite": "^2.2.1",
+    "gsap": "^3.12.5",
+    "swiper": "^11.0.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "esbuild": "^0.20.0",
+    "husky": "^9.0.10",
+    "lint-staged": "^15.2.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.70.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-twbs-bootstrap": "^14.0.0",
+    "svg-sprite": "^2.0.2"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

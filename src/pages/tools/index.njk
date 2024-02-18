@@ -1,0 +1,18 @@
+---
+title: Tools
+date: 2022-01-11
+excerpt: TODO
+layout: layouts/no-output.njk
+permalink: /tools/
+category: work
+eleventyNavigation:
+  key: Tools
+  order: 4
+  includeSelf: false
+---
+
+<section class='py-section'>
+  {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
+  {% set pictureObject = coverPhoto %}
+  {% include "components/picture-example.njk" %}
+</section>

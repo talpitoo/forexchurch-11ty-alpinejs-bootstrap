@@ -1,0 +1,13 @@
+// get individual keys from a sass map
+// https://css-tricks.com/snippets/sass/deep-getset-maps/
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+// Convenience function used to set content property
+@function fa-content($fa-var) {
+  @return unquote("\"#{ $fa-var }\"");
+}

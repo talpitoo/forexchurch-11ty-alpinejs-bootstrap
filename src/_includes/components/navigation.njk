@@ -1,0 +1,100 @@
+<header x-data="{ isOpen: false }">
+  <div class='bg-primary text-white'>
+    <div class='container'>
+
+      <div class="d-flex align-items-center justify-content-between">
+        <button
+          @click="isOpen = !isOpen"
+          type='button'
+          aria-label='menu'
+          id="burger-menu"
+          class="btn btn-link p-0 d-lg-none"
+        >
+          <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+            <use :href="isOpen ? '/img/icons/symbol/svg/sprite.css.svg#close' : '/img/icons/symbol/svg/sprite.css.svg#hamburger'"></use>
+          </svg>
+          <span class="visually-hidden">Menu</span>
+        </button>
+
+        <div class="d-flex flex-grow-1 align-items-center justify-content-center">
+          <a
+          href='/' class=""
+        >
+            <img src="/img/logo.svg" alt='TODO' width='172' height='73' class=""/>
+          </a>
+
+          {% set navPages = collections.all | eleventyNavigation %}
+          <ul class="bg-primary d-none d-lg-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isOpen}">
+            {% for entry in navPages %}
+
+              {% if entry.children.length %}
+                <li class='px-lg-3'>
+
+                  <div x-data="{ dropdownOpen: false }" 
+                      @mouseleave="if (window.innerWidth >= 992) dropdownOpen = false"
+                      @mouseover="if (window.innerWidth >= 992) dropdownOpen = true">
+                    <button @click="if (window.innerWidth < 992) dropdownOpen = !dropdownOpen" type="button" id="dropdown{{ entry.title }}Button" class="btn btn-link p-0 {{ 'text-tertiary' if entry.url in page.url else 'text-white'}}" >
+                      <span>{{ entry.title }}</span>
+                      <svg class="ms-1" aria-hidden="true" width="24" height="24">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#chevron-down"></use>
+                      </svg>
+                    </button>
+                    <ul x-show="dropdownOpen" 
+                        @click.away="dropdownOpen = false" 
+                        class="list-unstyled" 
+                        :class="{'d-none': !dropdownOpen, 'position-lg-absolute bg-primary p-4': dropdownOpen}" 
+                        id="dropdown{{ entry.title }}" 
+                        aria-labelledby="dropdown{{ entry.title }}Button">
+                      {% for child in entry.children %}
+                        <li>
+                          {% if child.children.length %}
+                            <h6 class="text-white">{{ child.title }}</h6>
+                            <ul class="ps-4 list-unstyled">
+                              {% for subchild in child.children %}
+                                <li>
+                                  <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white' }}">{{ subchild.title }}</a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          {% else %}
+                            <a href="{{ child.url }}" class="{{'text-tertiary' if child.url in page.url else 'text-white'}}">{{ child.title }}</a>
+                          {% endif %}
+                        </li>
+                        {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
+                        {% if entry.includeSelf != false %}
+                          <li>
+                            <a href="{{ entry.url }}" class="text-white">{{ entry.title }}</a>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  </div>
+
+                </li>
+              {% else %}
+                <li class='px-lg-3'>
+                  <a href="{{ entry.url }}" class="{{'text-tertiary' if entry.url in page.url else 'text-white'}}">
+                    {{ entry.title }}
+                  </a>
+                </li>
+              {% endif %}
+
+            {% endfor %}
+          </ul>
+        </div>
+
+        <button
+          type='button'
+          id="search"
+          class="btn btn-link p-0 ms-4"
+        >
+          <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+            <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+          </svg>
+          <span class="visually-hidden">Search</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</header>

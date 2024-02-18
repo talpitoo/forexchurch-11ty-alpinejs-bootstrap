@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    {% include "../components/meta.njk" %}
+  </head>
+  <body>
+
+    {% include "../components/navigation.njk" %}
+    <main>
+      <section class='py-section-sm bg-dark text-light'>
+        <div class='forexchurch-container'>
+          <div class="monz-grid">
+            <h1>{{ title }}</h1>
+          </div>
+
+          <div class="monz-grid">
+            <div class="monz-col-6 pt-spacer-3">
+              {# NOTE: the content comes from collections[category] which is annotated by `tags: ["books", ...` #}
+              {% set posts = collections[category] | reverse %}
+              {% include "components/article-list.njk" %}
+            </div>
+          </div>
+
+          <div class="monz-grid mt-spacer-7">
+            <div class="monz-col-2 lg:col-start-3">
+              {% include "components/pagination-dummy-example.njk" %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {{ content | safe }}
+
+      {# NOTE: undo the footer reveal offset #}
+      <div class="bg-dark">
+        <div class='forexchurch-container pb-spacer-33'></div>
+      </div>
+    </main>
+
+    {% include "../components/footer.njk" %}
+
+    {# NOTE: modals at the very end so their z-index is above everything else #}
+    {% include "components/modals/modal-gallery.njk" %}
+
+    {# NOTE: optional example in case importing in main.js does not work 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script> #}
+
+    <script src="/main.js" defer></script>
+  </body>
+</html>

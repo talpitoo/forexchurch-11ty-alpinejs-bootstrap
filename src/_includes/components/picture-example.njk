@@ -1,0 +1,26 @@
+{# NOTE: original image https://www.pexels.com/photo/back-view-of-astronauts-holding-hands-8474487/ #}
+{# NOTE: convert the images to WebP with e.g. https://pixelied.com/convert/jpg-converter/jpg-to-webp first #}
+{# NOTE: then optimize them with e.g. https://tinypng.com/ #}
+{# NOTE: static example #}
+{# <picture class="block h-full">
+    <!-- WebP format for modern browsers -->
+    <source srcset="/img/pexels-rdne-stock-project-8474487-640x424.webp 1x, /img/pexels-rdne-stock-project-8474487-640x424@2x.webp 2x" type="image/webp">
+
+    <!-- JPG format for browsers that do not support WebP -->
+    <source srcset="/img/pexels-rdne-stock-project-8474487-640x424.jpg 1x, /img/pexels-rdne-stock-project-8474487-640x424@2x.jpg 2x" type="image/jpeg">
+
+    <!-- fallback for browsers that do not support the <picture> element -->
+    <img src="/img/pexels-rdne-stock-project-8474487-640x424.jpg" alt="Back View of Astronauts Holding Hands" class="object-cover w-full h-full" width="640" height="424">
+</picture> #}
+
+{# NOTE: dynamic example #}
+<picture class="block h-full">
+    {# WebP format for modern browsers #}
+    <source srcset="{{ pictureObject['webP'] }} 1x, {{ pictureObject['webP2x'] }} 2x" type="image/webp">
+
+    {# JPG format for browsers that do not support WebP #}
+    <source srcset="{{ pictureObject['jpg'] }} 1x, {{ pictureObject['jpg2x'] }} 2x" type="image/jpeg">
+
+    {# fallback for browsers that do not support the <picture> element #}
+    <img src="{{ pictureObject['jpg'] }}" alt="Back View of Astronauts Holding Hands" class="object-cover w-full h-full" width="640" height="424">
+</picture>

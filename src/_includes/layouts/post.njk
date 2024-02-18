@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        {% include "../components/meta.njk" %}
+    </head>
+    <body>
+
+        {% include "../components/navigation.njk" %}
+        <main>
+            <section class='py-section-sm bg-dark text-light'>
+                <div class='forexchurch-container'>
+                    <div class="monz-grid">
+                        <div class="monz-col-2">
+                            <figure class="mb-spacer-3" data-monz-show-in-modal="true">
+                                {# NOTE: keeping for the default syntax <div class="h-spacer-{{ coverPhoto.height | default('14') }} bg-success mb-spacer-1"> #}
+                                <div class="h-spacer-21 {% if coverPhoto.figureBackgroundColor is defined and coverPhoto.figureBackgroundColor !== '' %}{{ coverPhoto.figureBackgroundColor }}{% else %}bg-light{% endif %} {{ figureBackgroundColor }}">
+                                    {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
+                                    {% set pictureObject = coverPhoto %}
+                                    {% include "components/picture-example.njk" %}
+                                </div>
+
+                                {# NOTE: optional caption #}
+                                {% if coverPhoto.figcaption is defined and coverPhoto.figcaption !== '' %}
+                                    <figcaption class="mt-spacer-1">{{ coverPhoto.figcaption }}</figcaption>
+                                {% endif %}
+                            </figure>
+                        </div>
+                        <div class="monz-col-4">
+                            <h1>{{ title }}</h1>
+
+                            {{ content | safe }}
+
+                            {# NOTE: categories, the last <li> being the date #}
+                            <ul class="list-separator-dot text-muted whitespace-nowrap">
+                                {% for category in categories %}
+                                    <li class="uppercase">{{ category }}</li>
+                                {% endfor %}
+                                <li>{{ date.toDateString().slice(4) }}</li>
+                            </ul>
+
+                            {# NOTE: the price will be shown if exists/defined in the post's meta data #}
+                            {% if price is defined and price !== '' %}
+                                <p class="h3">{{ price }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        {# NOTE: modals at the very end so their z-index is above everything else #}
+        {% include "components/modals/modal-gallery.njk" %}
+
+        <script src="/main.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+---
+title: Forex Brokers
+date: 2022-01-11
+excerpt: TODO
+coverPhoto: {
+                "webP": "/TODO/img/pexels-rdne-stock-project-8474487-640x424.webp",
+                "webP2x": "/TODO/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
+                "jpg": "/TODO/img/pexels-rdne-stock-project-8474487-640x424.jpg",
+                "jpg2x": "/TODO/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
+                "height": "small"
+            }
+layout: layouts/base.njk
+permalink: /forex-brokers/
+category: work
+eleventyNavigation:
+  key: Forex Brokers
+  order: 3
+  includeSelf: true
+---
+
+<section class='py-section'>
+  {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
+  {% set pictureObject = coverPhoto %}
+  {% include "components/picture-example.njk" %}
+</section>

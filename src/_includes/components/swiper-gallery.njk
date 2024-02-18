@@ -1,0 +1,92 @@
+<div class="relative overflow-hidden pb-spacer-3">
+    <figure data-monz-show-in-modal="false">
+        <div id="monz-swiper-gallery-active-image" class="h-spacer-46 {% if coverPhoto.figureBackgroundColor is defined and coverPhoto.figureBackgroundColor !== '' %}{{ coverPhoto.figureBackgroundColor }}{% else %}bg-light{% endif %} {{ figureBackgroundColor }}">
+            {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
+            {# NOTE: the initial picture should match the swiper's first slide #}
+            {% set pictureObject = {
+                "webP": "/img/pexels-rdne-stock-project-8474487-640x424.webp",
+                "webP2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
+                "jpg": "/img/pexels-rdne-stock-project-8474487-640x424.jpg",
+                "jpg2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
+                "height": "large",
+                "figureBackgroundColor": "bg-success",
+                "figcaption": "Slide 1"
+            }   %}
+            {% include "components/picture-example.njk" %}
+        </div>
+    </figure>
+
+    <div class="px-spacer-3 bg-gray-600 lg:bg-gray-300 mb-spacer-3 lg:mb-0">
+        {% set slidesHeight = 'h-spacer-14' %}
+        {% set slidesData = [
+                  {
+                    'webP': '/img/pexels-rdne-stock-project-8474487-640x424.webp',
+                    'webP2x': '/img/pexels-rdne-stock-project-8474487-640x424@2x.webp',
+                    'jpg': '/img/pexels-rdne-stock-project-8474487-640x424.jpg',
+                    'jpg2x': '/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg',
+                    'caption': 'Fig. 1.1: Image Caption of this image'
+                  }, {
+                    'webP': '/img/pexels-oleksandr-tiupa-192136-640x427.webp',
+                    'webP2x': '/img/pexels-oleksandr-tiupa-192136-640x427@2x.webp',
+                    'jpg': '/img/pexels-oleksandr-tiupa-192136-640x427.jpg',
+                    'jpg2x': '/img/pexels-oleksandr-tiupa-192136-640x427@2x.jpg',
+                    'caption': 'Fig. 1.2: Image Caption of this image'
+                  }, {
+                    'webP': '/img/pexels-daniel-cid-17505905-640x448.webp',
+                    'webP2x': '/img/pexels-daniel-cid-17505905-640x448@2x.webp',
+                    'jpg': '/img/pexels-daniel-cid-17505905-640x448.jpg',
+                    'jpg2x': '/img/pexels-daniel-cid-17505905-640x448@2x.jpg',
+                    'caption': 'Fig. 1.3: Image Caption of this image'
+                  }, {
+                    'webP': '/img/pexels-daniel-cid-17505905-640x448.webp',
+                    'webP2x': '/img/pexels-daniel-cid-17505905-640x448@2x.webp',
+                    'jpg': '/img/pexels-daniel-cid-17505905-640x448.jpg',
+                    'jpg2x': '/img/pexels-daniel-cid-17505905-640x448@2x.jpg',
+                    'caption': 'Fig. 1.4: Image Caption of this image even longer'
+                  }
+                ] %}
+        {# NOTE: instead of {% include "components/swiper.njk" %} custom, slightly modified markup #}
+        <div class="relative">
+            <div class="swiper monz-swiper-gallery -mx-spacer-1 overflow-visible" data-monz-swiper>
+                <div class="swiper-wrapper">
+                    {% for slide in slidesData %}
+                        <div class="swiper-slide p-spacer-1">
+                            <figure data-monz-show-in-modal="false">
+                                <div class="{{ slidesHeight | default('h-spacer-14') }}">
+                                    {# NOTE: example of setting an individual pictureObject before including components/picture-example.njk #}
+                                    {% set pictureObject = {
+                                        'webP': slide.webP,
+                                        'webP2x': slide.webP2x,
+                                        'jpg': slide.jpg,
+                                        'jpg2x': slide.jpg2x
+                                    } %}
+                                    {% include "components/picture-example.njk" %}
+                                </div>
+
+                                {# NOTE: optional caption #}
+                                {% if slide.caption is defined and slide.caption !== '' %}
+                                    <figcaption class="absolute -left-spacer-2 -bottom-spacer-3 text-spacer-1 whitespace-nowrap">
+                                        {{ slide.caption }}
+                                    </figcaption>
+                                {% endif %}
+                            </figure>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <button type="button" class="text-light swiper-button-prev -left-spacer-1.5 lg:-left-spacer-2.5 mt-0">
+                <span class="sr-only">previous slide</span>
+                <svg class="w-spacer-1 h-spacer-1" aria-hidden="true" width="16" height="16">
+                    <use href="/img/icons/dist/sprite.svg#icon-caret-left"></use>
+                </svg>
+            </button>
+            <button type="button" class="text-light swiper-button-next -right-spacer-1.5 lg:-right-spacer-2.5 mt-0">
+                <span class="sr-only">next slide</span>
+                <svg class="w-spacer-1 h-spacer-1" aria-hidden="true" width="16" height="16">
+                    <use href="/img/icons/dist/sprite.svg#icon-caret-right"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

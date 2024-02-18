@@ -1,0 +1,44 @@
+<section>
+    <div class='container'>
+        <div class="row py-5">
+            <div class="col-sm-6 order-sm-2">
+                <img src="/img/hero.svg" class="" />
+            </div>
+            <div class="col-sm-6 order-sm-1">
+                <h1>
+                    <span class="d-inline-block fw-bold" style="font-size: 60px">Find</span>
+                    <span class="d-inline-block fw-semibold" style="font-size: 34px">the</span>
+                    <span class="d-inline-block fw-bold" style="font-size: 60px; background-image: linear-gradient(#d6f037,#d6f037); background-size: 100% 30%; background-position: bottom; background-repeat: no-repeat;">best</span><br/>
+                    <span class="d-inline-block fw-bold" style="font-size: 60px; background-image: linear-gradient(#d6f037,#d6f037); background-size: 100% 30%; background-position: bottom; background-repeat: no-repeat;">forex broker</span><br/>
+                    <span class="d-inline-block fw-semibold" style="font-size: 34px">for</span>
+                    <span class="d-inline-block fw-bold" style="font-size: 60px; background-image: linear-gradient(#d6f037,#d6f037);">you</span></h1>
+                <p>By answering a few straightforward questions, you can find the appropriate broker within seconds and save yourself from tedious hours of research.</p>
+                <p>To begin, select the country where you currently live.</p>
+                <div x-data="{ open: false }" class="dropdown" @click.away="open = false">
+                    <button @click.prevent="open = !open" type="button" class="btn btn-primary dropdown-toggle">
+                        Lets do this
+                    </button>
+                    <form x-show="open" :class="{'show': open}" class="dropdown-menu p-4" @click="open = true" style="font-size: display: none;">
+                        <div class="mb-3">
+                            <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+                                <label class="form-check-label" for="dropdownCheck2">
+                                Remember me
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

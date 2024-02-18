@@ -1,0 +1,48 @@
+<div class="relative">
+    <div class="swiper -mx-spacer-1" data-monz-swiper>
+        <div class="swiper-wrapper">
+            {% for slide in slidesData %}
+                <div class="swiper-slide px-spacer-1 pb-spacer-1">
+                    <div class="monz-tile break-inside-avoid-column">
+                        <figure data-monz-show-in-modal="{{ showInModal }}">
+                            <div class="{{ slidesHeight }}">
+                                {# NOTE: example of setting an individual pictureObject before including components/picture-example.njk #}
+                                {% set pictureObject = {
+                                    'webP': slide.webP,
+                                    'webP2x': slide.webP2x,
+                                    'jpg': slide.jpg,
+                                    'jpg2x': slide.jpg2x
+                                } %}
+                                {% include "components/picture-example.njk" %}
+                            </div>
+
+                            {# NOTE: optional caption #}
+                            {% if slide.caption is defined and slide.caption !== '' %}
+                                <figcaption class="text-spacer-1 pt-spacer-1">
+                                    {# NOTE: <a href... vs. <button vs. no link at all #}
+                                    {# <a href="#" class="stretched-link">{{ slide.caption }}</a> #}
+
+                                    {# NOTE: if you want to open a modal, make sure that the template/layout imports `"components/modals/modal-gallery.njk"` at the bottom #}
+                                    <button type="button" data-monz-modal-trigger class="stretched-link">{{ slide.caption }}</button>
+                                </figcaption>
+                            {% endif %}
+                        </figure>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <button type="button" class="text-light swiper-button-prev -left-spacer-1.5 lg:-left-spacer-3">
+        <span class="sr-only">previous slide</span>
+        <svg class="w-spacer-1 h-spacer-1" aria-hidden="true" width="16" height="16">
+            <use href="/img/icons/dist/sprite.svg#icon-caret-left"></use>
+        </svg>
+    </button>
+    <button type="button" class="text-light swiper-button-next -right-spacer-1.5 lg:-right-spacer-3">
+        <span class="sr-only">next slide</span>
+        <svg class="w-spacer-1 h-spacer-1" aria-hidden="true" width="16" height="16">
+            <use href="/img/icons/dist/sprite.svg#icon-caret-right"></use>
+        </svg>
+    </button>
+</div>
