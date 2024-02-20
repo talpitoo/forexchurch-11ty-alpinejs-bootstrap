@@ -43,7 +43,7 @@
                         id="dropdown{{ entry.title }}" 
                         aria-labelledby="dropdown{{ entry.title }}Button">
                       {% for child in entry.children %}
-                        <li>
+                        <li class="d-flex flex-column align-items-start">
                           {% if child.children.length %}
                             <h6 class="text-white text-lg-body">{{ child.title }}</h6>
                             <ul class="ps-4 list-unstyled">
@@ -54,17 +54,33 @@
                               {% endfor %}
                             </ul>
                           {% else %}
-                            <a href="{{ child.url }}" class="{{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
+                            {% if child.icon %}
+                              <div class="d-inline-block bg-primary p-2 rounded-3 mb-3">
+                                <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                                  <use href="/img/icons/symbol/svg/sprite.css.svg#{{ child.icon }}"></use>
+                                </svg>
+                              </div>
+                            {% endif %}
+                            <a href="{{ child.url }}" class="mb-2 {{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
                             <p class="text-white text-lg-body">{{ child.excerpt }}</p>
                           {% endif %}
                         </li>
                       {% endfor %}
                       {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
                       {% if entry.includeSelf != false %}
-                        <li class="bg-tertiary-light p-4 rounded-4 w-25">
-                          <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
-                          <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
-                          <a href="{{ entry.url }}" class="text-white text-lg-body">Advanced Search</a>
+                        <li class="bg-light p-4 rounded-4 w-25">
+                          <div>
+                            <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
+                            <div class="d-flex align-items-start">
+                              <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
+                              <div class="bg-primary p-2 rounded-3 ms-3">
+                                <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                                  <use href="/img/icons/symbol/svg/sprite.css.svg#{{ entry.icon }}"></use>
+                                </svg>
+                              </div>
+                            </div>
+                            <a href="{{ entry.url }}" class="text-white text-lg-body">Advanced Search</a>
+                          </div>
                         </li>
                       {% endif %}
                     </ul>

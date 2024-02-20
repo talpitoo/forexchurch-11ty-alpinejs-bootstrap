@@ -7,8 +7,8 @@
 
 // scss-docs-start gray-color-variables
 $white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
+$gray-100: #f3f3f3;
+$gray-200: #e6e9ec;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
@@ -307,7 +307,7 @@ $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
-$light:         $gray-100 !default;
+$light:         $gray-100; // NOTE: gray-100 was set
 $dark:          $gray-900 !default;
 // scss-docs-end theme-color-variables
 
