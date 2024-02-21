@@ -43,19 +43,22 @@
                         id="dropdown{{ entry.title }}" 
                         aria-labelledby="dropdown{{ entry.title }}Button">
                       {% for child in entry.children %}
-                        <li class="d-flex flex-column align-items-start">
+                        <li class="d-flex flex-column align-items-start {{ 'layout-calculators' if child.title in 'Calculators' }}">
                           {% if child.children.length %}
                             <h6 class="text-white text-lg-body">{{ child.title }}</h6>
                             <ul class="ps-4 list-unstyled">
                               {% for subchild in child.children %}
                                 <li>
+                                  <svg class="text-body me-2" aria-hidden="true" width="24" height="24">
+                                    <use href="/img/icons/symbol/svg/sprite.css.svg#{{ subchild.icon }}"></use>
+                                  </svg>
                                   <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
                                 </li>
                               {% endfor %}
                             </ul>
                           {% else %}
                             {% if child.icon %}
-                              <div class="d-inline-block bg-primary p-2 rounded-3 mb-3">
+                              <div class="d-inline-block bg-primary p-12px rounded-3 mb-3">
                                 <svg class="text-secondary" aria-hidden="true" width="24" height="24">
                                   <use href="/img/icons/symbol/svg/sprite.css.svg#{{ child.icon }}"></use>
                                 </svg>
@@ -66,6 +69,7 @@
                           {% endif %}
                         </li>
                       {% endfor %}
+
                       {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
                       {% if entry.includeSelf != false %}
                         <li class="bg-light p-4 rounded-4 w-25">
@@ -83,6 +87,8 @@
                           </div>
                         </li>
                       {% endif %}
+                      {# NOTE: advanced search end #}
+
                     </ul>
                   </div>
 

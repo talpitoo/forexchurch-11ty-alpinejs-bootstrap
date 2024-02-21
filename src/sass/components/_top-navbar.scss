@@ -34,6 +34,10 @@ header {
 // }
 
 [data-dropdown-open="true"] {
+  svg {
+    stroke-width: 2;
+  }
+
   @include media-breakpoint-up(lg) {
     position: absolute;
     right: 0;
@@ -42,6 +46,7 @@ header {
     gap: map-get($spacers, 4);
     justify-content: space-between;
     padding: map-get($spacers, 4);
+    padding-bottom: map-get($spacers, "64px");
     background-color: $white;
     box-shadow: $box-shadow;
     // transition: opacity 0.3s ease-in-out;
@@ -49,6 +54,30 @@ header {
 
     li {
       flex-grow: 1;
+    }
+
+    .layout-calculators {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $light;
+
+      h6 {
+        display: none;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-top: map-get($spacers, 3);
+        padding-bottom: map-get($spacers, 3);
+      }
+
+      svg {
+        stroke-width: 1;
+      }
     }
   }
 }
