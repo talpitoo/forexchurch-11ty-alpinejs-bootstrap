@@ -21,7 +21,7 @@
           </a>
 
           {% set navPages = collections.all | eleventyNavigation %}
-          <ul class="bg-primary d-none d-xl-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isTopNavbarOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isTopNavbarOpen}">
+          <ul class="bg-primary-dark d-none d-xl-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isTopNavbarOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isTopNavbarOpen}">
             {% for entry in navPages %}
 
               {% if entry.children.length %}
@@ -39,18 +39,18 @@
                     <ul x-show="dropdownOpen" 
                         @click.away="dropdownOpen = false" 
                         :data-dropdown-open="dropdownOpen ? 'true' : 'false'"
-                        class="list-unstyled {{ 'pb-72px' if entry.title in 'Tools' }}" 
+                        class="bg-primary-dark bg-lg-white list-unstyled {{ 'pb-72px' if entry.title in 'Tools' }}" 
                         id="dropdown{{ entry.title }}" 
                         aria-labelledby="dropdown{{ entry.title }}Button">
                       {% for child in entry.children %}
-                        <li class="d-flex flex-column align-items-start {{ 'layout-calculators' if child.title in 'Calculators' }} {{ 'flex-4' if entry.title in 'Forex Brokers' }} {{ 'flex-5 position-relative stretched-link-parent' if entry.title in 'Tools' }} {{ 'flex-3 position-relative stretched-link-parent' if entry.title in 'Resources' }}">
+                        <li class="d-flex flex-column align-items-start {{ 'layout-calculators' if child.title in 'Calculators' }} {{ 'flex-4' if entry.title in 'Forex Brokers' }} {{ 'flex-5 position-relative stretched-link-parent' if entry.title in 'Tools' }} {{ 'flex-3 position-relative stretched-link-parent' if entry.title in 'Resources' }} {{ 'p-lg-0 bg-lg-white' if child.title in 'News'}}">
                           {% if child.children.length %}
                             <h6 class="text-white text-lg-body">{{ child.title }}</h6>
                             <ul class="list-unstyled">
                               {% for subchild in child.children %}
-                                <li>
+                                <li class="mb-3 mb-lg-0">
                                   {% if subchild.icon %}
-                                    <svg class="text-body me-2" aria-hidden="true" width="24" height="24">
+                                    <svg class="text-secondary text-lg-body me-2" aria-hidden="true" width="24" height="24">
                                       <use href="/img/icons/symbol/svg/sprite.css.svg#{{ subchild.icon }}"></use>
                                     </svg>
                                   {% endif %}
@@ -74,7 +74,7 @@
 
                       {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
                       {% if entry.includeSelf != false %}
-                        <li class="bg-light p-4 rounded-4 w-lg-25">
+                        <li class="bg-primary bg-lg-light p-4 rounded-4 w-lg-25">
                           <div>
                             <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
                             <div class="d-flex align-items-start">

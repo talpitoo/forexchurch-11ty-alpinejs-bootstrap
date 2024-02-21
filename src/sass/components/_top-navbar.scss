@@ -40,6 +40,11 @@ header {
     stroke-width: 2;
   }
 
+  .stretched-link-parent {
+    margin-bottom: $spacer;
+    background-color: $primary;
+  }
+
   @include media-breakpoint-up(lg) {
     position: absolute;
     right: 0;
@@ -84,6 +89,8 @@ header {
 
     .stretched-link-parent {
       padding: $spacer;
+      margin-bottom: 0;
+      background-color: $white;
 
       &:hover {
         background-color: $light;

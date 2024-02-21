@@ -676,7 +676,8 @@ $utilities: map-merge(
           "body-secondary": rgba(var(--#{$prefix}secondary-bg-rgb), var(--#{$prefix}bg-opacity)),
           "body-tertiary": rgba(var(--#{$prefix}tertiary-bg-rgb), var(--#{$prefix}bg-opacity)),
         )
-      )
+      ),
+      responsive: true
     ),
     "bg-opacity": (
       css-var: true,
