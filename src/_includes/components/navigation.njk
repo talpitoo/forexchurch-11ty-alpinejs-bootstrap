@@ -39,19 +39,21 @@
                     <ul x-show="dropdownOpen" 
                         @click.away="dropdownOpen = false" 
                         :data-dropdown-open="dropdownOpen ? 'true' : 'false'"
-                        class="list-unstyled" 
+                        class="list-unstyled {{ 'pb-72px' if entry.title in 'Tools' }}" 
                         id="dropdown{{ entry.title }}" 
                         aria-labelledby="dropdown{{ entry.title }}Button">
                       {% for child in entry.children %}
-                        <li class="d-flex flex-column align-items-start {{ 'layout-calculators' if child.title in 'Calculators' }}">
+                        <li class="d-flex flex-column align-items-start {{ 'layout-calculators' if child.title in 'Calculators' }} {{ 'flex-4' if entry.title in 'Forex Brokers' }} {{ 'flex-5 position-relative stretched-link-parent' if entry.title in 'Tools' }} {{ 'flex-3 position-relative stretched-link-parent' if entry.title in 'Resources' }}">
                           {% if child.children.length %}
                             <h6 class="text-white text-lg-body">{{ child.title }}</h6>
-                            <ul class="ps-4 list-unstyled">
+                            <ul class="list-unstyled">
                               {% for subchild in child.children %}
                                 <li>
-                                  <svg class="text-body me-2" aria-hidden="true" width="24" height="24">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#{{ subchild.icon }}"></use>
-                                  </svg>
+                                  {% if subchild.icon %}
+                                    <svg class="text-body me-2" aria-hidden="true" width="24" height="24">
+                                      <use href="/img/icons/symbol/svg/sprite.css.svg#{{ subchild.icon }}"></use>
+                                    </svg>
+                                  {% endif %}
                                   <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
                                 </li>
                               {% endfor %}
@@ -64,7 +66,7 @@
                                 </svg>
                               </div>
                             {% endif %}
-                            <a href="{{ child.url }}" class="mb-2 {{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
+                            <a href="{{ child.url }}" class="stretched-link fw-medium mb-2 {{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
                             <p class="text-white text-lg-body">{{ child.excerpt }}</p>
                           {% endif %}
                         </li>
@@ -72,7 +74,7 @@
 
                       {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
                       {% if entry.includeSelf != false %}
-                        <li class="bg-light p-4 rounded-4 w-25">
+                        <li class="bg-light p-4 rounded-4 w-lg-25">
                           <div>
                             <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
                             <div class="d-flex align-items-start">
@@ -83,7 +85,7 @@
                                 </svg>
                               </div>
                             </div>
-                            <a href="{{ entry.url }}" class="text-white text-lg-body">Advanced Search</a>
+                            <a href="{{ entry.url }}" class="fw-medium text-white text-lg-body mt-3 d-lg-inline-block">Advanced Search</a>
                           </div>
                         </li>
                       {% endif %}
