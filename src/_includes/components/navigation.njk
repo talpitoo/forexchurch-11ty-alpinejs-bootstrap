@@ -21,7 +21,7 @@
           </a>
 
           {% set navPages = collections.all | eleventyNavigation %}
-          <ul class="bg-primary-dark d-none d-xl-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isTopNavbarOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isTopNavbarOpen}">
+          <ul class="bg-primary-dark bg-lg-primary d-none d-xl-flex flex-grow-1 justify-content-center list-inline mb-0" :class="{'d-none': !isTopNavbarOpen, 'd-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0': isTopNavbarOpen}">
             {% for entry in navPages %}
 
               {% if entry.children.length %}
@@ -54,7 +54,12 @@
                                       <use href="/img/icons/symbol/svg/sprite.css.svg#{{ subchild.icon }}"></use>
                                     </svg>
                                   {% endif %}
-                                  <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
+                                  <div class="d-inline-flex align-items-center">
+                                    {% if subchild.logo %}
+                                      <img src="{{ subchild.logo }}" alt='logo' height='24' class="me-2"/>
+                                    {% endif %}
+                                    <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
+                                  </div>
                                 </li>
                               {% endfor %}
                             </ul>

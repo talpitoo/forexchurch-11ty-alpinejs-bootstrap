@@ -47,7 +47,7 @@ tags: ["tools", "calculators"]
 </svg>
 ```
 
-* All URLs must end with `/`, e.g. `permalink: "/forex-brokers/trickmill/"`
+* All URLs must end with `/`, e.g. `permalink: "/forex-brokers/tickmill/"`
 * The single most important way to group items is:
 
   ```
