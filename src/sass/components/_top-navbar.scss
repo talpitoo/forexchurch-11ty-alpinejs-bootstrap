@@ -53,7 +53,7 @@ header {
     }
   }
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     background-color: transparent;
   }
 
@@ -88,6 +88,16 @@ header {
 // }
 
 [data-dropdown-open="true"] {
+  position: fixed;
+  top: map-get($spacers, "navbar");
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: map-get($spacers, 4);
+  padding-bottom: map-get($spacers, 4);
+  overflow-y: auto;
+  background-color: $primary-dark;
+
   svg {
     stroke-width: 2;
   }
@@ -99,11 +109,15 @@ header {
 
   @include media-breakpoint-up(lg) {
     position: absolute;
-    right: 0;
-    left: 0;
+    bottom: auto;
     display: flex;
     justify-content: space-between;
-    padding: map-get($spacers, 4);
+    max-width: none;
+    padding-top: map-get($spacers, 4);
+    padding-right: 0;
+    padding-bottom: map-get($spacers, 4);
+    padding-left: 0;
+    overflow-y: hidden;
     background-color: $white;
     box-shadow: $box-shadow;
     // transition: opacity 0.3s ease-in-out;

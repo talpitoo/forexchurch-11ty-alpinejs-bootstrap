@@ -1,4 +1,5 @@
-<header x-data="{ isTopNavbarOpen: false }" class="fixed-top">
+<header  class="fixed-top">
+  {# <header x-data="navbar" x-init="toggleExpandedClass()" class="fixed-top"> #}
   <div class='bg-primary text-white'>
     <div class='container'>
       <div class="d-flex align-items-center justify-content-between">
@@ -41,73 +42,88 @@
                           <use href="/img/icons/symbol/svg/sprite.css.svg#chevron-down"></use>
                         </svg>
                       </button>
-                      <ul 
+                      <div 
                         x-show="dropdownOpen" 
                         @click.away="dropdownOpen = false" 
-                        :data-dropdown-open="dropdownOpen ? 'true' : 'false'"
-                        class="bg-primary-dark bg-lg-white list-unstyled {{ 'pb-72px' if entry.title in 'Tools' }}" 
+                        class="bg-primary-dark bg-lg-white" 
                         id="dropdown{{ entry.title }}" 
                         aria-labelledby="dropdown{{ entry.title }}Button">
-                        {% for child in entry.children %}
-                          <li class="d-flex flex-column align-items-start {{ 'layout-calculators' if child.title in 'Calculators' }} {{ 'flex-4' if entry.title in 'Forex Brokers' }} {{ 'flex-5 position-relative stretched-link-parent' if entry.title in 'Tools' }} {{ 'flex-3 position-relative stretched-link-parent' if entry.title in 'Resources' }} {{ 'p-lg-0 bg-lg-white' if child.title in 'News'}}">
-                            {% if child.children.length %}
-                              <h6 class="text-white text-lg-body">{{ child.title }}</h6>
-                              <ul class="list-unstyled">
-                                {% for subchild in child.children %}
-                                  <li class="mb-3 mb-lg-0">
-                                    {% if subchild.icon %}
-                                      <svg class="text-secondary text-lg-body me-2" aria-hidden="true" width="24" height="24">
-                                        <use href="/img/icons/symbol/svg/sprite.css.svg#{{ subchild.icon }}"></use>
-                                      </svg>
-                                    {% endif %}
-                                    <div class="d-inline-flex align-items-center">
-                                      {% if subchild.logo %}
-                                        <img src="{{ subchild.logo }}" alt='logo' width='24' height='24' class="object-fit-contain me-2"/>
+                        <ul 
+                          :data-dropdown-open="dropdownOpen ? 'true' : 'false'" 
+                          class="container list-unstyled {{ 'pb-72px' if entry.title in 'Tools' }}">
+
+                          <button 
+                            type="button" 
+                            class="btn btn-link p-0 fs-6 text-tertiary mb-3 d-lg-none"
+                            @click="if (window.innerWidth < 992) dropdownOpen = !dropdownOpen" >
+                            <svg class="me-1" aria-hidden="true" width="24" height="24">
+                              <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-left"></use>
+                            </svg>
+                            Back
+                          </button>
+
+                          {% for child in entry.children %}
+                            {# TODO: bg-primary bg-lg-light p-4 rounded-4 w-lg-25 --- for mobile #}
+                            <li class="rounded-4 p-4 d-flex flex-column align-items-start {{ 'layout-calculators p-lg-0' if child.title in 'Calculators' }} {{ 'flex-4' if entry.title in 'Forex Brokers' }} {{ 'flex-5 position-relative stretched-link-parent' if entry.title in 'Tools' }} {{ 'flex-3 position-relative stretched-link-parent' if entry.title in 'Resources' }} {{ 'bg-lg-white' if child.title in 'News'}}">
+                              {% if child.children.length %}
+                                <h6 class="text-white text-lg-body">{{ child.title }}</h6>
+                                <ul class="list-unstyled">
+                                  {% for subchild in child.children %}
+                                    <li class="mb-3 mb-lg-0">
+                                      {% if subchild.icon %}
+                                        <svg class="text-secondary text-lg-body me-2" aria-hidden="true" width="24" height="24">
+                                          <use href="/img/icons/symbol/svg/sprite.css.svg#{{ subchild.icon }}"></use>
+                                        </svg>
                                       {% endif %}
-                                      <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
-                                    </div>
-                                  </li>
-                                {% endfor %}
-                              </ul>
-                            {% else %}
-                              {% if child.icon %}
-                                <div class="d-inline-block bg-primary p-12px rounded-3 mb-3">
-                                  <svg class="text-secondary" aria-hidden="true" width="24" height="24">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#{{ child.icon }}"></use>
-                                  </svg>
-                                </div>
+                                      <div class="d-inline-flex align-items-center">
+                                        {% if subchild.logo %}
+                                          <img src="{{ subchild.logo }}" alt='logo' width='24' height='24' class="object-fit-contain me-2"/>
+                                        {% endif %}
+                                        <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
+                                      </div>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              {% else %}
+                                {% if child.icon %}
+                                  <div class="d-inline-block bg-primary p-12px rounded-3 mb-3">
+                                    <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                                      <use href="/img/icons/symbol/svg/sprite.css.svg#{{ child.icon }}"></use>
+                                    </svg>
+                                  </div>
+                                {% endif %}
+                                <a href="{{ child.url }}" class="stretched-link fw-medium mb-2 {{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
+                                <p class="text-white text-lg-body">{{ child.excerpt }}</p>
                               {% endif %}
-                              <a href="{{ child.url }}" class="stretched-link fw-medium mb-2 {{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
-                              <p class="text-white text-lg-body">{{ child.excerpt }}</p>
-                            {% endif %}
-                          </li>
-                        {% endfor %}
+                            </li>
+                          {% endfor %}
 
-                        {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
-                        {% if entry.includeSelf != false %}
-                          <li class="bg-primary bg-lg-light p-4 rounded-4 w-lg-25">
-                            <div class="d-flex flex-column h-100">
-                              <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
-                              <div class="d-flex align-items-start flex-grow-1">
-                                <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
-                                <div class="bg-primary p-2 rounded-3 ms-3">
-                                  <svg class="text-secondary" aria-hidden="true" width="24" height="24">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#{{ entry.icon }}"></use>
-                                  </svg>
+                          {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
+                          {% if entry.includeSelf != false %}
+                            <li class="bg-primary bg-lg-light p-4 rounded-4 w-lg-25">
+                              <div class="d-flex flex-column h-100">
+                                <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
+                                <div class="d-flex align-items-start flex-grow-1">
+                                  <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
+                                  <div class="bg-primary p-2 rounded-3 ms-3">
+                                    <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                                      <use href="/img/icons/symbol/svg/sprite.css.svg#{{ entry.icon }}"></use>
+                                    </svg>
+                                  </div>
                                 </div>
+                                <a href="{{ entry.url }}" class="link-arrow fw-medium text-white text-lg-body mt-3 d-lg-inline-block">
+                                  <span>Advanced Search</span>
+                                  <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                    <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                                  </svg>
+                                </a>
                               </div>
-                              <a href="{{ entry.url }}" class="link-arrow fw-medium text-white text-lg-body mt-3 d-lg-inline-block">
-                                <span>Advanced Search</span>
-                                <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
-                                  <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
-                                </svg>
-                              </a>
-                            </div>
-                          </li>
-                        {% endif %}
-                        {# NOTE: advanced search end #}
+                            </li>
+                          {% endif %}
+                          {# NOTE: advanced search end #}
 
-                      </ul>
+                        </ul>
+                      </div>
                     </div>
 
                   </li>
