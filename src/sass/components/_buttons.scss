@@ -10,3 +10,30 @@
     transform: translateX(5px);
   }
 }
+
+.link-arrow {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  span {
+    display: inline-flex;
+    background-image: linear-gradient($tertiary, #32dbbd);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 2px;
+    // width: fit-content;
+  }
+
+  &:hover,
+  &:focus {
+    // stylelint-disable declaration-no-important
+    text-decoration: none !important;
+
+    span {
+      background-size: 100% 100%;
+      transition: background-size .2s ease;
+    }
+  }
+}

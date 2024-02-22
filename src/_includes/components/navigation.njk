@@ -56,7 +56,7 @@
                                   {% endif %}
                                   <div class="d-inline-flex align-items-center">
                                     {% if subchild.logo %}
-                                      <img src="{{ subchild.logo }}" alt='logo' height='24' class="me-2"/>
+                                      <img src="{{ subchild.logo }}" alt='logo' width='24' height='24' class="object-fit-contain me-2"/>
                                     {% endif %}
                                     <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
                                   </div>
@@ -80,9 +80,9 @@
                       {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
                       {% if entry.includeSelf != false %}
                         <li class="bg-primary bg-lg-light p-4 rounded-4 w-lg-25">
-                          <div>
+                          <div class="d-flex flex-column h-100">
                             <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
-                            <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start flex-grow-1">
                               <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
                               <div class="bg-primary p-2 rounded-3 ms-3">
                                 <svg class="text-secondary" aria-hidden="true" width="24" height="24">
@@ -90,7 +90,12 @@
                                 </svg>
                               </div>
                             </div>
-                            <a href="{{ entry.url }}" class="fw-medium text-white text-lg-body mt-3 d-lg-inline-block">Advanced Search</a>
+                            <a href="{{ entry.url }}" class="link-arrow fw-medium text-white text-lg-body mt-3 d-lg-inline-block">
+                              <span>Advanced Search</span>
+                              <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                              </svg>
+                            </a>
                           </div>
                         </li>
                       {% endif %}
