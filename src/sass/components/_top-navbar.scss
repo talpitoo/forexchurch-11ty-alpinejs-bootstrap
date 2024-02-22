@@ -29,6 +29,58 @@ header {
   }
 }
 
+// bg-primary-dark bg-lg-primary d-none d-xl-flex flex-grow-1 justify-content-center list-inline mb-0
+
+// collapsed: d-none
+
+// open: d-flex flex-column align-items-start px-3 position-absolute mt-navbar top-0 bottom-0 start-0 end-0
+.list-main-menu {
+  display: none;
+  background-color: $primary-dark;
+
+  > ul {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer;
+    margin-bottom: 0;
+    list-style: none;
+
+    @include media-breakpoint-up(xl) {
+      flex-direction: row;
+      flex-grow: 1;
+      gap: 0;
+      justify-content: center;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    background-color: transparent;
+  }
+
+  @include media-breakpoint-up(xl) {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  &.expanded {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: map-get($spacers, 4);
+    margin-top: map-get($spacers, "navbar");
+    font-size: 20px;
+
+    button {
+      font-size: 20px;
+    }
+  }
+}
+
 // [data-dropdown-open="false"] {
 //   @include media-breakpoint-up(lg) {
 //     opacity: 0;
