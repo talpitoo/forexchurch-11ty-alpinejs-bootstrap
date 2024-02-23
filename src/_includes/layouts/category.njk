@@ -9,20 +9,20 @@
     <main>
       <section class='py-section-sm bg-dark text-light'>
         <div class='forexchurch-container'>
-          <div class="monz-grid">
+          <div class="forexchurch-grid">
             <h1>{{ title }}</h1>
           </div>
 
-          <div class="monz-grid">
-            <div class="monz-col-6 pt-spacer-3">
+          <div class="forexchurch-grid">
+            <div class="forexchurch-col-6 pt-spacer-3">
               {# NOTE: the content comes from collections[category] which is annotated by `tags: ["books", ...` #}
               {% set posts = collections[category] | reverse %}
               {% include "components/article-list.njk" %}
             </div>
           </div>
 
-          <div class="monz-grid mt-spacer-7">
-            <div class="monz-col-2 lg:col-start-3">
+          <div class="forexchurch-grid mt-spacer-7">
+            <div class="forexchurch-col-2 lg:col-start-3">
               {% include "components/pagination-dummy-example.njk" %}
             </div>
           </div>

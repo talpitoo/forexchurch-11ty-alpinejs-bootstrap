@@ -6,6 +6,7 @@ import axios from 'axios';
 
 // Import your custom modules
 import { loadBreweries } from './modules/breweries';
+import { initializeSwiper } from './modules/swiperInstances';
 
 // Initialize Alpine.js
 window.Alpine = Alpine;
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize custom scripts or components
     loadBreweries();
+    initializeSwiper();
 
     // Example Axios request
     // axios.get('https://api.example.com/data')

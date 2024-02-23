@@ -71,6 +71,15 @@ $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
 // Utilities
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
+/**
+ * 3rd party plugins
+ */
+
+/* @import "../../node_modules/swiper/swiper-bundle.css"; // the whole swiper CSS bundle */
+@import "../../node_modules/swiper/swiper"; /* only the minimum CSS for swiper */
+
+/* @import "../../node_modules/swiper/modules/navigation.css"; */
+
 // Custom/additional/ForexChurch theme styles
 @import "theme-base";
 @import "theme-components";

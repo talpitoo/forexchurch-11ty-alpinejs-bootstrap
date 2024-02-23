@@ -6,10 +6,10 @@
                 .courseChapter
                 .includes(post) %} #}
                 {% if post.data.title is defined and post.data.title !== '' %}
-                    {# TODO: note to self for later if we want to change the CSS columns <div class="monz-col-2"> #}
-                    <li class="mb-spacer-2 hidden" data-monz-search-result>
-                        <div class="monz-tile break-inside-avoid-column">
-                            <figure class="mb-spacer-1" data-monz-show-in-modal="false">
+                    {# TODO: note to self for later if we want to change the CSS columns <div class="forexchurch-col-2"> #}
+                    <li class="mb-spacer-2 hidden" data-forexchurch-search-result>
+                        <div class="forexchurch-tile break-inside-avoid-column">
+                            <figure class="mb-spacer-1" data-forexchurch-show-in-modal="false">
                                 {% if post.data.coverVideo is defined and post.data.coverVideo !== '' %}
                                     <div class="{% if coverPhoto.figureBackgroundColor is defined and coverPhoto.figureBackgroundColor !== '' %}{{ coverPhoto.figureBackgroundColor }}{% else %}bg-light{% endif %} {{ figureBackgroundColor }}">
                                         {% set coverVideo = post.data.coverVideo %}

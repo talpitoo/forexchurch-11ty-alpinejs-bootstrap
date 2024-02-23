@@ -14,14 +14,14 @@
     <main>
       <section class='py-section-sm bg-dark text-light'>
         <div class='forexchurch-container'>
-          <div class="monz-grid">
-            <div class="monz-col-6">
+          <div class="forexchurch-grid">
+            <div class="forexchurch-col-6">
               <p class="h2 mb-spacer-2">About</p>
             </div>
-            <div class="monz-col-3">
+            <div class="forexchurch-col-3">
               {% include "components/swiper-gallery.njk" %}
             </div>
-            <div class="monz-col-3">
+            <div class="forexchurch-col-3">
               <h1 class="font-serif">{{ title }}</h1>
               <p class="text-lg leading-relaxed mb-spacer-3 mt-0">{{ excerpt }}</p>
               <div class="lg:grid lg:grid-cols-3 lg:gap-x-spacer-2 mb-spacer-2">
@@ -41,7 +41,7 @@
                 </dl>
               {% endif %}
             </div>
-            <div class="monz-col-6">
+            <div class="forexchurch-col-6">
               <h2 class="font-serif normal-case mb-spacer-3 mt-spacer-2">Reviews</h2>
 
               {% for review in bookDetailsReviews %}
@@ -51,14 +51,14 @@
                 </blockquote>
               {% endfor %}
             </div>
-            <div class="monz-col-4 mb-spacer-2 lg:mb-0">
+            <div class="forexchurch-col-4 mb-spacer-2 lg:mb-0">
               {% block researchStatement %}
                 {# NOTE: placeholder for Research Statement #}
               {% endblock %}
             </div>
-            <div class="monz-col-2">
+            <div class="forexchurch-col-2">
               {# TODO: 2nd cover photo #}
-              <figure class="mb-spacer-3" data-monz-show-in-modal="true">
+              <figure class="mb-spacer-3" data-forexchurch-show-in-modal="true">
                 {# NOTE: keeping for the default syntax <div class="h-spacer-{{ coverPhoto.height | default('14') }} bg-success mb-spacer-1"> #}
                 <div class="h-spacer-33 {% if coverPhoto.figureBackgroundColor is defined and coverPhoto.figureBackgroundColor !== '' %}{{ coverPhoto.figureBackgroundColor }}{% else %}bg-light{% endif %} {{ figureBackgroundColor }}">
                   {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
@@ -80,8 +80,8 @@
 
       <section class='py-section-sm bg-dark text-light'>
         <div class='forexchurch-container'>
-          <div class="monz-grid">
-            <div class="monz-col-6">
+          <div class="forexchurch-grid">
+            <div class="forexchurch-col-6">
               <h2 class="mb-spacer-2">Media</h2>
 
               <div class="mb-spacer-2">

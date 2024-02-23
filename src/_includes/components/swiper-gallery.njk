@@ -1,6 +1,6 @@
 <div class="relative overflow-hidden pb-spacer-3">
-    <figure data-monz-show-in-modal="false">
-        <div id="monz-swiper-gallery-active-image" class="h-spacer-46 {% if coverPhoto.figureBackgroundColor is defined and coverPhoto.figureBackgroundColor !== '' %}{{ coverPhoto.figureBackgroundColor }}{% else %}bg-light{% endif %} {{ figureBackgroundColor }}">
+    <figure data-forexchurch-show-in-modal="false">
+        <div id="forexchurch-swiper-gallery-active-image" class="h-spacer-46 {% if coverPhoto.figureBackgroundColor is defined and coverPhoto.figureBackgroundColor !== '' %}{{ coverPhoto.figureBackgroundColor }}{% else %}bg-light{% endif %} {{ figureBackgroundColor }}">
             {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
             {# NOTE: the initial picture should match the swiper's first slide #}
             {% set pictureObject = {
@@ -47,11 +47,11 @@
                 ] %}
         {# NOTE: instead of {% include "components/swiper.njk" %} custom, slightly modified markup #}
         <div class="relative">
-            <div class="swiper monz-swiper-gallery -mx-spacer-1 overflow-visible" data-monz-swiper>
+            <div class="swiper forexchurch-swiper-gallery -mx-spacer-1 overflow-visible" data-forexchurch-swiper>
                 <div class="swiper-wrapper">
                     {% for slide in slidesData %}
                         <div class="swiper-slide p-spacer-1">
-                            <figure data-monz-show-in-modal="false">
+                            <figure data-forexchurch-show-in-modal="false">
                                 <div class="{{ slidesHeight | default('h-spacer-14') }}">
                                     {# NOTE: example of setting an individual pictureObject before including components/picture-example.njk #}
                                     {% set pictureObject = {
