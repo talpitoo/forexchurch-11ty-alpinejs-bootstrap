@@ -2,7 +2,7 @@
     <div class='container container-max-xl'>
         <div class="row">
             <div class="col-md-6 order-md-2">
-                <img src="/img/hero.svg" class="" />
+                <img src="/img/hero.svg" class=""/>
             </div>
             <div class="col-md-6 order-md-1">
                 <h1 class="lh-1 mb-5">
@@ -12,31 +12,39 @@
                     <span class="d-inline-block fw-bold" style="font-size: 60px; background-image: linear-gradient(#d6f037,#d6f037); background-size: 100% 30%; background-position: bottom; background-repeat: no-repeat;">forex broker</span><br/>
                     <span class="d-inline-block fw-semibold" style="font-size: 34px">for</span>
                     <span class="d-inline-block fw-bold mt-12px" style="font-size: 60px; background-image: linear-gradient(#d6f037,#d6f037);">you</span></h1>
-                <p>By answering a few straightforward questions, you can find the appropriate broker within seconds and save yourself from tedious hours of research.</p>
+                <p class="mb-64px">By answering a few straightforward questions, you can find the appropriate broker within seconds and save yourself from tedious hours of research.</p>
                 <p>To begin, select the country where you currently live.</p>
-                <div x-data="{ open: false }" class="dropdown" @click.away="open = false">
-                    <button @click.prevent="open = !open" type="button" class="btn btn-primary dropdown-toggle">
+                <div class="tile">
+                    <select class="form-select rounded-pill" aria-label="Country">
+                        <option selected>Australia</option>
+                        <option value="1">Germany</option>
+                        <option value="2">Serbia</option>
+                        <option value="3">Hungary</option>
+                    </select>
+                    <div x-data="{ open: false }" class="dropdown" @click.away="open = false">
+                        <button @click.prevent="open = !open" type="button" class="btn btn-primary dropdown-toggle">
                         Lets do this
                     </button>
-                    <form x-show="open" :class="{'show': open}" class="dropdown-menu p-4" @click="open = true" style="font-size: display: none;">
-                        <div class="mb-3">
-                            <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-                        </div>
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-                                <label class="form-check-label" for="dropdownCheck2">
+                        <form x-show="open" :class="{'show': open}" class="dropdown-menu p-4" @click="open = true" style="font-size: display: none;">
+                            <div class="mb-3">
+                                <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+                                    <label class="form-check-label" for="dropdownCheck2">
                                 Remember me
                                 </label>
+                                </div>
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Sign in</button>
-                    </form>
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

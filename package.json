@@ -18,7 +18,8 @@
     "start": "npm run dev",
     
     "svg": "npx svg-sprite --symbol --dest src/img/icons/ src/img/icons/*.svg",
-    "lint:sass": "stylelint 'src/sass/**/*.scss'"
+    "lint:sass": "stylelint 'src/sass/**/*.scss'",
+    "lint:fix": "stylelint 'src/sass/**/*.scss' --fix"
   },
   "keywords": [
     "11ty",
