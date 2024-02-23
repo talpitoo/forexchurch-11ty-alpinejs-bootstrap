@@ -82,9 +82,9 @@ header {
 }
 
 // [data-dropdown-open="false"] {
-//   @include media-breakpoint-up(lg) {
-//     opacity: 0;
-//   }
+//   // @include media-breakpoint-up(lg) {
+//   //   opacity: 0;
+//   // }
 // }
 
 [data-dropdown-open="true"] {
@@ -96,6 +96,7 @@ header {
   padding-top: map-get($spacers, 4);
   padding-bottom: map-get($spacers, 4);
   overflow-y: auto;
+  font-size: $font-size-base;
   background-color: $primary-dark;
 
   svg {
@@ -113,10 +114,7 @@ header {
     display: flex;
     justify-content: space-between;
     max-width: none;
-    padding-top: map-get($spacers, 4);
-    padding-right: 0;
-    padding-bottom: map-get($spacers, 4);
-    padding-left: 0;
+    padding: map-get($spacers, 4);
     overflow-y: hidden;
     background-color: $white;
     box-shadow: $box-shadow;

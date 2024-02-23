@@ -5,6 +5,7 @@
       <div class="d-flex align-items-center justify-content-between">
         <button
             @click="isTopNavbarOpen = !isTopNavbarOpen"
+            @resize.window="isTopNavbarOpen = false"
             type='button'
             aria-label='menu'
             id="burger-menu"
@@ -31,23 +32,21 @@
 
                     <div x-data="{ dropdownOpen: false }" 
                       @mouseleave="if (window.innerWidth >= 992) dropdownOpen = false"
-                      @mouseover="if (window.innerWidth >= 992) dropdownOpen = true">
+                      @mouseover="if (window.innerWidth >= 992) dropdownOpen = true"
+                      @resize.window="dropdownOpen = false">
                       <button 
                         type="button" 
-                        id="dropdown{{ entry.title }}Button" 
                         @click="if (window.innerWidth < 992) dropdownOpen = !dropdownOpen" 
-                        class="btn btn-link btn-navbar p-0 text-nowrap {{ 'text-tertiary' if entry.url in page.url else 'text-white'}}">
+                        class="d-flex justify-content-between w-100 btn btn-link btn-navbar p-0 text-nowrap {{ 'text-tertiary' if entry.url in page.url else 'text-white'}}">
                         <span>{{ entry.title }}</span>
-                        <svg class="ms-1" aria-hidden="true" width="24" height="24">
-                          <use href="/img/icons/symbol/svg/sprite.css.svg#chevron-down"></use>
+                        <svg class="ms-1" aria-hidden="true" width="24" height="24" x-data="{ chevron: window.innerWidth < 992 ? 'chevron-right' : 'chevron-down' }" @resize.window="chevron = window.innerWidth < 992 ? 'chevron-right' : 'chevron-down'">
+                          <use :href="'/img/icons/symbol/svg/sprite.css.svg#' + chevron"></use>
                         </svg>
                       </button>
                       <div 
                         x-show="dropdownOpen" 
                         @click.away="dropdownOpen = false" 
-                        class="bg-primary-dark bg-lg-white" 
-                        id="dropdown{{ entry.title }}" 
-                        aria-labelledby="dropdown{{ entry.title }}Button">
+                        class="bg-primary-dark bg-lg-white" >
                         <ul 
                           :data-dropdown-open="dropdownOpen ? 'true' : 'false'" 
                           class="container list-unstyled {{ 'pb-72px' if entry.title in 'Tools' }}">
@@ -57,16 +56,16 @@
                             class="btn btn-link p-0 fs-6 text-tertiary mb-3 d-lg-none"
                             @click="if (window.innerWidth < 992) dropdownOpen = !dropdownOpen" >
                             <svg class="me-1" aria-hidden="true" width="24" height="24">
-                              <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-left"></use>
+                              <use href="/img/icons/symbol/svg/sprite.css.svg#chevron-left"></use>
                             </svg>
                             Back
                           </button>
 
                           {% for child in entry.children %}
                             {# TODO: bg-primary bg-lg-light p-4 rounded-4 w-lg-25 --- for mobile #}
-                            <li class="rounded-4 p-4 d-flex flex-column align-items-start {{ 'layout-calculators p-lg-0' if child.title in 'Calculators' }} {{ 'flex-4' if entry.title in 'Forex Brokers' }} {{ 'flex-5 position-relative stretched-link-parent' if entry.title in 'Tools' }} {{ 'flex-3 position-relative stretched-link-parent' if entry.title in 'Resources' }} {{ 'bg-lg-white' if child.title in 'News'}}">
+                            <li class="rounded-4 p-4 d-flex flex-column align-items-start {{ 'bg-primary bg-lg-transparent mb-4 mb-lg-0' if child.title in ['By Category', 'Top Comparisons', 'Top Brokers'] }} {{ 'layout-calculators p-lg-0' if child.title in 'Calculators' }} {{ 'flex-4' if entry.title in 'Forex Brokers' }} {{ 'flex-5 position-relative stretched-link-parent' if entry.title in 'Tools' }} {{ 'flex-3 position-relative stretched-link-parent' if entry.title in 'Resources' }} {{ 'bg-lg-white' if child.title in 'News'}}">
                               {% if child.children.length %}
-                                <h6 class="text-white text-lg-body">{{ child.title }}</h6>
+                                <h6 class="text-white text-lg-body mb-4 mb-lg-2">{{ child.title }}</h6>
                                 <ul class="list-unstyled">
                                   {% for subchild in child.children %}
                                     <li class="mb-3 mb-lg-0">
@@ -86,13 +85,13 @@
                                 </ul>
                               {% else %}
                                 {% if child.icon %}
-                                  <div class="d-inline-block bg-primary p-12px rounded-3 mb-3">
+                                  <div class="d-inline-block bg-primary-dark bg-lg-primary p-12px rounded-3 mb-3">
                                     <svg class="text-secondary" aria-hidden="true" width="24" height="24">
                                       <use href="/img/icons/symbol/svg/sprite.css.svg#{{ child.icon }}"></use>
                                     </svg>
                                   </div>
                                 {% endif %}
-                                <a href="{{ child.url }}" class="stretched-link fw-medium mb-2 {{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
+                                <a href="{{ child.url }}" class="stretched-link fw-medium mb-4 mb-lg-2 {{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
                                 <p class="text-white text-lg-body">{{ child.excerpt }}</p>
                               {% endif %}
                             </li>
@@ -102,10 +101,10 @@
                           {% if entry.includeSelf != false %}
                             <li class="bg-primary bg-lg-light p-4 rounded-4 w-lg-25">
                               <div class="d-flex flex-column h-100">
-                                <h6 class="text-white text-lg-body">{{ entry.title }}</h6>
+                                <h6 class="text-white text-lg-body mb-4 mb-lg-2">{{ entry.title }}</h6>
                                 <div class="d-flex align-items-start flex-grow-1">
                                   <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
-                                  <div class="bg-primary p-2 rounded-3 ms-3">
+                                  <div class="bg-primary-dark bg-lg-primary p-2 rounded-3 ms-3">
                                     <svg class="text-secondary" aria-hidden="true" width="24" height="24">
                                       <use href="/img/icons/symbol/svg/sprite.css.svg#{{ entry.icon }}"></use>
                                     </svg>
