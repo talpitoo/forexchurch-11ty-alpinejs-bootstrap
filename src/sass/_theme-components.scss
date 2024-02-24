@@ -16,9 +16,9 @@
   }
 }
 
-.tile {
+.forexchurch-tile {
   display: flex;
-  gap: 2rem;
+  gap: $spacer;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -27,4 +27,14 @@
   background-color: $white;
   border-radius: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
+}
+
+.forexchurch-anchor-offset {
+  &::before {
+    display: block;
+    height: map-get($spacers, "navbar");
+    margin-top: map-get($spacers, "navbar") * -1;
+    visibility: hidden;
+    content: "";
+  }
 }

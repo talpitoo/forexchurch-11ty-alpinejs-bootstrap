@@ -28,7 +28,7 @@ export function initializeSwiper() {
             },
             breakpoints: {
                 1024: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                 }
             }
             // on: {

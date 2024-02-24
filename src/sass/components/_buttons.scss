@@ -12,6 +12,20 @@
   }
 }
 
+.btn-outline-primary {
+  font-weight: 600;
+  // color: $secondary;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform 150ms cubic-bezier(.4, 0, .2, 1);
+
+  &:hover,
+  &:focus {
+    // color: $secondary;
+    transform: translateX(5px);
+  }
+}
+
 .link-arrow {
   position: relative;
   display: flex;

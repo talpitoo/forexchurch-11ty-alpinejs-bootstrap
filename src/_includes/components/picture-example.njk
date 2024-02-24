@@ -14,7 +14,7 @@
 </picture> #}
 
 {# NOTE: dynamic example #}
-<picture class="block h-full">
+<picture class="d-block h-100">
     {# WebP format for modern browsers #}
     <source srcset="{{ pictureObject['webP'] }} 1x, {{ pictureObject['webP2x'] }} 2x" type="image/webp">
 
@@ -22,5 +22,5 @@
     <source srcset="{{ pictureObject['jpg'] }} 1x, {{ pictureObject['jpg2x'] }} 2x" type="image/jpeg">
 
     {# fallback for browsers that do not support the <picture> element #}
-    <img src="{{ pictureObject['jpg'] }}" alt="Back View of Astronauts Holding Hands" class="object-cover w-full h-full" width="640" height="424">
+    <img src="{{ pictureObject['jpg'] }}" alt="Back View of Astronauts Holding Hands" class="object-fit-cover w-100 h-100" width="640" height="424">
 </picture>

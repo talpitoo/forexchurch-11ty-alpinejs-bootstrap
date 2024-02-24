@@ -72,10 +72,13 @@
             </button>
 
             <ul class="list-unstyled lh-lg mb-md-0 bg-primary-dark bg-md-transparent rounded-4 p-4 p-md-0" x-show="footerDropdownOpen || window.innerWidth >= 768">
-              {% for item in collections.resources %}
-                <li>
-                  <a href="{{ item.data.permalink }}" class="text-xl-nowrap">{{ item.data.title }}</a>
-                </li>
+              {% set resourcesPages = collections.resources | sort('data.footerOrder') %}
+              {% for item in resourcesPages %}
+                {% if item.data.eleventyNavigation.includeSelf != false %}
+                  <li>
+                    <a href="{{ item.data.permalink }}" class="text-xl-nowrap">{{ item.data.title }}</a>
+                  </li>
+                {% endif %}
               {% endfor %}
             </ul>
           </div>
