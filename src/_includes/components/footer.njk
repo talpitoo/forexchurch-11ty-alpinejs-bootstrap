@@ -34,44 +34,92 @@
           </ul>
         </div>
         <div class='col-md-3 col-xl-2'>
-          <h3 class="text-uppercase text-md-capitalize">Top Brokers</h3>
-          {# TODO: mobile dropdonws: d-none d-md-block #}
-          {% set topBrokersPages = collections["top brokers"] %}
-          <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
-            {% for item in topBrokersPages %}
-              <li>
-                <a href="{{ item.data.permalink }}" class="text-nowrap">{{ item.data.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
+          <div x-data="{ footerDropdownOpen: window.innerWidth >= 768 }">
+            <button 
+              @click="footerDropdownOpen = !footerDropdownOpen"
+              @resize.window="footerDropdownOpen = window.innerWidth >= 768"
+              class="w-100 btn btn-link p-0">
+              <h3 class="d-flex justify-content-between text-nowrap text-uppercase text-md-capitalize">
+                <span>Top Brokers</span>
+                <svg class="text-white d-md-none" aria-hidden="true" width="24" height="24">
+                  <use :href="footerDropdownOpen ? '/img/icons/symbol/svg/sprite.css.svg#chevron-up' : '/img/icons/symbol/svg/sprite.css.svg#chevron-down'"></use>
+                </svg>
+              </h3>
+            </button>
+
+            {% set topBrokersPages = collections["top brokers"] %}
+            <ul class="list-unstyled lh-lg mb-md-0 bg-primary-dark bg-md-transparent rounded-4 p-4 p-md-0" x-show="footerDropdownOpen || window.innerWidth >= 768">
+              {% for item in topBrokersPages %}
+                <li>
+                  <a href="{{ item.data.permalink }}" class="text-nowrap">{{ item.data.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
         <div class='col-md-3 col-xl-2'>
-          <h3 class="text-uppercase text-md-capitalize">Resources</h3>
-          {% set resourcesPages = collections.resources %}
-          <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
-            {% for item in resourcesPages %}
-              <li>
-                <a href="{{ item.data.permalink }}" class="text-nowrap">{{ item.data.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
+          <div x-data="{ footerDropdownOpen: window.innerWidth >= 768 }">
+            <button 
+              @click="footerDropdownOpen = !footerDropdownOpen"
+              @resize.window="footerDropdownOpen = window.innerWidth >= 768"
+              class="w-100 btn btn-link p-0">
+              <h3 class="d-flex justify-content-between text-nowrap text-uppercase text-md-capitalize">
+                <span>Resources</span>
+                <svg class="text-white d-md-none" aria-hidden="true" width="24" height="24">
+                  <use :href="footerDropdownOpen ? '/img/icons/symbol/svg/sprite.css.svg#chevron-up' : '/img/icons/symbol/svg/sprite.css.svg#chevron-down'"></use>
+                </svg>
+              </h3>
+            </button>
+
+            <ul class="list-unstyled lh-lg mb-md-0 bg-primary-dark bg-md-transparent rounded-4 p-4 p-md-0" x-show="footerDropdownOpen || window.innerWidth >= 768">
+              {% for item in collections.resources %}
+                <li>
+                  <a href="{{ item.data.permalink }}" class="text-xl-nowrap">{{ item.data.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
         <div class='col-md-3 col-xl-2'>
-          <h3 class="text-uppercase text-md-capitalize">Top comparisons</h3>
-          {% set topComparisonPages = collections["top comparisons"] %}
-          <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
-            {% for item in topComparisonPages %}
-              <li>
-                <a href="{{ item.data.permalink }}" class="text-nowrap">{{ item.data.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
+          <div x-data="{ footerDropdownOpen: window.innerWidth >= 768 }">
+            <button 
+              @click="footerDropdownOpen = !footerDropdownOpen"
+              @resize.window="footerDropdownOpen = window.innerWidth >= 768"
+              class="w-100 btn btn-link p-0">
+              <h3 class="d-flex justify-content-between text-nowrap text-uppercase text-md-capitalize">
+                <span>Top comparisons</span>
+                <svg class="text-white d-md-none" aria-hidden="true" width="24" height="24">
+                  <use :href="footerDropdownOpen ? '/img/icons/symbol/svg/sprite.css.svg#chevron-up' : '/img/icons/symbol/svg/sprite.css.svg#chevron-down'"></use>
+                </svg>
+              </h3>
+            </button>
+
+            {% set topComparisonPages = collections["top comparisons"] %}
+            <ul class="list-unstyled lh-lg mb-md-0 bg-primary-dark bg-md-transparent rounded-4 p-4 p-md-0" x-show="footerDropdownOpen || window.innerWidth >= 768">
+              {% for item in topComparisonPages %}
+                <li>
+                  <a href="{{ item.data.permalink }}" class="text-nowrap">{{ item.data.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
         <div class='col-md-3 col-xl-2'>
-          <h3 class="text-uppercase text-md-capitalize">Broker Categories</h3>
-          <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
+          <div x-data="{ footerDropdownOpen: window.innerWidth >= 768 }">
+            <button 
+              @click="footerDropdownOpen = !footerDropdownOpen"
+              @resize.window="footerDropdownOpen = window.innerWidth >= 768"
+              class="w-100 btn btn-link p-0">
+              <h3 class="d-flex justify-content-between text-nowrap text-uppercase text-md-capitalize">
+                <span>Broker Categories</span>
+                <svg class="text-white d-md-none" aria-hidden="true" width="24" height="24">
+                  <use :href="footerDropdownOpen ? '/img/icons/symbol/svg/sprite.css.svg#chevron-up' : '/img/icons/symbol/svg/sprite.css.svg#chevron-down'"></use>
+                </svg>
+              </h3>
+            </button>
+
             {% set categoryPages = collections["by category"] %}
-            <ul class="list-unstyled lh-lg mb-md-0 d-none d-md-block">
+            <ul class="list-unstyled lh-lg mb-md-0 bg-primary-dark bg-md-transparent rounded-4 p-4 p-md-0" x-show="footerDropdownOpen || window.innerWidth >= 768">
               {% for item in categoryPages %}
                 <li>
                   <a href="{{ item.data.permalink }}" class="text-nowrap">{{ item.data.title }}</a>
@@ -81,28 +129,29 @@
           </div>
         </div>
       </div>
-      <div class='bg-primary-dark'>
-        <div class='container'>
-          <div class='row py-24px'>
-            <div class="col-md-7 order-md-2 text-md-end d-flex flex-column flex-md-row justify-content-end mb-3 mb-md-0">
-              <a href="#" class="mx-md-2 mb-2">Privacy policy</a>
-              <a href="#" class="mx-md-2 mb-2">Contact Us.</a>
-              <a href="#" class="mx-md-2 mb-2">Terms and Conditions</a>
-            </div>
-            <div class="col-md-5 order-md-1">
-              <p class="mb-0">Copyright © 2024 forexchurch.com</p>
-              <p class="mb-0">All rights reserved.</p>
-            </div>
+    </div>
+    <div class='bg-primary-dark'>
+      <div class='container'>
+        <div class='row py-24px'>
+          <div class="col-md-7 order-md-2 text-md-end d-flex flex-column flex-md-row justify-content-end mb-3 mb-md-0">
+            <a href="#" class="mx-md-2 mb-2">Privacy policy</a>
+            <a href="#" class="mx-md-2 mb-2">Contact Us.</a>
+            <a href="#" class="mx-md-2 mb-2">Terms and Conditions</a>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <p class="mb-0">Copyright © 2024 forexchurch.com</p>
+            <p class="mb-0">All rights reserved.</p>
           </div>
         </div>
       </div>
     </div>
-    <img src="/img/footer_logo.svg" class="d-none d-md-block position-absolute bottom-0 start-0 mb-72px"/>
+  </div>
+  <img src="/img/footer_logo.svg" class="d-none d-md-block position-absolute bottom-0 start-0 mb-72px"/>
 
-    <a href="#top" class="position-absolute top-0 end-0 me-3 me-lg-5 mt-2 translate-middle-y">
-      <svg aria-hidden="true" width="80" height="88">
-        <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-top-hexagon"></use>
-      </svg>
-      <span class="visually-hidden">Scroll to top</span>
-    </a>
-  </footer>
+  <a href="#top" class="position-absolute top-0 end-0 me-3 me-lg-5 mt-2 translate-middle-y zindex-1">
+    <svg aria-hidden="true" width="80" height="88">
+      <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-top-hexagon"></use>
+    </svg>
+    <span class="visually-hidden">Scroll to top</span>
+  </a>
+</footer>
