@@ -1,28 +1,40 @@
-.btn-primary {
+.btn {
   font-weight: 600;
-  color: $secondary;
   text-transform: uppercase;
   white-space: nowrap;
   transition: transform 150ms cubic-bezier(.4, 0, .2, 1);
 
   &:hover,
   &:focus {
-    color: $secondary;
     transform: translateX(5px);
   }
 }
 
-.btn-outline-primary {
-  font-weight: 600;
-  // color: $secondary;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: transform 150ms cubic-bezier(.4, 0, .2, 1);
+.btn-primary {
+  color: $secondary;
 
   &:hover,
   &:focus {
-    // color: $secondary;
-    transform: translateX(5px);
+    color: $secondary;
+  }
+}
+
+.btn-outline-primary {
+  color: $primary;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+    background-color: $gray-200;
+  }
+}
+
+.btn-link {
+  text-transform: none;
+
+  &:hover,
+  &:focus {
+    transform: none;
   }
 }
 

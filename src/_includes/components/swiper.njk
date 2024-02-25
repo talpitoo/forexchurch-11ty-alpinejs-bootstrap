@@ -1,12 +1,12 @@
-<div class="relative">
-    <div class="swiper mx-n4" data-forexchurch-swiper>
+<div class="position-relative">
+    <div class="swiper mx-n10px" data-forexchurch-swiper>
         <div class="swiper-wrapper">
             {% for slide in slidesData %}
-                <div class="swiper-slide px-4 pb-4">
-                    <div class="forexchurch-tile d-flex flex-column break-inside-avoid-column">
-                        <figure>
+                <div class="swiper-slide px-10px pb-10px">
+                    <div class="forexchurch-tile d-flex align-items-start flex-column break-inside-avoid-column">
+                        {# <figure>
                             <div class="{{ slidesHeight }}">
-                                {# NOTE: example of setting an individual pictureObject before including components/picture-example.njk #}
+                                NOTE: example of setting an individual pictureObject before including components/picture-example.njk
                                 {% set pictureObject = {
                                     'webP': slide.webP,
                                     'webP2x': slide.webP2x,
@@ -15,7 +15,9 @@
                                 } %}
                                 {% include "components/picture-example.njk" %}
                             </div>
-                        </figure>
+                        </figure> #}
+                        <img src="/img/logos/e-toro.svg" alt='logo' width='64' height='64' class="object-fit-contain"/>
+                        <p class="mb-0">EagleFX is an online Forex and cryptocurrency STP broker, providing CFD trading on hundreds of assets and optimal trading conditions within the award-winning MT4 platform.</p>
                         <button type="button" class="btn btn-primary w-100">
                             Visit Broker
                         </button>
@@ -28,16 +30,21 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-link text-tertiary swiper-button-prev">
-        <svg class="" aria-hidden="true" width="24" height="24">
-            <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-left"></use>
-        </svg>
-        <span class="visually-hidden">previous slide</span>
-    </button>
-    <button type="button" class="btn btn-link text-tertiary swiper-button-next">
-        <span class="visually-hidden">next slide</span>
-        <svg class="" aria-hidden="true" width="24" height="24">
-            <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
-        </svg>
-    </button>
+    <div class="d-flex justify-content-center">
+        <div class="bg-white d-inline-flex align-items-center rounded-pill mt-32px p-8px">
+            <button type="button" class="btn btn-link p-0 text-tertiary swiper-button-prev">
+                <svg class="" aria-hidden="true" width="24" height="24">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-left"></use>
+                </svg>
+                <span class="visually-hidden">previous slide</span>
+            </button>
+            <div class="swiper-pagination position-static d-inline-flex align-items-center mx-3"></div>
+            <button type="button" class="btn btn-link p-0 text-tertiary swiper-button-next">
+                <span class="visually-hidden">next slide</span>
+                <svg class="" aria-hidden="true" width="24" height="24">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
 </div>

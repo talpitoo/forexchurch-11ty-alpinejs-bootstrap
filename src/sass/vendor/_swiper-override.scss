@@ -1,0 +1,8 @@
+.swiper-pagination-bullet {
+  border: 3px solid $white;
+  transition: border 150ms cubic-bezier(.4, 0, .2, 1);
+}
+
+.swiper-pagination-bullet-active {
+  border-color: $tertiary;
+}
