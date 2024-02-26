@@ -15,12 +15,24 @@
                 <p class="mb-64px">By answering a few straightforward questions, you can find the appropriate broker within seconds and save yourself from tedious hours of research.</p>
                 <p>To begin, select the country where you currently live.</p>
                 <div class="forexchurch-tile">
-                    <select class="form-select rounded-pill" aria-label="Country">
-                        <option selected>Australia</option>
-                        <option value="1">Germany</option>
-                        <option value="2">Serbia</option>
-                        <option value="3">Hungary</option>
-                    </select>
+
+                    {# <div x-data="countriesDropdown()">
+                        <select x-ref="select" class="form-select rounded-pill" aria-label="Country">
+                            <template x-for="(country, index) in countries" :key="index">
+                                <option x-text="country.name" :value="country.alpha2Code"></option>
+                            </template>
+                        </select>
+                    </div> #}
+
+                    <div x-data="countriesDropdown()">
+                        <select x-ref="select" class="form-select rounded-pill" aria-label="Country">
+                            <template x-for="(country, index) in countries" :key="index">
+                                <!-- Use the innerHTML to combine emoji and country name -->
+                                <option :value="country.alpha2Code" x-html="country.flag + ' ' + country.name"></option>
+                            </template>
+                        </select>
+                    </div>
+
                     <div x-data="{ open: false }" class="dropdown" @click.away="open = false">
                         <button @click.prevent="open = !open" type="button" class="btn btn-primary dropdown-toggle">
                             Lets do this

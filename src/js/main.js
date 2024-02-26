@@ -6,6 +6,7 @@ import axios from 'axios';
 
 // Import your custom modules
 import { loadBreweries } from './modules/breweries';
+import { countriesDropdown } from './modules/countries';
 import { initializeSwiper } from './modules/swiperInstances';
 
 // Initialize Alpine.js
@@ -14,6 +15,7 @@ window.Alpine = Alpine;
 // Alpine.start();
 
 window.loadBreweries = loadBreweries; // Make loadBreweries globally available
+window.countriesDropdown = countriesDropdown; // Make loadBreweries globally available
 
 // Custom initialization when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -22,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize custom scripts or components
     loadBreweries();
+    countriesDropdown();
     initializeSwiper();
 
     // Example Axios request
@@ -56,6 +59,7 @@ window.addEventListener('alpine:init', () => {
 
     // Register the loadBreweries function with Alpine
     Alpine.data('loadBreweries', loadBreweries);
+    Alpine.data('countriesDropdown', countriesDropdown);
 
     // Basic Store Example in Alpine.
     // Alpine.store('nav', {
