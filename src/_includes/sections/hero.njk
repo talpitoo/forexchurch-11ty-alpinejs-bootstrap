@@ -28,7 +28,7 @@
                         <select x-ref="select" class="form-select rounded-pill" aria-label="Country">
                             <template x-for="(country, index) in countries" :key="index">
                                 <!-- Use the innerHTML to combine emoji and country name -->
-                                <option :value="country.alpha2Code" x-html="country.flag + ' ' + country.name"></option>
+                                <option :value="country.alpha2Code" x-html="country.name + ' ' + country.flag"></option>
                             </template>
                         </select>
                     </div>
