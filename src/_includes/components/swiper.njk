@@ -16,14 +16,19 @@
                                 {% include "components/picture-example.njk" %}
                             </div>
                         </figure> #}
-                        <img src="/img/logos/e-toro.svg" alt='logo' width='64' height='64' class="object-fit-contain"/>
-                        <p class="mb-0">EagleFX is an online Forex and cryptocurrency STP broker, providing CFD trading on hundreds of assets and optimal trading conditions within the award-winning MT4 platform.</p>
-                        <button type="button" class="btn btn-primary w-100">
+                        <div class="d-flex align-items-center">
+                            {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
+                                <img src="{{ slide.data.eleventyNavigation.logo }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
+                            {# </div> #}
+                            <h6 class="fw-medium mb-0">{{ slide.data.title }}</h6>
+                        </div>
+                        <p class=""><small>{{ slide.data.excerpt }}</small></p>
+                        <a href="{{ slide.data.permalink }}" class="btn btn-primary w-100">
                             Visit Broker
-                        </button>
-                        <button type="button" class="btn btn-outline-primary w-100">
+                        </a>
+                        <a href="{{ slide.data.permalink }}" class="btn btn-outline-primary w-100">
                             Read Review
-                        </button>
+                        </a>
                     </div>
                 </div>
             {% endfor %}

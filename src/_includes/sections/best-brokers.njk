@@ -1,37 +1,14 @@
-<section class='py-section bg-tertiary-light'>
-    <div class='container container-max-xl'>
-        <h2 class="mb-32px">Best Brokers<br/>
-            <span class="text-tertiary" style="font-size: 20px">from Australia</span></h2>
-        {# {% set pictureObject = post.data.coverPhoto %} #}
+<section class='py-section bg-tertiary-light position-relative'>
+    <img src="/img/green_illustration.svg" class="d-none d-md-block position-absolute top-0 start-0 mt-72px pt-72px"/>
+    <img src="/img/green_illustration_right.svg" class="d-none d-md-block position-absolute top-0 end-0 mt-72px"/>
 
-        {% set slidesData = [
-            {
-            'webP': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'webP2x': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'jpg': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'jpg2x': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'caption': 'Slide 1'
-            }, {
-            'webP': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'webP2x': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'jpg': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'jpg2x': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'caption': 'Slide 2'
-            }, {
-            'webP': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'webP2x': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'jpg': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'jpg2x': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'caption': 'Slide 3'
-            }, {
-            'webP': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'webP2x': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'jpg': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'jpg2x': 'https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            'caption': 'Slide 4'
-            }
-        ] %}
+    <div class='container container-max-xl position-relative'>
+        <h2 class="mb-32px">
+            Best Brokers<br/>
+            <span class="text-tertiary" style="font-size: 20px">from Australia</span>
+        </h2>
 
+        {% set slidesData = collections["top brokers"] %}
         {% include "components/swiper.njk" %}
     </div>
 </section>

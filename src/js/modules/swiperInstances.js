@@ -32,6 +32,9 @@ export function initializeSwiper() {
                 prevEl: prevButton,
             },
             breakpoints: {
+                992: {
+                    slidesPerView: 2,
+                },
                 1024: {
                     slidesPerView: 3,
                 }
