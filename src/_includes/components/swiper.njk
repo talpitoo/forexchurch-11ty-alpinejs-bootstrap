@@ -18,7 +18,7 @@
                         </figure> #}
                         <div class="d-flex align-items-center">
                             {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
-                                <img src="{{ slide.data.eleventyNavigation.logo }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
+                                <img src="{{ slide.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
                             {# </div> #}
                             <h6 class="fw-medium mb-0">{{ slide.data.title }}</h6>
                         </div>

@@ -43,6 +43,8 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
 
   span {
     display: inline-flex;
@@ -50,7 +52,6 @@
     background-repeat: no-repeat;
     background-position: 0 100%;
     background-size: 100% 2px;
-    // width: fit-content;
   }
 
   &:hover,
