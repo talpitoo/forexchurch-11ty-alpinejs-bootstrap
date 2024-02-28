@@ -12,7 +12,7 @@ eleventyNavigation:
 {% include "components/breadcrumb.njk" %}
 
 <section class='py-section'>
-    <div class='container'>
+    <div class='container container-max-xl'>
         <h1>{{title}}</h1>
         <div class='row'>
             <div class='col-lg-8'>
@@ -21,6 +21,32 @@ eleventyNavigation:
                 <p>You can compare online brokerages side by side across X main categories that saves you tens of hours of research.</p>
             </div>
             <div class='col-lg-4'></div>
+        </div>
+
+        {# <div x-data="loadBreweries()" x-init="getBreweries"> #}
+        <div x-data="loadBreweriesMock()" x-init="getBreweriesMock">
+            <div class="table-responsive">
+                <table class="table table-striped w-full">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>City</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template x-for="brewery in breweries" :key="brewery.id">
+                            <tr>
+                                <td x-text="brewery.name"></td>
+                                <td x-text="brewery.brewery_type"></td>
+                                <td x-text="brewery.city"></td>
+                                <td x-text="brewery.state"></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </section>
