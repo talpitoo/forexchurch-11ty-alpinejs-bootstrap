@@ -8,23 +8,11 @@
         {% include "../components/navigation.njk" %}
 
         <main>
-            <section class='py-section-sm bg-dark text-light'>
-                <div class='forexchurch-container'>
+            {% include "../components/breadcrumb.njk" %}
+            <section class='py-section'>
+                <div class='container'>
                     <div class="forexchurch-grid">
                         <div class="forexchurch-col-2">
-                            <figure class="mb-spacer-3" data-forexchurch-show-in-modal="true">
-                                {# NOTE: keeping for the default syntax <div class="h-spacer-{{ coverPhoto.height | default('14') }} bg-success mb-spacer-1"> #}
-                                <div class="h-spacer-21 {% if coverPhoto.figureBackgroundColor is defined and coverPhoto.figureBackgroundColor !== '' %}{{ coverPhoto.figureBackgroundColor }}{% else %}bg-light{% endif %} {{ figureBackgroundColor }}">
-                                    {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
-                                    {% set pictureObject = coverPhoto %}
-                                    {% include "components/picture-example.njk" %}
-                                </div>
-
-                                {# NOTE: optional caption #}
-                                {% if coverPhoto.figcaption is defined and coverPhoto.figcaption !== '' %}
-                                    <figcaption class="mt-spacer-1">{{ coverPhoto.figcaption }}</figcaption>
-                                {% endif %}
-                            </figure>
                         </div>
                         <div class="forexchurch-col-4">
                             <h1>{{ title }}</h1>
