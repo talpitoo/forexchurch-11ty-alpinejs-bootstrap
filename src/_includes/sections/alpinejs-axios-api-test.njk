@@ -15,7 +15,8 @@
 
         {# <div x-data="{ test: 'Alpine.js is working!' }" x-text="test" class='bg-tertiary-light p-5 rounded-4 mb-5'></div> #}
 
-        <div x-data="loadBreweries()" x-init="getBreweries">
+        {# <div x-data="loadBreweries()" x-init="getBreweries"> #}
+        <div x-data="loadBreweriesMock()" x-init="getBreweriesMock">
             <div class="table-responsive">
                 <table class="table table-striped w-full">
                     <thead>
