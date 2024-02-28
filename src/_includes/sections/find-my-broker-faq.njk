@@ -1,40 +1,52 @@
 <section class='py-section'>
     <div class='container container-max-xl'>
-        <div x-data="{ open: 1 }" class="accordion" id="accordionExample">
+        <div x-data="{ open: 0 }" class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button @click="open = open === 1 ? 0 : 1" class="accordion-button" :class="{'collapsed': open !== 1}" type="button" aria-expanded="open === 1" aria-controls="collapseOne">
-                Is eToro a scam or legit?
-            </button>
+                    <button @click="open = open === 1 ? 0 : 1" class="accordion-button fw-medium" :class="{'collapsed': open !== 1}" type="button" aria-expanded="open === 1" aria-controls="collapseOne">
+                        Is eToro a scam or legit?
+                    </button>
                 </h2>
                 <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that eToro charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.
-            </div>
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button @click="open = open === 2 ? 0 : 2" class="accordion-button collapsed" :class="{'collapsed': open !== 2}" type="button" aria-expanded="open === 2" aria-controls="collapseTwo">
-                Where is eToro located?
-            </button>
+                    <button @click="open = open === 2 ? 0 : 2" class="accordion-button fw-medium collapsed" :class="{'collapsed': open !== 2}" type="button" aria-expanded="open === 2" aria-controls="collapseTwo">
+                        Where is eToro located?
+                    </button>
                 </h2>
                 <div :id="'collapseTwo'" class="accordion-collapse collapse" :class="{'show': open === 2}" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that eToro charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.
-            </div>
+                    </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button @click="open = open === 3 ? 0 : 3" class="accordion-button collapsed" :class="{'collapsed': open !== 3}" type="button" aria-expanded="open === 3" aria-controls="collapseThree">
-                What is the eToro minimum deposit?
-            </button>
+                    <button @click="open = open === 3 ? 0 : 3" class="accordion-button fw-medium collapsed" :class="{'collapsed': open !== 3}" type="button" aria-expanded="open === 3" aria-controls="collapseThree">
+                        What is the eToro minimum deposit?
+                    </button>
                 </h2>
                 <div :id="'collapseThree'" class="accordion-collapse collapse" :class="{'show': open === 3}" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that eToro charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.
+                    </div>
+                </div>
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button @click="open = open === 4 ? 0 : 4" class="accordion-button fw-medium collapsed" :class="{'collapsed': open !== 4}" type="button" aria-expanded="open === 4" aria-controls="collapseFour">
+                        Does eToro accept PayPal?
+                    </button>
+                </h2>
+                <div :id="'collapseFour'" class="accordion-collapse collapse" :class="{'show': open === 4}" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that eToro charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.
+                    </div>
                 </div>
             </div>
         </div>

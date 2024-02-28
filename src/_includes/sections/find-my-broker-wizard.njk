@@ -2,36 +2,99 @@
     <div class='container container-max-xl'>
         <div class="row">
             <div class="col-lg-6 pe-lg-48px">
-                Where do you live?
-            </div>
-            <div class="col-lg-6">
-                {% set categoryPages = collections["by category"] %}
-                {% for item in categoryPages.slice(0, 3) %}
-                    <div class="forexchurch-tile d-flex flex-column flex-sm-row align-items-center break-inside-avoid-column mb-16px">
-                        <div class="d-flex align-items-center w-100">
-                            {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
-                            <img src="{{ item.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
-                            {# </div> #}
-                            <h6 class="fw-medium mb-0">{{ item.data.title }}</h6>
-                        </div>
-                        <div>
-                            <a href="{{ item.data.permalink }}" class="btn btn-primary w-100 mb-8px">
-                            Visit Broker</a>
-                            <a href="{{ item.data.permalink }}" class="link-arrow fw-medium ms-32px">
-                                <span>Read Review</span>
-                                <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
-                                </svg>
-                            </a>
+                <div x-data="{ open: 0 }" class="accordion mb-32px" id="wizardStep1">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button @click="open = open === 1 ? 0 : 1" class="accordion-button fw-medium" :class="{'collapsed': open !== 1}" type="button" aria-expanded="open === 1" aria-controls="collapseOne">
+                                1) Where do you live?
+                            </button>
+                        </h2>
+                        <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
+                            <div class="accordion-body">
+                                TODO
+                            </div>
                         </div>
                     </div>
-                {% endfor %}
-                <a href="/forex-brokers/" class="link-arrow fw-medium">
-                    <span>Show all</span>
-                    <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
-                        <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
-                    </svg>
-                </a>
+                </div>
+
+                <div x-data="{ open: 0 }" class="accordion mb-32px" id="wizardStep2">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button @click="open = open === 1 ? 0 : 1" class="accordion-button fw-medium" :class="{'collapsed': open !== 1}" type="button" aria-expanded="open === 1" aria-controls="collapseOne">
+                                2) What do you want to trade?
+                            </button>
+                        </h2>
+                        <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
+                            <div class="accordion-body">
+                                TODO
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-data="{ open: 0 }" class="accordion mb-32px" id="wizardStep3">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button @click="open = open === 1 ? 0 : 1" class="accordion-button fw-medium" :class="{'collapsed': open !== 1}" type="button" aria-expanded="open === 1" aria-controls="collapseOne">
+                                3) What is your level with trading and investing?
+                            </button>
+                        </h2>
+                        <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
+                            <div class="accordion-body">
+                                TODO
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-data="{ open: 0 }" class="accordion" id="wizardStep4">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button @click="open = open === 1 ? 0 : 1" class="accordion-button fw-medium" :class="{'collapsed': open !== 1}" type="button" aria-expanded="open === 1" aria-controls="collapseOne">
+                                4) How much is your capital?
+                            </button>
+                        </h2>
+                        <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
+                            <div class="accordion-body">
+                                TODO
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="forexchurch-tile flex-column align-items-stretch pb-0">
+                    <div class="bg-primary position-relative rounded-top-24px mt-n16px mx-n16px py-3">
+                        <svg class="position-absolute top-0 start-50 translate-middle" aria-hidden="true" width="44" height="44">
+                            <use href="/img/icons/symbol/svg/sprite.css.svg#star-hexagon"></use>
+                        </svg>
+                        <img src="/img/tile-header.svg" aria-hidden="true" alt='background' width="278" height="44" class=""/>
+                        <h3 class="text-center fs-7 text-white position-absolute bottom-0 start-50 translate-middle mb-0">Top Brokers for you!<br/>
+                            <span class="fs-8">the results of your matches</span></h3>
+                    </div>
+
+                    {% set categoryPages = collections["by category"] %}
+                    {% for item in categoryPages.slice(0, 3) %}
+                        <div class="d-flex flex-column flex-sm-row align-items-center break-inside-avoid-column mb-16px">
+                            <div class="d-flex align-items-center w-100">
+                                {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
+                                <img src="{{ item.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
+                                {# </div> #}
+                                <h6 class="fw-medium mb-0">{{ item.data.title }}</h6>
+                            </div>
+                            <div>
+                                <a href="{{ item.data.permalink }}" class="btn btn-primary w-100 mb-8px">
+                            Visit Broker</a>
+                                <a href="{{ item.data.permalink }}" class="link-arrow fw-medium ms-32px">
+                                    <span>Read Review</span>
+                                    <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                        <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

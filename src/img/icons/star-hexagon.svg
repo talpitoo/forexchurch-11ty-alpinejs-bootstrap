@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none"
+    class="absolute inset-x-0 top-[-20px] z-[1] mx-auto h-40 w-40 min-w-[40px]">
+    <defs>
+        <linearGradient id="paint0_linear_942_27407" x1="32" y1="0" x2="32" y2="64"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#32DBBD"></stop>
+            <stop offset="1" stop-color="#29BFA5"></stop>
+        </linearGradient>
+        <linearGradient id="paint1_linear_942_27407" x1="32" y1="0" x2="32" y2="64"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#7CFFE8"></stop>
+            <stop offset="1" stop-color="#32DBBD"></stop>
+        </linearGradient>
+        <clipPath id="clip0_942_27407">
+            <rect width="64" height="64" fill="white"></rect>
+        </clipPath>
+    </defs>
+    <g id="dabadge" clip-path="url(#clip0_942_27407)">
+        <path id="Polygon 5"
+            d="M31.1516 2.79922C31.6766 2.49612 32.3234 2.49612 32.8484 2.79922L56.8644 16.6649C57.3894 16.968 57.7128 17.5281 57.7128 18.1343V45.8657C57.7128 46.4719 57.3894 47.032 56.8644 47.3351L32.8484 61.2008C32.3234 61.5039 31.6766 61.5039 31.1516 61.2008L7.13557 47.3351C6.61059 47.032 6.28719 46.4719 6.28719 45.8657V18.1343C6.28719 17.5281 6.61059 16.968 7.13557 16.6649L31.1516 2.79922Z"
+            stroke-width="4" fill="url(#paint0_linear_942_27407)"
+            stroke="url(#paint1_linear_942_27407)"></path>
+        <path id="Vector"
+            d="M32 17.7778L36.9778 27.4964L46.9333 28.7112L40.0972 36.1944L41.9555 46.9334L32 42.0741L22.0444 46.9334L23.9194 36.1944L17.0667 28.7112L27.0222 27.4964L32 17.7778Z"
+            fill="white"></path>
+    </g>
+</svg>
