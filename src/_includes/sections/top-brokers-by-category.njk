@@ -17,8 +17,8 @@
             </div>
             <div class="col-lg-6">
                 {% for item in categoryPages.slice(0, 3) %}
-                    <div class="forexchurch-tile d-flex align-items-center break-inside-avoid-column mb-16px">
-                        <div class="d-flex align-items-center">
+                    <div class="forexchurch-tile d-flex flex-column flex-sm-row align-items-center break-inside-avoid-column mb-16px">
+                        <div class="d-flex align-items-center w-100">
                             {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
                             <img src="{{ item.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
                             {# </div> #}
