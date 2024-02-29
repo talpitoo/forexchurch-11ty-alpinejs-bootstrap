@@ -100,7 +100,7 @@
                           {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
                           {% if entry.includeSelf != false %}
                             <li class="bg-primary bg-lg-light p-4 rounded-4 w-lg-25">
-                              <div class="d-flex flex-column h-100">
+                              <div class="d-flex flex-column align-items-start h-100">
                                 <h6 class="text-white text-lg-body mb-4 mb-lg-2">{{ entry.title }}</h6>
                                 <div class="d-flex align-items-start flex-grow-1">
                                   <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
@@ -110,9 +110,9 @@
                                     </svg>
                                   </div>
                                 </div>
-                                <a href="{{ entry.url }}" class="link-arrow fw-medium text-white text-lg-body mt-3 d-lg-inline-block">
+                                <a href="{{ entry.url }}" class="btn btn-underline px-0 text-white text-lg-body mt-3">
                                   <span>Advanced Search</span>
-                                  <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                  <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
                                     <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
                                   </svg>
                                 </a>

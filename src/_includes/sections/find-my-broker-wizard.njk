@@ -11,9 +11,9 @@
                         </h2>
                         <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
                             <div class="accordion-body">
-                                <a href="#" class="link-arrow fw-medium mb-24px">
+                                <a href="#" class="btn btn-underline mb-24px">
                                     <span>More info</span>
-                                    <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
                                         <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
                                     </svg>
                                 </a>
@@ -47,9 +47,9 @@
                         </h2>
                         <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
                             <div class="accordion-body">
-                                <a href="#" class="link-arrow fw-medium mb-24px">
+                                <a href="#" class="btn btn-underline mb-24px">
                                     <span>More info</span>
-                                    <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
                                         <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
                                     </svg>
                                 </a>
@@ -124,13 +124,13 @@
                         </h2>
                         <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
                             <div class="accordion-body">
-                                <a href="#" class="link-arrow fw-medium mb-24px">
+                                <a href="#" class="btn btn-underline mb-24px">
                                     <span>More info</span>
-                                    <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
                                         <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
                                     </svg>
                                 </a>
-                                
+
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="tradingLevel" id="tradeLevelOption1">
                                     <label class="form-check-label" for="tradeLevelOption1">
@@ -190,13 +190,13 @@
                         </h2>
                         <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
                             <div class="accordion-body">
-                                <a href="#" class="link-arrow fw-medium mb-24px">
+                                <a href="#" class="btn btn-underline mb-24px">
                                     <span>More info</span>
-                                    <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
                                         <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
                                     </svg>
                                 </a>
-                                
+
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="tradingCapital" id="tradeCapitalOption1">
                                     <label class="form-check-label" for="tradeCapitalOption1">
@@ -248,7 +248,7 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="forexchurch-tile flex-column align-items-stretch pb-0">
+                <div class="forexchurch-tile shadow-lg flex-column align-items-stretch">
                     <div class="bg-primary position-relative rounded-top-24px mt-n16px mx-n16px py-3">
                         <svg class="position-absolute top-0 start-50 translate-middle" aria-hidden="true" width="44" height="44">
                             <use href="/img/icons/symbol/svg/sprite.css.svg#star-hexagon"></use>
@@ -260,12 +260,15 @@
 
                     {% set categoryPages = collections["by category"] %}
                     {% for item in categoryPages.slice(0, 3) %}
-                        <div class="d-flex flex-column flex-sm-row align-items-center break-inside-avoid-column mb-16px">
+                        <div class="d-flex flex-column flex-sm-row align-items-center break-inside-avoid-column">
                             <div class="d-flex align-items-center w-100 me-16px">
                                 {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
                                 <img src="{{ item.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
                                 {# </div> #}
-                                <h6 class="fw-medium mb-0">{{ item.data.title }}</h6>
+                                <div>
+                                    <h6 class="fw-medium mb-0">{{ item.data.title }}</h6>
+                                    {% include "components/star-rating-short.njk" %}
+                                </div>
                             </div>
                             <div>
                                 <a href="{{ item.data.permalink }}" class="btn btn-primary w-100 mb-8px">
@@ -274,9 +277,9 @@
                                         <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
                                     </svg>
                                 </a>
-                                <a href="{{ item.data.permalink }}" class="link-arrow fw-medium ms-32px">
+                                <a href="{{ item.data.permalink }}" class="btn btn-underline">
                                     <span>Read Review</span>
-                                    <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
                                         <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
                                     </svg>
                                 </a>

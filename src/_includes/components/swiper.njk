@@ -3,7 +3,7 @@
         <div class="swiper-wrapper">
             {% for slide in slidesData %}
                 <div class="swiper-slide px-10px pb-10px">
-                    <div class="forexchurch-tile d-flex align-items-start flex-column break-inside-avoid-column">
+                    <div class="forexchurch-tile shadow-lg d-flex align-items-start flex-column break-inside-avoid-column">
                         {# <figure>
                             <div class="{{ slidesHeight }}">
                                 NOTE: example of setting an individual pictureObject before including components/picture-example.njk
@@ -20,7 +20,10 @@
                             {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
                                 <img src="{{ slide.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
                             {# </div> #}
-                            <h6 class="fw-medium mb-0">{{ slide.data.title }}</h6>
+                            <div>
+                                <h6 class="fw-medium mb-0">{{ slide.data.title }}</h6>
+                                {% include "components/star-rating.njk" %}
+                            </div>
                         </div>
                         <p class=""><small>{{ slide.data.excerpt }}</small></p>
                         <a href="{{ slide.data.permalink }}" class="btn btn-primary w-100">
