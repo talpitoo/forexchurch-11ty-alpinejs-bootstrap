@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="TODO-scroll-smooth" x-data="{ isTopNavbarOpen: false }" :class="{'overflow-hidden': isTopNavbarOpen}">
+<html lang="en" x-data="{ isTopNavbarOpen: false }" :class="{'overflow-hidden': isTopNavbarOpen}">
     <head>
         {% include "../components/meta.njk" %}
     </head>
@@ -9,24 +9,9 @@
 
         <main>
             {% include "../components/breadcrumb.njk" %}
-            <section class='py-section'>
+            <section class='mt-nsection pb-section position-relative zindex-1'>
                 <div class='container container-max-xl'>
-                    <h1>{{ title }}</h1>
-
                     {{ content | safe }}
-
-                    {# NOTE: categories, the last <li> being the date #}
-                    <ul class="list-separator-dot text-muted whitespace-nowrap">
-                        {% for category in categories %}
-                            <li class="uppercase">{{ category }}</li>
-                        {% endfor %}
-                        {# <li>{{ date.toDateString().slice(4) }}</li> #}
-                    </ul>
-
-                    {# NOTE: the price will be shown if exists/defined in the post's meta data #}
-                    {% if price is defined and price !== '' %}
-                        <p class="h3">{{ price }}</p>
-                    {% endif %}
                 </div>
             </section>
         </main>

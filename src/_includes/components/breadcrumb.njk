@@ -17,8 +17,13 @@
         </nav>
         <div class="py-24px">
             <h1 class="visually-hidden">{{title}}</h1>
-            <h2 class="lead fw-semibold mb-24px">{{subtitle}}</h2>
-            <p class="mb-0">{{ excerpt | safe }}</p>
+            {% if showInBreadcrumb != false %}
+                <h2 class="lead fw-semibold mb-24px">{{subtitle}}</h2>
+                <p class="mb-0">{{ excerpt | safe }}</p>
+            {% else %}
+                {# TODO: refactor #}
+                <div style="height: 90px;"></div>
+            {% endif %}
         </div>
     </div>
 </div>

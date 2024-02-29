@@ -1,7 +1,8 @@
 ---
 title: eToro
-date: 2019-03-11
+subtitle: TODO
 excerpt: TODO _ _ _ is an online Forex and cryptocurrency STP broker, providing CFD trading on hundreds of assets and optimal trading conditions within the award-winning MT4 platform.
+showInBreadcrumb: false
 layout: layouts/post.njk
 permalink: /forex-brokers/top-brokers/e-toro/
 eleventyNavigation:
@@ -12,5 +13,88 @@ eleventyNavigation:
 tags: ["forex brokers", "top brokers"]
 ---
 
-<p class="mt-0">In eget condimentum libero. Phasellus rhoncus lobortis ante a dictum. Phasellus sodales ut risus aliquet dapibus. Nunc pulvinar facilisis consequat. Donec nec purus imperdiet, vehicula erat non, sollicitudin libero. Aliquam eu viverra mauris. Morbi consectetur ante ac fringilla condimentum. Quisque ut elit massa. Aenean congue tincidunt dignissim. Quisque vestibulum eget ligula et porta.</p>
-<p>Sed consectetur viverra urna id porttitor.</p>
+<div class='row'>
+  <div class='col-lg-3'>
+    <div class='forexchurch-tile shadow-lg flex-column'>
+      <img src="{{ eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain"/>
+      <h1>{{ title }}</h1>
+      <p>22 July 2023</p>
+      <h6>Forexchurch score</h6>
+      {% include "components/star-rating-short.njk" %}
+    </div>
+
+  </div>
+  <div class='col-lg-9'>
+    <div x-data="{ activeTab: 'review-tab-pane' }">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" :class="{ 'active': activeTab === 'review-tab-pane' }" @click="activeTab = 'review-tab-pane'" type="button" role="tab" aria-controls="review-tab-pane" aria-selected="true">
+            <svg class="me-1" aria-hidden="true" width="20" height="20">
+              <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
+            </svg>
+      Review
+      </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" :class="{ 'active': activeTab === 'by-the-numbers-tab-pane' }" @click="activeTab = 'by-the-numbers-tab-pane'" type="button" role="tab" aria-controls="by-the-numbers-tab-pane" aria-selected="false">
+            <svg class="me-1" aria-hidden="true" width="20" height="20">
+              <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
+            </svg>
+      By the numbers
+      </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" :class="{ 'active': activeTab === 'live-spread-tab-pane' }" @click="activeTab = 'live-spread-tab-pane'" type="button" role="tab" aria-controls="live-spread-tab-pane" aria-selected="false">
+            <svg class="me-1" aria-hidden="true" width="20" height="20">
+              <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
+            </svg>
+      Live Spread
+      </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" :class="{ 'active': activeTab === 'live-swaps-tab-pane' }" @click="activeTab = 'live-swaps-tab-pane'" type="button" role="tab" aria-controls="live-swaps-tab-pane" aria-selected="false">
+            <svg class="me-1" aria-hidden="true" width="20" height="20">
+              <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
+            </svg>
+      Live Swaps
+      </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade py-16px" :class="{ 'show active': activeTab === 'review-tab-pane' }" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
+          <h2>Our conclusion</h2>
+          <p>eToro appears to be an excellent forex broker choice for traders who also want access to trade other financial markets, such as stocks, commodities, and cryptocurrencies. It’s also a favorite among social traders.</p>
+          <p>Some traders are initially surprised to see that eToro doesn’t offer any of the usual trading platforms, such as MetaTrader 4 or cTrader. However, once they become familiar with eToro’s own proprietary trading platform, most investors find it very user-friendly and are very happy with the many features it includes. </p>
+          <p>Clients are also attracted by the unique, innovative features that eToro offers, such as its Smart Portfolios and broad array of copy trading options. Other pluses with eToroinclude the fact that it’s a highly regulated broker, in multiple jurisdictions (and, therefore, highly trustworthy), and offers relatively low spreads and trading fees.</p>
+          <div class='forexchurch-tile bg-tertiary-light'>
+            <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+                  <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+                </svg>
+            <div>
+              <p>it seems...</p>
+              <h3>eToro accepts clients from Australia!</h3>
+            </div>
+            <div>
+              <a href="#" class="btn btn-primary w-100 mb-8px">
+                <span>Visit Broker</span>
+                <svg class="ms-1" aria-hidden="true" width="24" height="24">
+                  <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                </svg>
+              </a>
+              <p class="fs-7">CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" :class="{ 'show active': activeTab === 'by-the-numbers-tab-pane' }" id="by-the-numbers-tab-pane" role="tabpanel" aria-labelledby="by-the-numbers-tab" tabindex="0">
+      2
+    </div>
+        <div class="tab-pane fade" :class="{ 'show active': activeTab === 'live-spread-tab-pane' }" id="live-spread-tab-pane" role="tabpanel" aria-labelledby="live-spread-tab" tabindex="0">
+      3
+    </div>
+        <div class="tab-pane fade" :class="{ 'show active': activeTab === 'live-swaps-tab-pane' }" id="live-swaps-tab-pane" role="tabpanel" aria-labelledby="live-swaps-tab" tabindex="0">
+      4
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
