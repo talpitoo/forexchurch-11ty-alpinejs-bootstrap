@@ -1,6 +1,9 @@
 ---
 title: Broker Comparison
-excerpt: "TODO"
+subtitle: Select brokers to compare
+excerpt: >
+  This online broker comparison is designed to bring more clarity into your broker selection. 
+  You can compare online brokerages side by side across X main categories that saves you tens of hours of research.
 layout: layouts/base.njk
 permalink: /broker-comparison/
 tags: ["top level menu"]
@@ -9,20 +12,11 @@ eleventyNavigation:
   order: 2
 ---
 
+<h1 class="visually-hidden">{{title}}</h1>
 {% include "components/breadcrumb.njk" %}
 
 <section class='py-section'>
     <div class='container container-max-xl'>
-        <h1>{{title}}</h1>
-        <div class='row'>
-            <div class='col-lg-8'>
-                <h2>Select brokers to compare </h2>
-                <p>This online broker comparison is designed to bring more clarity into your broker selection. </p>
-                <p>You can compare online brokerages side by side across X main categories that saves you tens of hours of research.</p>
-            </div>
-            <div class='col-lg-4'></div>
-        </div>
-
         {# <div x-data="loadBreweries()" x-init="getBreweries"> #}
         <div x-data="loadBreweriesMock()" x-init="getBreweriesMock">
             <div class="table-responsive">
