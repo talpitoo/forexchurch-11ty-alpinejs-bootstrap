@@ -5,16 +5,22 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb fw-medium mb-0">
                 <li class="breadcrumb-item">
-                    <a href="#">
+                    <a href="/">
                         <svg class="" aria-hidden="true" width="20" height="20">
                             <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
                         </svg>
                         <span class="visually-hidden">Home</span>
                     </a>
                 </li>
+                {# NOTE: https://www.11ty.dev/docs/plugins/navigation/#example-breadcrumbs #}
+                {% set breadcrumbPages = collections.all | eleventyNavigationBreadcrumb(title) %}
+                {% for breadcrumb in breadcrumbPages %}
+                    <li class="breadcrumb-item"><a href="{{breadcrumb.url}}" class="text-decoration-none">{{breadcrumb.title}}</a></li>
+                {% endfor %}
                 <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
             </ol>
         </nav>
+
         <div class="py-24px">
             <h1 class="visually-hidden">{{title}}</h1>
             {% if showInBreadcrumb != false %}
