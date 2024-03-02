@@ -15,9 +15,14 @@ tags: ["forex brokers", "top brokers"]
 
 <div class='row'>
   <div class='col-lg-3'>
-    <div class='forexchurch-tile shadow-lg flex-column'>
-      <img src="{{ eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain"/>
-      <h1>{{ title }}</h1>
+    <div class='forexchurch-tile shadow-lg flex-column mt-nsection mb-16px position-relative'>
+      <div class="position-absolute w-100 bg-light mt-n16px" style="height: 68px">
+      </div>
+
+      <div class="p-12px rounded-3 bg-primary d-inline-block mx-auto position-relative zindex-1 shadow">
+        <img src="{{ eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain"/>
+      </div>
+      <h1 class="h2">{{ title }} Review</h1>
       <p>22 July 2023</p>
       <h6>Forexchurch score</h6>
       {% include "components/star-rating-short.njk" %}
