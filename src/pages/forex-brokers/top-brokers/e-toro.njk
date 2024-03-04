@@ -73,32 +73,32 @@ tags: ["forex brokers", "top brokers"]
   <div class='col-lg-9'>
     <div x-data="{ activeTab: 'review-tab-pane' }">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" :class="{ 'active': activeTab === 'review-tab-pane' }" @click="activeTab = 'review-tab-pane'" type="button" role="tab" aria-controls="review-tab-pane" aria-selected="true">
+        <li class="nav-item flex-grow-1" role="presentation">
+          <button class="nav-link w-100" :class="{ 'active': activeTab === 'review-tab-pane' }" @click="activeTab = 'review-tab-pane'" type="button" role="tab" aria-controls="review-tab-pane" aria-selected="true">
             <svg class="me-1" aria-hidden="true" width="20" height="20">
               <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
             </svg>
       Review
       </button>
         </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" :class="{ 'active': activeTab === 'by-the-numbers-tab-pane' }" @click="activeTab = 'by-the-numbers-tab-pane'" type="button" role="tab" aria-controls="by-the-numbers-tab-pane" aria-selected="false">
+        <li class="nav-item flex-grow-1" role="presentation">
+          <button class="nav-link w-100" :class="{ 'active': activeTab === 'by-the-numbers-tab-pane' }" @click="activeTab = 'by-the-numbers-tab-pane'" type="button" role="tab" aria-controls="by-the-numbers-tab-pane" aria-selected="false">
             <svg class="me-1" aria-hidden="true" width="20" height="20">
               <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
             </svg>
       By the numbers
       </button>
         </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" :class="{ 'active': activeTab === 'live-spread-tab-pane' }" @click="activeTab = 'live-spread-tab-pane'" type="button" role="tab" aria-controls="live-spread-tab-pane" aria-selected="false">
+        <li class="nav-item flex-grow-1" role="presentation">
+          <button class="nav-link w-100" :class="{ 'active': activeTab === 'live-spread-tab-pane' }" @click="activeTab = 'live-spread-tab-pane'" type="button" role="tab" aria-controls="live-spread-tab-pane" aria-selected="false">
             <svg class="me-1" aria-hidden="true" width="20" height="20">
               <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
             </svg>
       Live Spread
       </button>
         </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" :class="{ 'active': activeTab === 'live-swaps-tab-pane' }" @click="activeTab = 'live-swaps-tab-pane'" type="button" role="tab" aria-controls="live-swaps-tab-pane" aria-selected="false">
+        <li class="nav-item flex-grow-1" role="presentation">
+          <button class="nav-link w-100" :class="{ 'active': activeTab === 'live-swaps-tab-pane' }" @click="activeTab = 'live-swaps-tab-pane'" type="button" role="tab" aria-controls="live-swaps-tab-pane" aria-selected="false">
             <svg class="me-1" aria-hidden="true" width="20" height="20">
               <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
             </svg>
@@ -159,105 +159,164 @@ tags: ["forex brokers", "top brokers"]
             </div>
           </div>
 
-          <div class='forexchurch-tile bg-tertiary-light mb-24px'>
-            <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
-              <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
-            </svg>
-            <div>
-              <p>it seems...</p>
-              <h3>eToro accepts clients from Australia!</h3>
+          <section class="py-section">
+            <div class='forexchurch-tile bg-tertiary-light mb-24px'>
+              <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+                <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+              </svg>
+              <div>
+                <p>it seems...</p>
+                <h3>eToro accepts clients from Australia!</h3>
+              </div>
+              <div>
+                <a href="#" class="btn btn-primary w-100 mb-8px">
+                  <span>Visit Broker</span>
+                  <svg class="ms-1" aria-hidden="true" width="24" height="24">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                  </svg>
+                </a>
+                <p class="fs-7">CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {% include "components/popover.njk" %}
+                </p>
+              </div>
             </div>
-            <div>
-              <a href="#" class="btn btn-primary w-100 mb-8px">
-                <span>Visit Broker</span>
-                <svg class="ms-1" aria-hidden="true" width="24" height="24">
-                  <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
-                </svg>
-              </a>
-              <p class="fs-7">CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {% include "components/popover.njk" %}
-              </p>
-            </div>
-          </div>
 
-          <h2>Our conclusion</h2>
-          <p>eToro appears to be an excellent forex broker choice for traders who also want access to trade other financial markets, such as stocks, commodities, and cryptocurrencies. It’s also a favorite among social traders.</p>
-          <p>Some traders are initially surprised to see that eToro doesn’t offer any of the usual trading platforms, such as MetaTrader 4 or cTrader. However, once they become familiar with eToro’s own proprietary trading platform, most investors find it very user-friendly and are very happy with the many features it includes. </p>
-          <p>Clients are also attracted by the unique, innovative features that eToro offers, such as its Smart Portfolios and broad array of copy trading options. Other pluses with eToroinclude the fact that it’s a highly regulated broker, in multiple jurisdictions (and, therefore, highly trustworthy), and offers relatively low spreads and trading fees.</p>
+            <h2>Our conclusion</h2>
+            <p>eToro appears to be an excellent forex broker choice for traders who also want access to trade other financial markets, such as stocks, commodities, and cryptocurrencies. It’s also a favorite among social traders.</p>
+            <p>Some traders are initially surprised to see that eToro doesn’t offer any of the usual trading platforms, such as MetaTrader 4 or cTrader. However, once they become familiar with eToro’s own proprietary trading platform, most investors find it very user-friendly and are very happy with the many features it includes. </p>
+            <p>Clients are also attracted by the unique, innovative features that eToro offers, such as its Smart Portfolios and broad array of copy trading options. Other pluses with eToroinclude the fact that it’s a highly regulated broker, in multiple jurisdictions (and, therefore, highly trustworthy), and offers relatively low spreads and trading fees.</p>
 
-          <h2>Overview</h2>
-          <div class="table-responsive">
-            <table class="table table-striped w-full">
-              <tbody>
-                <tr>
-                  <td>
-                    <svg class="me-1" aria-hidden="true" width="20" height="20">
-                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                    </svg>
+            <h2>Overview</h2>
+            <div class="table-responsive">
+              <table class="table table-striped w-full">
+                <tbody>
+                  <tr>
+                    <td>
+                      <svg class="me-1" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                      </svg>
                     Headquartered</td>
-                  <td>Israel</td>
-                </tr>
-                <tr>
-                  <td>
-                    <svg class="me-1" aria-hidden="true" width="20" height="20">
-                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                    </svg>
+                    <td>Israel</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <svg class="me-1" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                      </svg>
                     Years in Business</td>
-                  <td>16 (since 2007)</td>
-                </tr>
-                <tr>
-                  <td>
-                    <svg class="me-1" aria-hidden="true" width="20" height="20">
-                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                    </svg>
+                    <td>16 (since 2007)</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <svg class="me-1" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                      </svg>
                     Order Execution</td>
-                  <td>Market Maker</td>
-                </tr>
-                <tr>
-                  <td>
-                    <svg class="me-1" aria-hidden="true" width="20" height="20">
-                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                    </svg>
+                    <td>Market Maker</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <svg class="me-1" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                      </svg>
                     Maximum Leverage</td>
-                  <td>30:1</td>
-                </tr>
-                <tr>
-                  <td>
-                    <svg class="me-1" aria-hidden="true" width="20" height="20">
-                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                    </svg>
+                    <td>30:1</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <svg class="me-1" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                      </svg>
                     Bid-Ask Spreads</td>
-                  <td>Variable, starting as low as 1.0 pips</td>
-                </tr>
-                <tr>
-                  <td>
-                    <svg class="me-1" aria-hidden="true" width="20" height="20">
-                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                    </svg>
+                    <td>Variable, starting as low as 1.0 pips</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <svg class="me-1" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                      </svg>
                     Trading Platforms</td>
-                  <td>eToro proprietary trading platform</td>
-                </tr>
-                <tr>
-                  <td>
-                    <svg class="me-1" aria-hidden="true" width="20" height="20">
-                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                    </svg>
+                    <td>eToro proprietary trading platform</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <svg class="me-1" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                      </svg>
                     Assets Traded</td>
-                  <td>Forex, Stocks, ETFs, Indexes, Commodities, Cryptocurrencies</td>
-                </tr>
-                <tr>
-                  <td>
-                    <svg class="me-1" aria-hidden="true" width="20" height="20">
-                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                    </svg>
+                    <td>Forex, Stocks, ETFs, Indexes, Commodities, Cryptocurrencies</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <svg class="me-1" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                      </svg>
                     Deposits/Withdrawals</td>
-                  <td>Credit Cards, Bank Transfers,... {% include "components/popover.njk" %}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                    <td>Credit Cards, Bank Transfers,... {% include "components/popover.njk" %}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-          <p>eToro is a leading, innovative, global forex broker with more than 25 million trader clients worldwide. Constantly expanding, it currently offers investor services to trade multiple financial markets, in nearly 150 countries.</p>
-          <p>eToro’s primary claims to fame are its own proprietary, multi-featured trading platform and its strong social trading community and social trading features, such as its CopyTrade tool. eToro launched the very first social trading platform in 2010 and is widely known as “the social trading broker”. Traders with eToro have access to trade a broad range of financial assets, including forex, stocks and indices, ETFs, commodities, and cryptocurrencies. In all, exposure to more than 3,000 financial assets is provided. It offers commission-free stock and ETF trading. In 2010, eToro launched the very first social trading platform. Its social community of more than 30 million traders across the globe is still a major focus at eToro. Over the years, eToro has captured numerous awards for its innovative trading platform, social trading community, and trading tools. </p>
+            <p>eToro is a leading, innovative, global forex broker with more than 25 million trader clients worldwide. Constantly expanding, it currently offers investor services to trade multiple financial markets, in nearly 150 countries.</p>
+            <p>eToro’s primary claims to fame are its own proprietary, multi-featured trading platform and its strong social trading community and social trading features, such as its CopyTrade tool. eToro launched the very first social trading platform in 2010 and is widely known as “the social trading broker”. Traders with eToro have access to trade a broad range of financial assets, including forex, stocks and indices, ETFs, commodities, and cryptocurrencies. In all, exposure to more than 3,000 financial assets is provided. It offers commission-free stock and ETF trading. In 2010, eToro launched the very first social trading platform. Its social community of more than 30 million traders across the globe is still a major focus at eToro. Over the years, eToro has captured numerous awards for its innovative trading platform, social trading community, and trading tools. </p>
+
+            <div class="forexchurch-tile flex-column align-items-start bg-light position-relative mb-24px">
+              <svg class="position-absolute top-0 start-50 translate-middle" aria-hidden="true" width="64" height="64">
+                <use href="/img/icons/symbol/svg/sprite.css.svg#star-hexagon"></use>
+              </svg>
+
+              <h6 class="">
+                <div class="pb-16 pt-24 font-medium md:pt-0 ">Here are just a few of eToro’s awards:</div>
+              </h6>
+              <ul class="mb-0">
+                <li>ADVFN International Financial Awards Best Social Trading Platform</li>
+                <li>ADVFN International Financial Awards Best Platform for Trading Cryptocurrencies</li>
+                <li>Star Awards Best Trading Platform</li>
+                <li>The Share Awards Best Use of Social Media</li>
+                <li>World Finance foreign exchange award for best mobile trading platform and best software provider</li>
+              </ul>
+            </div>
+
+            <p>eToro is recognized worldwide as a strong leader in the creation and development of financial industry technology. It offers clients advantages that include relatively low trading fees and competitive spreads. Finally, as a forex broker that is highly regulated in multiple jurisdictions, including the US, eToro has a sterling reputation for being an honest, trustworthy broker. This review covers all the operational aspects of eToro and provides a thorough explanation of all the services that it offers clients. Its trading platform, fees, account types offered, investor education resources, trading tools, customer service, and investor safety are all examined. Each category of client services is rated from 0 to 5, with 5 the best possible rating. Here are some of the key advantages and disadvantages of trading with eToro:</p>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="forexchurch-tile flex-column align-items-start justify-content-start position-relative h-100 bg-success-subtle">
+                  <svg class="position-absolute top-0 end-0 m-16px opacity-50" aria-hidden="true" width="52" height="52">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+                  </svg>
+
+                  <h6 class="text-success mb-24px">Pros</h6>
+                  <ul class="mb-0">
+                    <li>Innovative, user-friendly trading platform</li>
+                    <li>Access to trade a broad range of financial assets</li>
+                    <li>Commission-free stock and ETF trading</li>
+                    <li>Strong social trading community</li>
+                    <li>Highly regulated</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="forexchurch-tile flex-column align-items-start justify-content-start position-relative h-100 bg-danger-subtle">
+                  <svg class="position-absolute top-0 end-0 m-16px opacity-50" aria-hidden="true" width="52" height="52">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#compare-negative-circle"></use>
+                  </svg>
+
+                  <h6 class="text-danger mb-24px">Cons</h6>
+                  <ul class="mb-0">
+                    <li>Charges withdrawal fees</li>
+                    <li>Charges inactivity fees</li>
+                    <li>No telephone customer service support</li>
+                    <li>Strong social trading community</li>
+                    <li>Only one base currency (USD)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="py-section">
+            <h2>Account Types</h2>
+          </section>
         </div>
         <div class="tab-pane fade py-16px" :class="{ 'show active': activeTab === 'by-the-numbers-tab-pane' }" id="by-the-numbers-tab-pane" role="tabpanel" aria-labelledby="by-the-numbers-tab" tabindex="0">
       2
