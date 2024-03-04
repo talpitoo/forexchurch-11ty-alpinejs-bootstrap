@@ -2,6 +2,7 @@ export function popoverCustom() {
     return {
         openPopover: false,
         popperInstance: null,
+        
         init() {
             this.popperInstance = createPopper(this.$refs.button, this.$refs.popoverCustom, {
                 modifiers: [
@@ -14,6 +15,7 @@ export function popoverCustom() {
                 ],
             });
         },
+
         togglePopover() {
             this.openPopover = !this.openPopover;
             if (this.openPopover) {

@@ -108,11 +108,58 @@ tags: ["forex brokers", "top brokers"]
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade py-16px" :class="{ 'show active': activeTab === 'review-tab-pane' }" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
-          <h2>Our conclusion</h2>
-          <p>eToro appears to be an excellent forex broker choice for traders who also want access to trade other financial markets, such as stocks, commodities, and cryptocurrencies. It’s also a favorite among social traders.</p>
-          <p>Some traders are initially surprised to see that eToro doesn’t offer any of the usual trading platforms, such as MetaTrader 4 or cTrader. However, once they become familiar with eToro’s own proprietary trading platform, most investors find it very user-friendly and are very happy with the many features it includes. </p>
-          <p>Clients are also attracted by the unique, innovative features that eToro offers, such as its Smart Portfolios and broad array of copy trading options. Other pluses with eToroinclude the fact that it’s a highly regulated broker, in multiple jurisdictions (and, therefore, highly trustworthy), and offers relatively low spreads and trading fees.</p>
-          <div class='forexchurch-tile bg-tertiary-light'>
+          <div class="row mt-8px">
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Account Types</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Account Opening</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Trading Platform(s)</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Trade Execution</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Assets Traded</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Deposits/Withdrawals</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Fees</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">News and Research</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Trader Education</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Trading Tools</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Customer Service</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+            <div class="col-lg-3 mb-48px">
+              <h6 class="fw-medium mb-0">Safety/Regulation</h6>
+              {% include "components/star-rating.njk" %}
+            </div>
+          </div>
+
+          <div class='forexchurch-tile bg-tertiary-light mb-24px'>
             <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
               <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
             </svg>
@@ -131,14 +178,94 @@ tags: ["forex brokers", "top brokers"]
               </p>
             </div>
           </div>
+
+          <h2>Our conclusion</h2>
+          <p>eToro appears to be an excellent forex broker choice for traders who also want access to trade other financial markets, such as stocks, commodities, and cryptocurrencies. It’s also a favorite among social traders.</p>
+          <p>Some traders are initially surprised to see that eToro doesn’t offer any of the usual trading platforms, such as MetaTrader 4 or cTrader. However, once they become familiar with eToro’s own proprietary trading platform, most investors find it very user-friendly and are very happy with the many features it includes. </p>
+          <p>Clients are also attracted by the unique, innovative features that eToro offers, such as its Smart Portfolios and broad array of copy trading options. Other pluses with eToroinclude the fact that it’s a highly regulated broker, in multiple jurisdictions (and, therefore, highly trustworthy), and offers relatively low spreads and trading fees.</p>
+
+          <h2>Overview</h2>
+          <div class="table-responsive">
+            <table class="table table-striped w-full">
+              <tbody>
+                <tr>
+                  <td>
+                    <svg class="me-1" aria-hidden="true" width="20" height="20">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                    </svg>
+                    Headquartered</td>
+                  <td>Israel</td>
+                </tr>
+                <tr>
+                  <td>
+                    <svg class="me-1" aria-hidden="true" width="20" height="20">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                    </svg>
+                    Years in Business</td>
+                  <td>16 (since 2007)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <svg class="me-1" aria-hidden="true" width="20" height="20">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                    </svg>
+                    Order Execution</td>
+                  <td>Market Maker</td>
+                </tr>
+                <tr>
+                  <td>
+                    <svg class="me-1" aria-hidden="true" width="20" height="20">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                    </svg>
+                    Maximum Leverage</td>
+                  <td>30:1</td>
+                </tr>
+                <tr>
+                  <td>
+                    <svg class="me-1" aria-hidden="true" width="20" height="20">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                    </svg>
+                    Bid-Ask Spreads</td>
+                  <td>Variable, starting as low as 1.0 pips</td>
+                </tr>
+                <tr>
+                  <td>
+                    <svg class="me-1" aria-hidden="true" width="20" height="20">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                    </svg>
+                    Trading Platforms</td>
+                  <td>eToro proprietary trading platform</td>
+                </tr>
+                <tr>
+                  <td>
+                    <svg class="me-1" aria-hidden="true" width="20" height="20">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                    </svg>
+                    Assets Traded</td>
+                  <td>Forex, Stocks, ETFs, Indexes, Commodities, Cryptocurrencies</td>
+                </tr>
+                <tr>
+                  <td>
+                    <svg class="me-1" aria-hidden="true" width="20" height="20">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                    </svg>
+                    Deposits/Withdrawals</td>
+                  <td>Credit Cards, Bank Transfers,... {% include "components/popover.njk" %}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>eToro is a leading, innovative, global forex broker with more than 25 million trader clients worldwide. Constantly expanding, it currently offers investor services to trade multiple financial markets, in nearly 150 countries.</p>
+          <p>eToro’s primary claims to fame are its own proprietary, multi-featured trading platform and its strong social trading community and social trading features, such as its CopyTrade tool. eToro launched the very first social trading platform in 2010 and is widely known as “the social trading broker”. Traders with eToro have access to trade a broad range of financial assets, including forex, stocks and indices, ETFs, commodities, and cryptocurrencies. In all, exposure to more than 3,000 financial assets is provided. It offers commission-free stock and ETF trading. In 2010, eToro launched the very first social trading platform. Its social community of more than 30 million traders across the globe is still a major focus at eToro. Over the years, eToro has captured numerous awards for its innovative trading platform, social trading community, and trading tools. </p>
         </div>
-        <div class="tab-pane fade" :class="{ 'show active': activeTab === 'by-the-numbers-tab-pane' }" id="by-the-numbers-tab-pane" role="tabpanel" aria-labelledby="by-the-numbers-tab" tabindex="0">
+        <div class="tab-pane fade py-16px" :class="{ 'show active': activeTab === 'by-the-numbers-tab-pane' }" id="by-the-numbers-tab-pane" role="tabpanel" aria-labelledby="by-the-numbers-tab" tabindex="0">
       2
     </div>
-        <div class="tab-pane fade" :class="{ 'show active': activeTab === 'live-spread-tab-pane' }" id="live-spread-tab-pane" role="tabpanel" aria-labelledby="live-spread-tab" tabindex="0">
+        <div class="tab-pane fade py-16px" :class="{ 'show active': activeTab === 'live-spread-tab-pane' }" id="live-spread-tab-pane" role="tabpanel" aria-labelledby="live-spread-tab" tabindex="0">
       3
     </div>
-        <div class="tab-pane fade" :class="{ 'show active': activeTab === 'live-swaps-tab-pane' }" id="live-swaps-tab-pane" role="tabpanel" aria-labelledby="live-swaps-tab" tabindex="0">
+        <div class="tab-pane fade py-16px" :class="{ 'show active': activeTab === 'live-swaps-tab-pane' }" id="live-swaps-tab-pane" role="tabpanel" aria-labelledby="live-swaps-tab" tabindex="0">
       4
     </div>
       </div>
