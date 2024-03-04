@@ -1,0 +1,18 @@
+<span x-data="popoverCustom()" x-init="init()">
+    <!-- Trigger button -->
+    <button @click="togglePopover" class="btn btn-link p-0" x-ref="button">
+        <svg class="" aria-hidden="true" width="20" height="20">
+            <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
+        </svg>
+    </button>
+
+    <!-- Popover content -->
+    <div x-ref="popoverCustom" x-show="openPopover" style="display: none;" class="popover bs-popover-auto" role="tooltip">
+        <div x-ref="arrow" class="arrow"></div>
+        {# <h3 class="popover-header">Popover title</h3> #}
+        <div class="popover-body">
+            <h6>Disclaimer title</h6>
+            <p class="mb-0">And here's some amazing content. It's very engaging. Right?</p>
+        </div>
+    </div>
+</span>

@@ -11,12 +11,12 @@
                         </h2>
                         <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
                             <div class="accordion-body p-24px">
-                                <a href="#" class="btn btn-underline p-0 mb-24px">
+                                <span class="btn btn-underline p-0 mb-24px position-relative">
                                     <span>More info</span>
-                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
-                                        <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
-                                    </svg>
-                                </a>
+                                    <div class="position-absolute end-0 me-n24px">
+                                        {% include "components/popover.njk" %}
+                                    </div>
+                                </span>
                                 <div x-data="countriesDropdown()">
                                     <select x-ref="select" class="form-select rounded-pill" aria-label="Country">
                                         <template x-for="(country, index) in countries" :key="index">
@@ -47,12 +47,12 @@
                         </h2>
                         <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
                             <div class="accordion-body p-24px">
-                                <a href="#" class="btn btn-underline p-0 mb-24px">
+                                <span class="btn btn-underline p-0 mb-24px position-relative">
                                     <span>More info</span>
-                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
-                                        <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
-                                    </svg>
-                                </a>
+                                    <div class="position-absolute end-0 me-n24px">
+                                        {% include "components/popover.njk" %}
+                                    </div>
+                                </span>
 
                                 <div class="d-flex flex-column row-gap-2 mb-32px">
                                     <div class="form-check">
@@ -126,12 +126,12 @@
                         </h2>
                         <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
                             <div class="accordion-body p-24px">
-                                <a href="#" class="btn btn-underline p-0 mb-24px">
+                                <span class="btn btn-underline p-0 mb-24px position-relative">
                                     <span>More info</span>
-                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
-                                        <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
-                                    </svg>
-                                </a>
+                                    <div class="position-absolute end-0 me-n24px">
+                                        {% include "components/popover.njk" %}
+                                    </div>
+                                </span>
 
                                 <div class="d-flex flex-column row-gap-2 mb-32px">
                                     <div class="form-check">
@@ -194,12 +194,12 @@
                         </h2>
                         <div :id="'collapseOne'" class="accordion-collapse collapse" :class="{'show': open === 1}" data-bs-parent="#wizardStep1">
                             <div class="accordion-body p-24px">
-                                <a href="#" class="btn btn-underline p-0 mb-24px">
+                                <span class="btn btn-underline p-0 mb-24px position-relative">
                                     <span>More info</span>
-                                    <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
-                                        <use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use>
-                                    </svg>
-                                </a>
+                                    <div class="position-absolute end-0 me-n24px">
+                                        {% include "components/popover.njk" %}
+                                    </div>
+                                </span>
 
                                 <div class="d-flex flex-column row-gap-2 mb-32px">
                                     <div class="form-check">
