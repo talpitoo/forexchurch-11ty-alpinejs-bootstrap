@@ -1,0 +1,54 @@
+<div class='forexchurch-tile shadow-lg flex-column mt-nsection mb-16px position-relative'>
+    <div class="position-absolute w-100 bg-light mt-n16px" style="height: 68px"></div>
+
+    <div class="p-12px rounded-3 bg-primary d-inline-block mx-auto position-relative zindex-1 shadow">
+        <img src="{{ eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain"/>
+    </div>
+    <h1 class="h2">{{ title }} Review</h1>
+    <p class="mb-0 text-center">
+        <span class="text-nowrap">
+            <svg class="" aria-hidden="true" width="20" height="20">
+                <use href="/img/icons/symbol/svg/sprite.css.svg#holiday"></use>
+            </svg>
+      22 July 2023</span>
+        {# ・  #}
+        <br/>
+        <span class="text-nowrap">
+            <svg class="" aria-hidden="true" width="20" height="20">
+                <use href="/img/icons/symbol/svg/sprite.css.svg#user"></use>
+            </svg>Joshua Fred</span>
+    </p>
+    <hr class="border border-black w-100 my-0"/>
+    <h6 class="mb-0 fw-medium">Forexchurch score</h6>
+    {% include "components/star-rating-big.njk" %}
+    <div x-data="{ isRecommendedBrokersOpen: false }">
+        <button @click="isRecommendedBrokersOpen = !isRecommendedBrokersOpen" class="btn btn-underline">
+            <span>Recommended Brokers</span>
+            <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
+                <use :href="isRecommendedBrokersOpen ? '/img/icons/symbol/svg/sprite.css.svg#chevron-up' : '/img/icons/symbol/svg/sprite.css.svg#chevron-down'"></use>
+            </svg>
+        </button>
+        <div x-show="isRecommendedBrokersOpen" class="px-4">
+            <div class="d-flex flex-column gap-3">
+                {# TODO: API for recommended brokers #}
+                {% set categoryPages = collections["by category"] %}
+                {% for item in categoryPages.slice(0, 3) %}
+                    <div class="d-flex align-items-center w-100">
+                        <div class="p-12px rounded-3 bg-primary d-inline-block position-relative zindex-1 shadow me-8px">
+                            <img src="{{ item.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='40' height='40' class="flex-shrink-0 object-fit-contain"/>
+                        </div>
+                        <div>
+                            <h6 class="fw-medium mb-0">{{ item.data.title }}</h6>
+                            <a href="#" class="btn btn-underline px-0">
+                                <span>Visit Broker</span>
+                                <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
+                                    <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
