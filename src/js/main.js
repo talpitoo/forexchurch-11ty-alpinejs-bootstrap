@@ -4,6 +4,7 @@ import Alpine from 'alpinejs';
 // import 'bootstrap/dist/js/bootstrap.bundle.min'; // Includes Bootstrap and Popper
 import { createPopper } from '@popperjs/core';
 import { popoverCustom } from './modules/popoverCustom';
+import { scrollspyCustom } from './modules/scrollspyCustom';
 import { loadBreweries } from './modules/breweries';
 import { loadBreweriesMock } from './modules/breweriesMock';
 import { countriesDropdown } from './modules/countries';
@@ -15,6 +16,7 @@ window.Alpine = Alpine;
 // make loadBreweries and other functions globally available
 window.createPopper = createPopper;
 // window.popoverCustom = popoverCustom;
+// window.scrollspyCustom = scrollspyCustom;
 window.loadBreweries = loadBreweries;
 window.loadBreweriesMock = loadBreweriesMock;
 window.countriesDropdown = countriesDropdown;
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize custom scripts or components
     // popoverCustom();
+    // scrollspyCustom();
     loadBreweries();
     loadBreweriesMock();
     countriesDropdown();
@@ -49,6 +52,7 @@ window.addEventListener('alpine:init', () => {
 
     // register the individual modules with Alpine
     Alpine.data('popoverCustom', popoverCustom);
+    Alpine.data('scrollspyCustom', scrollspyCustom);
     Alpine.data('loadBreweries', loadBreweries);
     Alpine.data('loadBreweriesMock', loadBreweriesMock);
     Alpine.data('countriesDropdown', countriesDropdown);

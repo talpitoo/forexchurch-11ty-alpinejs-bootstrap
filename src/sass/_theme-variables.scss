@@ -460,7 +460,8 @@ $position-values: (
   0: 0,
   50: 50%,
   100: 100%,
-) !default;
+  "navbar": 73px, // 73px, the height of the top navbar
+);
 // scss-docs-end position-map
 
 // Body
