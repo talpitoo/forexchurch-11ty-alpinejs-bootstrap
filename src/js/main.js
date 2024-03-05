@@ -10,34 +10,20 @@ import { loadBreweriesMock } from './modules/breweriesMock';
 import { countriesDropdown } from './modules/countries';
 import { initializeSwiper } from './modules/swiperInstances';
 
-// Initialize Alpine.js
+// make modules globally available
 window.Alpine = Alpine;
-
-// make loadBreweries and other functions globally available
 window.createPopper = createPopper;
-// window.popoverCustom = popoverCustom;
-// window.scrollspyCustom = scrollspyCustom;
-window.loadBreweries = loadBreweries;
-window.loadBreweriesMock = loadBreweriesMock;
-window.countriesDropdown = countriesDropdown;
 
-// Custom initialization when DOM is fully loaded
+// custom initialization when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
     console.log('DOM is fully loaded');
     Alpine.start();
-
-    // Initialize custom scripts or components
-    // popoverCustom();
-    // scrollspyCustom();
-    loadBreweries();
-    loadBreweriesMock();
-    countriesDropdown();
     initializeSwiper();
 });
 
-// Listen for Alpine.js initialization for more complex setups
+// listen for Alpine.js initialization for more complex setups
 window.addEventListener('alpine:init', () => {
-    // Initialize or configure Alpine.js plugins and components here
+    // initialize or configure Alpine.js plugins and components here
     console.log('Alpine.js has been initialized');
     // Alpine.plugin(persist);
     // Alpine.data('dropdown', dropdown)

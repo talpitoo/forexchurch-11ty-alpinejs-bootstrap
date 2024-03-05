@@ -15,7 +15,7 @@ export function scrollspyCustom() {
             window.addEventListener('scroll', this.updateActiveSection.bind(this));
         },
         updateActiveSection() {
-            let sections = ['our-conclusion', 'overview', 'account-types'];
+            let sections = ['our-conclusion', 'overview', 'account-types', 'account-opening-procedure', 'trading-platforms', 'assets-traded', 'deposits-withdrawals', 'fees'];
             let scrollY = window.pageYOffset;
 
             // Reverse loop removed, replaced with direct iteration to better handle initial state
