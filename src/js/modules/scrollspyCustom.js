@@ -1,32 +1,67 @@
 export function scrollspyCustom() {
     return {
-        activeScrollspy: 'our-conclusion', // Initialize with the first section id
+        activeScrollspy: '',
+        sections: [],
         init() {
+            // Add an initial call to setup for page load
+            this.setupForCurrentTab();
+
+            // Setup scrollspy functionality
             this.$watch('activeScrollspy', value => {
                 history.pushState({}, '', '#' + value);
             });
 
-            // Using requestAnimationFrame to ensure the page is fully loaded
-            // and all dynamic content heights are settled
             requestAnimationFrame(() => {
                 this.updateActiveSection();
             });
 
             window.addEventListener('scroll', this.updateActiveSection.bind(this));
+
+            // Adjusted setupTabChangeListener to ensure it's effective
+            this.setupTabChangeListener();
+        },
+        setupForCurrentTab() {
+            this.scanSections();
+            this.populateTOC();
+            // Ensure the active section is updated on page load and tab change
+            this.updateActiveSection();
+        },
+        scanSections() {
+            // Adjusted to correctly target the active tab's content
+            const activeTabContent = document.querySelector('.tab-content .tab-pane.active'); // Adjust selector based on your tab's active class
+            if (activeTabContent) {
+                this.sections = Array.from(activeTabContent.querySelectorAll('h2.forexchurch-anchor-offset')).map(h2 => h2.id);
+            }
+            this.activeScrollspy = this.sections.length > 0 ? this.sections[0] : '';
+        },
+        populateTOC() {
+            const toc = document.querySelector('#toc ul');
+            if (toc) {
+                toc.innerHTML = this.sections.map(id => {
+                    const text = document.getElementById(id)?.textContent || '';
+                    return `<li><a href="#${id}" class="text-decoration-none" :class="activeScrollspy === '${id}' ? 'text-body bg-tertiary-light' : 'text-muted'">${text}</a></li>`;
+                }).join('');
+            }
         },
         updateActiveSection() {
-            let sections = ['our-conclusion', 'overview', 'account-types', 'account-opening-procedure', 'trading-platforms', 'assets-traded', 'deposits-withdrawals', 'fees'];
             let scrollY = window.pageYOffset;
-
-            // Reverse loop removed, replaced with direct iteration to better handle initial state
-            for (let i = 0; i < sections.length; i++) {
-                const section = document.getElementById(sections[i]);
-                // This approach attempts to set the active section more accurately on initial load
+            this.sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
                 if (section && scrollY >= section.offsetTop - 10) {
-                    this.activeScrollspy = sections[i];
-                    // Continue checking until finding the last section that meets this condition
+                    this.activeScrollspy = sectionId;
+                    // Exit the loop once the active section is found
+                    return;
                 }
-            }
+            });
+        },
+        setupTabChangeListener() {
+            document.querySelectorAll('.nav-tabs .nav-link').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    setTimeout(() => {
+                        this.setupForCurrentTab();
+                    }, 150); // Adjust delay if necessary
+                });
+            });
         }
     };
 }
