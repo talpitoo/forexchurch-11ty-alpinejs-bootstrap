@@ -1,0 +1,13 @@
+// stylelint-disable scss/dollar-variable-pattern
+$headerBackgroundColor: $primary; //border to tabulator
+$headerTextColor: $white; //header text color
+
+.tabulator-row .tabulator-cell,
+.tabulator-col-content {
+  // stylelint-disable declaration-no-important
+  padding: 8px 16px !important;
+}
+
+.tabulator-col-title {
+  font-weight: 400;
+}

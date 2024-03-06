@@ -16,8 +16,10 @@
         {# <div x-data="{ test: 'Alpine.js is working!' }" x-text="test" class='bg-tertiary-light p-5 rounded-4 mb-5'></div> #}
         {% include "components/load-breweries-mock.njk" %}
 
-        <div x-data="tabulatorMock()" x-init="initTable">
-            <div id="example-table"></div>
+        <div class="rounded-3 overflow-hidden">
+            <div x-data="tabulatorMock()" x-init="initTable">
+                <div id="example-table"></div>
+            </div>
         </div>
     </div>
 </section>
