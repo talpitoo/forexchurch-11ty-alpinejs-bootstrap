@@ -7,7 +7,7 @@ export function radarChart() {
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Running', 'Swimming', 'Eating', 'Cycling', 'Sleeping'],
+                    labels: ['Regulations', 'Trading conditions', 'Trading platforms', 'Deposit and Withdrawal', 'Education and research'],
                     datasets: [{
                         label: 'My First Dataset',
                         data: [20, 10, 4, 2, 8],

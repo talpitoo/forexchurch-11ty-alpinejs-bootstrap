@@ -12,6 +12,18 @@ eleventyNavigation:
 tags: ["forex brokers", "top comparisons"]
 ---
 
+<div class='container container-max-xl'>
+  <div class='row'>
+    <div class='col-lg-3'>
+      <select class="form-select rounded-pill mt-16px">
+        <option selected>Selected Brokers (2)</option>
+        <option>TODO</option>
+      </select>
+    </div>
+  </div>
+  <hr class="border border-light opacity-100 w-100"/>
+</div>
+
 <section class='py-section'>
   <div class='container container-max-xl'>
     {% include "components/load-breweries-mock.njk" %}
@@ -20,25 +32,20 @@ tags: ["forex brokers", "top comparisons"]
         <span>[Broker 2]</span></a> involves analysing several key aspects of each broker's service, using the criteria from our in-depth individual reviews as well as our extensive points of data on each broker.</p>
     <p>We rate elements such as account types, broker safety/regulation, trading platforms, available financial markets and assets and market news/research on a scale of 0-5. We place special emphasis on important features like broker safety, trading platforms and trader education resources. The charts below summarize how the brokers stack up in these key areas:</p>
     {# TODO: Insert<a href="#" class="btn btn-underline p-0"><span>[Broker 1]</span></a>and<a href="#" class="btn btn-underline p-0"><span>[Broker 2]</span></a>Radar Charts. #}
-    <div class="row mb-16px">
+    <div class="row mb-32px">
       <div class="col-lg-6">
         <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
-          <div x-data="radarChart()" x-init="initChart()" class="p-5">
+          <div x-data="radarChart()" x-init="initChart()">
             <figure>
               <canvas id="myRadarChart"></canvas>
-              <figcaption>[Broker 1]</figcaption>
+              <figcaption class="text-center">[Broker 1]</figcaption>
             </figure>
           </div>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
-          <div x-data="radarChart()" x-init="initChart()" class="p-5">
-            <figure>
-              <canvas id="myRadarChart"></canvas>
-              <figcaption>[Broker 2]</figcaption>
-            </figure>
-          </div>
+          <figcaption class="text-center">[Broker 2]</figcaption>
         </div>
       </div>
     </div>
@@ -95,7 +102,12 @@ tags: ["forex brokers", "top comparisons"]
     <p>Click here to view [Broker 1] or [Broker 2] Live forex spreads.</p>
     <p>It is also important to consider non-trading related fees:</p>
     {% include "components/load-breweries-mock.njk" %}
-    <p>Advantage: [Broker with lower trading fees (spreads, commissions, non-trading fees]</p>
+    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+      </svg>
+      <p class="mb-0">Advantage: [Broker with lower trading fees (spreads, commissions, non-trading fees]</p>
+    </div>
   </div>
 </section>
 
@@ -115,25 +127,40 @@ tags: ["forex brokers", "top comparisons"]
     </ul>
     <p>Other important aspects to consider is the platforms level of access multi-market trading, options for copy trading and social trading.</p>
     {% include "components/load-breweries-mock.njk" %}
-    <p>Advantage: [Broker with most trading platforms + ticks the box for the most of the other categories]</p>
+    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+      </svg>
+      <p class="mb-0">Advantage: [Broker with most trading platforms + ticks the box for the most of the other categories]</p>
+    </div>
 
-    <h3>Which Broker Provides More Diverse Market Access: [Broker 1] or [Broker 2] in Forex and CFDs?</h3>
+    <h3 class="mt-32px">Which Broker Provides More Diverse Market Access: [Broker 1] or [Broker 2] in Forex and CFDs?</h3>
     <p>Having access to wide range of trading instruments, allows traders to explore a wider range of trading strategies. The best brokers will offer a comprehensive range of instruments (in CFD and non-CFD variants) across a number of categories, such as Forex, Commodities, Stocks, Futures and ETF’s – catering to diverse trading preferences and styles.</p>
     <p>With our comparison of [Broker 1] and [Broker 2] we have focused on the number and range of instruments that each broker offers.</p>
     <p>Below are tables highlighting the differences in the range of trading instruments offered by each broker (both CFD and non-CFD) to help make an informed choice.</p>
     {% include "components/load-breweries-mock.njk" %}
     {% include "components/load-breweries-mock.njk" %}
-    <p>Advantage: [Broker with most instruments and range of instruments]</p>
+    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+      </svg>
+      <p class="mb-0">Advantage: [Broker with most instruments and range of instruments]</p>
+    </div>
 
-    <h3>Trader Education Resources:</h3>
+    <h3 class="mt-32px">Trader Education Resources:</h3>
     <p>Many beginning forex traders aren’t just beginners at forex trading – they’re altogether new to financial market trading. That makes a broker’s provision of trader education resources a very important factor for many individuals in picking a broker.</p>
     <p>Offering educational resources in a variety of formats, including articles, webinars, videos, courses and Ebooks and covering a range of topics - from basic forex trading knowledge to trading psychology and trading strategies is often what separates a good broker from a great broker.</p>
     <p>Having resources available that will appeal to all levels of traders, from complete novices to even the most experienced and knowledgeable traders is a definite plus.</p>
     <p>We have examined the educational content provided by [Broker 1] and [Broker 2] to determine which broker better supports a traders learning and development.</p>
     <p>Education Rating: [Enter [Broker 1] Education Rating – use the star rating from written reviews]</p>
     <p>Education Rating: [Enter [Broker 2] Education Rating]</p>
-    <p>
-      <strong>Advantage:</strong> [Equal/Specify Broker with better education – use the star rating from written reviews]</p>
+    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+      </svg>
+      <p class="mb-0">
+        <strong>Advantage:</strong> [Equal/Specify Broker with better education – use the star rating from written reviews]</p>
+    </div>
   </div>
 </section>
 
@@ -150,6 +177,13 @@ tags: ["forex brokers", "top comparisons"]
     <p>[Broker 1]: [Enter [Broker 1] Average Rating]</p>
     <p>[Broker 2]: [Enter [Broker 2] Average Rating]</p>
     <p>Although in this head-to-head comparison [Broker 1 or Broker 2 (whichever had the best score)] came out ahead in terms of overall ratings, the crucial factor in choosing a forex broker is finding a reliable one that best aligns with your personal trading needs.</p>
-    <p>For more detailed information, please read our in-depth reviews of [Broker 1]  and [Broker 2].</p>
+    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+      </svg>
+      <p class="mb-0">For more detailed information, please read our in-depth reviews of <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 1]</span></a> and <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 2]</span></a>.</p>
+    </div>
   </div>
 </section>
