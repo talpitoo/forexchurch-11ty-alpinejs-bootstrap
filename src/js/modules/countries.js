@@ -16,9 +16,6 @@ export function countriesDropdown() {
             alpha2Code: country.cca2,
             flag: this.flagEmoji(country.cca2) // Convert alpha2Code to flag emoji
           }));
-          this.$nextTick(() => {
-            this.$refs.select.insertAdjacentHTML('afterbegin', '<option selected>Choose a country</option>');
-          });
         })
         .catch(error => console.error(error));
     },

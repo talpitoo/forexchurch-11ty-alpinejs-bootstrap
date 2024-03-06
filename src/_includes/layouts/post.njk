@@ -9,11 +9,7 @@
 
         <main>
             {% include "../components/breadcrumb.njk" %}
-            <section class='mt-lg-ntabs pb-section position-relative zindex-1'>
-                <div class='container container-max-xl'>
-                    {{ content | safe }}
-                </div>
-            </section>
+            {{ content | safe }}
         </main>
 
         {% include "../components/footer.njk" %}

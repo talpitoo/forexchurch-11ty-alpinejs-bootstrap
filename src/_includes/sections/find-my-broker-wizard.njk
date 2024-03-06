@@ -19,6 +19,7 @@
                                 </span>
                                 <div x-data="countriesDropdown()">
                                     <select x-ref="select" class="form-select rounded-pill" aria-label="Country">
+                                        <option selected>Choose a country</option>
                                         <template x-for="(country, index) in countries" :key="index">
                                             <!-- Use the innerHTML to combine emoji and country name -->
                                             <option :value="country.alpha2Code" x-html="country.name + ' ' + country.flag"></option>

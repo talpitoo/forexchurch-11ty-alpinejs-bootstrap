@@ -1,0 +1,28 @@
+.list-bullet {
+  padding-left: 0;
+  line-height: 2;
+  list-style: none;
+
+  li {
+    padding-left: 20px;
+
+    &::before {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 10px;
+      margin-left: -18px;
+      content: "";
+      background-color: $tertiary;
+      border-radius: 100%;
+    }
+  }
+
+  &.list-bullet-danger {
+    li {
+      &::before {
+        background-color: $danger;
+      }
+    }
+  }
+}

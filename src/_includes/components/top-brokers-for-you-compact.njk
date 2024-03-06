@@ -1,0 +1,29 @@
+<div class="forexchurch-tile shadow-lg flex-column align-items-stretch">
+    <div class="bg-primary position-relative rounded-top-24px mt-n16px mx-n16px py-3">
+        <svg class="position-absolute top-0 start-50 translate-middle" aria-hidden="true" width="44" height="44">
+            <use href="/img/icons/symbol/svg/sprite.css.svg#star-hexagon"></use>
+        </svg>
+        <img src="/img/tile-header.svg" aria-hidden="true" alt='background' width="278" height="44" class=""/>
+        <h3 class="text-center fs-7 text-white position-absolute bottom-0 start-50 translate-middle mb-3 w-100">Top Brokers for you!</h3>
+    </div>
+
+    {% set categoryPages = collections["by category"] %}
+    {% for item in categoryPages.slice(0, 3) %}
+        <div class="d-flex flex-column flex-sm-row align-items-center break-inside-avoid-column">
+            <div class="d-flex align-items-center w-100 me-16px">
+                {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
+                <img src="{{ item.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
+                {# </div> #}
+                <div>
+                    <h6 class="fw-medium mb-0">{{ item.data.title }}</h6>
+                    <a href="{{ item.data.permalink }}" class="btn btn-underline px-0">
+                        <span>Visit Broker</span>
+                        <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
+                            <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

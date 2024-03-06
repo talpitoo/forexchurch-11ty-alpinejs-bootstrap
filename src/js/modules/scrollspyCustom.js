@@ -31,6 +31,8 @@ export function scrollspyCustom() {
             const activeTabContent = document.querySelector('.tab-content .tab-pane.active'); // Adjust selector based on your tab's active class
             if (activeTabContent) {
                 this.sections = Array.from(activeTabContent.querySelectorAll('h2.forexchurch-anchor-offset')).map(h2 => h2.id);
+            } else {
+                this.sections = Array.from(document.querySelectorAll('h2.forexchurch-anchor-offset')).map(h2 => h2.id);
             }
             this.activeScrollspy = this.sections.length > 0 ? this.sections[0] : '';
         },
