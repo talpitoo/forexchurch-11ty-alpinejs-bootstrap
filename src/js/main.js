@@ -1,5 +1,6 @@
 // ES Module imports
 import Alpine from 'alpinejs';
+import { radarChart } from './modules/radarChart';
 // import persist from '@alpinejs/persist';
 // import 'bootstrap/dist/js/bootstrap.bundle.min'; // Includes Bootstrap and Popper
 import { createPopper } from '@popperjs/core';
@@ -7,6 +8,7 @@ import { popoverCustom } from './modules/popoverCustom';
 import { scrollspyCustom } from './modules/scrollspyCustom';
 import { loadBreweries } from './modules/breweries';
 import { loadBreweriesMock } from './modules/breweriesMock';
+import { tabulatorMock } from './modules/tabulatorMock';
 import { countriesDropdown } from './modules/countries';
 import { initializeSwiper } from './modules/swiperInstances';
 
@@ -37,9 +39,11 @@ window.addEventListener('alpine:init', () => {
     // })
 
     // register the individual modules with Alpine
+    Alpine.data('radarChart', radarChart);
     Alpine.data('popoverCustom', popoverCustom);
     Alpine.data('scrollspyCustom', scrollspyCustom);
     Alpine.data('loadBreweries', loadBreweries);
     Alpine.data('loadBreweriesMock', loadBreweriesMock);
+    Alpine.data('tabulatorMock', tabulatorMock);
     Alpine.data('countriesDropdown', countriesDropdown);
 });

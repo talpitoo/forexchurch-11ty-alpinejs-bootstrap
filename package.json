@@ -46,9 +46,11 @@
     "alpinejs": "^3.13.5",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.2",
+    "chart.js": "^4.4.2",
     "flowbite": "^2.2.1",
     "gsap": "^3.12.5",
-    "swiper": "^11.0.6"
+    "swiper": "^11.0.6",
+    "tabulator-tables": "^5.6.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",

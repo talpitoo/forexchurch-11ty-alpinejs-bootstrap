@@ -14,31 +14,10 @@
         </div>
 
         {# <div x-data="{ test: 'Alpine.js is working!' }" x-text="test" class='bg-tertiary-light p-5 rounded-4 mb-5'></div> #}
+        {% include "components/load-breweries-mock.njk" %}
 
-        {# <div x-data="loadBreweries()" x-init="getBreweries"> #}
-        <div x-data="loadBreweriesMock()" x-init="getBreweriesMock">
-            <div class="table-responsive">
-                <table class="table table-striped w-full">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>City</th>
-                            <th>State</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <template x-for="brewery in breweries" :key="brewery.id">
-                            <tr>
-                                <td x-text="brewery.name"></td>
-                                <td x-text="brewery.brewery_type"></td>
-                                <td x-text="brewery.city"></td>
-                                <td x-text="brewery.state"></td>
-                            </tr>
-                        </template>
-                    </tbody>
-                </table>
-            </div>
+        <div x-data="tabulatorMock()" x-init="initTable">
+            <div id="example-table"></div>
         </div>
     </div>
 </section>
