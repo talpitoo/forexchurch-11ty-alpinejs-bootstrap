@@ -2,8 +2,8 @@ import { TabulatorFull as Tabulator } from 'tabulator-tables';
 import axios from 'axios';
 
 const brokerDataUrls = {
-  'e-toro': '/data/brokers/broker1.json',
-  'ic-markets': '/data/brokers/broker2.json',
+  'e-toro': '/data/brokers/e-toro.json',
+  'ic-markets': '/data/brokers/ic-markets.json',
   'broker-3': '/data/brokers/broker1.json',
   'broker-4': '/data/brokers/broker2.json',
   // Add more mappings as necessary
@@ -30,7 +30,7 @@ export function brokerComparisonExample() {
         layout: "fitColumns",
         data: this.prepareInitialData(), // Use an initial data setup to populate the 'detail' rows
         columns: [
-          { title: "Detail", field: "detail", headerSort: false, frozen: true },
+          { title: " ", field: "detail", headerSort: false, frozen: true },
           // Additional broker columns will be added dynamically
         ],
         placeholder: "Select a broker to start the comparison",
@@ -44,7 +44,41 @@ export function brokerComparisonExample() {
 
     prepareInitialData() {
       // Define the comparison keys that will always be visible in the 'detail' column
-      const comparisonKeys = ['Headquarters', 'Regulators', 'Minimum Deposit', 'Forex Pairs'];
+      // const comparisonKeys = ['Headquarters', 'Regulators', 'Minimum Deposit', 'Forex Pairs'];
+
+      const comparisonKeys = [
+        "Headquarters",
+        "Regulators",
+        "Dealing Desk Type",
+        "Account Currencies",
+        "Funding Methods",
+        "Minimum Deposit",
+        "Trading Instruments",
+        "Forex Pairs",
+        "Average EUR/USD Spread",
+        "Average EUR/USD Spread Tooltip",
+        "Commission on Forex",
+        "Commission on Forex Tooltip",
+        "Maximum Leverage",
+        "Hedging Allowed",
+        "Scalping Allowed",
+        "Swap-Free Accounts",
+        "VIP Accounts Offered",
+        "PAMM/MAM Solutions",
+        "API Solutions",
+        "Platforms Offered",
+        "VPS Offered",
+        "Client Funds in Segregated Accounts",
+        "Negative Balance Protection",
+        "Account Types",
+        "Safety/Regulation",
+        "Fees",
+        "Trading Platforms",
+        "Assets Traded",
+        "Deposits/Withdrawals",
+        "Trader Education",
+        "Customer Service"
+      ];
 
       // Return an array of objects with 'detail' keys to populate the initial table data
       return comparisonKeys.map(detail => ({
@@ -75,7 +109,7 @@ export function brokerComparisonExample() {
 
       Promise.all(fetchPromises).then(brokersData => {
         const columns = [
-          { title: "Detail", field: "detail", headerSort: false, frozen: true },
+          { title: " ", field: "detail", headerSort: false, frozen: true },
           ...this.selectedBrokers.map((brokerId, index) => ({
             title: brokersData[index].name, // Use broker name as column title
             field: brokerId, // Use brokerId as field name for dynamic data mapping
@@ -95,7 +129,40 @@ export function brokerComparisonExample() {
     },
 
     prepareDataForTable(brokers) {
-      const comparisonKeys = ['headquarters', 'regulators', 'minimumDeposit', 'forexPairs'];
+      // const comparisonKeys = ['headquarters', 'regulators', 'minimumDeposit', 'forexPairs'];
+      const comparisonKeys = [
+        "Headquarters",
+        "Regulators",
+        "Dealing Desk Type",
+        "Account Currencies",
+        "Funding Methods",
+        "Minimum Deposit",
+        "Trading Instruments",
+        "Forex Pairs",
+        "Average EUR/USD Spread",
+        "Average EUR/USD Spread Tooltip",
+        "Commission on Forex",
+        "Commission on Forex Tooltip",
+        "Maximum Leverage",
+        "Hedging Allowed",
+        "Scalping Allowed",
+        "Swap-Free Accounts",
+        "VIP Accounts Offered",
+        "PAMM/MAM Solutions",
+        "API Solutions",
+        "Platforms Offered",
+        "VPS Offered",
+        "Client Funds in Segregated Accounts",
+        "Negative Balance Protection",
+        "Account Types",
+        "Safety/Regulation",
+        "Fees",
+        "Trading Platforms",
+        "Assets Traded",
+        "Deposits/Withdrawals",
+        "Trader Education",
+        "Customer Service"
+      ];
 
       let dataStructure = comparisonKeys.map(detail => ({
         detail: this.formatDetailTitle(detail), // Optionally format detail titles for readability
