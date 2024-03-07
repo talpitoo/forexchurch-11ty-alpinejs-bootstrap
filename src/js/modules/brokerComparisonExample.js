@@ -11,9 +11,11 @@ const brokerDataUrls = {
 
 export function brokerComparisonExample() {
   return {
-    selectedBrokers: [],
+    // selectedBrokers: [],
+    selectedBrokers: ['e-toro', 'ic-markets'], // Initialize with preselected brokers
     table: null,
 
+    // NOTE: this would initialize an empty table, and even the 'detail/first' column would be populated upon .json load
     // initTable() {
     //   this.table = new Tabulator("#comparison-table", {
     //     layout: "fitColumns",
@@ -33,12 +35,17 @@ export function brokerComparisonExample() {
         ],
         placeholder: "Select a broker to start the comparison",
       });
+
+      // Immediately load data for preselected brokers
+      setTimeout(() => {
+        this.loadSelectedBrokersData();
+      }, 100);
     },
 
     prepareInitialData() {
       // Define the comparison keys that will always be visible in the 'detail' column
       const comparisonKeys = ['Headquarters', 'Regulators', 'Minimum Deposit', 'Forex Pairs'];
-      
+
       // Return an array of objects with 'detail' keys to populate the initial table data
       return comparisonKeys.map(detail => ({
         detail: detail // No broker data yet, just the detail labels
@@ -62,7 +69,7 @@ export function brokerComparisonExample() {
     },
 
     loadSelectedBrokersData() {
-      const fetchPromises = this.selectedBrokers.map(brokerId => 
+      const fetchPromises = this.selectedBrokers.map(brokerId =>
         axios.get(brokerDataUrls[brokerId]).then(response => response.data)
       );
 
@@ -89,7 +96,7 @@ export function brokerComparisonExample() {
 
     prepareDataForTable(brokers) {
       const comparisonKeys = ['headquarters', 'regulators', 'minimumDeposit', 'forexPairs'];
-      
+
       let dataStructure = comparisonKeys.map(detail => ({
         detail: this.formatDetailTitle(detail), // Optionally format detail titles for readability
       }));
