@@ -20,9 +20,9 @@ const comparisonKeys = [
   "Trading Instruments",
   "Forex Pairs",
   "Average EUR/USD Spread",
-  "Average EUR/USD Spread Tooltip",
+  // "Average EUR/USD Spread Tooltip",
   "Commission on Forex",
-  "Commission on Forex Tooltip",
+  // "Commission on Forex Tooltip",
   "Maximum Leverage",
   "Hedging Allowed",
   "Scalping Allowed",
@@ -98,26 +98,44 @@ export function brokerComparisonExample() {
       }).catch(error => console.error('Error loading broker data:', error));
     },
 
+    prepareDataForTable(brokersData) {
+      return comparisonKeys.map(key => {
+        let rowData = { detail: key }; // Using the detail titles directly from comparisonKeys
+    
+        brokersData.forEach((broker, index) => {
+          if (key === "Average EUR/USD Spread" && broker["Average EUR/USD Spread Tooltip"]) {
+            // Format the HTML content only for this specific cell
+            rowData[this.selectedBrokers[index]] = `${broker[key]} <span class="text-warning"><svg class="" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use></svg>${broker["Average EUR/USD Spread Tooltip"]}</span>`;
+          } else {
+            // Directly assign the data for all other cells
+            rowData[this.selectedBrokers[index]] = broker[key] ? broker[key].toString() : "N/A";
+          }
+        });
+    
+        return rowData;
+      });
+    },
+    
     prepareColumns(brokersData) {
       return [
         { title: " ", field: "detail", headerSort: false, frozen: true },
-        // Additional broker columns will be added dynamically
-        ...brokersData.map((broker, index) => ({
-          title: broker.name, // Use broker name as column title
-          field: this.selectedBrokers[index], // Use brokerId as field name for dynamic data mapping
-          headerSort: false,
-        })),
+        ...this.selectedBrokers.map((brokerId, index) => {
+          // Determine if any broker data for this column requires HTML rendering
+          let requiresHtml = comparisonKeys.includes("Average EUR/USD Spread") && brokersData[index]["Average EUR/USD Spread Tooltip"];
+          
+          return {
+            title: brokersData[index].name,
+            field: brokerId,
+            headerSort: false,
+            formatter: requiresHtml ? "html" : undefined, // Apply HTML formatter conditionally based on data presence
+          };
+        }),
       ];
     },
 
-    prepareDataForTable(brokersData) {
-      return comparisonKeys.map(detail => ({
-        detail,
-        ...brokersData.reduce((acc, broker, index) => ({
-          ...acc,
-          [this.selectedBrokers[index]]: broker[detail] || "N/A", // Use detail as key, fallback to "N/A" if not found
-        }), {}),
-      }));
-    },
+
+
+
+
   }
 }
