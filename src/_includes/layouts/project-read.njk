@@ -63,7 +63,7 @@
                 <div class="h-spacer-33 {% if coverPhoto.figureBackgroundColor is defined and coverPhoto.figureBackgroundColor !== '' %}{{ coverPhoto.figureBackgroundColor }}{% else %}bg-light{% endif %} {{ figureBackgroundColor }}">
                   {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
                   {% set pictureObject = coverPhoto %}
-                  {% include "components/picture-example.njk" %}
+                  {# {% include "components/picture-example.njk" %} #}
                 </div>
 
                 {# NOTE: optional caption #}

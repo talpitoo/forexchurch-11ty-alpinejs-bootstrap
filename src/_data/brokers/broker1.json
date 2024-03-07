@@ -1,0 +1,7 @@
+{
+    "name": "Broker A",
+    "headquarters": "New York",
+    "regulators": "SEC",
+    "minimumDeposit": "100",
+    "forexPairs": "50"
+}

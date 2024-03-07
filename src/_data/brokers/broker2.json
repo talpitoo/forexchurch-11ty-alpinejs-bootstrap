@@ -1,0 +1,7 @@
+{
+    "name": "Broker B",
+    "headquarters": "London",
+    "regulators": "FCA",
+    "minimumDeposit": "200",
+    "forexPairs": "70"
+}

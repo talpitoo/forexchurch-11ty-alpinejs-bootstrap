@@ -1,0 +1,163 @@
+{
+    "name": "IC Markets",
+    "subtitle": "TODO",
+    "excerpt": "TODO _ _ _ is an online Forex and cryptocurrency STP broker, providing CFD trading on hundreds of assets and optimal trading conditions within the award-winning MT4 platform.",
+    "rating": "2.8",
+    "eleventyNavigation": {
+        "key": "IC Markets",
+        "parent": "Top Brokers",
+        "url": "/forex-brokers/top-brokers/ic-markets/",
+        "logo": "/img/logos/ic-markets.png",
+        "tags": [
+            "forex brokers",
+            "top brokers"
+        ]
+    },
+    "Headquarters": "Cyprus",
+    "Regulators": [
+        "CySEC (Cyprus)",
+        "ASIC (Australia)",
+        "FCA (United Kingdom)",
+        "BaFin (Germany)",
+        "FSA"
+    ],
+    "Dealing Desk Type": "ECN/STP, DMA",
+    "Account Currencies": [
+        "USD",
+        "EUR",
+        "AUD"
+    ],
+    "Funding Methods": [
+        "Credit Card",
+        "Wire Transfer",
+        "Neteller",
+        "Skrill"
+    ],
+    "Minimum Deposit": "$5",
+    "Trading Instruments": [
+        "Forex CFD's",
+        "Indices CFD's",
+        "Stocks CFD's",
+        "Crypto CFD's",
+        "Bond CFD's",
+        "Real Stocks",
+        "Real Futures"
+    ],
+    "Forex Pairs": 67,
+    "Average EUR/USD Spread": "0.7 pips",
+    "Average EUR/USD Spread Tooltip": "TODO: account used for data",
+    "Commission on Forex": "$3.50 / lot per side",
+    "Commission on Forex Tooltip": "TODO: account used for data",
+    "Maximum Leverage": "400:1",
+    "Hedging Allowed": "Yes",
+    "Scalping Allowed": "Yes",
+    "Swap-Free Accounts": "Yes",
+    "VIP Accounts Offered": "Yes",
+    "PAMM/MAM Solutions": "No",
+    "API Solutions": "Yes",
+    "Platforms Offered": [
+        "MT4",
+        "MT5",
+        "cTrader",
+        "IRESS"
+    ],
+    "VPS Offered": "Yes",
+    "Client Funds in Segregated Accounts": "Yes",
+    "Negative Balance Protection": "Yes",
+    "Account Types": 3.6,
+    "Safety/Regulation": 2.5,
+    "Fees": 3.7,
+    "Trading Platforms": 4.0,
+    "Assets Traded": 3.9,
+    "Deposits/Withdrawals": 2.8,
+    "Trader Education": 2.8,
+    "Customer Service": 2.8,
+    "Commission per lot": "[Broker 1 Commission]",
+    "Account used": "[Broker 1 Account Used]",
+    "EUR/USD spread": "[Broker 1 EUR/USD Spread]",
+    "GBP/USD spread": "[Broker 1 GBP/USD Spread]",
+    "USD/JPY spread": "[Broker 1 USD/JPY Spread]",
+    "Non-CFD Instruments Offered": {
+        "Stocks": "No",
+        "Options": "No",
+        "Bonds": "No",
+        "Futures": "No",
+        "ETFs": "No"
+    },
+    "Number of CFD Instruments": {
+        "Forex": 50,
+        "Indices CFDs": 15,
+        "Commodities CFDs": 25,
+        "Stocks CFDs": 200,
+        "Crypto CFDs": 10,
+        "Futures CFDs": 5,
+        "ETF CFDs": 12
+    },
+    "Trading Platforms and Features": {
+        "Platforms": "[Broker 1 Platforms]",
+        "Web Trading": "Yes",
+        "Mobile Trading": "Yes",
+        "Desktop Trading": "Yes",
+        "Social Trading": "Yes",
+        "Copy Trading": "Yes",
+        "API Access": "Yes",
+        "Demo Account Expiry": "[Broker 1 Demo Account Expiry]"
+    },
+    "Non Trading Fees": {
+        "Withdrawal fee": "No",
+        "Deposit Fee": "No",
+        "Inactivity fee": "No",
+        "Account fee": "No"
+    },
+    "Tab Review": {
+        "Content #1 under Review tab": "TODO",
+        "Content #2 under Review tab": "TODO",
+        "Content #3 under Review tab": "TODO",
+        "Something else": "TODO",
+        "Section #1 title": "TODO",
+        "Section #1 paragraph": "TODO",
+        "Section #2 title": "TODO",
+        "Section #2 paragraph": "TODO",
+        "Section #3 title": "TODO",
+        "Section #3 paragraph": "TODO"
+    },
+    "Tab By the numbers": {
+        "Content #1 under By the numbers tab": "TODO",
+        "Content #2 under By the numbers tab": "TODO",
+        "Content #3 under By the numbers tab": "TODO",
+        "Something else": "TODO",
+        "Section #1 title": "TODO",
+        "Section #1 paragraph": "TODO",
+        "Section #2 title": "TODO",
+        "Section #2 paragraph": "TODO",
+        "Section #3 title": "TODO",
+        "Section #3 paragraph": "TODO"
+    },
+    "Tab Live Spread": {
+        "Content #1 under Live Spread tab": "TODO",
+        "Content #2 under Live Spread tab": "TODO",
+        "Content #3 under Live Spread tab": "TODO",
+        "Something else": "TODO",
+        "Section #1 title": "TODO",
+        "Section #1 paragraph": "TODO",
+        "Section #2 title": "TODO",
+        "Section #2 paragraph": "TODO",
+        "Section #3 title": "TODO",
+        "Section #3 paragraph": "TODO"
+    },
+    "Tab Live Swaps": {
+        "Content #1 under Live Swaps tab": "TODO",
+        "Content #2 under Live Swaps tab": "TODO",
+        "Content #3 under Live Swaps tab": "TODO",
+        "Something else": "TODO",
+        "Section #1 title": "TODO",
+        "Section #1 paragraph": "TODO",
+        "Section #2 title": "TODO",
+        "Section #2 paragraph": "TODO",
+        "Section #3 title": "TODO",
+        "Section #3 paragraph": "TODO"
+    },
+    "review date": "22 July 2023",
+    "review by user": "Joshua Fred",
+    "missing data": "some value USD"
+}

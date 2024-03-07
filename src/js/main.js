@@ -9,6 +9,8 @@ import { scrollspyCustom } from './modules/scrollspyCustom';
 import { loadBreweries } from './modules/breweries';
 import { loadBreweriesMock } from './modules/breweriesMock';
 import { tabulatorMock } from './modules/tabulatorMock';
+import { brokerComparison } from './modules/brokerComparison';
+import { brokerComparisonExample } from './modules/brokerComparisonExample';
 import { countriesDropdown } from './modules/countries';
 import { initializeSwiper } from './modules/swiperInstances';
 
@@ -45,5 +47,7 @@ window.addEventListener('alpine:init', () => {
     Alpine.data('loadBreweries', loadBreweries);
     Alpine.data('loadBreweriesMock', loadBreweriesMock);
     Alpine.data('tabulatorMock', tabulatorMock);
+    Alpine.data('brokerComparison', brokerComparison);
+    Alpine.data('brokerComparisonExample', brokerComparisonExample);
     Alpine.data('countriesDropdown', countriesDropdown);
 });

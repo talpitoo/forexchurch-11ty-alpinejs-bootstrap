@@ -13,6 +13,7 @@ https://forexchurch-ten.vercel.app/
 3. install dependencies with `npm install`
 4. watch for changes and serve locally on http://localhost:8080 with `npm run start`
 5. compile the website with `npm run build` and serve it from the `_site` folder.
+6. You can serve the compiled websiteffrom `_site` with `npx @11ty/eleventy --serve`.
 
 ## 🖱️ UI Library
 
