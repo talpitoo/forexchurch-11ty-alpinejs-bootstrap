@@ -10,6 +10,8 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/site.webmanifest');
     eleventyConfig.addPassthroughCopy('src/browserconfig.xml');
     eleventyConfig.addPassthroughCopy('src/robots.txt');
+    // TODO/DEBUG copy the .json files with dummy data
+    eleventyConfig.addPassthroughCopy({"src/_data/brokers": "data/brokers"});
 
     // Nunjucks for templating
     return {

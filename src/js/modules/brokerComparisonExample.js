@@ -4,6 +4,8 @@ import axios from 'axios';
 const brokerDataUrls = {
   'e-toro': '/data/brokers/broker1.json',
   'ic-markets': '/data/brokers/broker2.json',
+  'broker-3': '/data/brokers/broker1.json',
+  'broker-4': '/data/brokers/broker2.json',
   // Add more mappings as necessary
 };
 
@@ -12,14 +14,37 @@ export function brokerComparisonExample() {
     selectedBrokers: [],
     table: null,
 
+    // initTable() {
+    //   this.table = new Tabulator("#comparison-table", {
+    //     layout: "fitColumns",
+    //     data: [],
+    //     columns: [],
+    //     placeholder: "Select a broker to start the comparison",
+    //   });
+    // },
     initTable() {
+      // Pre-define the 'detail' column so it's always visible
       this.table = new Tabulator("#comparison-table", {
         layout: "fitColumns",
-        data: [],
-        columns: [],
+        data: this.prepareInitialData(), // Use an initial data setup to populate the 'detail' rows
+        columns: [
+          { title: "Detail", field: "detail", headerSort: false, frozen: true },
+          // Additional broker columns will be added dynamically
+        ],
         placeholder: "Select a broker to start the comparison",
       });
     },
+
+    prepareInitialData() {
+      // Define the comparison keys that will always be visible in the 'detail' column
+      const comparisonKeys = ['Headquarters', 'Regulators', 'Minimum Deposit', 'Forex Pairs'];
+      
+      // Return an array of objects with 'detail' keys to populate the initial table data
+      return comparisonKeys.map(detail => ({
+        detail: detail // No broker data yet, just the detail labels
+      }));
+    },
+
 
     toggleBroker(event) {
       const brokerId = event.target.value;
