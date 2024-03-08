@@ -49,6 +49,8 @@ export function brokerComparisonExample() {
     // selectedBrokers: [],
     selectedBrokers: ['e-toro', 'ic-markets'], // Initialize with preselected brokers
     table: null,
+    tableHeight: window.innerWidth < 768 ? (window.innerHeight - 85) : 'auto',
+    columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : "auto",
 
     // NOTE: this would initialize an empty table, and even the 'detail/first' column would be populated upon .json load
     // initTable() {
@@ -62,16 +64,35 @@ export function brokerComparisonExample() {
     initTable() {
       // Pre-define the 'detail' column so it's always visible
       this.table = new Tabulator("#comparison-table", {
-        layout: "fitColumns",
+        // layout: "fitColumns",
+        layout:"fitColumns",
+        frozenRows: 1,
+        height: this.tableHeight,
         data: this.prepareInitialData(),
         columns: [
-          { title: " ", field: "detail", headerSort: false, frozen: true },
+          {
+            title: " ",
+            field: "detail",
+            headerSort: false,
+            // width: this.columnWidth, // TODO but yes on mobile
+            frozen: true
+          },
         ],
         placeholder: "Select a broker to start the comparison",
       });
 
+      window.addEventListener('resize', () => this.handleResize());
+
       // Immediately load data for preselected brokers
       setTimeout(() => this.loadSelectedBrokersData(), 100);
+    },
+
+    handleResize() {
+      this.tableHeight = window.innerWidth < 768 ? (window.innerHeight - 85) : 'auto';
+      this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : 'auto';
+      this.table.setHeight(this.tableHeight);
+      // this.table.updateColumnDefinition('detail', { width: this.columnWidth });
+      this.table.redraw(true);
     },
 
     prepareInitialData() {
@@ -101,7 +122,7 @@ export function brokerComparisonExample() {
     prepareDataForTable(brokersData) {
       return comparisonKeys.map(key => {
         let rowData = { detail: key }; // Using the detail titles directly from comparisonKeys
-    
+
         brokersData.forEach((broker, index) => {
           if (key === "Average EUR/USD Spread" && broker["Average EUR/USD Spread Tooltip"]) {
             // Format the HTML content only for this specific cell
@@ -111,22 +132,29 @@ export function brokerComparisonExample() {
             rowData[this.selectedBrokers[index]] = broker[key] ? broker[key].toString() : "N/A";
           }
         });
-    
+
         return rowData;
       });
     },
-    
+
     prepareColumns(brokersData) {
       return [
-        { title: " ", field: "detail", headerSort: false, frozen: true },
+        {
+          title: " ",
+          field: "detail",
+          headerSort: false,
+          // width: this.columnWidth, // TODO but yes on mobile
+          frozen: true
+        },
         ...this.selectedBrokers.map((brokerId, index) => {
           // Determine if any broker data for this column requires HTML rendering
           let requiresHtml = comparisonKeys.includes("Average EUR/USD Spread") && brokersData[index]["Average EUR/USD Spread Tooltip"];
-          
+
           return {
             title: brokersData[index].name,
             field: brokerId,
             headerSort: false,
+            // width: this.columnWidth,
             formatter: requiresHtml ? "html" : undefined, // Apply HTML formatter conditionally based on data presence
           };
         }),
