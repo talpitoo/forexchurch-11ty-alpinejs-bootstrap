@@ -15,3 +15,14 @@
   height: auto;
   white-space: normal;
 }
+
+.table-header-light {
+  .tabulator-headers {
+    .tabulator-col {
+      color: $body-color;
+      background-color: $white;
+      // stylelint-disable declaration-no-important
+      border-color: transparent !important;
+    }
+  }
+}

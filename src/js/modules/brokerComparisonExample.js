@@ -52,29 +52,21 @@ export function brokerComparisonExample() {
     tableHeight: window.innerWidth < 768 ? (window.innerHeight - 85) : 'auto',
     columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : "",
 
-    // NOTE: this would initialize an empty table, and even the 'detail/first' column would be populated upon .json load
-    // initTable() {
-    //   this.table = new Tabulator("#comparison-table", {
-    //     layout: "fitColumns",
-    //     data: [],
-    //     columns: [],
-    //     placeholder: "Select a broker to start the comparison",
-    //   });
-    // },
     initTable() {
       // Pre-define the 'detail' column so it's always visible
       this.table = new Tabulator("#comparison-table", {
-        // layout: "fitColumns",
         layout: window.innerWidth < 768 ? "" : "fitColumns",
         frozenRows: 1,
         height: this.tableHeight,
+        // data: [], // NOTE: for simple setup
+        // columns: [], // NOTE: for simple setup
         data: this.prepareInitialData(),
         columns: [
           {
             title: " ",
             field: "detail",
             headerSort: false,
-            // width: this.columnWidth, // TODO but yes on mobile
+            width: this.columnWidth,
             frozen: true
           },
         ],
@@ -143,15 +135,27 @@ export function brokerComparisonExample() {
           title: " ",
           field: "detail",
           headerSort: false,
-          width: this.columnWidth, // TODO but yes on mobile
+          width: this.columnWidth,
           frozen: true
         },
         ...this.selectedBrokers.map((brokerId, index) => {
           // Determine if any broker data for this column requires HTML rendering
           let requiresHtml = comparisonKeys.includes("Average EUR/USD Spread") && brokersData[index]["Average EUR/USD Spread Tooltip"];
+          const brokerInfo = brokersData[index];
+          const titleContent = `
+            <div class="d-flex flex-column align-items-center p-4">
+              <img src="${brokerInfo.eleventyNavigation.logo}" alt="${brokerInfo.name} logo" class="object-fit-contain" width="64" height="64">
+              <h6>${brokerInfo.name}</h6>
+              <div class="mb-2">${brokerInfo.rating}</div>
+              <a href="${brokerInfo.eleventyNavigation.url}" class="d-none d-lg-block btn btn-primary w-100">
+                  Visit Broker
+              </a>
+            </div>
+          `;
 
           return {
-            title: brokersData[index].name,
+            // title: brokersData[index].name,
+            title: titleContent,
             field: brokerId,
             headerSort: false,
             width: this.columnWidth,
