@@ -50,7 +50,7 @@ export function brokerComparisonExample() {
     selectedBrokers: ['e-toro', 'ic-markets'], // Initialize with preselected brokers
     table: null,
     tableHeight: window.innerWidth < 768 ? (window.innerHeight - 85) : 'auto',
-    columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : "auto",
+    columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : "",
 
     // NOTE: this would initialize an empty table, and even the 'detail/first' column would be populated upon .json load
     // initTable() {
@@ -65,7 +65,7 @@ export function brokerComparisonExample() {
       // Pre-define the 'detail' column so it's always visible
       this.table = new Tabulator("#comparison-table", {
         // layout: "fitColumns",
-        layout:"fitColumns",
+        layout: window.innerWidth < 768 ? "" : "fitColumns",
         frozenRows: 1,
         height: this.tableHeight,
         data: this.prepareInitialData(),
@@ -89,9 +89,9 @@ export function brokerComparisonExample() {
 
     handleResize() {
       this.tableHeight = window.innerWidth < 768 ? (window.innerHeight - 85) : 'auto';
-      this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : 'auto';
+      this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : '';
       this.table.setHeight(this.tableHeight);
-      // this.table.updateColumnDefinition('detail', { width: this.columnWidth });
+      this.table.updateColumnDefinition('detail', { width: this.columnWidth });
       this.table.redraw(true);
     },
 
@@ -143,7 +143,7 @@ export function brokerComparisonExample() {
           title: " ",
           field: "detail",
           headerSort: false,
-          // width: this.columnWidth, // TODO but yes on mobile
+          width: this.columnWidth, // TODO but yes on mobile
           frozen: true
         },
         ...this.selectedBrokers.map((brokerId, index) => {
@@ -154,7 +154,7 @@ export function brokerComparisonExample() {
             title: brokersData[index].name,
             field: brokerId,
             headerSort: false,
-            // width: this.columnWidth,
+            width: this.columnWidth,
             formatter: requiresHtml ? "html" : undefined, // Apply HTML formatter conditionally based on data presence
           };
         }),
