@@ -4,8 +4,8 @@ import axios from 'axios';
 const brokerDataUrls = {
   'e-toro': '/data/brokers/e-toro.json',
   'ic-markets': '/data/brokers/ic-markets.json',
-  'broker-3': '/data/brokers/broker1.json',
-  'broker-4': '/data/brokers/broker2.json',
+  'pepperstone': '/data/brokers/pepperstone.json',
+  'tickmill': '/data/brokers/tickmill.json',
   // Add more mappings as necessary
 };
 
@@ -143,12 +143,18 @@ export function brokerComparisonExample() {
           let requiresHtml = comparisonKeys.includes("Average EUR/USD Spread") && brokersData[index]["Average EUR/USD Spread Tooltip"];
           const brokerInfo = brokersData[index];
           const titleContent = `
-            <div class="d-flex flex-column align-items-center p-4">
+            <div class="d-flex flex-column align-items-center px-4">
               <img src="${brokerInfo.eleventyNavigation.logo}" alt="${brokerInfo.name} logo" class="object-fit-contain" width="64" height="64">
               <h6>${brokerInfo.name}</h6>
               <div class="mb-2">${brokerInfo.rating}</div>
-              <a href="${brokerInfo.eleventyNavigation.url}" class="d-none d-lg-block btn btn-primary w-100">
+              <a href="#" class="d-none d-lg-block btn btn-primary w-100">
                   Visit Broker
+              </a>
+              <a href="${brokerInfo.eleventyNavigation.url}" class="btn btn-underline">
+                  <span>Read Review</span>
+                  <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
+                      <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                  </svg>
               </a>
             </div>
           `;
