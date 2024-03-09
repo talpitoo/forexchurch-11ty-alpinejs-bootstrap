@@ -12,180 +12,214 @@ eleventyNavigation:
 tags: ["forex brokers", "top comparisons"]
 ---
 
-<div class='container-md container-max-xl'>
-  <div class='row'>
-    <div class='col-lg-3'>
-      <select class="form-select rounded-pill mt-16px">
-        <option selected>Selected Brokers (2)</option>
-        <option>TODO</option>
-      </select>
-    </div>
-  </div>
-  <hr class="border border-light opacity-100 w-100"/>
-</div>
-
-<section class='py-section'>
+<div x-data="brokerComparisonExample()" x-init="initTable">
   <div class='container-md container-max-xl'>
+    <div class='row'>
+      <div class='col-lg-3'>
+        <div x-data="{ openSelectedBrokers: false }" class="dropdown mt-16px" @click.away="openSelectedBrokers = false">
+          <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="btn btn-primary-outline">
+            Selected brokers
+        </button>
 
-    {% include "components/broker-comparison-mock.njk" %}
+          <form x-show="openSelectedBrokers" :class="{'show': openSelectedBrokers}" class="dropdown-menu p-4" @click="openSelectedBrokers = true" style="display: none;">
+            <div class="d-flex flex-column row-gap-2">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="check-e-toro" value="e-toro" @change="toggleBroker($event)" checked>
+                <label class="form-check-label" for="check-e-toro">
+                        eToro
+                    </label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="check-ic-markets" value="ic-markets" @change="toggleBroker($event)" checked>
+                <label class="form-check-label" for="check-ic-markets">
+                        IC Markets
+                    </label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="check-pepperstone" value="pepperstone" @change="toggleBroker($event)">
+                <label class="form-check-label" for="check-pepperstone">
+                        Pepperstone
+                    </label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="check-tickmill" value="tickmill" @change="toggleBroker($event)">
+                <label class="form-check-label" for="check-tickmill">
+                        Tickmill
+                    </label>
+              </div>
+              <hr class="border border-light opacity-100 w-100"/>
+              <button type="button" class="btn btn-primary-outline">Clear all</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr class="border border-light opacity-100 w-100"/>
+  </div>
 
-    <p>Comparing <a href="#" class="btn btn-underline p-0">
-        <span>[Broker 1]</span></a> and <a href="#" class="btn btn-underline p-0">
-        <span>[Broker 2]</span></a> involves analysing several key aspects of each broker's service, using the criteria from our in-depth individual reviews as well as our extensive points of data on each broker.</p>
-    <p>We rate elements such as account types, broker safety/regulation, trading platforms, available financial markets and assets and market news/research on a scale of 0-5. We place special emphasis on important features like broker safety, trading platforms and trader education resources. The charts below summarize how the brokers stack up in these key areas:</p>
-    {# TODO: Insert<a href="#" class="btn btn-underline p-0"><span>[Broker 1]</span></a>and<a href="#" class="btn btn-underline p-0"><span>[Broker 2]</span></a>Radar Charts. #}
-    <div class="row mb-32px">
-      <div class="col-lg-6">
-        <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
-          <div x-data="radarChart()" x-init="initChart()">
-            <figure>
-              <canvas id="myRadarChart"></canvas>
-              <figcaption class="text-center">[Broker 1]</figcaption>
-            </figure>
+  <section class='pb-section'>
+    <div class='container-md container-max-xl'>
+
+      {% include "components/broker-comparison-mock.njk" %}
+
+      <p>Comparing <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 1]</span></a> and <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 2]</span></a> involves analysing several key aspects of each broker's service, using the criteria from our in-depth individual reviews as well as our extensive points of data on each broker.</p>
+      <p>We rate elements such as account types, broker safety/regulation, trading platforms, available financial markets and assets and market news/research on a scale of 0-5. We place special emphasis on important features like broker safety, trading platforms and trader education resources. The charts below summarize how the brokers stack up in these key areas:</p>
+      {# TODO: Insert<a href="#" class="btn btn-underline p-0"><span>[Broker 1]</span></a>and<a href="#" class="btn btn-underline p-0"><span>[Broker 2]</span></a>Radar Charts. #}
+      <div class="row mb-32px">
+        <div class="col-lg-6">
+          <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
+            <div x-data="radarChart()" x-init="initChart()">
+              <figure>
+                <canvas id="myRadarChart"></canvas>
+                <figcaption class="text-center">[Broker 1]</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
+            <figcaption class="text-center">[Broker 2]</figcaption>
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
-          <figcaption class="text-center">[Broker 2]</figcaption>
-        </div>
+      <div class='forexchurch-tile flex-column bg-tertiary-light mb-24px'>
+        <h3>Forex Broker Comparison: [Broker 1] vs. [Broker 2]</h3>
+        <p class="mb-0">How do <a href="#" class="btn btn-underline p-0">
+            <span>[Broker 1]</span></a> and <a href="#" class="btn btn-underline p-0">
+            <span>[Broker 2]</span></a> compare in regard to broker safety and regulation?</p>
       </div>
     </div>
-    <div class='forexchurch-tile flex-column bg-tertiary-light mb-24px'>
-      <h3>Forex Broker Comparison: [Broker 1] vs. [Broker 2]</h3>
-      <p class="mb-0">How do <a href="#" class="btn btn-underline p-0">
-          <span>[Broker 1]</span></a> and <a href="#" class="btn btn-underline p-0">
-          <span>[Broker 2]</span></a> compare in regard to broker safety and regulation?</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class='py-section'>
-  <div class='container-md container-max-xl'>
-    <h2>How Do [Broker 1] and [Broker 2] Rank in Forex Broker Safety and Compliance Standards?</h2>
-    <p>Broker safety and regulation are critical elements to consider when choosing a broker, particularly in forex trading, where the risk of scam brokers is notable. To assess broker safety, we focus on:</p>
-    <ul class="list-bullet">
-      <li>The regulatory authorities governing the broker's operations, giving added weight to number of Tier 1 licenses.</li>
-      <li>Whether client funds are kept in segregated accounts.</li>
-      <li>Financial protection features like negative balance protection.</li>
-    </ul>
-    <h3>[Broker 1] Safety and Regulation:</h3>
-    <p>Is <a href="#" class="btn btn-underline p-0">
-        <span>[Broker 1]</span></a> regulated?</p>
-    <p>[Yes/No], <a href="#" class="btn btn-underline p-0">
-        <span>[Broker 1]</span></a> is regulated by [Regulatory Bodies (Tier rating, Country)].</p>
-    <p>Client Protection Features of [Broker 1]:</p>
-    <ul class="list-bullet">
-      <li>Negative Balance Protection.</li>
-      <li>Segregated client funds.</li>
-    </ul>
-    <h3>[Broker 2] Safety and Regulation:</h3>
-    <p>Is <a href="#" class="btn btn-underline p-0">
-        <span>[Broker 2]</span></a> regulated?</p>
-    <p>[Yes/No], <a href="#" class="btn btn-underline p-0">
-        <span>[Broker 2]</span></a> is regulated by [Regulatory Bodies (Tier rating, Country)].</p>
-    <p>Client Protection Features of [Broker 2]:</p>
-    <ul class="list-bullet">
-      <li>Negative Balance Protection.</li>
-      <li>Segregated client funds.</li>
-    </ul>
-    <p>
-      <a href="#" class="btn btn-underline p-0">
-        <span>[Broker 1]</span></a> holds licenses from [number in words] Tier 1 and [number in words] Tier 2 regulators, while <a href="#" class="btn btn-underline p-0">
-        <span>[Broker 2]</span></a> is licensed by [number in words] Tier 1 and [number in words] Tier 2 regulators.</p>
-    <p>
-      <strong>Advantage:</strong> [Broker with more Tier 1 licenses and better client protection features. If both are equal in Tier 1 and client protection, consider Tier 2 regulators.]</p>
-    <h3>Comparing [Broker 1] vs. [Broker 2]: Which Offers Lower Trading Fees?</h3>
-    <p>Trading costs are an important factor to consider when choosing a broker because net trading profits are trading profits minus trading costs and any applicable taxes.</p>
-    <p>Many brokers offer a choice of accounts that charge spread-fees-only or commission-fees-only for forex trading. If the broker also provides access to trade other financial markets, trading fees for trading assets in those markets may be assessed in the form of spread fees, commission fees, or a combination of spread and commission fees.</p>
-    <p>Before choosing a broker, examine its specific trading fees for all financial assets that you expect to regularly trade – as well as any non-trading related fees, such as deposit/withdrawal, inactivity and account fees. These can have a big impact on a traders success.</p>
-    <p>Below is a comparison of [Broker 1] and [Broker 2] commissions and average spreads on the majors:</p>
-    {% include "components/load-breweries-mock.njk" %}
-    <p>Click here to view [Broker 1] or [Broker 2] Live forex spreads.</p>
-    <p>It is also important to consider non-trading related fees:</p>
-    {% include "components/load-breweries-mock.njk" %}
-    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
-      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
-        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
-      </svg>
-      <p class="mb-0">Advantage: [Broker with lower trading fees (spreads, commissions, non-trading fees]</p>
+  <section class='py-section'>
+    <div class='container-md container-max-xl'>
+      <h2>How Do [Broker 1] and [Broker 2] Rank in Forex Broker Safety and Compliance Standards?</h2>
+      <p>Broker safety and regulation are critical elements to consider when choosing a broker, particularly in forex trading, where the risk of scam brokers is notable. To assess broker safety, we focus on:</p>
+      <ul class="list-bullet">
+        <li>The regulatory authorities governing the broker's operations, giving added weight to number of Tier 1 licenses.</li>
+        <li>Whether client funds are kept in segregated accounts.</li>
+        <li>Financial protection features like negative balance protection.</li>
+      </ul>
+      <h3>[Broker 1] Safety and Regulation:</h3>
+      <p>Is <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 1]</span></a> regulated?</p>
+      <p>[Yes/No], <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 1]</span></a> is regulated by [Regulatory Bodies (Tier rating, Country)].</p>
+      <p>Client Protection Features of [Broker 1]:</p>
+      <ul class="list-bullet">
+        <li>Negative Balance Protection.</li>
+        <li>Segregated client funds.</li>
+      </ul>
+      <h3>[Broker 2] Safety and Regulation:</h3>
+      <p>Is <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 2]</span></a> regulated?</p>
+      <p>[Yes/No], <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 2]</span></a> is regulated by [Regulatory Bodies (Tier rating, Country)].</p>
+      <p>Client Protection Features of [Broker 2]:</p>
+      <ul class="list-bullet">
+        <li>Negative Balance Protection.</li>
+        <li>Segregated client funds.</li>
+      </ul>
+      <p>
+        <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 1]</span></a> holds licenses from [number in words] Tier 1 and [number in words] Tier 2 regulators, while <a href="#" class="btn btn-underline p-0">
+          <span>[Broker 2]</span></a> is licensed by [number in words] Tier 1 and [number in words] Tier 2 regulators.</p>
+      <p>
+        <strong>Advantage:</strong> [Broker with more Tier 1 licenses and better client protection features. If both are equal in Tier 1 and client protection, consider Tier 2 regulators.]</p>
+      <h3>Comparing [Broker 1] vs. [Broker 2]: Which Offers Lower Trading Fees?</h3>
+      <p>Trading costs are an important factor to consider when choosing a broker because net trading profits are trading profits minus trading costs and any applicable taxes.</p>
+      <p>Many brokers offer a choice of accounts that charge spread-fees-only or commission-fees-only for forex trading. If the broker also provides access to trade other financial markets, trading fees for trading assets in those markets may be assessed in the form of spread fees, commission fees, or a combination of spread and commission fees.</p>
+      <p>Before choosing a broker, examine its specific trading fees for all financial assets that you expect to regularly trade – as well as any non-trading related fees, such as deposit/withdrawal, inactivity and account fees. These can have a big impact on a traders success.</p>
+      <p>Below is a comparison of [Broker 1] and [Broker 2] commissions and average spreads on the majors:</p>
+      {% include "components/load-breweries-mock.njk" %}
+      <p>Click here to view [Broker 1] or [Broker 2] Live forex spreads.</p>
+      <p>It is also important to consider non-trading related fees:</p>
+      {% include "components/load-breweries-mock.njk" %}
+      <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+        <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+          <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+        </svg>
+        <p class="mb-0">Advantage: [Broker with lower trading fees (spreads, commissions, non-trading fees]</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class='py-section'>
-  <div class='container-md container-max-xl'>
-    <h2>Which Has Better Trading Platforms for Forex Traders: [Broker 1] or [Broker 2]?</h2>
-    <p>Having access to a versatile trading platform and tools is essential to successful trading. A good platform should meet the following key criteria:</p>
-    <ul class="list-bullet">
-      <li>
-        <strong>Easy to use:</strong> Traders sometimes have to move fast in the financial markets, entering or adjusting orders – it’s important to be able to breeze through performing any trading action quickly and easily</li>
-      <li>
-        <strong>Alignment with Trading Strategy:</strong> Your trading platform needs to give you everything you need to execute your chosen trading strategy – for example, having all the technical indicators that you commonly use for market analysis</li>
-      <li>
-        <strong>API Access:</strong> Having API access is a valuable feature for more advanced traders as it allows for the automation of trading strategies and the integration with other financial systems.</li>
-      <li>
-        <strong>Demo Account Availability:</strong> Demo accounts are an important feature for beginner traders to have access to. They provide a realistic trading environment that replicates that of a live trading account, for the beginner to practice on while risking none of their capital.</li>
-    </ul>
-    <p>Other important aspects to consider is the platforms level of access multi-market trading, options for copy trading and social trading.</p>
-    {% include "components/load-breweries-mock.njk" %}
-    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
-      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
-        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
-      </svg>
-      <p class="mb-0">Advantage: [Broker with most trading platforms + ticks the box for the most of the other categories]</p>
+  <section class='py-section'>
+    <div class='container-md container-max-xl'>
+      <h2>Which Has Better Trading Platforms for Forex Traders: [Broker 1] or [Broker 2]?</h2>
+      <p>Having access to a versatile trading platform and tools is essential to successful trading. A good platform should meet the following key criteria:</p>
+      <ul class="list-bullet">
+        <li>
+          <strong>Easy to use:</strong> Traders sometimes have to move fast in the financial markets, entering or adjusting orders – it’s important to be able to breeze through performing any trading action quickly and easily</li>
+        <li>
+          <strong>Alignment with Trading Strategy:</strong> Your trading platform needs to give you everything you need to execute your chosen trading strategy – for example, having all the technical indicators that you commonly use for market analysis</li>
+        <li>
+          <strong>API Access:</strong> Having API access is a valuable feature for more advanced traders as it allows for the automation of trading strategies and the integration with other financial systems.</li>
+        <li>
+          <strong>Demo Account Availability:</strong> Demo accounts are an important feature for beginner traders to have access to. They provide a realistic trading environment that replicates that of a live trading account, for the beginner to practice on while risking none of their capital.</li>
+      </ul>
+      <p>Other important aspects to consider is the platforms level of access multi-market trading, options for copy trading and social trading.</p>
+      {% include "components/load-breweries-mock.njk" %}
+      <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+        <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+          <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+        </svg>
+        <p class="mb-0">Advantage: [Broker with most trading platforms + ticks the box for the most of the other categories]</p>
+      </div>
+
+      <h3 class="mt-32px">Which Broker Provides More Diverse Market Access: [Broker 1] or [Broker 2] in Forex and CFDs?</h3>
+      <p>Having access to wide range of trading instruments, allows traders to explore a wider range of trading strategies. The best brokers will offer a comprehensive range of instruments (in CFD and non-CFD variants) across a number of categories, such as Forex, Commodities, Stocks, Futures and ETF’s – catering to diverse trading preferences and styles.</p>
+      <p>With our comparison of [Broker 1] and [Broker 2] we have focused on the number and range of instruments that each broker offers.</p>
+      <p>Below are tables highlighting the differences in the range of trading instruments offered by each broker (both CFD and non-CFD) to help make an informed choice.</p>
+      {% include "components/load-breweries-mock.njk" %}
+      {% include "components/load-breweries-mock.njk" %}
+      <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+        <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+          <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+        </svg>
+        <p class="mb-0">Advantage: [Broker with most instruments and range of instruments]</p>
+      </div>
+
+      <h3 class="mt-32px">Trader Education Resources:</h3>
+      <p>Many beginning forex traders aren’t just beginners at forex trading – they’re altogether new to financial market trading. That makes a broker’s provision of trader education resources a very important factor for many individuals in picking a broker.</p>
+      <p>Offering educational resources in a variety of formats, including articles, webinars, videos, courses and Ebooks and covering a range of topics - from basic forex trading knowledge to trading psychology and trading strategies is often what separates a good broker from a great broker.</p>
+      <p>Having resources available that will appeal to all levels of traders, from complete novices to even the most experienced and knowledgeable traders is a definite plus.</p>
+      <p>We have examined the educational content provided by [Broker 1] and [Broker 2] to determine which broker better supports a traders learning and development.</p>
+      <p>Education Rating: [Enter [Broker 1] Education Rating – use the star rating from written reviews]</p>
+      <p>Education Rating: [Enter [Broker 2] Education Rating]</p>
+      <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+        <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+          <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+        </svg>
+        <p class="mb-0">
+          <strong>Advantage:</strong> [Equal/Specify Broker with better education – use the star rating from written reviews]</p>
+      </div>
     </div>
+  </section>
 
-    <h3 class="mt-32px">Which Broker Provides More Diverse Market Access: [Broker 1] or [Broker 2] in Forex and CFDs?</h3>
-    <p>Having access to wide range of trading instruments, allows traders to explore a wider range of trading strategies. The best brokers will offer a comprehensive range of instruments (in CFD and non-CFD variants) across a number of categories, such as Forex, Commodities, Stocks, Futures and ETF’s – catering to diverse trading preferences and styles.</p>
-    <p>With our comparison of [Broker 1] and [Broker 2] we have focused on the number and range of instruments that each broker offers.</p>
-    <p>Below are tables highlighting the differences in the range of trading instruments offered by each broker (both CFD and non-CFD) to help make an informed choice.</p>
-    {% include "components/load-breweries-mock.njk" %}
-    {% include "components/load-breweries-mock.njk" %}
-    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
-      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
-        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
-      </svg>
-      <p class="mb-0">Advantage: [Broker with most instruments and range of instruments]</p>
+  <section class='py-section'>
+    <div class='container-md container-max-xl'>
+      <h2>Summary: [Broker 1] vs [Broker 2]</h2>
+      <h3>Our conclusion about [Broker 1]:</h3>
+      <p>TODO: Use the text from [Broker 1]’s written review “Final Thoughts” section. Example below.</p>
+      <h3>Our conclusion about [Broker 2]:</h3>
+      <p>TODO: Use the text from [Broker 2]’s written review “Final Thoughts” section. Example below.</p>
+
+      <h3>Which broker has the highest average rating?</h3>
+      <p>Average Ratings:</p>
+      <p>[Broker 1]: [Enter [Broker 1] Average Rating]</p>
+      <p>[Broker 2]: [Enter [Broker 2] Average Rating]</p>
+      <p>Although in this head-to-head comparison [Broker 1 or Broker 2 (whichever had the best score)] came out ahead in terms of overall ratings, the crucial factor in choosing a forex broker is finding a reliable one that best aligns with your personal trading needs.</p>
+      <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
+        <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+          <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+        </svg>
+        <p class="mb-0">For more detailed information, please read our in-depth reviews of <a href="#" class="btn btn-underline p-0">
+            <span>[Broker 1]</span></a> and <a href="#" class="btn btn-underline p-0">
+            <span>[Broker 2]</span></a>.</p>
+      </div>
     </div>
-
-    <h3 class="mt-32px">Trader Education Resources:</h3>
-    <p>Many beginning forex traders aren’t just beginners at forex trading – they’re altogether new to financial market trading. That makes a broker’s provision of trader education resources a very important factor for many individuals in picking a broker.</p>
-    <p>Offering educational resources in a variety of formats, including articles, webinars, videos, courses and Ebooks and covering a range of topics - from basic forex trading knowledge to trading psychology and trading strategies is often what separates a good broker from a great broker.</p>
-    <p>Having resources available that will appeal to all levels of traders, from complete novices to even the most experienced and knowledgeable traders is a definite plus.</p>
-    <p>We have examined the educational content provided by [Broker 1] and [Broker 2] to determine which broker better supports a traders learning and development.</p>
-    <p>Education Rating: [Enter [Broker 1] Education Rating – use the star rating from written reviews]</p>
-    <p>Education Rating: [Enter [Broker 2] Education Rating]</p>
-    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
-      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
-        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
-      </svg>
-      <p class="mb-0">
-        <strong>Advantage:</strong> [Equal/Specify Broker with better education – use the star rating from written reviews]</p>
-    </div>
-  </div>
-</section>
-
-<section class='py-section'>
-  <div class='container-md container-max-xl'>
-    <h2>Summary: [Broker 1] vs [Broker 2]</h2>
-    <h3>Our conclusion about [Broker 1]:</h3>
-    <p>TODO: Use the text from [Broker 1]’s written review “Final Thoughts” section. Example below.</p>
-    <h3>Our conclusion about [Broker 2]:</h3>
-    <p>TODO: Use the text from [Broker 2]’s written review “Final Thoughts” section. Example below.</p>
-
-    <h3>Which broker has the highest average rating?</h3>
-    <p>Average Ratings:</p>
-    <p>[Broker 1]: [Enter [Broker 1] Average Rating]</p>
-    <p>[Broker 2]: [Enter [Broker 2] Average Rating]</p>
-    <p>Although in this head-to-head comparison [Broker 1 or Broker 2 (whichever had the best score)] came out ahead in terms of overall ratings, the crucial factor in choosing a forex broker is finding a reliable one that best aligns with your personal trading needs.</p>
-    <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
-      <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
-        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
-      </svg>
-      <p class="mb-0">For more detailed information, please read our in-depth reviews of <a href="#" class="btn btn-underline p-0">
-          <span>[Broker 1]</span></a> and <a href="#" class="btn btn-underline p-0">
-          <span>[Broker 2]</span></a>.</p>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
