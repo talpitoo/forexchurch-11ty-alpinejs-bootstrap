@@ -51,6 +51,8 @@ export function brokerComparisonExample() {
     table: null,
     tableHeight: window.innerWidth < 768 ? (window.innerHeight - 85) : 'auto',
     columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : "",
+    openSelectedBrokers: false,
+    searchText: '',
 
     initTable() {
       // Pre-define the 'detail' column so it's always visible
@@ -93,9 +95,11 @@ export function brokerComparisonExample() {
     },
 
     toggleBroker(event) {
-      const brokerId = event.target.value;
-      const isChecked = event.target.checked;
-      this.selectedBrokers = isChecked ? [...this.selectedBrokers, brokerId] : this.selectedBrokers.filter(id => id !== brokerId);
+      this.loadSelectedBrokersData();
+    },
+
+    clearAllBrokers() {
+      this.selectedBrokers = [];
       this.loadSelectedBrokersData();
     },
 
