@@ -1,3 +1,53 @@
-<div class="x-rounded-3 x-overflow-hidden my-16px forexchurch-anchor-offset forexchurch-scroll-snap">
+<div class='row'>
+    <div class='col-lg-3 pt-16px'>
+        <div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
+            <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="btn btn-outline-primary">
+                Selected brokers
+            </button>
+
+            <form x-show="openSelectedBrokers" :class="{'show': openSelectedBrokers}" class="dropdown-menu p-4" @click="openSelectedBrokers = true" style="display: none;">
+                <div class="d-flex flex-column row-gap-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-white border-none ps-16px pe-0">
+                            <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                                <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                            </svg>
+                        </span>
+                        <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+                    </div>
+                    <div class="form-check" x-show="!searchText || 'eToro'.toLowerCase().includes(searchText.toLowerCase())">
+                        <input type="checkbox" x-model="selectedBrokers" class="form-check-input" id="check-e-toro" value="e-toro" @change="toggleBroker($event)" checked>
+                        <label class="form-check-label" for="check-e-toro">
+                        eToro
+                    </label>
+                    </div>
+                    <div class="form-check" x-show="!searchText || 'IC Markets'.toLowerCase().includes(searchText.toLowerCase())">
+                        <input type="checkbox" x-model="selectedBrokers" class="form-check-input" id="check-ic-markets" value="ic-markets" @change="toggleBroker($event)" checked>
+                        <label class="form-check-label" for="check-ic-markets">
+                        IC Markets
+                    </label>
+                    </div>
+                    <div class="form-check" x-show="!searchText || 'Pepperstone'.toLowerCase().includes(searchText.toLowerCase())">
+                        <input type="checkbox" x-model="selectedBrokers" class="form-check-input" id="check-pepperstone" value="pepperstone" @change="toggleBroker($event)">
+                        <label class="form-check-label" for="check-pepperstone">
+                        Pepperstone
+                    </label>
+                    </div>
+                    <div class="form-check" x-show="!searchText || 'Tickmill'.toLowerCase().includes(searchText.toLowerCase())">
+                        <input type="checkbox" x-model="selectedBrokers" class="form-check-input" id="check-tickmill" value="tickmill" @change="toggleBroker($event)">
+                        <label class="form-check-label" for="check-tickmill">
+                        Tickmill
+                    </label>
+                    </div>
+                    <hr class="border border-light opacity-100 w-100"/>
+                    <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr class="border border-light opacity-100 w-100"/>
+
+<div class="x-rounded-3 x-overflow-hidden my-16px">
     <div id="comparison-table" class="table-header-light"></div>
 </div>

@@ -8,6 +8,8 @@ const brokerDataUrls = {
   'tickmill': '/data/brokers/tickmill.json',
   // Add more mappings as necessary
 };
+const heightNavbar = 73;
+const heightDropdown = 82;
 
 // Define comparison keys globally to avoid duplication
 const comparisonKeys = [
@@ -49,7 +51,7 @@ export function brokerComparisonExample() {
     // selectedBrokers: [],
     selectedBrokers: ['e-toro', 'ic-markets'], // Initialize with preselected brokers
     table: null,
-    tableHeight: window.innerWidth < 768 ? (window.innerHeight - 85) : 'auto',
+    tableHeight: window.innerWidth < 768 ? (window.innerHeight - 85) : window.innerHeight - (heightNavbar + heightDropdown + 32),
     columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : "",
     openSelectedBrokers: false,
     searchText: '',
@@ -82,7 +84,7 @@ export function brokerComparisonExample() {
     },
 
     handleResize() {
-      this.tableHeight = window.innerWidth < 768 ? (window.innerHeight - 85) : 'auto';
+      this.tableHeight = window.innerWidth < 768 ? (window.innerHeight - 85) : window.innerHeight - (heightNavbar + heightDropdown + 32);
       this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : '';
       this.table.setHeight(this.tableHeight);
       this.table.updateColumnDefinition('detail', { width: this.columnWidth });

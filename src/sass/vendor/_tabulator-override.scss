@@ -17,12 +17,11 @@
 }
 
 .table-header-light {
-  .tabulator-headers {
-    .tabulator-col {
-      color: $body-color;
-      background-color: $white;
-      // stylelint-disable declaration-no-important
-      border-color: transparent !important;
-    }
+  .tabulator-header,
+  .tabulator-headers .tabulator-col {
+    color: $body-color;
+    // stylelint-disable declaration-no-important
+    background-color: $white !important;
+    border-color: transparent !important;
   }
 }
