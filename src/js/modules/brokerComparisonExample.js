@@ -42,7 +42,8 @@ export function brokerComparisonExample() {
     { id: 'e-toro', name: 'eToro' },
     { id: 'ic-markets', name: 'IC Markets' },
     { id: 'pepperstone', name: 'Pepperstone' },
-    { id: 'tickmill', name: 'Tickmill' }
+    { id: 'tickmill', name: 'Tickmill' },
+    { id: 'capital', name: 'Capital' }
   ];  
   
   // Parse the URL parameters to get the selected brokers

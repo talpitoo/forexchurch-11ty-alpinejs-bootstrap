@@ -1,0 +1,191 @@
+<header  class="fixed-top">
+  {# <header x-data="navbar" x-init="toggleExpandedClass()" class="fixed-top"> #}
+  <div class='bg-primary text-white'>
+    <div class='container-md'>
+      <div class="d-flex align-items-center justify-content-between">
+        <button
+            @click="isTopNavbarOpen = !isTopNavbarOpen"
+            @resize.window="isTopNavbarOpen = false"
+            type='button'
+            aria-label='menu'
+            id="burger-menu"
+            class="btn btn-link p-0 d-xl-none"
+          >
+          <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+            <use :href="isTopNavbarOpen ? '/img/icons/symbol/svg/sprite.css.svg#close' : '/img/icons/symbol/svg/sprite.css.svg#hamburger'"></use>
+          </svg>
+          <span class="visually-hidden">Menu</span>
+        </button>
+
+        <div class="d-flex flex-grow-1 align-items-center justify-content-center">
+          <a href='/'>
+            <img src="/img/logo.svg" alt='TODO' width='172' height='73' class=""/>
+          </a>
+
+          {% set navPages = collections.all | eleventyNavigation %}
+          <div class="list-main-menu" :class="{'expanded': isTopNavbarOpen}">
+            <ul class="container">
+              {% for entry in navPages %}
+
+                {% if entry.children.length %}
+                  <li class='px-xl-3'>
+
+                    <div x-data="{ dropdownOpen: false }" 
+                      @mouseleave="if (window.innerWidth >= 992) dropdownOpen = false"
+                      @mouseover="if (window.innerWidth >= 992) dropdownOpen = true"
+                      @resize.window="dropdownOpen = false">
+                      <button 
+                        type="button" 
+                        @click="if (window.innerWidth < 992) dropdownOpen = !dropdownOpen" 
+                        class="d-flex justify-content-between w-100 btn btn-link btn-navbar p-0 text-nowrap {{ 'text-tertiary' if entry.url in page.url else 'text-white'}}">
+                        <span>{{ entry.title }}</span>
+                        <svg class="ms-1" aria-hidden="true" width="24" height="24" x-data="{ chevron: window.innerWidth < 992 ? 'chevron-right' : 'chevron-down' }" @resize.window="chevron = window.innerWidth < 992 ? 'chevron-right' : 'chevron-down'">
+                          <use :href="'/img/icons/symbol/svg/sprite.css.svg#' + chevron"></use>
+                        </svg>
+                      </button>
+                      <div 
+                        x-show="dropdownOpen" 
+                        @click.away="dropdownOpen = false" 
+                        class="bg-primary-dark bg-lg-white" >
+                        <ul 
+                          :data-dropdown-open="dropdownOpen ? 'true' : 'false'" 
+                          class="container list-unstyled {{ 'pb-72px' if entry.title in 'Tools' }}">
+
+                          <button 
+                            type="button" 
+                            class="btn btn-link p-0 fs-6 text-tertiary mb-3 d-lg-none"
+                            @click="if (window.innerWidth < 992) dropdownOpen = !dropdownOpen" >
+                            <svg class="me-1" aria-hidden="true" width="24" height="24">
+                              <use href="/img/icons/symbol/svg/sprite.css.svg#chevron-left"></use>
+                            </svg>
+                            Back
+                          </button>
+
+                          {% for child in entry.children %}
+                            {# TODO: bg-primary bg-lg-light p-4 rounded-4 w-lg-25 --- for mobile #}
+                            <li class="rounded-4 p-4 d-flex flex-column align-items-start {{ 'bg-primary bg-lg-transparent mb-4 mb-lg-0' if child.title in ['By Category', 'Top Comparisons', 'Top Brokers'] }} {{ 'layout-calculators p-lg-0' if child.title in 'Calculators' }} {{ 'flex-4' if entry.title in 'Forex Brokers' }} {{ 'flex-5 position-relative stretched-link-parent' if entry.title in 'Tools' }} {{ 'flex-3 position-relative stretched-link-parent' if entry.title in 'Resources' }} {{ 'bg-lg-white' if child.title in 'News'}}">
+
+                              {# NOTE: custom markup for 'Top Comparisons' #}
+                              {% if child.title == 'Top Comparisons' %}
+                                <h6 class="text-white text-lg-body mb-4 mb-lg-2">Top Comparisons</h6>
+                                <ul class="list-unstyled">
+                                  <li class="mb-3 mb-lg-0">
+                                    <div class="d-inline-flex align-items-center">
+                                      <a href="/forex-brokers/top-comparisons/capital-vs-pepperstone/?brokers=capital|pepperstone" class="text-white text-lg-body">Capital vs. Pepperstone</a>
+                                    </div>
+                                  </li>
+                                  <li class="mb-3 mb-lg-0">
+                                    <div class="d-inline-flex align-items-center">
+                                      <a href="/forex-brokers/top-comparisons/e-toro-vs-capital/?brokers=e-toro|capital" class="text-white text-lg-body">eToro vs. Capital</a>
+                                    </div>
+                                  </li>
+                                  <li class="mb-3 mb-lg-0">
+                                    <div class="d-inline-flex align-items-center">
+                                      <a href="/forex-brokers/top-comparisons/e-toro-vs-ic-markets/?brokers=e-toro|ic-markets" class="text-white text-lg-body">eToro vs. IC Markets</a>
+                                    </div>
+                                  </li>
+                                  <li class="mb-3 mb-lg-0">
+                                    <div class="d-inline-flex align-items-center">
+                                      <a href="/forex-brokers/top-comparisons/tickmill-vs-ic-markets/?brokers=tickmill|ic-markets" class="text-white text-lg-body">Tickmill vs. IC Markets</a>
+                                    </div>
+                                  </li>
+                                  <li class="mb-3 mb-lg-0">
+                                    <div class="d-inline-flex align-items-center">
+                                      <a href="/forex-brokers/top-comparisons/tickmill-vs-capital/?brokers=tickmill|capital" class="text-white text-lg-body">Tickmill vs. Capital</a>
+                                    </div>
+                                  </li>
+                                </ul>
+                              {% else %}
+                                {# NOTE: end #}
+
+                                {% if child.children.length %}
+                                  <h6 class="text-white text-lg-body mb-4 mb-lg-2">{{ child.title }}</h6>
+                                  <ul class="list-unstyled">
+                                    {% for subchild in child.children %}
+                                      <li class="mb-3 mb-lg-0">
+                                        {% if subchild.icon %}
+                                          <svg class="text-secondary text-lg-body me-2" aria-hidden="true" width="24" height="24">
+                                            <use href="/img/icons/symbol/svg/sprite.css.svg#{{ subchild.icon }}"></use>
+                                          </svg>
+                                        {% endif %}
+                                        <div class="d-inline-flex align-items-center">
+                                          {% if subchild.logo %}
+                                            <img src="{{ subchild.logo }}" alt='logo' width='24' height='24' class="object-fit-contain me-2"/>
+                                          {% endif %}
+                                          <a href="{{ subchild.url }}" class="{{ 'text-tertiary' if subchild.url in page.url else 'text-white text-lg-body' }}">{{ subchild.title }}</a>
+                                        </div>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                {% else %}
+                                  {% if child.icon %}
+                                    <div class="d-inline-block bg-primary-dark bg-lg-primary p-12px rounded-3 mb-3">
+                                      <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                                        <use href="/img/icons/symbol/svg/sprite.css.svg#{{ child.icon }}"></use>
+                                      </svg>
+                                    </div>
+                                  {% endif %}
+                                  <a href="{{ child.url }}" class="stretched-link fw-medium mb-4 mb-lg-2 {{'text-tertiary' if child.url in page.url else 'text-white text-lg-body'}}">{{ child.title }}</a>
+                                  <p class="text-white text-lg-body">{{ child.excerpt }}</p>
+                                {% endif %}
+                              {% endif %}
+                            </li>
+                          {% endfor %}
+
+                          {# NOTE: for now used only to include /forex-brokers/ as advanced search link #}
+                          {% if entry.includeSelf != false %}
+                            <li class="bg-primary bg-lg-light p-4 rounded-4 w-lg-25">
+                              <div class="d-flex flex-column align-items-start h-100">
+                                <h6 class="text-white text-lg-body mb-4 mb-lg-2">{{ entry.title }}</h6>
+                                <div class="d-flex align-items-start flex-grow-1">
+                                  <p class="text-white text-lg-body">{{ entry.excerpt }}</p>
+                                  <div class="bg-primary-dark bg-lg-primary p-2 rounded-3 ms-3">
+                                    <svg class="text-secondary" aria-hidden="true" width="24" height="24">
+                                      <use href="/img/icons/symbol/svg/sprite.css.svg#{{ entry.icon }}"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <a href="{{ entry.url }}" class="btn btn-underline px-0 text-white text-lg-body mt-3">
+                                  <span>Advanced Search</span>
+                                  <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
+                                    <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                            </li>
+                          {% endif %}
+                          {# NOTE: advanced search end #}
+
+                        </ul>
+                      </div>
+                    </div>
+
+                  </li>
+                {% else %}
+                  <li class='px-xl-3'>
+                    <a href="{{ entry.url }}" class="btn-navbar {{'text-tertiary' if entry.url in page.url else 'text-white'}}">
+                      {{ entry.title }}
+                    </a>
+                  </li>
+                {% endif %}
+
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <button
+          type='button'
+            id="search"
+            class="btn btn-link p-0 ms-4"
+          >
+          <svg class="text-tertiary" aria-hidden="true" width="24" height="24">
+            <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+          </svg>
+          <span class="visually-hidden">Search</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
