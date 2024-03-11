@@ -2,14 +2,14 @@ import Chart from 'chart.js/auto'; // If using ES6 imports
 
 export function radarChart() {
     return {
-        initChart() {
-            const ctx = document.getElementById('myRadarChart').getContext('2d');
+        initChart(brokerId) {
+            const ctx = document.getElementById(`${brokerId}RadarChart`).getContext('2d');
             new Chart(ctx, {
                 type: 'radar',
                 data: {
                     labels: ['Regulations', 'Trading conditions', 'Trading platforms', 'Deposit and Withdrawal', 'Education and research'],
                     datasets: [{
-                        label: 'My First Dataset',
+                        label: `${brokerId} Dataset`,
                         data: [20, 10, 4, 2, 8],
                         fill: true,
                         backgroundColor: '#ebfbf8',
