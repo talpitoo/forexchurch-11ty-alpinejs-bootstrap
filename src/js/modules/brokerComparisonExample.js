@@ -1,17 +1,8 @@
 import { TabulatorFull as Tabulator } from 'tabulator-tables';
 import axios from 'axios';
 
-const brokerDataUrls = {
-  'e-toro': '/data/brokers/e-toro.json',
-  'ic-markets': '/data/brokers/ic-markets.json',
-  'pepperstone': '/data/brokers/pepperstone.json',
-  'tickmill': '/data/brokers/tickmill.json',
-  // Add more mappings as necessary
-};
 const heightNavbar = 73;
 const heightDropdown = 82;
-
-// Define comparison keys globally to avoid duplication
 const comparisonKeys = [
   "Headquarters",
   "Regulators",
@@ -47,9 +38,34 @@ const comparisonKeys = [
 ];
 
 export function brokerComparisonExample() {
+  // Parse the URL parameters to get the selected brokers
+  const getSelectedBrokersFromUrl = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const brokersParam = urlParams.get('brokers');
+    return brokersParam ? brokersParam.split('|') : [];
+  };
+
+  const generateBrokerDataUrls = selectedBrokers => {
+    return selectedBrokers.reduce((urls, broker) => {
+      urls[broker] = `/data/brokers/${broker}.json`;
+      // NOTE: example .json URLs
+      // 'e-toro': '/data/brokers/e-toro.json',
+      // 'ic-markets': '/data/brokers/ic-markets.json',
+      // 'pepperstone': '/data/brokers/pepperstone.json',
+      // 'tickmill': '/data/brokers/tickmill.json',
+      // Add more mappings as necessary
+      return urls;
+    }, {});
+  };
+
+  let selectedBrokers = getSelectedBrokersFromUrl();
+  let brokerDataUrls = generateBrokerDataUrls(selectedBrokers);
+
   return {
     // selectedBrokers: [],
-    selectedBrokers: ['e-toro', 'ic-markets'], // Initialize with preselected brokers
+    // selectedBrokers: ['e-toro', 'ic-markets'], // Initialize with preselected brokers
+    selectedBrokers: selectedBrokers,
+    brokerDataUrls: brokerDataUrls,
     table: null,
     tableHeight: window.innerWidth < 768 ? (window.innerHeight - 85) : window.innerHeight - (heightNavbar + heightDropdown + 32),
     columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : "",
@@ -74,7 +90,7 @@ export function brokerComparisonExample() {
             frozen: true
           },
         ],
-        placeholder: "Select a broker to start the comparison",
+        placeholder: "Select two brokers to start the comparison",
       });
 
       window.addEventListener('resize', () => this.handleResize());
@@ -84,11 +100,11 @@ export function brokerComparisonExample() {
     },
 
     handleResize() {
+      console.debug('resize');
       this.tableHeight = window.innerWidth < 768 ? (window.innerHeight - 85) : window.innerHeight - (heightNavbar + heightDropdown + 32);
       this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : '';
       this.table.setHeight(this.tableHeight);
-      // this.table.updateColumnDefinition('detail', { width: this.columnWidth });
-      // this.table.redraw(true);
+      this.loadSelectedBrokersData();
     },
 
     prepareInitialData() {
@@ -97,12 +113,30 @@ export function brokerComparisonExample() {
     },
 
     toggleBroker(event) {
+      const broker = event.target.value;
+      const index = selectedBrokers.indexOf(broker);
+      if (index === -1) {
+        selectedBrokers.push(broker);
+      } else {
+        selectedBrokers.splice(index, 1);
+      }
+      brokerDataUrls = generateBrokerDataUrls(selectedBrokers); // Update brokerDataUrls
       this.loadSelectedBrokersData();
+      this.updateUrlWithSelectedBrokers();
     },
 
     clearAllBrokers() {
-      this.selectedBrokers = [];
+      selectedBrokers = [];
+      brokerDataUrls = {};
       this.loadSelectedBrokersData();
+      this.updateUrlWithSelectedBrokers();
+    },
+
+    updateUrlWithSelectedBrokers() {
+      const urlParams = new URLSearchParams();
+      urlParams.set('brokers', this.selectedBrokers.join('|'));
+      const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+      window.history.replaceState({}, '', newUrl);
     },
 
     loadSelectedBrokersData() {
