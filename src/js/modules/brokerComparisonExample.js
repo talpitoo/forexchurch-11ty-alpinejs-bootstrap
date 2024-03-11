@@ -87,8 +87,8 @@ export function brokerComparisonExample() {
       this.tableHeight = window.innerWidth < 768 ? (window.innerHeight - 85) : window.innerHeight - (heightNavbar + heightDropdown + 32);
       this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : '';
       this.table.setHeight(this.tableHeight);
-      this.table.updateColumnDefinition('detail', { width: this.columnWidth });
-      this.table.redraw(true);
+      // this.table.updateColumnDefinition('detail', { width: this.columnWidth });
+      // this.table.redraw(true);
     },
 
     prepareInitialData() {

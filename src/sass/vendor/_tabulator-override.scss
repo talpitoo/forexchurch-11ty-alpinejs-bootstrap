@@ -23,5 +23,11 @@
     // stylelint-disable declaration-no-important
     background-color: $white !important;
     border-color: transparent !important;
+    border-bottom-color: $light !important;
   }
+}
+
+.tabulator-row .tabulator-cell,
+.table td {
+  border-color: transparent !important;
 }
