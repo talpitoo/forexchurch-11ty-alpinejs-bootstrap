@@ -99,8 +99,45 @@ export function brokerComparisonExample() {
         rowFormatter: function (row) {
           var data = row.getData();
 
+          // if (["Average EUR/USD Spread"].includes(data.detail)) {
+          //   row.getCells().forEach(function (cell) {
+          //     if (cell.getField() !== "detail") {
+          //       const brokerIndex = selectedBrokers.indexOf(cell.getField());
+          //       const brokerData = brokersData[brokerIndex];
+          //       const tooltipText = brokerData && brokerData["Average EUR/USD Spread Tooltip"] ? brokerData["Average EUR/USD Spread Tooltip"] : '';
+          //       cell.getElement().innerHTML = `${cell.getValue()} <span class="text-warning"><svg class="" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use></svg>${tooltipText}</span>`;
+          //     }
+          //   });
+          // }
+
+          if (["Hedging Allowed", "Scalping Allowed", "Swap-Free Accounts", "VIP Accounts Offered", "PAMM/MAM Solutions", "API Solutions", "VPS Offered", "Client Funds in Segregated Accounts", "Negative Balance Protection"].includes(data.detail)) {
+            row.getCells().forEach(function (cell) {
+              if (cell.getField() !== "detail" && cell.getValue() !== undefined) {
+                const value = cell.getValue();
+                let markup = "";
+
+                if (value === "Yes") {
+                  markup = `<svg class="me-2" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use></svg>Yes`;
+                } else if (value === "No") {
+                  markup = `<svg class="me-2" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#compare-negative-circle"></use></svg>No`;
+                }
+
+                cell.getElement().innerHTML = markup;
+              }
+            });
+          }
+
+          if (["Regulators", "Funding Methods", "Trading Instruments", "Platforms Offered", "Account Currencies"].includes(data.detail)) {
+            row.getCells().forEach(function (cell) {
+              if (cell.getField() !== "detail" && cell.getValue() !== undefined) {
+                const value = cell.getValue().split(',').join(', ');
+                cell.getElement().innerHTML = value;
+              }
+            });
+          }
+
           // if (data.col == "blue") {
-            if (["Account Types", "Safety/Regulation", "Fees", "Trading Platforms", "Assets Traded", "Deposits/Withdrawals", "Trader Education", "Customer Service"].includes(data.detail)) {
+          if (["Account Types", "Safety/Regulation", "Fees", "Trading Platforms", "Assets Traded", "Deposits/Withdrawals", "Trader Education", "Customer Service"].includes(data.detail)) {
             row.getCells().forEach(function (cell) {
               if (cell.getField() !== "detail") {
                 // Example of manually setting star ratings based on cell value
@@ -199,7 +236,7 @@ export function brokerComparisonExample() {
           frozen: true
         },
         ...selectedBrokers.map((brokerId, index) => {
-          let requiresHtml = comparisonKeys.includes("Average EUR/USD Spread") && brokersData[index]["Average EUR/USD Spread Tooltip"];
+          // let requiresHtml = comparisonKeys.includes("Average EUR/USD Spread") && brokersData[index]["Average EUR/USD Spread Tooltip"];
           const brokerInfo = brokersData[index];
           const titleContent = `
             <div class="d-flex flex-column align-items-center px-4">
@@ -223,7 +260,9 @@ export function brokerComparisonExample() {
             field: brokerId,
             headerSort: false,
             width: this.columnWidth,
-            formatter: requiresHtml ? "html" : undefined,
+            brokerInfo: brokerInfo,
+            formatter: "html"
+            // formatter: requiresHtml ? "html" : undefined,
           };
         }),
       ];
