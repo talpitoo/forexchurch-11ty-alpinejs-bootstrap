@@ -44,8 +44,8 @@ export function brokerComparisonExample() {
     { id: 'pepperstone', name: 'Pepperstone' },
     { id: 'tickmill', name: 'Tickmill' },
     { id: 'capital', name: 'Capital' }
-  ];  
-  
+  ];
+
   // Parse the URL parameters to get the selected brokers
   const getSelectedBrokersFromUrl = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -96,6 +96,25 @@ export function brokerComparisonExample() {
           },
         ],
         placeholder: "Select two brokers to start the comparison",
+        rowFormatter: function (row) {
+          var data = row.getData();
+
+          // if (data.col == "blue") {
+            if (["Account Types", "Safety/Regulation", "Fees", "Trading Platforms", "Assets Traded", "Deposits/Withdrawals", "Trader Education", "Customer Service"].includes(data.detail)) {
+            row.getCells().forEach(function (cell) {
+              if (cell.getField() !== "detail") {
+                // Example of manually setting star ratings based on cell value
+                let value = parseInt(cell.getValue(), 10); // Ensure value is an integer
+                let starsHtml = '';
+                for (let i = 0; i < value; i++) {
+                  starsHtml += '<span class="text-secondary me-2">&#9733;</span>';
+                }
+                cell.getElement().innerHTML = starsHtml + cell.getValue();
+              }
+            });
+          }
+        },
+
       });
 
       window.addEventListener('resize', () => this.handleResize());
