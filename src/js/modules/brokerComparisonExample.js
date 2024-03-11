@@ -128,6 +128,7 @@ export function brokerComparisonExample() {
     },
 
     clearAllBrokers() {
+      this.selectedBrokers = [];
       selectedBrokers = [];
       brokerDataUrls = {};
       this.loadSelectedBrokersData(); // Update with new selectedBrokers and brokerDataUrls
