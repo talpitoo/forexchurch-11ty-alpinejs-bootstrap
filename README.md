@@ -75,3 +75,13 @@ Since this is 11ty, there are no API calls neither a DB to fetch posts, rather `
 ```
 
 ...and then show/hide them with the `.d-none` class from JS (all items all hidden by default, prior to the search).
+
+## Top Comparison pages
+The top comparison pages can be accessed from the top navbar or direct link e.g. https://forexchurch-ten.vercel.app/forex-brokers/top-comparisons/capital-vs-pepperstone/?brokers=capital%7Cpepperstone
+
+
+1. each broker has a `.json` file at https://github.com/talpitoo/forexchurch-11ty-alpinejs-bootstrap/tree/master/src/_data/brokers
+2. each 'top comparison' page is just a simple `.njk` where all the details (e.g. broker 1, broker 2) are set up via front matter https://github.com/talpitoo/forexchurch-11ty-alpinejs-bootstrap/tree/master/src/pages/forex-brokers/top-comparisons
+3. everything else (the layout of the vs. page) comes from https://github.com/talpitoo/forexchurch-11ty-alpinejs-bootstrap/blob/master/src/_includes/layouts/vs.njk So assuming that all comparisons are 100% identical this single page layout covers all possible broker comparisons (assuming there is data)
+4. for all that i needed to add URL parameters to the top navigation e.g. https://github.com/talpitoo/forexchurch-11ty-alpinejs-bootstrap/blob/master/src/_includes/components/navigation-url-parameters.njk#L74
+5. this way the 'top comparison' pages can be generated at build time with `npm run build` and they will appear as static pages inside the `_site` folder, perfect for SEO. The text will be static, the tables and charts will be dynamic once the page loads and Alpine.js does its thing.
