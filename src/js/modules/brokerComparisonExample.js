@@ -38,6 +38,13 @@ const comparisonKeys = [
 ];
 
 export function brokerComparisonExample() {
+  const brokerList = [
+    { id: 'e-toro', name: 'eToro' },
+    { id: 'ic-markets', name: 'IC Markets' },
+    { id: 'pepperstone', name: 'Pepperstone' },
+    { id: 'tickmill', name: 'Tickmill' }
+  ];  
+  
   // Parse the URL parameters to get the selected brokers
   const getSelectedBrokersFromUrl = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -62,8 +69,7 @@ export function brokerComparisonExample() {
   let brokerDataUrls = generateBrokerDataUrls(selectedBrokers);
 
   return {
-    // selectedBrokers: [],
-    // selectedBrokers: ['e-toro', 'ic-markets'], // Initialize with preselected brokers
+    brokerList,
     selectedBrokers: selectedBrokers,
     brokerDataUrls: brokerDataUrls,
     table: null,
@@ -78,8 +84,6 @@ export function brokerComparisonExample() {
         layout: window.innerWidth < 768 ? "" : "fitColumns",
         frozenRows: 1,
         height: this.tableHeight,
-        // data: [], // NOTE: for simple setup
-        // columns: [], // NOTE: for simple setup
         data: this.prepareInitialData(),
         columns: [
           {
@@ -100,7 +104,6 @@ export function brokerComparisonExample() {
     },
 
     handleResize() {
-      console.debug('resize');
       this.tableHeight = window.innerWidth < 768 ? (window.innerHeight - 85) : window.innerHeight - (heightNavbar + heightDropdown + 32);
       this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : '';
       this.table.setHeight(this.tableHeight);
@@ -108,7 +111,6 @@ export function brokerComparisonExample() {
     },
 
     prepareInitialData() {
-      // Return an array of objects with 'detail' keys to populate the initial table data
       return comparisonKeys.map(detail => ({ detail }));
     },
 
@@ -128,8 +130,8 @@ export function brokerComparisonExample() {
     clearAllBrokers() {
       selectedBrokers = [];
       brokerDataUrls = {};
-      this.loadSelectedBrokersData();
-      this.updateUrlWithSelectedBrokers();
+      this.loadSelectedBrokersData(); // Update with new selectedBrokers and brokerDataUrls
+      this.updateUrlWithSelectedBrokers(); // Update URL with empty selectedBrokers
     },
 
     updateUrlWithSelectedBrokers() {
@@ -140,11 +142,10 @@ export function brokerComparisonExample() {
     },
 
     loadSelectedBrokersData() {
-      const fetchPromises = this.selectedBrokers.map(brokerId => axios.get(brokerDataUrls[brokerId]).then(response => response.data));
+      const fetchPromises = selectedBrokers.map(brokerId => axios.get(brokerDataUrls[brokerId]).then(response => response.data));
 
       Promise.all(fetchPromises).then(brokersData => {
         const columns = this.prepareColumns(brokersData);
-        // Dynamically adjust data structure for Tabulator
         const tableData = this.prepareDataForTable(brokersData);
         this.table.setColumns(columns);
         this.table.setData(tableData);
@@ -153,15 +154,13 @@ export function brokerComparisonExample() {
 
     prepareDataForTable(brokersData) {
       return comparisonKeys.map(key => {
-        let rowData = { detail: key }; // Using the detail titles directly from comparisonKeys
+        let rowData = { detail: key };
 
         brokersData.forEach((broker, index) => {
           if (key === "Average EUR/USD Spread" && broker["Average EUR/USD Spread Tooltip"]) {
-            // Format the HTML content only for this specific cell
-            rowData[this.selectedBrokers[index]] = `${broker[key]} <span class="text-warning"><svg class="" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use></svg>${broker["Average EUR/USD Spread Tooltip"]}</span>`;
+            rowData[selectedBrokers[index]] = `${broker[key]} <span class="text-warning"><svg class="" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#info-circle"></use></svg>${broker["Average EUR/USD Spread Tooltip"]}</span>`;
           } else {
-            // Directly assign the data for all other cells
-            rowData[this.selectedBrokers[index]] = broker[key] ? broker[key].toString() : "N/A";
+            rowData[selectedBrokers[index]] = broker[key] ? broker[key].toString() : "N/A";
           }
         });
 
@@ -178,8 +177,7 @@ export function brokerComparisonExample() {
           width: this.columnWidth,
           frozen: true
         },
-        ...this.selectedBrokers.map((brokerId, index) => {
-          // Determine if any broker data for this column requires HTML rendering
+        ...selectedBrokers.map((brokerId, index) => {
           let requiresHtml = comparisonKeys.includes("Average EUR/USD Spread") && brokersData[index]["Average EUR/USD Spread Tooltip"];
           const brokerInfo = brokersData[index];
           const titleContent = `
@@ -200,20 +198,14 @@ export function brokerComparisonExample() {
           `;
 
           return {
-            // title: brokersData[index].name,
             title: titleContent,
             field: brokerId,
             headerSort: false,
             width: this.columnWidth,
-            formatter: requiresHtml ? "html" : undefined, // Apply HTML formatter conditionally based on data presence
+            formatter: requiresHtml ? "html" : undefined,
           };
         }),
       ];
     },
-
-
-
-
-
   }
 }

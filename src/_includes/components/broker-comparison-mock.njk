@@ -15,30 +15,14 @@
                         </span>
                         <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
                     </div>
-                    <div class="form-check" x-show="!searchText || 'eToro'.toLowerCase().includes(searchText.toLowerCase())">
-                        <input type="checkbox" x-model="selectedBrokers" class="form-check-input" id="check-e-toro" value="e-toro" @change="toggleBroker($event)" checked>
-                        <label class="form-check-label" for="check-e-toro">
-                        eToro
-                    </label>
-                    </div>
-                    <div class="form-check" x-show="!searchText || 'IC Markets'.toLowerCase().includes(searchText.toLowerCase())">
-                        <input type="checkbox" x-model="selectedBrokers" class="form-check-input" id="check-ic-markets" value="ic-markets" @change="toggleBroker($event)" checked>
-                        <label class="form-check-label" for="check-ic-markets">
-                        IC Markets
-                    </label>
-                    </div>
-                    <div class="form-check" x-show="!searchText || 'Pepperstone'.toLowerCase().includes(searchText.toLowerCase())">
-                        <input type="checkbox" x-model="selectedBrokers" class="form-check-input" id="check-pepperstone" value="pepperstone" @change="toggleBroker($event)">
-                        <label class="form-check-label" for="check-pepperstone">
-                        Pepperstone
-                    </label>
-                    </div>
-                    <div class="form-check" x-show="!searchText || 'Tickmill'.toLowerCase().includes(searchText.toLowerCase())">
-                        <input type="checkbox" x-model="selectedBrokers" class="form-check-input" id="check-tickmill" value="tickmill" @change="toggleBroker($event)">
-                        <label class="form-check-label" for="check-tickmill">
-                        Tickmill
-                    </label>
-                    </div>
+
+                    <template x-for="broker in brokerList" :key="broker.id">
+                        <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
+                            <input type="checkbox" x-model="selectedBrokers" class="form-check-input" :id="'check-' + broker.id" :value="broker.id" @change="toggleBroker($event)">
+                            <label class="form-check-label" :for="'check-' + broker.id" x-text="broker.name"></label>
+                        </div>
+                    </template>
+                    
                     <hr class="border border-light opacity-100 w-100"/>
                     <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
                 </div>
