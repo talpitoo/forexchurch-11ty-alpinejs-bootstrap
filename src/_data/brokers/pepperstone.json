@@ -44,10 +44,18 @@
         "Real Futures"
     ],
     "Forex Pairs": 67,
-    "Average EUR/USD Spread": "0.7 pips",
-    "Average EUR/USD Spread Tooltip": "TODO: account used for data",
-    "Commission on Forex": "$3.50 / lot per side",
-    "Commission on Forex Tooltip": "TODO: account used for data",
+    "Average EUR/USD Spread": [
+        {
+            "value": "0.7 pips",
+            "tooltip": "TODO: account used for data"
+        }
+    ],
+    "Commission on Forex": [
+        {
+            "value": "$3.50 / lot per side",
+            "tooltip": "TODO: account used for data"
+        }
+    ],
     "Maximum Leverage": "400:1",
     "Hedging Allowed": "Yes",
     "Scalping Allowed": "Yes",
