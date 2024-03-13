@@ -176,6 +176,9 @@ export function brokerComparisonTable() {
             });
           }
         },
+        renderComplete: () => {
+          this.cloneTableHeader();
+        },    
       });
 
       window.addEventListener('resize', () => setTimeout(() => this.handleResize(), 100));
@@ -260,7 +263,8 @@ export function brokerComparisonTable() {
         this.table.setColumns(columns);
         this.table.setData(tableData);
       }).catch(error => console.error('Error loading broker data:', error));
-    },
+    },    
+    
 
     prepareDataForTable(brokersData) {
       return comparisonKeys.map(key => {
