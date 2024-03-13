@@ -175,10 +175,7 @@ export function brokerComparisonTable() {
               }
             });
           }
-        },
-        renderComplete: () => {
-          this.cloneTableHeader();
-        },    
+        }
       });
 
       window.addEventListener('resize', () => setTimeout(() => this.handleResize(), 100));
@@ -188,7 +185,7 @@ export function brokerComparisonTable() {
         this.loadSelectedBrokersData();
       }, 100);
 
-      setTimeout(() => { this.cloneTableHeader(); }, 500); // Clone the table header after toggling a broker 
+      setTimeout(() => { this.cloneTableHeader(); this.updateCheckboxState(); }, 500); // Clone the table header after toggling a broker 
     },
 
     handleResize() {
@@ -221,6 +218,16 @@ export function brokerComparisonTable() {
       }
     },
 
+    updateCheckboxState() {
+      console.debug('disable the checkboxes');
+      document.querySelectorAll('.form-check-input').forEach((checkbox) => {
+        if (this.selectedBrokers.length >= 2 && !this.selectedBrokers.includes(checkbox.value)) {
+          checkbox.disabled = true;
+        } else {
+          checkbox.disabled = false;
+        }
+      });
+    },
 
     toggleBroker(event) {
       const broker = event.target.value;
@@ -231,6 +238,7 @@ export function brokerComparisonTable() {
         selectedBrokers.splice(index, 1);
       }
       brokerDataUrls = generateBrokerDataUrls(selectedBrokers); // Update brokerDataUrls
+      this.updateCheckboxState(); // Ensure checkboxes are enabled when all selections are cleared
       this.loadSelectedBrokersData();
       this.updateUrlWithSelectedBrokers();
 
@@ -241,6 +249,7 @@ export function brokerComparisonTable() {
       this.selectedBrokers = [];
       selectedBrokers = [];
       brokerDataUrls = {};
+      this.updateCheckboxState(); // Ensure checkboxes are enabled when all selections are cleared
       this.loadSelectedBrokersData(); // Update with new selectedBrokers and brokerDataUrls
       this.updateUrlWithSelectedBrokers(); // Update URL with empty selectedBrokers
 
@@ -263,8 +272,8 @@ export function brokerComparisonTable() {
         this.table.setColumns(columns);
         this.table.setData(tableData);
       }).catch(error => console.error('Error loading broker data:', error));
-    },    
-    
+    },
+
 
     prepareDataForTable(brokersData) {
       return comparisonKeys.map(key => {

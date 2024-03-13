@@ -38,10 +38,12 @@
 
 .comparison-table-clone {
   @include media-breakpoint-up(md) {
+    min-height: 183px;
     margin-bottom: -183px; // TODO: debug and set px values across the breakpoints
   }
 
   @include media-breakpoint-up(lg) {
+    min-height: 233px;
     margin-bottom: -233px; // TODO: debug and set px values across the breakpoints
   }
 
