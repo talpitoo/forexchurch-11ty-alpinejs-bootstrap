@@ -12,9 +12,9 @@
 
             {# NOTE: not used for now {{ content | safe }} #}
 
-            <section class='' x-data="brokerComparisonExample()" x-init="initTable">
+            <section class='' x-data="brokerComparisonTable()" x-init="initTable">
                 <div class='container-md container-max-xl'>
-                    {% include "components/broker-comparison-mock.njk" %}
+                    {% include "components/broker-comparison-table.njk" %}
 
                     <p>Comparing <a href="#" class="btn btn-underline p-0">
                             <span>{{ brokers[broker1].name }}</span></a> and <a href="#" class="btn btn-underline p-0">

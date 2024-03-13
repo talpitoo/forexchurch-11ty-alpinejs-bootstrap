@@ -10,8 +10,8 @@ import { loadBreweries } from './modules/breweries';
 import { loadBreweriesMock } from './modules/breweriesMock';
 import { tabulatorMock } from './modules/tabulatorMock';
 // import { brokerComparison } from './modules/brokerComparison';
-import { brokerComparisonExample } from './modules/brokerComparisonExample';
-// import { brokerComparisonExampleManual } from './modules/brokerComparisonExampleManual';
+import { brokerComparisonTable } from './modules/brokerComparisonTable';
+// import { brokerComparisonTableManual } from './modules/brokerComparisonTableManual';
 import { countriesDropdown } from './modules/countries';
 import { initializeSwiper } from './modules/swiperInstances';
 
@@ -49,7 +49,7 @@ window.addEventListener('alpine:init', () => {
     Alpine.data('loadBreweriesMock', loadBreweriesMock);
     Alpine.data('tabulatorMock', tabulatorMock);
     // Alpine.data('brokerComparison', brokerComparison);
-    Alpine.data('brokerComparisonExample', brokerComparisonExample);
-    // Alpine.data('brokerComparisonExampleManual', brokerComparisonExampleManual);
+    Alpine.data('brokerComparisonTable', brokerComparisonTable);
+    // Alpine.data('brokerComparisonTableManual', brokerComparisonTableManual);
     Alpine.data('countriesDropdown', countriesDropdown);
 });
