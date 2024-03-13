@@ -1,0 +1,38 @@
+<div class='row'>
+    <div class='col-lg-3 pt-16px'>
+        <div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
+            <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="btn btn-outline-primary">
+                Selected brokers
+            </button>
+            {# TODO: adjust `const heightDropdown = 82;` in the JS in case of markup change #}
+
+            <form x-show="openSelectedBrokers" :class="{'show': openSelectedBrokers}" class="dropdown-menu p-4" @click="openSelectedBrokers = true" style="display: none;">
+                <div class="d-flex flex-column row-gap-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-white border-none ps-16px pe-0">
+                            <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                                <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                            </svg>
+                        </span>
+                        <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+                    </div>
+
+                    <template x-for="broker in brokerList" :key="broker.id">
+                        <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
+                            <input type="checkbox" x-model="selectedBrokers" class="form-check-input" :id="'check-' + broker.id" :value="broker.id" @change="toggleBroker($event)">
+                            <label class="form-check-label" :for="'check-' + broker.id" x-text="broker.name"></label>
+                        </div>
+                    </template>
+                    
+                    <hr class="border border-light opacity-100 w-100"/>
+                    <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr class="border border-light opacity-100 w-100"/>
+
+<div class="mt-16px mb-32px">
+    <div id="comparison-table" class="table-header-light"></div>
+</div>

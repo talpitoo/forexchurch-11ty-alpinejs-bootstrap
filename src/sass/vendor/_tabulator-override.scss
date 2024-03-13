@@ -17,6 +17,8 @@
 }
 
 .table-header-light {
+  overflow-anchor: none; // TODO: debug vertical scroll jumping if this is not set
+
   .tabulator-header,
   .tabulator-headers .tabulator-col {
     color: $body-color;
