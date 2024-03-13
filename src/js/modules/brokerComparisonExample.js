@@ -233,21 +233,37 @@ export function brokerComparisonExample() {
     prepareDataForTable(brokersData) {
       return comparisonKeys.map(key => {
         let rowData = { detail: key };
-
+    
         brokersData.forEach((broker, index) => {
+          const brokerValue = broker[key]; // Store the current broker's value for the key
+    
           if (key === "Average EUR/USD Spread" || key === "Commission on Forex") {
-            if (Array.isArray(broker[key])) {
-              // Transform array of objects into a string format "value (tooltip)"
-              rowData[selectedBrokers[index]] = broker[key].map(item => `${item.value} (${item.tooltip})`).join(', ');
+            // Handle the cases where the value is an array of objects with value and tooltip properties
+            if (Array.isArray(brokerValue)) {
+              rowData[selectedBrokers[index]] = brokerValue.map(item => `${item.value} (${item.tooltip})`).join(', ');
+            } else {
+              rowData[selectedBrokers[index]] = "N/A"; // Default/fallback value for missing or unexpected data formats
             }
+          } else if (Array.isArray(brokerValue)) {
+            // Handle the case where the value is an array (but not specifically for the above keys)
+            rowData[selectedBrokers[index]] = brokerValue.join(', ');
+          } else if (typeof brokerValue === 'object' && brokerValue !== null) {
+            // Handle the case where the value is an object (and possibly nested structures)
+            // This is a simplistic approach, you might need to adjust it based on the actual structure of your objects
+            rowData[selectedBrokers[index]] = "Complex Object"; // You might want to replace this with a more specific handling logic
+          } else if (brokerValue !== undefined) {
+            // Handle the case where the value is a string, number, or any other primitive type
+            rowData[selectedBrokers[index]] = brokerValue.toString();
           } else {
-            rowData[selectedBrokers[index]] = broker[key].toString()
+            // Handle the case where the value is undefined (missing data)
+            rowData[selectedBrokers[index]] = "N/A"; // Default/fallback value for missing data
           }
         });
-
+    
         return rowData;
       });
     },
+    
 
 
     prepareColumns(brokersData) {
@@ -261,11 +277,16 @@ export function brokerComparisonExample() {
         },
         ...selectedBrokers.map((brokerId, index) => {
           const brokerInfo = brokersData[index];
+          const ratingValue = parseInt(brokerInfo.rating, 10); // Ensure rating is an integer
+          let starsHtml = '';
+          for (let i = 0; i < ratingValue; i++) {
+            starsHtml += '<span class="text-secondary">★</span>';
+          }
           const titleContent = `
             <div class="d-flex flex-column align-items-center px-4">
               <img src="${brokerInfo.eleventyNavigation.logo}" alt="${brokerInfo.name} logo" class="object-fit-contain" width="64" height="64">
-              <h6>${brokerInfo.name}</h6>
-              <div class="mb-2">${brokerInfo.rating}</div>
+              <h6 class="mb-0">${brokerInfo.name}</h6>
+              <div class="fs-2 mb-2">${starsHtml} <span class="fs-6 fw-semibold ms-2">${brokerInfo.rating}</span></div>
               <a href="#" class="d-none d-lg-block btn btn-primary w-100">
                   Visit Broker
               </a>

@@ -12,21 +12,21 @@
 
             {# NOTE: not used for now {{ content | safe }} #}
 
-            <section class='pb-section' x-data="brokerComparisonExample()" x-init="initTable">
+            <section class='' x-data="brokerComparisonExample()" x-init="initTable">
                 <div class='container-md container-max-xl'>
                     {% include "components/broker-comparison-mock.njk" %}
 
                     <p>Comparing <a href="#" class="btn btn-underline p-0">
                             <span>{{ brokers[broker1].name }}</span></a> and <a href="#" class="btn btn-underline p-0">
                             <span>{{ brokers[broker2].name }}</span></a> involves analysing several key aspects of each broker's service, using the criteria from our in-depth individual reviews as well as our extensive points of data on each broker.</p>
-                    <p>We rate elements such as account types, broker safety/regulation, trading platforms, available financial markets and assets and market news/research on a scale of 0-5. We place special emphasis on important features like broker safety, trading platforms and trader education resources. The charts below summarize how the brokers stack up in these key areas:</p>
+                    <p class="mb-32px">We rate elements such as account types, broker safety/regulation, trading platforms, available financial markets and assets and market news/research on a scale of 0-5. We place special emphasis on important features like broker safety, trading platforms and trader education resources. The charts below summarize how the brokers stack up in these key areas:</p>
 
                     <div class="row mb-32px">
                         <div class="col-lg-6">
                             <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
-                                <div x-data="radarChart()" x-init="initChart('broker1')">
+                                <div x-data="radarChart()" x-init="initChart('{{ broker1 }}')">
                                     <figure>
-                                        <canvas id="broker1RadarChart"></canvas>
+                                        <canvas id="{{ broker1 }}RadarChart"></canvas>
                                         <figcaption class="text-center">{{ brokers[broker1].name }}</figcaption>
                                     </figure>
                                 </div>
@@ -34,9 +34,9 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
-                                <div x-data="radarChart()" x-init="initChart('broker2')">
+                                <div x-data="radarChart()" x-init="initChart('{{ broker2 }}')">
                                     <figure>
-                                        <canvas id="broker2RadarChart"></canvas>
+                                        <canvas id="{{ broker2 }}RadarChart"></canvas>
                                         <figcaption class="text-center">{{ brokers[broker2].name }}</figcaption>
                                     </figure>
                                 </div>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class='forexchurch-tile flex-column bg-tertiary-light mb-24px'>
-                        <h3>Forex Broker Comparison: {{ brokers[broker1].name }} vs. {{ brokers[broker2].name }}</h3>
+                        <h3 class="mb-0">Forex Broker Comparison: {{ brokers[broker1].name }} vs. {{ brokers[broker2].name }}</h3>
                         <p class="mb-0">How do <a href="#" class="btn btn-underline p-0">
                                 <span>{{ brokers[broker1].name }}</span></a> and <a href="#" class="btn btn-underline p-0">
                                 <span>{{ brokers[broker2].name }}</span></a> compare in regard to broker safety and regulation?</p>
@@ -159,7 +159,7 @@
                     <p>Having resources available that will appeal to all levels of traders, from complete novices to even the most experienced and knowledgeable traders is a definite plus.</p>
                     <p>We have examined the educational content provided by {{ brokers[broker1].name }} and {{ brokers[broker2].name }} to determine which broker better supports a traders learning and development.</p>
                     <p>Education Rating: [Enter {{ brokers[broker1].name }} Education Rating – use the star rating from written reviews]</p>
-                    <p>Education Rating: [Enter {{ brokers[broker2].name }} Education Rating]</p>
+                    <p class="mb-32px">Education Rating: [Enter {{ brokers[broker2].name }} Education Rating]</p>
                     <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
                         <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
                             <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
@@ -182,7 +182,7 @@
                     <p>Average Ratings:</p>
                     <p>{{ brokers[broker1].name }}: [Enter {{ brokers[broker1].name }} Average Rating]</p>
                     <p>{{ brokers[broker2].name }}: [Enter {{ brokers[broker2].name }} Average Rating]</p>
-                    <p>Although in this head-to-head comparison [Broker 1 or Broker 2 (whichever had the best score)] came out ahead in terms of overall ratings, the crucial factor in choosing a forex broker is finding a reliable one that best aligns with your personal trading needs.</p>
+                    <p class="mb-32px">Although in this head-to-head comparison [Broker 1 or Broker 2 (whichever had the best score)] came out ahead in terms of overall ratings, the crucial factor in choosing a forex broker is finding a reliable one that best aligns with your personal trading needs.</p>
                     <div class='forexchurch-tile bg-tertiary-light align-items-center justify-content-start'>
                         <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
                             <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>

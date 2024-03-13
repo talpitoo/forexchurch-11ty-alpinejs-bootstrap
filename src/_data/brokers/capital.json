@@ -13,6 +13,15 @@
             "top brokers"
         ]
     },
+    "radarChart": [
+        {
+            "Regulations": "0.7",
+            "Trading conditions": "0.8",
+            "Trading platforms": "1.0",
+            "Deposits and Withdrawals": "0.9",
+            "Education and research": "0.7"
+        }
+    ],
     "Headquarters": "Australia",
     "Regulators": [
         "CySEC (Cyprus)",
