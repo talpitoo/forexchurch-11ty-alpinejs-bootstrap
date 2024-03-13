@@ -254,7 +254,7 @@ export function brokerComparisonTable() {
       window.history.replaceState({}, '', newUrl);
     },
 
-    loadSelectedBrokersData() {
+    async loadSelectedBrokersData() {
       const fetchPromises = selectedBrokers.map(brokerId => axios.get(brokerDataUrls[brokerId]).then(response => response.data));
 
       Promise.all(fetchPromises).then(brokersData => {
