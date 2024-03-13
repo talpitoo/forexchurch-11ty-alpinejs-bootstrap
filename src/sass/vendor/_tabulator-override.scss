@@ -17,7 +17,9 @@
 }
 
 .table-header-light {
-  overflow-anchor: none; // TODO: debug vertical scroll jumping if this is not set
+  @include media-breakpoint-up(md) {
+    overflow-anchor: none; // TODO: debug vertical scroll jumping if this is not set https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor
+  }
 
   .tabulator-header,
   .tabulator-headers .tabulator-col {
@@ -32,4 +34,20 @@
 .tabulator-row .tabulator-cell,
 .table td {
   border-color: transparent !important;
+}
+
+.comparison-table-clone {
+  @include media-breakpoint-up(md) {
+    margin-bottom: -183px; // TODO: debug and set px values across the breakpoints
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: -233px; // TODO: debug and set px values across the breakpoints
+  }
+
+  + .tabulator .tabulator-header {
+    @include media-breakpoint-up(md) {
+      opacity: 0;
+    }
+  }
 }

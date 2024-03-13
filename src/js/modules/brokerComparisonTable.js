@@ -183,7 +183,9 @@ export function brokerComparisonTable() {
       // Immediately load data for preselected brokers
       setTimeout(() => {
         this.loadSelectedBrokersData();
-      }, 300);
+      }, 100);
+
+      setTimeout(() => { this.cloneTableHeader(); }, 500); // Clone the table header after toggling a broker 
     },
 
     handleResize() {
@@ -193,6 +195,7 @@ export function brokerComparisonTable() {
       this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : '';
       this.table.setHeight(this.tableHeight);
       this.loadSelectedBrokersData();
+      setTimeout(() => { this.cloneTableHeader(); }, 500); // Clone the table header after toggling a broker 
       // this.table.redraw(true);
 
       console.debug('resize');
@@ -201,6 +204,20 @@ export function brokerComparisonTable() {
     prepareInitialData() {
       return comparisonKeys.map(detail => ({ detail }));
     },
+
+    cloneTableHeader() {
+      const cloneContainer = document.querySelector('.comparison-table-clone');
+      cloneContainer.innerHTML = '';
+
+      // Find the original table's header
+      const originalHeader = document.querySelector('#comparison-table .tabulator-header');
+
+      if (originalHeader) {
+        const clonedHeader = originalHeader.cloneNode(true);
+        cloneContainer.appendChild(clonedHeader);
+      }
+    },
+
 
     toggleBroker(event) {
       const broker = event.target.value;
@@ -213,6 +230,8 @@ export function brokerComparisonTable() {
       brokerDataUrls = generateBrokerDataUrls(selectedBrokers); // Update brokerDataUrls
       this.loadSelectedBrokersData();
       this.updateUrlWithSelectedBrokers();
+
+      setTimeout(() => this.cloneTableHeader(), 100); // Clone the table header after toggling a broker
     },
 
     clearAllBrokers() {
@@ -221,6 +240,8 @@ export function brokerComparisonTable() {
       brokerDataUrls = {};
       this.loadSelectedBrokersData(); // Update with new selectedBrokers and brokerDataUrls
       this.updateUrlWithSelectedBrokers(); // Update URL with empty selectedBrokers
+
+      setTimeout(() => this.cloneTableHeader(), 100); // Clone the table header after toggling a broker
     },
 
     updateUrlWithSelectedBrokers() {
