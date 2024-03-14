@@ -85,7 +85,7 @@ export function brokerComparisonTable() {
     initTable() {
       // Pre-define the 'detail' column so it's always visible
       this.table = new Tabulator("#comparison-table", {
-        layout: window.innerWidth < 768 ? "" : "fitColumns",
+        layout: "fitColumns", // window.innerWidth < 768 ? "" : "fitColumns",
         virtualDom: false, // TODO: debug if necessary https://tabulator.info/docs/5.6/virtual-dom
         frozenRows: 1,
         height: this.tableHeight,
@@ -178,14 +178,25 @@ export function brokerComparisonTable() {
         }
       });
 
-      window.addEventListener('resize', () => setTimeout(() => this.handleResize(), 100));
+      // NOTE: similar events: tableBuilt, dataProcessed, dataChanged, renderComplete
+      this.table.on("dataLoaded", (function (data) {
+        console.debug("Tabulator: dataLoaded");
+        this.updateCheckboxState();
+        this.cloneTableHeader(); // Clone the table header after toggling a broker 
+      }).bind(this));
+
+      // window.addEventListener('resize', () => setTimeout(() => this.handleResize(), 100));
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(resizeTimer); // Cancel the previous requestAnimationFrame call
+        resizeTimer = requestAnimationFrame(() => {
+          this.handleResize(); // Call handleResize only once resizing stops
+        });
+      });
+
 
       // Immediately load data for preselected brokers
-      setTimeout(() => {
-        this.loadSelectedBrokersData();
-      }, 100);
-
-      setTimeout(() => { this.cloneTableHeader(); this.updateCheckboxState(); }, 500); // Clone the table header after toggling a broker 
+      this.loadSelectedBrokersData()
     },
 
     handleResize() {
@@ -195,8 +206,7 @@ export function brokerComparisonTable() {
       this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : '';
       this.table.setHeight(this.tableHeight);
       this.loadSelectedBrokersData();
-      setTimeout(() => { this.cloneTableHeader(); }, 500); // Clone the table header after toggling a broker 
-      // this.table.redraw(true);
+      this.table.redraw(true);
 
       console.debug('resize');
     },
@@ -241,8 +251,6 @@ export function brokerComparisonTable() {
       this.updateCheckboxState(); // Ensure checkboxes are enabled when all selections are cleared
       this.loadSelectedBrokersData();
       this.updateUrlWithSelectedBrokers();
-
-      setTimeout(() => this.cloneTableHeader(), 100); // Clone the table header after toggling a broker
     },
 
     clearAllBrokers() {
@@ -252,8 +260,6 @@ export function brokerComparisonTable() {
       this.updateCheckboxState(); // Ensure checkboxes are enabled when all selections are cleared
       this.loadSelectedBrokersData(); // Update with new selectedBrokers and brokerDataUrls
       this.updateUrlWithSelectedBrokers(); // Update URL with empty selectedBrokers
-
-      setTimeout(() => this.cloneTableHeader(), 100); // Clone the table header after toggling a broker
     },
 
     updateUrlWithSelectedBrokers() {
