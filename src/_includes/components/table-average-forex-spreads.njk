@@ -1,0 +1,49 @@
+<div class="table-responsive rounded-3 overflow-hidden mb-32px">
+    <div x-data="tableAverageForexSpreads()" x-init="initComparison('{{ broker1 }}', '{{ broker2 }}')">
+        <table class="table table-striped w-full fs-7 mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th class="bg-primary"></th>
+                    <th class="bg-primary">
+                        <a href="#" class="btn btn-underline p-0 text-white">
+                            <span x-text="broker1Data.name">Broker 1</span>
+                        </a>
+                    </th>
+                    <th class="bg-primary">
+                        <a href="#" class="btn btn-underline p-0 text-white">
+                            <span x-text="broker2Data.name">Broker 1</span>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Commission on Forex</td>
+                    <td x-text="broker1Data['Commission on Forex'][0].value"></td>
+                    <td x-text="broker2Data['Commission on Forex'][0].value"></td>
+                </tr>
+                <tr>
+                    <td>Account used</td>
+                    <td x-text="broker1Data['Commission on Forex'][0].tooltip"></td>
+                    <td x-text="broker2Data['Commission on Forex'][0].tooltip"></td>
+                </tr>
+                <tr>
+                    <td>EUR/USD spread</td>
+                    <td x-text="broker1Data['EUR/USD spread']"></td>
+                    <td x-text="broker2Data['EUR/USD spread']"></td>
+                </tr>
+                <tr>
+                    <td>GBP/USD spread</td>
+                    <td x-text="broker1Data['GBP/USD spread']"></td>
+                    <td x-text="broker2Data['GBP/USD spread']"></td>
+                </tr>
+                <tr>
+                    <td>USD/JPY spread</td>
+                    <td x-text="broker1Data['USD/JPY spread']"></td>
+                    <td x-text="broker2Data['USD/JPY spread']"></td>
+                </tr>
+            </tbody>
+        </table>
+        <span x-show="!broker1Data || !broker2Data">Loading data...</span>
+    </div>
+</div>

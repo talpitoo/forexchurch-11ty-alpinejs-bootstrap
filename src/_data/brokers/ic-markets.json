@@ -89,11 +89,11 @@
     "Deposits/Withdrawals": 2.8,
     "Trader Education": 2.8,
     "Customer Service": 2.8,
-    "Commission per lot": "[Broker 1 Commission]",
-    "Account used": "[Broker 1 Account Used]",
-    "EUR/USD spread": "[Broker 1 EUR/USD Spread]",
-    "GBP/USD spread": "[Broker 1 GBP/USD Spread]",
-    "USD/JPY spread": "[Broker 1 USD/JPY Spread]",
+    "Commission per lot": "[IC Markets Commission]",
+    "Account used": "[IC Markets Account Used]",
+    "EUR/USD spread": "[IC Markets EUR/USD Spread]",
+    "GBP/USD spread": "[IC Markets GBP/USD Spread]",
+    "USD/JPY spread": "[IC Markets USD/JPY Spread]",
     "Non-CFD Instruments Offered": {
         "Stocks": "No",
         "Options": "No",
@@ -111,14 +111,14 @@
         "ETF CFDs": 12
     },
     "Trading Platforms and Features": {
-        "Platforms": "[Broker 1 Platforms]",
+        "Platforms": "[IC Markets Platforms]",
         "Web Trading": "Yes",
         "Mobile Trading": "Yes",
         "Desktop Trading": "Yes",
         "Social Trading": "Yes",
         "Copy Trading": "Yes",
         "API Access": "Yes",
-        "Demo Account Expiry": "[Broker 1 Demo Account Expiry]"
+        "Demo Account Expiry": "[IC Markets Demo Account Expiry]"
     },
     "Non Trading Fees": {
         "Withdrawal fee": "No",

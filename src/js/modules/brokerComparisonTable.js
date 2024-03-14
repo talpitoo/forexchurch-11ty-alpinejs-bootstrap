@@ -179,7 +179,8 @@ export function brokerComparisonTable() {
       });
 
       // NOTE: similar events: tableBuilt, dataProcessed, dataChanged, renderComplete
-      this.table.on("dataLoaded", (function (data) {
+      // this.table.on("dataLoaded", (function (data) {
+      this.table.on("renderComplete", (function (data) {
         console.debug("Tabulator: dataLoaded");
         this.updateCheckboxState();
         this.cloneTableHeader(); // Clone the table header after toggling a broker 
@@ -196,7 +197,8 @@ export function brokerComparisonTable() {
 
 
       // Immediately load data for preselected brokers
-      this.loadSelectedBrokersData()
+      this.loadSelectedBrokersData();
+      // setTimeout(() => this.cloneTableHeader(), 500) // Clone the table header after toggling a broker 
     },
 
     handleResize() {

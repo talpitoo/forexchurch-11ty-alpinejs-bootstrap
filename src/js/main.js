@@ -1,6 +1,7 @@
 // ES Module imports
 import Alpine from 'alpinejs';
 import { radarChart } from './modules/radarChart';
+import { tableAverageForexSpreads } from './modules/tableAverageForexSpreads';
 // import persist from '@alpinejs/persist';
 // import 'bootstrap/dist/js/bootstrap.bundle.min'; // Includes Bootstrap and Popper
 import { createPopper } from '@popperjs/core';
@@ -43,6 +44,7 @@ window.addEventListener('alpine:init', () => {
 
     // register the individual modules with Alpine
     Alpine.data('radarChart', radarChart);
+    Alpine.data('tableAverageForexSpreads', tableAverageForexSpreads);
     Alpine.data('popoverCustom', popoverCustom);
     Alpine.data('scrollspyCustom', scrollspyCustom);
     Alpine.data('loadBreweries', loadBreweries);

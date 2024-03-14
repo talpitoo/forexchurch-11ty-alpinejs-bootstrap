@@ -89,11 +89,11 @@
     "Deposits/Withdrawals": 2.8,
     "Trader Education": 2.8,
     "Customer Service": 2.8,
-    "Commission per lot": "[Broker 1 Commission]",
-    "Account used": "[Broker 1 Account Used]",
-    "EUR/USD spread": "[Broker 1 EUR/USD Spread]",
-    "GBP/USD spread": "[Broker 1 GBP/USD Spread]",
-    "USD/JPY spread": "[Broker 1 USD/JPY Spread]",
+    "Commission per lot": "[Pepperstone Commission]",
+    "Account used": "[Pepperstone Account Used]",
+    "EUR/USD spread": "[Pepperstone EUR/USD Spread]",
+    "GBP/USD spread": "[Pepperstone GBP/USD Spread]",
+    "USD/JPY spread": "[Pepperstone USD/JPY Spread]",
     "Non-CFD Instruments Offered": {
         "Stocks": "No",
         "Options": "No",
@@ -111,14 +111,14 @@
         "ETF CFDs": 12
     },
     "Trading Platforms and Features": {
-        "Platforms": "[Broker 1 Platforms]",
+        "Platforms": "[Pepperstone Platforms]",
         "Web Trading": "Yes",
         "Mobile Trading": "Yes",
         "Desktop Trading": "Yes",
         "Social Trading": "Yes",
         "Copy Trading": "Yes",
         "API Access": "Yes",
-        "Demo Account Expiry": "[Broker 1 Demo Account Expiry]"
+        "Demo Account Expiry": "[Pepperstone Demo Account Expiry]"
     },
     "Non Trading Fees": {
         "Withdrawal fee": "No",
