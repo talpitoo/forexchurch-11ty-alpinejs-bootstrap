@@ -271,16 +271,53 @@ export function brokerComparisonTable() {
       window.history.replaceState({}, '', newUrl);
     },
 
+    // async loadSelectedBrokersData() {
+    //   const fetchPromises = selectedBrokers.map(brokerId => axios.get(brokerDataUrls[brokerId]).then(response => response.data));
+
+    //   Promise.all(fetchPromises).then(brokersData => {
+    //     const columns = this.prepareColumns(brokersData);
+    //     const tableData = this.prepareDataForTable(brokersData);
+    //     this.table.setColumns(columns);
+    //     this.table.setData(tableData);
+    //   }).catch(error => console.error('Error loading broker data:', error));
+    // },
     async loadSelectedBrokersData() {
-      const fetchPromises = selectedBrokers.map(brokerId => axios.get(brokerDataUrls[brokerId]).then(response => response.data));
+      // Ensure there are selected brokers to fetch data for
+      if (!selectedBrokers.length) {
+        console.warn('No selected brokers to load data for.');
+        return; // Early return if there are no selected brokers
+      }
+
+      const fetchPromises = selectedBrokers.map(brokerId => {
+        // Ensure the broker ID is valid and there's a URL to fetch from
+        if (!brokerId || !brokerDataUrls[brokerId]) {
+          console.warn(`Invalid broker ID or missing data URL for broker: ${brokerId}`);
+          return Promise.resolve(null); // Resolve with null for invalid brokers
+        }
+
+        return axios.get(brokerDataUrls[brokerId])
+          .then(response => response.data)
+          .catch(error => {
+            console.error(`Error loading data for broker ${brokerId}:`, error);
+            return null; // Return null in case of an error, to avoid breaking Promise.all
+          });
+      });
 
       Promise.all(fetchPromises).then(brokersData => {
-        const columns = this.prepareColumns(brokersData);
-        const tableData = this.prepareDataForTable(brokersData);
+        // Filter out any null values from failed requests
+        const validBrokersData = brokersData.filter(data => data !== null);
+
+        if (!validBrokersData.length) {
+          console.warn('No valid broker data loaded.');
+          return; // Early return if no valid data was loaded
+        }
+
+        const columns = this.prepareColumns(validBrokersData);
+        const tableData = this.prepareDataForTable(validBrokersData);
         this.table.setColumns(columns);
         this.table.setData(tableData);
-      }).catch(error => console.error('Error loading broker data:', error));
-    },
+      }).catch(error => console.error('Unexpected error loading broker data:', error));
+    },    
 
 
     prepareDataForTable(brokersData) {
