@@ -28,7 +28,7 @@ Take a look at the reusable snippets at http://localhost:8080/ui-library/
 title: Fibonacci Calculator
 date: 2024-02-18
 excerpt: "To use the Fibonacci Calculator, first determine whether the trend of the range that you want to derive the Fibonacci levels for is an UPTREND or DOWNTREND. Once you have determined the trend, enter in the High Price and Low Price for the desired range. You can also enter a Custom Price that is used in the determination of the extension Levels - if Custom is left blank, the High and Low values are used instead."
-layout: layouts/post.njk
+layout: layouts/toc.njk
 permalink: /tools/calculators/fibonacci-calculator/
 eleventyNavigation:
   key: Fibonacci Calculator

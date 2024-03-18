@@ -15,32 +15,13 @@ eleventyNavigation:
 <h1 class="visually-hidden">{{title}}</h1>
 {% include "components/breadcrumb.njk" %}
 
-<section class='py-section'>
+<section class='pb-section' x-data="brokerComparisonTable()" x-init="initTable">
     <div class='container-md container-max-xl'>
-        {# <div x-data="loadBreweries()" x-init="getBreweries"> #}
-        <div x-data="loadBreweriesMock()" x-init="getBreweriesMock">
-            <div class="table-responsive">
-                <table class="table table-striped w-full">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>City</th>
-                            <th>State</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <template x-for="brewery in breweries" :key="brewery.id">
-                            <tr>
-                                <td x-text="brewery.name"></td>
-                                <td x-text="brewery.brewery_type"></td>
-                                <td x-text="brewery.city"></td>
-                                <td x-text="brewery.state"></td>
-                            </tr>
-                        </template>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        {% include "components/broker-comparison-table.njk" %}
     </div>
 </section>
+
+<div class='py-section'>
+    &nbsp;
+    {# NOTE: placeholder to offset the above table's negative margin bottom #}
+</div>

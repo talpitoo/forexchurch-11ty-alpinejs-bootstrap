@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" class="forexchurch-snap-container"x-data="{ isTopNavbarOpen: false }" :class="{'overflow-hidden': isTopNavbarOpen}">
+    <head>
+        {% include "../components/meta.njk" %}
+    </head>
+    <body>
+        <div id="top" class="forexchurch-anchor-offset"></div>
+        {% include "../components/navigation-url-parameters.njk" %}
+
+        <main>
+            {% include "../components/breadcrumb.njk" %}
+
+            {{ content | safe }}
+        </main>
+
+        {% include "../components/footer.njk" %}
+
+        <script src="/js/main.js" defer></script>
+    </body>
+</html>
