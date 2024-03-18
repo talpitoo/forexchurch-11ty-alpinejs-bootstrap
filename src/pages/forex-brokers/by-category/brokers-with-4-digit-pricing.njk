@@ -1,7 +1,9 @@
 ---
 title: Brokers With 4 Digit Pricing
-excerpt: "TODO"
-layout: layouts/toc.njk
+subtitle: Find your Forex broker
+excerpt: >
+  Search for and compare Forex Brokers, use the Advanced Search to refine your search results. View the brokers profile to see a detailed list of their features.
+layout: layouts/base-breadcrumb.njk
 permalink: /forex-brokers/by-category/brokers-with-4-digit-pricing/
 eleventyNavigation:
   key: Brokers With 4 Digit Pricing
@@ -10,5 +12,13 @@ eleventyNavigation:
 tags: ["forex brokers", "by category"]
 ---
 
-<p class="mt-0">In eget condimentum libero. Phasellus rhoncus lobortis ante a dictum. Phasellus sodales ut risus aliquet dapibus. Nunc pulvinar facilisis consequat. Donec nec purus imperdiet, vehicula erat non, sollicitudin libero. Aliquam eu viverra mauris. Morbi consectetur ante ac fringilla condimentum. Quisque ut elit massa. Aenean congue tincidunt dignissim. Quisque vestibulum eget ligula et porta.</p>
-<p>Sed consectetur viverra urna id porttitor.</p>
+<section class="py-section">
+  <div class='container-md container-max-xl'>
+    {% set categoryPages = collections["top brokers"] %}
+    <div class="d-flex flex-column gap-16px">
+      {% for item in categoryPages %}
+        {% include "components/broker-detail-tile.njk" %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
