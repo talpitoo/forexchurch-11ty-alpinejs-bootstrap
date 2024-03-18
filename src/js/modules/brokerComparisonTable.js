@@ -77,8 +77,10 @@ export function brokerComparisonTable() {
     selectedBrokers: selectedBrokers,
     brokerDataUrls: brokerDataUrls,
     table: null,
-    tableHeight: window.innerWidth < 768 ? tableHeightMobile : 'auto',
-    columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : "",
+    // tableHeight: window.innerWidth < 768 ? tableHeightMobile : 'auto', // TODO: for the full comparison use case only
+    tableHeight: 'auto',
+    // columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 3 : "", // TODO: for the full comparison use case only
+    columnWidth: '',
     openSelectedBrokers: false,
     searchText: '',
 
@@ -204,8 +206,10 @@ export function brokerComparisonTable() {
     handleResize() {
       tableHeightMobile = window.innerHeight - 85;
       tableHeightDesktop = window.innerHeight - (heightNavbar + heightDropdown + 32);
-      this.tableHeight = window.innerWidth < 768 ? tableHeightMobile : 'auto';
-      this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 2 : '';
+      // this.tableHeight = window.innerWidth < 768 ? tableHeightMobile : 'auto'; // TODO: for the full comparison use case only
+      this.tableHeight = 'auto';
+      // this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 3 : ''; // TODO: for the full comparison use case only
+      this.columnWidth = '';
       this.table.setHeight(this.tableHeight);
       this.loadSelectedBrokersData();
       this.table.redraw(true);
@@ -314,6 +318,9 @@ export function brokerComparisonTable() {
 
         const columns = this.prepareColumns(validBrokersData);
         const tableData = this.prepareDataForTable(validBrokersData);
+
+        console.debug("loadSelectedBrokersData() / columns: " + columns);
+        console.debug("loadSelectedBrokersData() / tableData: " + tableData);
         this.table.setColumns(columns);
         this.table.setData(tableData);
       }).catch(error => console.error('Unexpected error loading broker data:', error));
@@ -374,16 +381,16 @@ export function brokerComparisonTable() {
             starsHtml += '<span class="text-secondary">★</span>';
           }
           const titleContent = `
-            <div class="d-flex flex-column align-items-center px-4">
-              <img src="${brokerInfo.eleventyNavigation.logo}" alt="${brokerInfo.name} logo" class="object-fit-contain" width="64" height="64">
+            <div class="d-flex flex-column align-items-center px-0 px-sm-2 px-md-4">
+              <img src="${brokerInfo.eleventyNavigation.logo}" alt="${brokerInfo.name} logo" class="object-fit-contain" width="56" height="56">
               <h6 class="mb-0">${brokerInfo.name}</h6>
               <div class="fs-2 mb-2">${starsHtml} <span class="fs-6 fw-semibold ms-2">${brokerInfo.rating}</span></div>
-              <a href="#" class="d-none d-lg-block btn btn-primary w-100">
+              <a href="#" class="btn btn-primary w-100">
                   Visit Broker
               </a>
               <a href="${brokerInfo.eleventyNavigation.url}" class="btn btn-underline">
                   <span>Read Review</span>
-                  <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
+                  <svg class="text-tertiary ms-1 d-none d-sm-block" aria-hidden="true" width="24" height="24">
                       <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
                   </svg>
               </a>

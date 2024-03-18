@@ -17,9 +17,9 @@
 }
 
 .table-header-light {
-  @include media-breakpoint-up(md) {
-    overflow-anchor: none; // TODO: debug vertical scroll jumping if this is not set https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor
-  }
+  // @include media-breakpoint-up(md) {
+  overflow-anchor: none; // TODO: debug vertical scroll jumping if this is not set https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor
+  // }
 
   .tabulator-header,
   .tabulator-headers .tabulator-col {
@@ -37,19 +37,54 @@
 }
 
 .comparison-table-clone {
-  @include media-breakpoint-up(md) {
-    min-height: 183px;
-    margin-bottom: -183px; // TODO: debug and set px values across the breakpoints
+  min-height: 228px;
+  margin-bottom: -228px; // TODO: debug and set px values across the breakpoints
+
+  .tabulator-headers,
+  .tabulator-col {
+    height: auto !important;
+    min-height: 228px;
   }
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     min-height: 233px;
     margin-bottom: -233px; // TODO: debug and set px values across the breakpoints
+
+    .tabulator-headers,
+    .tabulator-col {
+      height: auto !important;
+      min-height: 233px;
+    }
   }
 
+  // @include media-breakpoint-up(lg) {
+  //   min-height: 233px;
+  //   margin-bottom: -233px; // TODO: debug and set px values across the breakpoints
+  // }
+
   + .tabulator .tabulator-header {
-    @include media-breakpoint-up(md) {
-      opacity: 0;
+    // @include media-breakpoint-up(md) {
+    opacity: 0;
+    // }
+  }
+
+  .tabulator-header {
+    h6 {
+      font-size: $font-size-sm;
+
+      @include media-breakpoint-up(sm) {
+        font-size: $h6-font-size;
+      }
+    }
+
+    .btn {
+      margin: 0 -8px;
+      // white-space: normal;
+      font-size: map-get($font-sizes, 8);
+
+      @include media-breakpoint-up(sm) {
+        font-size: $font-size-sm;
+      }
     }
   }
 }
