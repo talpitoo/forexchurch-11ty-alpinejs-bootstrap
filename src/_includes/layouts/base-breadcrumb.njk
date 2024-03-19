@@ -3,7 +3,7 @@
     <head>
         {% include "../components/meta.njk" %}
     </head>
-    <body>
+    <body x-data="{ showModal01: false }">
         <div id="top" class="forexchurch-anchor-offset"></div>
         {% include "../components/navigation-url-parameters.njk" %}
 
@@ -13,6 +13,7 @@
             {{ content | safe }}
         </main>
 
+        {% include "../components/modal-01.njk" %}
         {% include "../components/footer.njk" %}
 
         <script src="/js/main.js" defer></script>

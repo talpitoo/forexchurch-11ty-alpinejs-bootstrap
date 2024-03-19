@@ -15,7 +15,9 @@
                 {# NOTE: https://www.11ty.dev/docs/plugins/navigation/#example-breadcrumbs #}
                 {% set breadcrumbPages = collections.all | eleventyNavigationBreadcrumb(title) %}
                 {% for breadcrumb in breadcrumbPages %}
-                    <li class="breadcrumb-item"><a href="{{breadcrumb.url}}" class="text-decoration-none">{{breadcrumb.title}}</a></li>
+                    <li class="breadcrumb-item">
+                        <a href="{{breadcrumb.url}}" class="text-decoration-none">{{breadcrumb.title}}</a>
+                    </li>
                 {% endfor %}
                 <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
             </ol>
@@ -26,6 +28,12 @@
             {% if showInBreadcrumb != false %}
                 <h2 class="h3 mb-24px">{{subtitle}}</h2>
                 <p class="mb-0">{{ excerpt | safe }}</p>
+
+                {% if extraContent %}
+                    <div class="mt-16px">
+                        {{ extraContent | safe }}
+                    </div>
+                {% endif %}
             {% else %}
                 {# TODO: refactor #}
                 <div style="height: 90px;"></div>
