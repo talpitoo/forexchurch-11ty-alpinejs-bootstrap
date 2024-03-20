@@ -319,8 +319,8 @@ export function brokerComparisonTable() {
         const columns = this.prepareColumns(validBrokersData);
         const tableData = this.prepareDataForTable(validBrokersData);
 
-        console.debug("loadSelectedBrokersData() / columns: " + columns);
-        console.debug("loadSelectedBrokersData() / tableData: " + tableData);
+        // console.debug("loadSelectedBrokersData() / columns: " + columns);
+        // console.debug("loadSelectedBrokersData() / tableData: " + tableData);
         this.table.setColumns(columns);
         this.table.setData(tableData);
       }).catch(error => console.error('Unexpected error loading broker data:', error));
@@ -364,6 +364,7 @@ export function brokerComparisonTable() {
 
 
     prepareColumns(brokersData) {
+      // NOTE/TODO: debug info, setColumns(cols, row){ while(this.headersElement.firstChild) this.headersElement.removeChild(this.headersElement.firstChild);      
       return [
         {
           title: " ",

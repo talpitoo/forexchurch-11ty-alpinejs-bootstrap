@@ -1,12 +1,12 @@
-<div class="forexchurch-tile shadow-lg d-flex align-items-start">
-    <div class="d-flex flex-column gap-16px">
-        <div class="form-check">
+<div class="forexchurch-tile shadow-lg d-flex flex-column flex-lg-row align-items-start">
+    <div class="d-flex flex-lg-column justify-content-between gap-16px w-100 w-lg-25">
+        <div class="form-check order-2 order-lg-1">
             <input class="form-check-input" type="checkbox" value="" id="{{ item.data.title | lower | replace(' ', '-') }}Checkbox">
             <label class="form-check-label" for="{{ item.data.title | lower | replace(' ', '-') }}Checkbox">
-            &nbsp;
-        </label>
+                &nbsp;
+            </label>
         </div>
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center order-1 order-lg-2">
             {# <div class="rounded-4 p-2 shadow-sm d-flex align-items-center justify-content-center me-3"> #}
             <img src="{{ item.data.eleventyNavigation.logo | default('/img/favicon.svg') }}" alt='logo' width='64' height='64' class="flex-shrink-0 object-fit-contain me-3"/>
             {# </div> #}
@@ -15,15 +15,55 @@
             </div>
         </div>
     </div>
-    <div>
-        {% include "components/load-breweries-mock.njk" %}
+    <div class="w-100 flex-grow-1">
+        <div class="row">
+            <div class="col-6 col-lg-3">
+                <h6 class="mb-0">Headquarters</h6>
+                <p>New York</p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="mb-0">Founded</h6>
+                <p>2005</p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="mb-0">Regulation</h6>
+                <p>FCA, RCA, FSA, FSCA</p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="mb-0">Min Acc</h6>
+                <p>100</p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="mb-0">Min Contract</h6>
+                <p>1000</p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="mb-0">Max Lev</h6>
+                <p>1:500</p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="mb-0">#Pairs</h6>
+                <p>50</p>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="mb-0">ECN</h6>
+                <p>
+                    <svg class="" aria-hidden="true" width="24" height="24">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+                    </svg>
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="d-flex flex-column gap-16px">
+    <div class="d-flex flex-column gap-16px w-100 w-lg-auto">
         <a href="{{ item.data.permalink }}" class="btn btn-primary w-100">
                             Visit Broker
                         </a>
-        <a href="{{ item.data.permalink }}" class="btn btn-outline-primary w-100">
-                            Read Review
-                        </a>
+        <a href="{{ item.data.permalink }}" class="btn btn-underline w-100">
+            <span>View profile</span>
+            <svg class="text-tertiary ms-1" aria-hidden="true" width="24" height="24">
+                <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
+            </svg>
+        </a>
     </div>
 </div>
