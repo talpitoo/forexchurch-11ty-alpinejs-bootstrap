@@ -7,8 +7,9 @@
         Advanced search
     </button>
     </div>
-    <div class="forexchurch-tile shadow-lg bg-lighter mt-16px p-lg-32px" x-show="showAdvancedSearch" >
-        <div class="w-100">
+    <div class="forexchurch-tile shadow-lg bg-lighter mt-lg-16px p-lg-32px position-fixed position-lg-static start-0 top-navbar end-0 bottom-0 overflow-y-auto"
+    :class="{ 'd-block d-lg-flex': showAdvancedSearch, 'd-none': !showAdvancedSearch }" >
+        <div class="w-100 pb-80px pb-lg-0">
             <div class="row">
                 <div class="col-lg-3 d-flex flex-column gap-3">
                     <h6 class="mt-16px mt-lg-0 mb-0">Broker options</h6>
@@ -143,11 +144,11 @@
                     </select>
                 </div>
             </div>
-            <div class="justify-content-lg-end mt-16px mt-lg-n40px d-flex gap-3">
-                <button type="button" class="btn btn-outline-primary flex-grow-1 flex-lg-grow-0">
+            <div class="justify-content-lg-end p-16px p-lg-0 bg-lighter mt-lg-n40px d-flex gap-3 position-fixed start-0 end-0 bottom-0 position-lg-static">
+                <button type="button" class="btn btn-outline-primary flex-grow-1 flex-lg-grow-0" @click="showAdvancedSearch = false">
                     Clear filters
                 </button>
-                <button type="button" class="btn btn-primary flex-grow-1 d-lg-none">
+                <button type="button" class="btn btn-primary flex-grow-1 d-lg-none" @click="showAdvancedSearch = false">
                     Apply
                 </button>
             </div>
