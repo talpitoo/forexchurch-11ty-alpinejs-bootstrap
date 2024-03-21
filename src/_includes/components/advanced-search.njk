@@ -1,0 +1,151 @@
+<div class='container-md container-max-xl pt-32px'>
+    <button @click="showAdvancedSearch = !showAdvancedSearch" type="button" class="btn btn-outline-primary">
+        <svg class="me-2" aria-hidden="true" width="24" height="24">
+            <use href="/img/icons/symbol/svg/sprite.css.svg#filter"></use>
+        </svg>
+        Advanced search
+    </button>
+    <div class="forexchurch-tile shadow-lg bg-light mt-16px p-lg-32px" x-show="showAdvancedSearch" >
+        <div class="w-100">
+            <div class="row">
+                <div class="col-lg-3 d-flex flex-column gap-3">
+                    <h6 class="mt-16px mt-lg-0 mb-0">Broker options</h6>
+                    <select class="form-select rounded-pill" aria-label="Broker type">
+                        <option selected>Broker type</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <select class="form-select rounded-pill" aria-label="Regulation">
+                        <option selected>Regulation</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <select class="form-select rounded-pill" aria-label="Offices in">
+                        <option selected>Offices in</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <select class="form-select rounded-pill" aria-label="Deposit Method">
+                        <option selected>Deposit Method</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <select class="form-select rounded-pill" aria-label="Withdrawal Methods">
+                        <option selected>Withdrawal Methods</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkUsaResidentsAllowed">
+                        <label class="form-check-label" for="checkUsaResidentsAllowed">
+                            USA Residents Allowed
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-flex flex-column gap-3">
+                    <h6 class="mt-16px mt-lg-0 mb-0">Platform options</h6>
+                    <select class="form-select rounded-pill" aria-label="Trading Platforms">
+                        <option selected>Trading Platforms</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <select class="form-select rounded-pill" aria-label="MT4 Server Time Zone">
+                        <option selected>MT4 Server Time Zone</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <select class="form-select rounded-pill" aria-label="Additional Instruments">
+                        <option selected>Additional Instruments</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkApiSolutions">
+                        <label class="form-check-label" for="checkApiSolutions">
+                            API Solutions
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkNonExpiringDemo">
+                        <label class="form-check-label" for="checkNonExpiringDemo">
+                            Non-Expiring Demo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkWebBasedTrading">
+                        <label class="form-check-label" for="checkWebBasedTrading">
+                            Web-based Trading
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkMobileTrading">
+                        <label class="form-check-label" for="checkMobileTrading">
+                            Mobile Trading
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-flex flex-column gap-3">
+                    <h6 class="mt-16px mt-lg-0 mb-0">Account options</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkSwapFree">
+                        <label class="form-check-label" for="checkSwapFree">
+                            Swap-free
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkInterestMargin">
+                        <label class="form-check-label" for="checkInterestMargin">
+                            Interest on Margin
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkMamPammSolutions">
+                        <label class="form-check-label" for="checkMamPammSolutions">
+                            MAM/PAMM Solutions
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkSegregatedAccounts">
+                        <label class="form-check-label" for="checkSegregatedAccounts">
+                            Segregated Accounts
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkVpsServices">
+                        <label class="form-check-label" for="checkVpsServices">
+                            VPS Services
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-flex flex-column gap-3">
+                    <h6 class="mt-16px mt-lg-0 mb-0">Trading options</h6>
+                    <select class="form-select rounded-pill" aria-label="Price Digits">
+                        <option selected>Price Digits</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                    <select class="form-select rounded-pill" aria-label="Spread Type">
+                        <option selected>Spread Type</option>
+                        <option>Item 1</option>
+                        <option>Item 2</option>
+                        <option>Item 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="text-lg-end mt-16px mt-lg-0">
+                <button type="button" class="btn btn-outline-primary">
+                Clear filters
+            </button>
+            </div>
+        </div>
+    </div>
+</div>
