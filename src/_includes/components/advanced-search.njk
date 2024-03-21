@@ -1,11 +1,13 @@
 <div class='container-md container-max-xl pt-32px'>
-    <button @click="showAdvancedSearch = !showAdvancedSearch" type="button" class="btn btn-outline-primary">
-        <svg class="me-2" aria-hidden="true" width="24" height="24">
-            <use href="/img/icons/symbol/svg/sprite.css.svg#filter"></use>
-        </svg>
+    <div class="bg-lighter bg-lg-transparent position-fixed start-0 end-0 bottom-0 p-16px p-lg-0 position-lg-static">
+        <button @click="showAdvancedSearch = !showAdvancedSearch" type="button" class="btn btn-outline-primary w-100 w-lg-auto">
+            <svg class="me-2" aria-hidden="true" width="24" height="24">
+                <use href="/img/icons/symbol/svg/sprite.css.svg#filter"></use>
+            </svg>
         Advanced search
     </button>
-    <div class="forexchurch-tile shadow-lg bg-light mt-16px p-lg-32px" x-show="showAdvancedSearch" >
+    </div>
+    <div class="forexchurch-tile shadow-lg bg-lighter mt-16px p-lg-32px" x-show="showAdvancedSearch" >
         <div class="w-100">
             <div class="row">
                 <div class="col-lg-3 d-flex flex-column gap-3">
@@ -141,10 +143,13 @@
                     </select>
                 </div>
             </div>
-            <div class="text-lg-end mt-16px mt-lg-0">
-                <button type="button" class="btn btn-outline-primary">
-                Clear filters
-            </button>
+            <div class="justify-content-lg-end mt-16px mt-lg-n40px d-flex gap-3">
+                <button type="button" class="btn btn-outline-primary flex-grow-1 flex-lg-grow-0">
+                    Clear filters
+                </button>
+                <button type="button" class="btn btn-primary flex-grow-1 d-lg-none">
+                    Apply
+                </button>
             </div>
         </div>
     </div>
