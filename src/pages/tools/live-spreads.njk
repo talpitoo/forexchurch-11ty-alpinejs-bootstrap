@@ -1,7 +1,9 @@
 ---
 title: Live Spreads
-date: 2019-03-11
-layout: layouts/toc.njk
+subtitle: Live Spreads
+excerpt: >
+  A Comparison of Live Forex Broker Spreads, updated every 2 seconds. Use the below Spreads Chart to better visualise the action of spreads over time. Click on the <a href="#" class="btn btn-underline p-0"><span>Different Currencies</span></a> button to compare more than 50 different currency pairs.
+layout: layouts/base-breadcrumb.njk
 permalink: /tools/live-spreads/
 eleventyNavigation:
   key: Live Spreads
@@ -13,5 +15,103 @@ eleventyNavigation:
 tags: ["tools"]
 ---
 
-<p class="mt-0">In eget condimentum libero. Phasellus rhoncus lobortis ante a dictum. Phasellus sodales ut risus aliquet dapibus. Nunc pulvinar facilisis consequat. Donec nec purus imperdiet, vehicula erat non, sollicitudin libero. Aliquam eu viverra mauris. Morbi consectetur ante ac fringilla condimentum. Quisque ut elit massa. Aenean congue tincidunt dignissim. Quisque vestibulum eget ligula et porta.</p>
-<p>Sed consectetur viverra urna id porttitor.</p>
+<section class="py-section">
+  <div class='container-md container-max-xl'>
+    <div class='row mb-16px'>
+      <div class='col-lg-4 d-flex align-items-center'>
+        <h6 class="mb-0">Selected Broker spreads</h6>
+      </div>
+      <div class='col-lg-8 d-flex gap-3 justify-content-end'>
+        <div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
+          <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="btn btn-outline-primary">
+                Select Different Currencies
+            </button>
+          {# TODO: adjust `const heightDropdown = 82;` in the JS in case of markup change #}
+
+          <form x-show="openSelectedBrokers" :class="{'show': openSelectedBrokers}" class="dropdown-menu p-4" @click="openSelectedBrokers = true" style="display: none;">
+            <div class="d-flex flex-column row-gap-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-white border-none ps-16px pe-0">
+                  <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                  </svg>
+                </span>
+                <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+              </div>
+
+              <template x-for="broker in brokerList" :key="broker.id">
+                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
+                  <input type="checkbox" x-model="selectedBrokers" class="form-check-input" :id="'check-' + broker.id" :value="broker.id" @change="toggleBroker($event)">
+                  <label class="form-check-label" :for="'check-' + broker.id" x-text="broker.name"></label>
+                </div>
+              </template>
+
+              <hr class="border border-light opacity-100 w-100"/>
+              <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
+          <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="btn btn-outline-primary">
+                Add or remove brokers
+            </button>
+          {# TODO: adjust `const heightDropdown = 82;` in the JS in case of markup change #}
+
+          <form x-show="openSelectedBrokers" :class="{'show': openSelectedBrokers}" class="dropdown-menu p-4" @click="openSelectedBrokers = true" style="display: none;">
+            <div class="d-flex flex-column row-gap-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-white border-none ps-16px pe-0">
+                  <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                  </svg>
+                </span>
+                <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+              </div>
+
+              <template x-for="broker in brokerList" :key="broker.id">
+                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
+                  <input type="checkbox" x-model="selectedBrokers" class="form-check-input" :id="'check-' + broker.id" :value="broker.id" @change="toggleBroker($event)">
+                  <label class="form-check-label" :for="'check-' + broker.id" x-text="broker.name"></label>
+                </div>
+              </template>
+
+              <hr class="border border-light opacity-100 w-100"/>
+              <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% include "components/table-average-forex-spreads.njk" %}
+
+    <div class="forexchurch-tile shadow-lg flex-column align-items-center justify-content-center position-relative h-100">
+      <div class='row w-100 mb-16px'>
+        <div class='col-lg-6 d-flex align-items-center'>
+          <h6 class="mb-0 w-100">Selected Broker spreads</h6>
+        </div>
+        <div class='col-lg-6 d-flex gap-3 justify-content-end'>
+          <select class="form-select rounded-pill" aria-label="Broker type">
+            <option selected>5 Points</option>
+            <option>Item 1</option>
+            <option>Item 2</option>
+            <option>Item 3</option>
+          </select>
+          <select class="form-select rounded-pill" aria-label="Broker type">
+            <option selected>EURUSD</option>
+            <option>Item 1</option>
+            <option>Item 2</option>
+            <option>Item 3</option>
+          </select>
+        </div>
+      </div>
+
+      <div x-data="radarChart()" x-init="initChart('liveSpreads')">
+        <figure>
+          <canvas id="liveSpreadsRadarChart"></canvas>
+          {# <figcaption class="text-center">{{ brokers[broker1].name }}</figcaption> #}
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
