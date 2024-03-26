@@ -1,17 +1,9 @@
 ---
 title: Live Swaps
-date: 2019-03-11
-excerpt: "TODO"
-coverPhoto: {
-                "webP": "/img/pexels-rdne-stock-project-8474487-640x424.webp",
-                "webP2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
-                "jpg": "/img/pexels-rdne-stock-project-8474487-640x424.jpg",
-                "jpg2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
-                "height": "large",
-                "figureBackgroundColor": "bg-success",
-                "figcaption": "Back View of Astronauts Holding Hands"
-            }
-layout: layouts/toc.njk
+subtitle: Live Swaps
+excerpt: >
+  A Comparison of Forex Broker Swaps (rollover rates), updated Daily. <strong>Type 0 - in pips, Type 1 - in base currency, Type 2 - by interest, Type 3 - in the margin currency.</strong> Click on the "Different Currencies" button to compare more than 50 different currency pairs.
+layout: layouts/base-breadcrumb.njk
 permalink: /tools/live-swaps/
 eleventyNavigation:
   key: Live Swaps
@@ -23,5 +15,74 @@ eleventyNavigation:
 tags: ["tools"]
 ---
 
-<p class="mt-0">In eget condimentum libero. Phasellus rhoncus lobortis ante a dictum. Phasellus sodales ut risus aliquet dapibus. Nunc pulvinar facilisis consequat. Donec nec purus imperdiet, vehicula erat non, sollicitudin libero. Aliquam eu viverra mauris. Morbi consectetur ante ac fringilla condimentum. Quisque ut elit massa. Aenean congue tincidunt dignissim. Quisque vestibulum eget ligula et porta.</p>
-<p>Sed consectetur viverra urna id porttitor.</p>
+<section class="py-section">
+  <div class='container-md container-max-xl'>
+    <div class='row mb-16px'>
+      <div class='col-lg-4 d-flex align-items-center'>
+        <h6 class="mb-0">Selected Broker spreads</h6>
+      </div>
+      <div class='col-lg-8 d-flex gap-3 justify-content-end'>
+        <div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
+          <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="btn btn-outline-primary">
+                Select Different Currencies
+            </button>
+          {# TODO: adjust `const heightDropdown = 82;` in the JS in case of markup change #}
+
+          <form x-show="openSelectedBrokers" :class="{'show': openSelectedBrokers}" class="dropdown-menu p-4" @click="openSelectedBrokers = true" style="display: none;">
+            <div class="d-flex flex-column row-gap-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-white border-none ps-16px pe-0">
+                  <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                  </svg>
+                </span>
+                <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+              </div>
+
+              <template x-for="broker in brokerList" :key="broker.id">
+                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
+                  <input type="checkbox" x-model="selectedBrokers" class="form-check-input" :id="'check-' + broker.id" :value="broker.id" @change="toggleBroker($event)">
+                  <label class="form-check-label" :for="'check-' + broker.id" x-text="broker.name"></label>
+                </div>
+              </template>
+
+              <hr class="border border-light opacity-100 w-100"/>
+              <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
+          <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="btn btn-outline-primary">
+                Add or remove brokers
+            </button>
+          {# TODO: adjust `const heightDropdown = 82;` in the JS in case of markup change #}
+
+          <form x-show="openSelectedBrokers" :class="{'show': openSelectedBrokers}" class="dropdown-menu p-4" @click="openSelectedBrokers = true" style="display: none;">
+            <div class="d-flex flex-column row-gap-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-white border-none ps-16px pe-0">
+                  <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                  </svg>
+                </span>
+                <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+              </div>
+
+              <template x-for="broker in brokerList" :key="broker.id">
+                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
+                  <input type="checkbox" x-model="selectedBrokers" class="form-check-input" :id="'check-' + broker.id" :value="broker.id" @change="toggleBroker($event)">
+                  <label class="form-check-label" :for="'check-' + broker.id" x-text="broker.name"></label>
+                </div>
+              </template>
+
+              <hr class="border border-light opacity-100 w-100"/>
+              <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% include "components/table-average-forex-spreads.njk" %}
+  </div>
+</section>

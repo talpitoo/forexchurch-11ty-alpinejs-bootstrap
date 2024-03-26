@@ -1,16 +1,8 @@
 ---
 title: Forex Market Hours
-date: 2019-03-11
-excerpt: "TODO"
-coverPhoto: {
-                "webP": "/img/pexels-rdne-stock-project-8474487-640x424.webp",
-                "webP2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.webp",
-                "jpg": "/img/pexels-rdne-stock-project-8474487-640x424.jpg",
-                "jpg2x": "/img/pexels-rdne-stock-project-8474487-640x424@2x.jpg",
-                "height": "large",
-                "figureBackgroundColor": "bg-success",
-                "figcaption": "Back View of Astronauts Holding Hands"
-            }
+subtitle: Forex Market Hours
+excerpt: >
+  Use the below Forex Market Clock to check where your <strong>current time</strong> is in relation to the 4 major forex trading sessions (Sydney, Tokyo, London and New York). You can also select the GMT option to check current GMT time in relation to the sessions.
 layout: layouts/toc.njk
 permalink: /tools/forex-market-hours/
 eleventyNavigation:
@@ -23,5 +15,23 @@ eleventyNavigation:
 tags: ["tools"]
 ---
 
-<p class="mt-0">In eget condimentum libero. Phasellus rhoncus lobortis ante a dictum. Phasellus sodales ut risus aliquet dapibus. Nunc pulvinar facilisis consequat. Donec nec purus imperdiet, vehicula erat non, sollicitudin libero. Aliquam eu viverra mauris. Morbi consectetur ante ac fringilla condimentum. Quisque ut elit massa. Aenean congue tincidunt dignissim. Quisque vestibulum eget ligula et porta.</p>
-<p>Sed consectetur viverra urna id porttitor.</p>
+<section class="py-section">
+  <div class='container-md container-max-xl'>
+    <div class='row mb-16px'>
+      <div class='col-lg-4 d-flex align-items-center'>
+        <h6 class="mb-0">Forex Market Hours clock</h6>
+      </div>
+      <div class='col-lg-8 d-flex justify-content-end'>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="checkGmtTime">
+          <label class="form-check-label" for="checkGmtTime">
+              Use GMT Time
+          </label>
+        </div>
+      </div>
+    </div>
+    {% include "components/table-average-forex-spreads.njk" %}
+    <p class="mt-16px">It is important to remember that each of the forex session times are approximations as to when trading activity picks up and is influenced by the relative region/session. Globally, forex session times are a general indication not hard fixed times - they are influenced by many factors, including when local business’ open and close.</p>
+    <p>Session times also vary according to daylight savings times in the relative regions - so the Sydney, London and New York forex session times are impacted by daylight savings, whereas Tokyo is not. And to make matters more complicated, the Sydney session is in the southern hemisphere, so their daylight savings season is opposite to that of London and New York.</p>
+  </div>
+</section>
