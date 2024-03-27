@@ -211,66 +211,86 @@
         <hr class="border border-light opacity-100 w-100"/>
         <h3>Pro Account</h3>
         <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that {{ brokers[broker1].name }} charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
-        <div>
-            <div class="forexchurch-tile flex-column align-items-start bg-light position-relative mb-24px">
-                <h6 class="pb-16 pt-24 font-medium md:pt-0 ">In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</h6>
-                <ul class="list-bullet mb-0">
-                    <li>Have a verifiable history of trading in large amounts (the definition of “large amounts” is subject to eToro’s discretion), with an average of doing at least 10 trades per quarter over the past year</li>
-                    <li>Have an investment portfolio whose value is €500,000 or more</li>
-                    <li>Have worked as a professional in the financial services industry, dealing with investments, for at least one year</li>
-                </ul>
-            </div>
 
-            <h3>The {{ brokers[broker1].name }} Club</h3>
-            <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that {{ brokers[broker1].name }} charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
-            <p>In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</p>
-            <div class="table-responsive">
-                <table class="table table-striped w-full">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <svg class="me-1" aria-hidden="true" width="20" height="20">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                                </svg>
+        {# collapse start #}
+        <div x-data="{ collapseOpen: false }">
+            <div x-show="collapseOpen">
+                <div>
+                    <div class="forexchurch-tile flex-column align-items-start bg-light position-relative mb-24px">
+                        <h6 class="pb-16 pt-24 font-medium md:pt-0 ">In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</h6>
+                        <ul class="list-bullet mb-0">
+                            <li>Have a verifiable history of trading in large amounts (the definition of “large amounts” is subject to eToro’s discretion), with an average of doing at least 10 trades per quarter over the past year</li>
+                            <li>Have an investment portfolio whose value is €500,000 or more</li>
+                            <li>Have worked as a professional in the financial services industry, dealing with investments, for at least one year</li>
+                        </ul>
+                    </div>
+
+                    <h3>The {{ brokers[broker1].name }} Club</h3>
+                    <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that {{ brokers[broker1].name }} charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
+                    <p>In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped w-full">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <svg class="me-1" aria-hidden="true" width="20" height="20">
+                                            <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                                        </svg>
                     Silver Membership</td>
-                            <td>$5,000</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <svg class="me-1" aria-hidden="true" width="20" height="20">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                                </svg>
+                                    <td>$5,000</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <svg class="me-1" aria-hidden="true" width="20" height="20">
+                                            <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                                        </svg>
                     Gold Membership</td>
-                            <td>$10,000</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <svg class="me-1" aria-hidden="true" width="20" height="20">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                                </svg>
+                                    <td>$10,000</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <svg class="me-1" aria-hidden="true" width="20" height="20">
+                                            <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                                        </svg>
                     Platinum Membership</td>
-                            <td>$25,000</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <svg class="me-1" aria-hidden="true" width="20" height="20">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                                </svg>
+                                    <td>$25,000</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <svg class="me-1" aria-hidden="true" width="20" height="20">
+                                            <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                                        </svg>
                     Platinum+ Membership</td>
-                            <td>$50,000</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <svg class="me-1" aria-hidden="true" width="20" height="20">
-                                    <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
-                                </svg>
+                                    <td>$50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <svg class="me-1" aria-hidden="true" width="20" height="20">
+                                            <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
+                                        </svg>
                     Diamond Membership</td>
-                            <td>$250,000</td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    <td>$250,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="position-relative my-32px">
+                <hr/>
+                <button 
+                    type="button" 
+                    @click="collapseOpen = !collapseOpen" 
+                    class="btn bg-white shadow-lg text-tertiary d-flex justify-content-between text-nowrap position-absolute top-0 start-50 translate-middle">
+                    <span x-text="collapseOpen ? 'Show less' : 'Show more'"></span>
+                    <svg :class="{'rotate-180': collapseOpen}" class="ms-1" aria-hidden="true" width="24" height="24">
+                        <use x-bind:href="collapseOpen ? '/img/icons/symbol/svg/sprite.css.svg#chevron-up' : '/img/icons/symbol/svg/sprite.css.svg#chevron-down'"></use>
+                    </svg>
+                </button>
+
             </div>
         </div>
+        {# collapse end #}
     </section>
 
     <section class="py-section">
@@ -279,6 +299,27 @@
         <hr class="border border-light opacity-100 w-100"/>
         <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that {{ brokers[broker1].name }} charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
         <p>In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</p>
+
+        {# collapse start #}
+        <div x-data="{ collapse2Open: false }">
+            <div x-show="collapse2Open">
+                TODO
+            </div>
+            <div class="position-relative my-32px">
+                <hr/>
+                <button 
+                    type="button" 
+                    @click="collapse2Open = !collapse2Open" 
+                    class="btn bg-white shadow-lg text-tertiary d-flex justify-content-between text-nowrap position-absolute top-0 start-50 translate-middle">
+                    <span x-text="collapse2Open ? 'Show less' : 'Show more'"></span>
+                    <svg :class="{'rotate-180': collapse2Open}" class="ms-1" aria-hidden="true" width="24" height="24">
+                        <use x-bind:href="collapse2Open ? '/img/icons/symbol/svg/sprite.css.svg#chevron-up' : '/img/icons/symbol/svg/sprite.css.svg#chevron-down'"></use>
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+        {# collapse end #}
     </section>
 
     <section class="py-section">
