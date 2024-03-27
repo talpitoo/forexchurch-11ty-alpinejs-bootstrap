@@ -1,6 +1,9 @@
 ---
 title: Forex Brokers
-layout: layouts/base.njk
+subtitle: Find your Forex broker
+excerpt: >
+  Search for and compare Forex Brokers, use the <a href="#" class="btn btn-underline p-0"><span>Advanced Search</span></a> to refine your search results. View the brokers profile to see a detailed list of their features.
+layout: layouts/base-breadcrumb-advanced-search.njk
 permalink: /forex-brokers/
 tags: ["top level menu"]
 eleventyNavigation:
@@ -9,10 +12,19 @@ eleventyNavigation:
   includeSelf: true
   excerpt: Search for and compare Forex Brokers, use the Advanced Search to refine your search results. View the brokers profile to see a detailed list of their features.
   icon: filter-advanced
+extraContent: >
+  <button @click="showModal01 = true" type="button" class="btn btn-underline p-0">
+    <span>About Forex Brokers</span>
+  </button>
 ---
 
-<section class='py-section'>
-  {# NOTE: example of setting an dynamic pictureObject before including components/picture-example.njk #}
-  {% set pictureObject = coverPhoto %}
-  {# {% include "components/picture-example.njk" %} #}
+<section class="py-section">
+  <div class='container-md container-max-xl'>
+    {% set categoryPages = collections["top brokers"] %}
+    <div class="d-flex flex-column gap-16px">
+      {% for item in categoryPages %}
+        {% include "components/broker-detail-tile.njk" %}
+      {% endfor %}
+    </div>
+  </div>
 </section>
