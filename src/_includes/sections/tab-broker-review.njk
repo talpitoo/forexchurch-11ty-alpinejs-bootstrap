@@ -56,7 +56,7 @@
         </svg>
         <div>
             <p>it seems...</p>
-            <h3>eToro accepts clients from Australia!</h3>
+            <h3>{{ brokers[broker1].name }} accepts clients from Australia!</h3>
         </div>
         <div>
             <a href="#" class="btn btn-primary w-100 mb-8px">
@@ -72,9 +72,9 @@
 
     <section class="py-section">
         <h2 id="our-conclusion" class="forexchurch-anchor-offset">Our conclusion</h2>
-        <p>eToro appears to be an excellent forex broker choice for traders who also want access to trade other financial markets, such as stocks, commodities, and cryptocurrencies. It’s also a favorite among social traders.</p>
-        <p>Some traders are initially surprised to see that eToro doesn’t offer any of the usual trading platforms, such as MetaTrader 4 or cTrader. However, once they become familiar with eToro’s own proprietary trading platform, most investors find it very user-friendly and are very happy with the many features it includes. </p>
-        <p>Clients are also attracted by the unique, innovative features that eToro offers, such as its Smart Portfolios and broad array of copy trading options. Other pluses with eToroinclude the fact that it’s a highly regulated broker, in multiple jurisdictions (and, therefore, highly trustworthy), and offers relatively low spreads and trading fees.</p>
+        <p>{{ brokers[broker1].name }} appears to be an excellent forex broker choice for traders who also want access to trade other financial markets, such as stocks, commodities, and cryptocurrencies. It’s also a favorite among social traders.</p>
+        <p>Some traders are initially surprised to see that {{ brokers[broker1].name }} doesn’t offer any of the usual trading platforms, such as MetaTrader 4 or cTrader. However, once they become familiar with eToro’s own proprietary trading platform, most investors find it very user-friendly and are very happy with the many features it includes. </p>
+        <p>Clients are also attracted by the unique, innovative features that {{ brokers[broker1].name }} offers, such as its Smart Portfolios and broad array of copy trading options. Other pluses with eToroinclude the fact that it’s a highly regulated broker, in multiple jurisdictions (and, therefore, highly trustworthy), and offers relatively low spreads and trading fees.</p>
     </section>
 
     <section class="py-section">
@@ -128,7 +128,7 @@
                                 <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
                             </svg>
                     Trading Platforms</td>
-                        <td>eToro proprietary trading platform</td>
+                        <td>{{ brokers[broker1].name }} proprietary trading platform</td>
                     </tr>
                     <tr>
                         <td>
@@ -150,8 +150,8 @@
             </table>
         </div>
 
-        <p>eToro is a leading, innovative, global forex broker with more than 25 million trader clients worldwide. Constantly expanding, it currently offers investor services to trade multiple financial markets, in nearly 150 countries.</p>
-        <p>eToro’s primary claims to fame are its own proprietary, multi-featured trading platform and its strong social trading community and social trading features, such as its CopyTrade tool. eToro launched the very first social trading platform in 2010 and is widely known as “the social trading broker”. Traders with eToro have access to trade a broad range of financial assets, including forex, stocks and indices, ETFs, commodities, and cryptocurrencies. In all, exposure to more than 3,000 financial assets is provided. It offers commission-free stock and ETF trading. In 2010, eToro launched the very first social trading platform. Its social community of more than 30 million traders across the globe is still a major focus at eToro. Over the years, eToro has captured numerous awards for its innovative trading platform, social trading community, and trading tools. </p>
+        <p>{{ brokers[broker1].name }} is a leading, innovative, global forex broker with more than 25 million trader clients worldwide. Constantly expanding, it currently offers investor services to trade multiple financial markets, in nearly 150 countries.</p>
+        <p>{{ brokers[broker1].name }}’s primary claims to fame are its own proprietary, multi-featured trading platform and its strong social trading community and social trading features, such as its CopyTrade tool. {{ brokers[broker1].name }} launched the very first social trading platform in 2010 and is widely known as “the social trading broker”. Traders with {{ brokers[broker1].name }} have access to trade a broad range of financial assets, including forex, stocks and indices, ETFs, commodities, and cryptocurrencies. In all, exposure to more than 3,000 financial assets is provided. It offers commission-free stock and ETF trading. In 2010, {{ brokers[broker1].name }} launched the very first social trading platform. Its social community of more than 30 million traders across the globe is still a major focus at {{ brokers[broker1].name }}. Over the years, {{ brokers[broker1].name }} has captured numerous awards for its innovative trading platform, social trading community, and trading tools. </p>
 
         <div class="forexchurch-tile flex-column align-items-start bg-light position-relative mb-24px">
             <svg class="position-absolute top-0 start-50 translate-middle" aria-hidden="true" width="64" height="64">
@@ -168,7 +168,7 @@
             </ul>
         </div>
 
-        <p>eToro is recognized worldwide as a strong leader in the creation and development of financial industry technology. It offers clients advantages that include relatively low trading fees and competitive spreads. Finally, as a forex broker that is highly regulated in multiple jurisdictions, including the US, eToro has a sterling reputation for being an honest, trustworthy broker. This review covers all the operational aspects of eToro and provides a thorough explanation of all the services that it offers clients. Its trading platform, fees, account types offered, investor education resources, trading tools, customer service, and investor safety are all examined. Each category of client services is rated from 0 to 5, with 5 the best possible rating. Here are some of the key advantages and disadvantages of trading with eToro:</p>
+        <p>{{ brokers[broker1].name }} is recognized worldwide as a strong leader in the creation and development of financial industry technology. It offers clients advantages that include relatively low trading fees and competitive spreads. Finally, as a forex broker that is highly regulated in multiple jurisdictions, including the US, {{ brokers[broker1].name }} has a sterling reputation for being an honest, trustworthy broker. This review covers all the operational aspects of {{ brokers[broker1].name }} and provides a thorough explanation of all the services that it offers clients. Its trading platform, fees, account types offered, investor education resources, trading tools, customer service, and investor safety are all examined. Each category of client services is rated from 0 to 5, with 5 the best possible rating. Here are some of the key advantages and disadvantages of trading with {{ brokers[broker1].name }}:</p>
         <div class="row">
             <div class="col-lg-6">
                 <div class="forexchurch-tile flex-column align-items-start justify-content-start position-relative h-100 bg-success-subtle">
@@ -210,7 +210,7 @@
         {% include "components/star-rating-big-short.njk" %}
         <hr class="border border-light opacity-100 w-100"/>
         <h3>Pro Account</h3>
-        <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that eToro charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
+        <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that {{ brokers[broker1].name }} charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
         <div>
             <div class="forexchurch-tile flex-column align-items-start bg-light position-relative mb-24px">
                 <h6 class="pb-16 pt-24 font-medium md:pt-0 ">In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</h6>
@@ -221,8 +221,8 @@
                 </ul>
             </div>
 
-            <h3>The eToro Club</h3>
-            <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that eToro charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
+            <h3>The {{ brokers[broker1].name }} Club</h3>
+            <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that {{ brokers[broker1].name }} charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
             <p>In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</p>
             <div class="table-responsive">
                 <table class="table table-striped w-full">
@@ -277,7 +277,7 @@
         <h2 id="account-opening-procedure" class="forexchurch-anchor-offset">Account Opening Procedure</h2>
         {% include "components/star-rating-big-short.njk" %}
         <hr class="border border-light opacity-100 w-100"/>
-        <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that eToro charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
+        <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that {{ brokers[broker1].name }} charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
         <p>In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</p>
     </section>
 
@@ -291,14 +291,14 @@
         <h3>CFD Instruments Comparison Table:</h3>
         <p class="text-center">
             <span class="btn btn-underline p-0">
-                <span>eToro</span>
+                <span>{{ brokers[broker1].name }}</span>
             </span> numbers of CFD instruments offered</p>
         {% include "components/load-breweries-mock.njk" %}
 
         <h3>Non-CFD Instruments Comparison Table:</h3>
         <p class="text-center">
             <span class="btn btn-underline p-0">
-                <span>eToro</span>
+                <span>{{ brokers[broker1].name }}</span>
             </span> non-CFD instruments offered</p>
         {% include "components/load-breweries-mock.njk" %}
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima vero fugit qui voluptate ratione laudantium quidem! Optio nam assumenda sapiente id, aut facilis consequuntur cupiditate odit ex officia doloremque voluptatum.</p>
@@ -313,7 +313,7 @@
         <h2 id="fees" class="forexchurch-anchor-offset">Fees</h2>
         {% include "components/star-rating-big-short.njk" %}
         <hr class="border border-light opacity-100 w-100"/>
-        <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that eToro charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
+        <p>Traders who qualify for a Pro Account receive several benefits. They can access higher maximum leverage levels on some tradeable assets. They also enjoy lower interest rates on margin trading loans. Another noteworthy perk is not having to pay the withdrawal fees that {{ brokers[broker1].name }} charges Retail clients. According to eToro’s website, Pro Account traders have more flexibility in trading, but are exposed to greater risk, with less investor financial protection. Pro Account clients do not receive some of the financial security benefits that retail traders get, such as negative balance protection and the reimbursement security provided by the Investor Compensation Fund and the Financial Ombudsman Service.</p>
         <img src="https://images.unsplash.com/photo-1653720825137-9b58de96ae28?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-24px mb-3" alt="TODO"/>
         {# NOTE: source https://unsplash.com/photos/a-basketball-hoop-on-top-of-a-solar-panel-6NmIGkfVDl0 #}
         <p>In order to qualify for a Pro Account, an investor must satisfy at least one of the following criteria:</p>
