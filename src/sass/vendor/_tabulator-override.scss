@@ -88,3 +88,9 @@
     }
   }
 }
+
+.table-highlight {
+  &.table .border-tertiary {
+    border-color: $tertiary !important;
+  }
+}
