@@ -121,7 +121,7 @@ export function brokerComparisonTable() {
               return el;
             }
           },
-          cssClass: "text-center",
+          cssClass: "text-center justify-content-center",
         },
         rowFormatter: function (row) {
           var data = row.getData();
@@ -134,9 +134,9 @@ export function brokerComparisonTable() {
                 let markup = "";
 
                 if (value === "Yes") {
-                  markup = `<svg class="me-2" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use></svg>Yes`;
+                  markup = `<div class="text-start" style="min-width: 55px"><svg class="me-2" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use></svg>Yes</div>`;
                 } else if (value === "No") {
-                  markup = `<svg class="me-2" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#compare-negative-circle"></use></svg>No`;
+                  markup = `<div class="text-start" style="min-width: 55px"><svg class="me-2" aria-hidden="true" width="20" height="20"><use href="/img/icons/symbol/svg/sprite.css.svg#compare-negative-circle"></use></svg>No</div>`;
                 }
 
                 cell.getElement().innerHTML = markup;

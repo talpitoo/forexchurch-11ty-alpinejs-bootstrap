@@ -29,6 +29,13 @@
     border-color: transparent !important;
     border-bottom-color: $light !important;
   }
+
+  .tabulator-row .tabulator-cell,
+  .table td {
+    display: inline-flex !important;
+    align-items: center;
+    border-color: transparent !important;
+  }
 }
 
 .tabulator-row .tabulator-cell,

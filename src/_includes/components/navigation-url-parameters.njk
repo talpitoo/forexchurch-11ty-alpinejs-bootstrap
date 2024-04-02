@@ -44,8 +44,20 @@
                         </svg>
                       </button>
                       <div 
-                        x-show="dropdownOpen" 
-                        @click.away="dropdownOpen = false" 
+                        {# TODO: debug x-show="dropdownOpen"  #}
+
+                        {# x-transition:enter="duration-300"
+                        x-transition:leave="duration-300" #}
+                        
+                        {# NOTE: CSS transition is used instead in /src/sass/components/_top-navbar.scss
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 scale-90"
+                        x-transition:enter-end="opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-300"
+                        x-transition:leave-start="opacity-100 scale-100"
+                        x-transition:leave-end="opacity-0 scale-90" #}
+
+                        @click.away="if (window.innerWidth >= 992) dropdownOpen = false"
                         class="bg-primary-dark bg-lg-white" >
                         <ul 
                           :data-dropdown-open="dropdownOpen ? 'true' : 'false'" 
