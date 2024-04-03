@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log('DOM is fully loaded');
     Alpine.start();
     initializeSwiper();
+    setTimeout(() => document.documentElement.classList.add("dom-loaded"), 300) // to avoid top navbar transitions on load
 });
 
 // listen for Alpine.js initialization for more complex setups

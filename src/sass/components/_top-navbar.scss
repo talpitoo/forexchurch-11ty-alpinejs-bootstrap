@@ -96,7 +96,7 @@ header {
   visibility: hidden;
   background-color: $primary-dark;
   opacity: 0;
-  transition: all .3s ease-in-out;
+  // transition: all .3s ease-in-out // TODO: debug on page load
   transform: translateX(100vw);
 
   svg {
@@ -195,4 +195,10 @@ header {
   visibility: visible;
   opacity: 1;
   transform: translateX(0);
+}
+
+.dom-loaded {
+  [data-dropdown-open] {
+    transition: all .3s ease-in-out
+  }  
 }

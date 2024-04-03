@@ -41,11 +41,11 @@ const comparisonKeys = [
 
 export function brokerComparisonTable() {
   const brokerList = [
-    { id: 'e-toro', name: 'eToro' },
-    { id: 'ic-markets', name: 'IC Markets' },
-    { id: 'pepperstone', name: 'Pepperstone' },
-    { id: 'tickmill', name: 'Tickmill' },
-    { id: 'capital', name: 'Capital' }
+    { id: 'capital', name: 'Capital', originalIndex: 0 },
+    { id: 'e-toro', name: 'eToro', originalIndex: 1 },
+    { id: 'ic-markets', name: 'IC Markets', originalIndex: 2 },
+    { id: 'pepperstone', name: 'Pepperstone', originalIndex: 3 },
+    { id: 'tickmill', name: 'Tickmill', originalIndex: 4 }
     // TODO: add all the possible brokers here
   ];
 
@@ -235,7 +235,7 @@ export function brokerComparisonTable() {
     },
 
     updateCheckboxState() {
-      console.debug('disable the checkboxes');
+      console.debug('disable the checkboxes if two are already selected');
       document.querySelectorAll('.form-check-input').forEach((checkbox) => {
         if (this.selectedBrokers.length >= 2 && !this.selectedBrokers.includes(checkbox.value)) {
           checkbox.disabled = true;
@@ -243,20 +243,67 @@ export function brokerComparisonTable() {
           checkbox.disabled = false;
         }
       });
-    },
+    },    
 
-    toggleBroker(event) {
-      const broker = event.target.value;
-      const index = selectedBrokers.indexOf(broker);
-      if (index === -1) {
-        selectedBrokers.push(broker);
+    // toggleBroker(event) {
+    //   const broker = event.target.value;
+    //   const index = selectedBrokers.indexOf(broker);
+    //   if (index === -1) {
+    //     selectedBrokers.push(broker);
+    //   } else {
+    //     selectedBrokers.splice(index, 1);
+    //   }
+    //   brokerDataUrls = generateBrokerDataUrls(selectedBrokers); // Update brokerDataUrls
+    //   this.updateCheckboxState(); // Ensure checkboxes are enabled when all selections are cleared
+    //   this.loadSelectedBrokersData();
+    //   this.updateUrlWithSelectedBrokers();
+    // },
+    toggleBroker(event, brokerId) {
+      const isSelected = this.selectedBrokers.includes(brokerId);
+    
+      if (isSelected) {
+        // Remove the broker from selectedBrokers
+        this.selectedBrokers.splice(this.selectedBrokers.indexOf(brokerId), 1);
       } else {
-        selectedBrokers.splice(index, 1);
+        // Add the broker to selectedBrokers if less than 2 are already selected
+        if (this.selectedBrokers.length < 2) {
+          this.selectedBrokers.push(brokerId);
+        } else {
+          // Prevent checking the checkbox if already two are selected
+          event.preventDefault();
+          return;
+        }
       }
-      brokerDataUrls = generateBrokerDataUrls(selectedBrokers); // Update brokerDataUrls
-      this.updateCheckboxState(); // Ensure checkboxes are enabled when all selections are cleared
+    
+      // Re-enable or disable checkboxes based on the number of selected brokers
+      this.updateCheckboxState();
+    
+      // Sort the broker list based on the selection state and original index
+      this.sortBrokers();
+    
+      // The rest remains unchanged
+      brokerDataUrls = generateBrokerDataUrls(this.selectedBrokers);
       this.loadSelectedBrokersData();
       this.updateUrlWithSelectedBrokers();
+    },
+    
+    sortBrokers() {
+      // Sort selected brokers to the top
+      this.brokerList.sort((a, b) => {
+        const bothSelected = this.selectedBrokers.includes(a.id) && this.selectedBrokers.includes(b.id);
+        const neitherSelected = !this.selectedBrokers.includes(a.id) && !this.selectedBrokers.includes(b.id);
+    
+        if (bothSelected || neitherSelected) {
+          // If both are selected or neither are selected, maintain original order
+          return a.originalIndex - b.originalIndex;
+        } else if (this.selectedBrokers.includes(a.id)) {
+          // If 'a' is selected and 'b' is not, 'a' should come first
+          return -1;
+        } else {
+          // If 'b' is selected and 'a' is not, 'b' should come first
+          return 1;
+        }
+      });
     },
 
     clearAllBrokers() {
