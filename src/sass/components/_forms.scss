@@ -1,5 +1,11 @@
-select {
-  option:hover {
+.form-select-option,
+option {
+  &:hover {
+    cursor: pointer;
     background-color: $light; // NOTE: limited browser support
+
+    label {
+      cursor: pointer;
+    }
   }
 }

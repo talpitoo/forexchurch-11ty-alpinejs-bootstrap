@@ -1,0 +1,27 @@
+<div x-data="countriesDropdownComplex()" class="dropdown w-100" @click.away="openCountries = false">
+    <button @click.prevent="openCountries = !openCountries" type="button" class="form-select rounded-pill text-start">
+        <span x-text="selectedCountryName" class="text-start w-100"></span>
+    </button>
+
+    <form x-show="openCountries" x-bind:class="{'show': openCountries}" class="dropdown-menu p-4" @click.stop style="display: none;">
+        <div class="d-flex flex-column row-gap-2">
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-white border-none ps-16px pe-0">
+                    <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                    </svg>
+                </span>
+                <input type="search" x-model="searchText" @input="filterCountries" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+            </div>
+
+            <template x-for="(country, index) in filteredCountries" :key="index">
+                <div class="form-select-option form-check position-relative mx-n4 px-4 py-2" :class="{'bg-tertiary': selectedCountryCode === country.alpha2Code}">
+                    <input class="form-check-input position-absolute end-0 opacity-0" type="radio" :value="country.alpha2Code" :id="`country-${country.alpha2Code}`" name="countryRadio" @click="selectCountry(country.alpha2Code, country.flag + ' ' + country.name)">
+                    <label class="form-check-label w-100" :for="`country-${country.alpha2Code}`" x-html="country.flag + ' &nbsp; ' + country.name">
+                        <!-- Country flag and name will be rendered here -->
+                    </label>
+                </div>
+            </template>
+        </div>
+    </form>
+</div>

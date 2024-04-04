@@ -17,15 +17,10 @@
                                         {% include "components/popover.njk" %}
                                     </div>
                                 </span>
-                                <div x-data="countriesDropdown()">
-                                    <select x-ref="select" class="form-select rounded-pill" aria-label="Country">
-                                        <option selected>Choose a country</option>
-                                        <template x-for="(country, index) in countries" :key="index">
-                                            <!-- Use the innerHTML to combine emoji and country name -->
-                                            <option :value="country.alpha2Code" x-html="country.name + ' ' + country.flag"></option>
-                                        </template>
-                                    </select>
-                                </div>
+
+                                {# {% include "components/dropdown-countries-select.njk" %} #}
+                                {% include "components/dropdown-countries.njk" %}
+
                                 <p class="mb-0 text-end">
                                     <a href="#" class="btn btn-primary mt-16px">
                                         <span>Next</span>

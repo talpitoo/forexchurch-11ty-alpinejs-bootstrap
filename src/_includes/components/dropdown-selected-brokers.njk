@@ -15,23 +15,15 @@
                 <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
             </div>
 
-            {# <template x-for="broker in brokerList" :key="broker.id">
-                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
-                    <input type="checkbox" x-model="selectedBrokers" class="form-check-input" :id="'check-' + broker.id" :value="broker.id" @change="toggleBroker($event)">
-                    <label class="form-check-label" :for="'check-' + broker.id" x-text="broker.name"></label>
-                </div>
-            </template> #}
-
             <template x-for="(broker, index) in brokerList" :key="broker.id">
-                <div class="form-check" 
-                    x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
-                                    <input type="checkbox" 
+                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
+                    <input type="checkbox" 
                         class="form-check-input" 
                         :id="'check-' + broker.id" 
                         :value="broker.id" 
                         :checked="selectedBrokers.includes(broker.id)"
                         @change="toggleBroker($event, broker.id, index)">
-                                    <label class="form-check-label" 
+                    <label class="form-check-label" 
                         :for="'check-' + broker.id" 
                         x-text="broker.name"></label>
                 </div>

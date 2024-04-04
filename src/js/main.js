@@ -14,6 +14,7 @@ import { tabulatorMock } from './modules/tabulatorMock';
 import { brokerComparisonTable } from './modules/brokerComparisonTable';
 // import { brokerComparisonTableManual } from './modules/brokerComparisonTableManual';
 import { countriesDropdown } from './modules/countries';
+import { countriesDropdownComplex } from './modules/countriesComplex';
 import { initializeSwiper } from './modules/swiperInstances';
 
 // make modules globally available
@@ -55,4 +56,5 @@ window.addEventListener('alpine:init', () => {
     Alpine.data('brokerComparisonTable', brokerComparisonTable);
     // Alpine.data('brokerComparisonTableManual', brokerComparisonTableManual);
     Alpine.data('countriesDropdown', countriesDropdown);
+    Alpine.data('countriesDropdownComplex', countriesDropdownComplex);
 });

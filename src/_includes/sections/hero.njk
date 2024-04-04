@@ -16,15 +16,8 @@
                 <p>To begin, select the country where you currently live.</p>
                 <div class="forexchurch-tile shadow-xl">
 
-                    <div x-data="countriesDropdown()" class="w-100">
-                        <select x-ref="select" class="form-select rounded-pill" aria-label="Country">
-                            <option selected>Choose a country</option>
-                            <template x-for="(country, index) in countries" :key="index">
-                                <!-- Use the innerHTML to combine emoji and country name -->
-                                <option :value="country.alpha2Code" x-html="country.name + ' ' + country.flag"></option>
-                            </template>
-                        </select>
-                    </div>
+                    {# {% include "components/dropdown-countries-select.njk" %} #}
+                    {% include "components/dropdown-countries.njk" %}
 
                     <button type="button" class="btn btn-primary">
                         Lets do this
