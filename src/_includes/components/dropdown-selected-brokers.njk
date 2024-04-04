@@ -1,5 +1,6 @@
 <div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
-    <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="btn btn-outline-primary">
+    <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="form-select rounded-pill text-start">
+        {# NOTE: alternative button class: btn btn-outline-primary #}
         Selected brokers
     </button>
     {# TODO: adjust `const heightDropdown = 82;` in the JS in case of markup change #}
