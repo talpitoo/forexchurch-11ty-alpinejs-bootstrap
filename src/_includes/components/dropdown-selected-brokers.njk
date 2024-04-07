@@ -1,5 +1,5 @@
 <div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
-    <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="form-select rounded-pill text-start">
+    <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="form-select rounded-pill text-start" x-text="'Selected brokers (' + selectedBrokers.length + ')'">
         {# NOTE: alternative button class: btn btn-outline-primary #}
         Selected brokers
     </button>
@@ -16,8 +16,11 @@
                 <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
             </div>
 
+            <div><strong>Selected brokers</strong> (Max 2)</div>
+
             <template x-for="(broker, index) in brokerList" :key="broker.id">
-                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())">
+                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())" 
+                    :class="{'child-checked': selectedBrokers.includes(broker.id)}">
                     <input type="checkbox" 
                         class="form-check-input" 
                         :id="'check-' + broker.id" 

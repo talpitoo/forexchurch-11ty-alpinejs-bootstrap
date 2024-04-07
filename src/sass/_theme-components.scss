@@ -57,4 +57,10 @@
     scroll-margin: 16px;
     // scroll-snap-stop: always;
   }
+
+  .child-checked + .child-checked {
+    padding-bottom: map-get($spacers, "16px");
+    margin-bottom: map-get($spacers, "8px");
+    border-bottom: 1px solid $light;
+  }
 }

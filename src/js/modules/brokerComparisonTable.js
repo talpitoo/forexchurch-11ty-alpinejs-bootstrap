@@ -186,6 +186,7 @@ export function brokerComparisonTable() {
         console.debug("Tabulator: dataLoaded");
         this.updateCheckboxState();
         this.cloneTableHeader(); // Clone the table header after toggling a broker 
+        this.sortBrokers();
       }).bind(this));
 
       // window.addEventListener('resize', () => setTimeout(() => this.handleResize(), 100));
@@ -245,6 +246,7 @@ export function brokerComparisonTable() {
       });
     },    
 
+    // NOTE: old toggleBroker() without sorting
     // toggleBroker(event) {
     //   const broker = event.target.value;
     //   const index = selectedBrokers.indexOf(broker);

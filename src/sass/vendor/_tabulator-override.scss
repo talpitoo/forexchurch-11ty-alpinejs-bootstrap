@@ -44,23 +44,34 @@
 }
 
 .comparison-table-clone {
-  min-height: 228px;
-  margin-bottom: -228px; // TODO: debug and set px values across the breakpoints
+  min-height: 221px;
+  margin-bottom: -221px; // TODO: debug and set px values across the breakpoints
 
   .tabulator-headers,
   .tabulator-col {
     height: auto !important;
-    min-height: 228px;
+    min-height: 221px;
   }
 
   @include media-breakpoint-up(md) {
-    min-height: 233px;
-    margin-bottom: -233px; // TODO: debug and set px values across the breakpoints
+    min-height: 223px;
+    margin-bottom: -223px; // TODO: debug and set px values across the breakpoints
 
     .tabulator-headers,
     .tabulator-col {
       height: auto !important;
-      min-height: 233px;
+      min-height: 223px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    min-height: 225px;
+    margin-bottom: -225px; // TODO: debug and set px values across the breakpoints
+
+    .tabulator-headers,
+    .tabulator-col {
+      height: auto !important;
+      min-height: 225px;
     }
   }
 
