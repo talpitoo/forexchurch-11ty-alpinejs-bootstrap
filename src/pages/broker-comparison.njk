@@ -16,12 +16,60 @@ eleventyNavigation:
 {% include "components/breadcrumb.njk" %}
 
 <section class='pb-section' x-data="brokerComparisonTable()" x-init="initTable">
-    <div class='container-md container-max-xl'>
-        {% include "components/broker-comparison-table.njk" %}
+  <div class='px-12px'>
+    <div class='d-flex flex-column flex-lg-row gap-3 pt-16px'>
+      <div class=''>
+        {% include "components/dropdown-selected-brokers.njk" %}
+      </div>
+      <div class=''>
+        {% include "components/dropdown-countries.njk" %}
+      </div>
+
+      <div class='ms-lg-auto'>
+        <select class="form-select rounded-pill" aria-label="Order by">
+          <option selected>Order by</option>
+          <option>Rating</option>
+          <option>Popularity</option>
+          <option>Pricing fees</option>
+        </select>
+      </div>
     </div>
+    <hr class="border border-light opacity-100 w-100"/>
+    <div class='d-flex flex-column flex-lg-row gap-3'>
+      <div class=''>
+        {% include "components/dropdown-countries.njk" %}
+      </div>
+      <div>
+        <select class="form-select rounded-pill" aria-label="Amount to invest">
+          <option selected>Amount to invest</option>
+          <option>Less than $100</option>
+          <option>$100-$500</option>
+          <option>$500-$1000</option>
+          <option>More than $1000</option>
+        </select>
+      </div>
+      <div>
+        <select class="form-select rounded-pill" aria-label="Base currency">
+          <option selected>Base currency</option>
+          <option>USD</option>
+          <option>EUR</option>
+          <option>GBP</option>
+          <option>CAD</option>
+          <option>JPY</option>
+        </select>
+      </div>
+
+      <div class='ms-lg-auto'>
+        <button type="button" class="btn btn-outline-primary w-100 w-lg-auto">
+            Clear filters
+      </button>
+      </div>
+    </div>
+    <hr class="border border-light opacity-100 w-100"/>
+    {% include "components/broker-comparison-table.njk" %}
+  </div>
 </section>
 
 <div class='py-section'>
     &nbsp;
-    {# NOTE: placeholder to offset the above table's negative margin bottom #}
-</div>
+    {# NOTE: placeholder to offset the above table's negative margin bottom #}</div>
