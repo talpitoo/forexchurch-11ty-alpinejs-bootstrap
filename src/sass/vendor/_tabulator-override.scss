@@ -30,8 +30,8 @@
     border-bottom-color: $light !important;
   }
 
-  .tabulator-row .tabulator-cell,
-  .table td {
+  // .table td,
+  .tabulator-row .tabulator-cell {
     display: inline-flex !important;
     align-items: center;
     border-color: transparent !important;

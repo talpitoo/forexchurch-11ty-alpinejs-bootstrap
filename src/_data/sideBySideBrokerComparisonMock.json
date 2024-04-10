@@ -1,0 +1,32 @@
+[
+    {
+        "name": "eTorro",
+        "logo": "/img/logos/e-toro.svg",
+        "url": "/forex-brokers/top-brokers/e-toro/",
+        "Type of Broker": "Market maker",
+        "Number of Pairs": 47,
+        "Minimum Deposit": 200,
+        "API Solutions": "Yes",
+        "VPS Offered": "Yes"
+    },
+    {
+        "name": "IC Markets",
+        "logo": "/img/logos/ic-markets.png",
+        "url": "/forex-brokers/top-brokers/ic-markets/",
+        "Type of Broker": "Market maker",
+        "Number of Pairs": 40,
+        "Minimum Deposit": 190,
+        "API Solutions": "Yes",
+        "VPS Offered": "No"
+    },
+    {
+        "name": "Pepperstone",
+        "logo": "/img/logos/pepperstone.svg",
+        "url": "/forex-brokers/top-brokers/pepperstone/",
+        "Type of Broker": "Market maker",
+        "Number of Pairs": 55,
+        "Minimum Deposit": 300,
+        "API Solutions": "No",
+        "VPS Offered": "No"
+    }
+]
