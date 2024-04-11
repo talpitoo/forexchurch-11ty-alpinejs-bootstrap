@@ -1,19 +1,35 @@
 <div x-data="{
-    openInvestIn: false,
-    selectedInvestIn: [],
-    investInList: [
-        { id: 'stock', name: 'Stock', originalIndex: 0 },
-        { id: 'etf', name: 'ETF', originalIndex: 1 },
-        { id: 'forex', name: 'Forex', originalIndex: 2 },
-        { id: 'options', name: 'Options', originalIndex: 3 },
-        { id: 'futures', name: 'Futures', originalIndex: 4 },
-        { id: 'cfd', name: 'CFD', originalIndex: 5 },
-        { id: 'fund', name: 'Fund', originalIndex: 6 },
-        { id: 'crypto', name: 'Crypto', originalIndex: 7 },
-        { id: 'bonds', name: 'Bonds', originalIndex: 8 }
-    ]
-    }" class="dropdown dropdown-invest-in" @click.away="openInvestIn = false">
-    <button @click.prevent="openInvestIn = !openInvestIn" type="button" class="form-select rounded-pill text-start" x-text="'Invest in (' + selectedInvestIn.length + ')'">
+        openInvestIn: false,
+        selectedInvestIn: [],
+        investInList: [
+            { id: 'stock', name: 'Stock', originalIndex: 0 },
+            { id: 'etf', name: 'ETF', originalIndex: 1 },
+            { id: 'forex', name: 'Forex', originalIndex: 2 },
+            { id: 'options', name: 'Options', originalIndex: 3 },
+            { id: 'futures', name: 'Futures', originalIndex: 4 },
+            { id: 'cfd', name: 'CFD', originalIndex: 5 },
+            { id: 'fund', name: 'Fund', originalIndex: 6 },
+            { id: 'crypto', name: 'Crypto', originalIndex: 7 },
+            { id: 'bonds', name: 'Bonds', originalIndex: 8 }
+        ],
+        toggleInvestIn(event, investInId) {
+        const isSelected = this.selectedInvestIn.includes(investInId);
+        
+        if (isSelected) {
+            this.selectedInvestIn.splice(this.selectedInvestIn.indexOf(investInId), 1);
+        } else {
+            this.selectedInvestIn.push(investInId);
+        }
+        },
+
+        clearAllInvestIn() {
+        this.selectedInvestIn = [];
+        },
+    }" 
+    class="dropdown dropdown-invest-in" 
+    @click.away="openInvestIn = false">
+
+    <button @click.prevent="openInvestIn = !openInvestIn" type="button" class="form-select rounded-pill text-start" x-text="'Invest in (' + selectedInvestIn.length + ')'" style="min-width: 195px">
         Invest in
     </button>
 
@@ -29,7 +45,7 @@
             </div>
 
             <div>
-                <strong>Inves in</strong>
+                <strong>Invest in</strong>
             </div>
 
             <div class="overflow-y-auto overflow-x-hidden" style="max-height: 250px">
@@ -41,7 +57,7 @@
                         :id="'check-' + investIn.id" 
                         :value="investIn.id" 
                         :checked="selectedInvestIn.includes(investIn.id)"
-                        {# TODO @change="toggleBroker($event, investIn.id, index)" #}
+                        @change="toggleInvestIn($event, investIn.id, index)"
                         >
                         <label class="form-check-label" 
                         :for="'check-' + investIn.id" 
@@ -51,7 +67,7 @@
             </div>
 
             <hr class="border border-light opacity-100 w-100"/>
-            <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
+            <button type="button" class="btn btn-outline-primary" @click="clearAllInvestIn">Clear all</button>
         </div>
     </form>
 </div>

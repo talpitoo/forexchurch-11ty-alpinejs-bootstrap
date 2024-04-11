@@ -1,0 +1,67 @@
+<div x-data="{
+        openDepositWith: false,
+        selectedDepositWith: [],
+        investInList: [
+            { id: 'bank-transfer', name: 'Bank transfer', originalIndex: 0 },
+            { id: 'e-wallet', name: 'E-wallet', originalIndex: 1 },
+            { id: 'credit-debit-card', name: 'Credit/debit card', originalIndex: 2 },
+        ],
+        toggleDepositWith(event, depositWithId) {
+        const isSelected = this.selectedDepositWith.includes(depositWithId);
+        
+        if (isSelected) {
+            this.selectedDepositWith.splice(this.selectedDepositWith.indexOf(depositWithId), 1);
+        } else {
+            this.selectedDepositWith.push(depositWithId);
+        }
+        },
+
+        clearAllDepositWith() {
+        this.selectedDepositWith = [];
+        },
+    }" 
+    class="dropdown dropdown-invest-in" 
+    @click.away="openDepositWith = false">
+
+    <button @click.prevent="openDepositWith = !openDepositWith" type="button" class="form-select rounded-pill text-start" x-text="'Deposit with (' + selectedDepositWith.length + ')'" style="min-width: 225px">
+        Deposit with
+    </button>
+
+    <form x-show="openDepositWith" :class="{'show': openDepositWith}" class="dropdown-menu p-4" @click="openDepositWith = true" style="display: none;">
+        <div class="d-flex flex-column row-gap-2">
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-white border-none ps-16px pe-0">
+                    <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                    </svg>
+                </span>
+                <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+            </div>
+
+            <div>
+                <strong>Deposit with</strong>
+            </div>
+
+            <div class="overflow-y-auto overflow-x-hidden" style="max-height: 250px">
+                <template x-for="(investIn, index) in investInList" :key="investIn.id">
+                    <div class="form-check" x-show="!searchText || investIn.name.toLowerCase().includes(searchText.toLowerCase())" 
+                    :class="{'child-checked': selectedDepositWith.includes(investIn.id)}">
+                        <input type="checkbox" 
+                        class="form-check-input" 
+                        :id="'check-' + investIn.id" 
+                        :value="investIn.id" 
+                        :checked="selectedDepositWith.includes(investIn.id)"
+                        @change="toggleDepositWith($event, investIn.id, index)"
+                        >
+                        <label class="form-check-label" 
+                        :for="'check-' + investIn.id" 
+                        x-text="investIn.name"></label>
+                    </div>
+                </template>
+            </div>
+
+            <hr class="border border-light opacity-100 w-100"/>
+            <button type="button" class="btn btn-outline-primary" @click="clearAllDepositWith">Clear all</button>
+        </div>
+    </form>
+</div>
