@@ -1,4 +1,4 @@
-<div class="dropdown TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
+<div class="dropdown dropdown-selected-brokers TODO-forexchurch-anchor-offset TODO-forexchurch-scroll-snap" @click.away="openSelectedBrokers = false">
     <button @click.prevent="openSelectedBrokers = !openSelectedBrokers" type="button" class="form-select rounded-pill text-start" x-text="'Selected brokers (' + selectedBrokers.length + ')'">
         {# NOTE: alternative button class: btn btn-outline-primary #}
         Selected brokers
@@ -16,22 +16,25 @@
                 <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
             </div>
 
-            <div><strong>Selected brokers</strong> (Max 2)</div>
+            <div class="js-selected-summary"><strong>Selected brokers</strong> (Max 2)</div>
 
-            <template x-for="(broker, index) in brokerList" :key="broker.id">
-                <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())" 
+            <div class="overflow-y-auto overflow-x-hidden" style="max-height: 250px">
+
+                <template x-for="(broker, index) in brokerList" :key="broker.id">
+                    <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())" 
                     :class="{'child-checked': selectedBrokers.includes(broker.id)}">
-                    <input type="checkbox" 
+                        <input type="checkbox" 
                         class="form-check-input" 
                         :id="'check-' + broker.id" 
                         :value="broker.id" 
                         :checked="selectedBrokers.includes(broker.id)"
                         @change="toggleBroker($event, broker.id, index)">
-                    <label class="form-check-label" 
+                        <label class="form-check-label" 
                         :for="'check-' + broker.id" 
                         x-text="broker.name"></label>
-                </div>
-            </template>
+                    </div>
+                </template>
+            </div>
 
             <hr class="border border-light opacity-100 w-100"/>
             <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>

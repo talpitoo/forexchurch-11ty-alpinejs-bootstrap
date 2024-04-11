@@ -49,6 +49,8 @@ export function brokerComparisonTable() {
     // TODO: add all the possible brokers here
   ];
 
+  const defaultBrokers = ['capital', 'e-toro', 'pepperstone'];
+
   // Parse the URL parameters to get the selected brokers
   const getSelectedBrokersFromUrl = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -70,6 +72,7 @@ export function brokerComparisonTable() {
   };
 
   let selectedBrokers = getSelectedBrokersFromUrl();
+  selectedBrokers = selectedBrokers.length > 0 ? selectedBrokers : defaultBrokers;
   let brokerDataUrls = generateBrokerDataUrls(selectedBrokers);
 
   return {
@@ -237,7 +240,7 @@ export function brokerComparisonTable() {
 
     updateCheckboxState() {
       console.debug('disable the checkboxes if two are already selected');
-      document.querySelectorAll('.form-check-input').forEach((checkbox) => {
+      document.querySelectorAll('.dropdown-selected-brokers .form-check-input').forEach((checkbox) => {
         if (this.selectedBrokers.length >= 2 && !this.selectedBrokers.includes(checkbox.value)) {
           checkbox.disabled = true;
         } else {

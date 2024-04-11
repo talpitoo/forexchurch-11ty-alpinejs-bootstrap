@@ -1,0 +1,57 @@
+<div x-data="{
+    openInvestIn: false,
+    selectedInvestIn: [],
+    investInList: [
+        { id: 'stock', name: 'Stock', originalIndex: 0 },
+        { id: 'etf', name: 'ETF', originalIndex: 1 },
+        { id: 'forex', name: 'Forex', originalIndex: 2 },
+        { id: 'options', name: 'Options', originalIndex: 3 },
+        { id: 'futures', name: 'Futures', originalIndex: 4 },
+        { id: 'cfd', name: 'CFD', originalIndex: 5 },
+        { id: 'fund', name: 'Fund', originalIndex: 6 },
+        { id: 'crypto', name: 'Crypto', originalIndex: 7 },
+        { id: 'bonds', name: 'Bonds', originalIndex: 8 }
+    ]
+    }" class="dropdown dropdown-invest-in" @click.away="openInvestIn = false">
+    <button @click.prevent="openInvestIn = !openInvestIn" type="button" class="form-select rounded-pill text-start" x-text="'Invest in (' + selectedInvestIn.length + ')'">
+        Invest in
+    </button>
+
+    <form x-show="openInvestIn" :class="{'show': openInvestIn}" class="dropdown-menu p-4" @click="openInvestIn = true" style="display: none;">
+        <div class="d-flex flex-column row-gap-2">
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-white border-none ps-16px pe-0">
+                    <svg class="flex-shrink-0" aria-hidden="true" width="20" height="20">
+                        <use href="/img/icons/symbol/svg/sprite.css.svg#search"></use>
+                    </svg>
+                </span>
+                <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
+            </div>
+
+            <div>
+                <strong>Inves in</strong>
+            </div>
+
+            <div class="overflow-y-auto overflow-x-hidden" style="max-height: 250px">
+                <template x-for="(investIn, index) in investInList" :key="investIn.id">
+                    <div class="form-check" x-show="!searchText || investIn.name.toLowerCase().includes(searchText.toLowerCase())" 
+                    :class="{'child-checked': selectedInvestIn.includes(investIn.id)}">
+                        <input type="checkbox" 
+                        class="form-check-input" 
+                        :id="'check-' + investIn.id" 
+                        :value="investIn.id" 
+                        :checked="selectedInvestIn.includes(investIn.id)"
+                        {# TODO @change="toggleBroker($event, investIn.id, index)" #}
+                        >
+                        <label class="form-check-label" 
+                        :for="'check-' + investIn.id" 
+                        x-text="investIn.name"></label>
+                    </div>
+                </template>
+            </div>
+
+            <hr class="border border-light opacity-100 w-100"/>
+            <button type="button" class="btn btn-outline-primary" @click="clearAllBrokers">Clear all</button>
+        </div>
+    </form>
+</div>

@@ -58,9 +58,13 @@
     // scroll-snap-stop: always;
   }
 
-  .child-checked + .child-checked {
+  .dropdown-max-2 .child-checked + .child-checked {
     padding-bottom: map-get($spacers, "16px");
     margin-bottom: map-get($spacers, "8px");
     border-bottom: 1px solid $light;
+  }
+
+  .dropdown-max-multiple .js-selected-summary {
+    display: none;
   }
 }
