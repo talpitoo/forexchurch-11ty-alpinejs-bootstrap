@@ -47,7 +47,7 @@ export function scrollspyCustom() {
             if (toc) {
                 toc.innerHTML = this.sections.map(id => {
                     const text = document.getElementById(id)?.textContent || '';
-                    return `<li><a href="#${id}" class="text-decoration-none" :class="activeScrollspy === '${id}' ? 'text-body bg-tertiary-light' : 'text-muted'">${text}</a></li>`;
+                    return `<li class="ps-3 py-1"><a href="#${id}" class="text-decoration-none" :class="activeScrollspy === '${id}' ? 'list-bullet-active text-body' : 'text-muted'">${text}</a></li>`;
                 }).join('');
             }
         },

@@ -52,3 +52,16 @@ strong {
     }
   }
 }
+
+.list-bullet-active {
+  &::before {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+    margin-left: -18px;
+    content: "";
+    background-color: $tertiary;
+    border-radius: 100%;
+  }
+}
