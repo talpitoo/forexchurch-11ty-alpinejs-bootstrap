@@ -1,4 +1,4 @@
-<nav class='forexchurch-tile shadow-lg flex-column mb-16px position-relative'>
+<nav class='forexchurch-tile shadow-lg flex-column mb-16px position-relative d-none d-lg-block'>
     <ul class="list-unstyled w-100 mb-0" id="toc">
         {# NOTE: static, example markup #}
         {# <li>
@@ -27,3 +27,12 @@
         </li> #}
     </ul>
 </nav>
+
+<select class="form-select rounded-pill d-lg-none" aria-label="TOC">
+    <option selected>TOC</option>
+    <option>Heading #1</option>
+    <option>Heading #2</option>
+    <option>Heading #3</option>
+    <option>Heading #4</option>
+    <option>etc.</option>
+</select>

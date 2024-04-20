@@ -100,3 +100,15 @@
     border-bottom-left-radius: 10px;
   }
 }
+
+.nav-tabs-inline {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  @include media-breakpoint-up(lg) {
+    overflow-x: unset;
+    overflow-y: unset;
+  }
+}

@@ -16,44 +16,50 @@
                     <div class='row'>
                         <div class='col-lg-3'>
                             {% include "components/broker-summary-tile.njk" %}
-                            <div class="position-sticky top-navbar py-16px">
+                            {# NOTE: adaptive markup: TOC desktop #}
+                            <div class="position-sticky top-navbar py-16px d-none d-lg-block">
                                 {% include "components/toc.njk" %}
                             </div>
                         </div>
                         <div class='col-lg-9'>
+                            {# NOTE: adaptive markup: TOC mobile #}
+                            <div class="position-sticky top-navbar bg-white py-16px d-lg-none">
+                                {% include "components/toc.njk" %}
+                            </div>
+
                             <div x-data="{ activeTab: 'review-tab-pane' }">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <ul class="nav nav-tabs nav-tabs-inline" id="brokerTabs" role="tablist">
                                     <li class="nav-item flex-grow-1" role="presentation">
                                         <button class="nav-link w-100" :class="{ 'active': activeTab === 'review-tab-pane' }" @click="activeTab = 'review-tab-pane'" type="button" role="tab" aria-controls="review-tab-pane" aria-selected="true">
                                             <svg class="me-1" aria-hidden="true" width="20" height="20">
                                                 <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
                                             </svg>
-            Review
-          </button>
+                                            Review
+                                        </button>
                                     </li>
                                     <li class="nav-item flex-grow-1" role="presentation">
                                         <button class="nav-link w-100" :class="{ 'active': activeTab === 'by-the-numbers-tab-pane' }" @click="activeTab = 'by-the-numbers-tab-pane'" type="button" role="tab" aria-controls="by-the-numbers-tab-pane" aria-selected="false">
                                             <svg class="me-1" aria-hidden="true" width="20" height="20">
                                                 <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
                                             </svg>
-            By the numbers
-          </button>
+                                            By the numbers
+                                        </button>
                                     </li>
                                     <li class="nav-item flex-grow-1" role="presentation">
                                         <button class="nav-link w-100" :class="{ 'active': activeTab === 'live-spread-tab-pane' }" @click="activeTab = 'live-spread-tab-pane'" type="button" role="tab" aria-controls="live-spread-tab-pane" aria-selected="false">
                                             <svg class="me-1" aria-hidden="true" width="20" height="20">
                                                 <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
                                             </svg>
-            Live Spread
-          </button>
+                                            Live Spread
+                                        </button>
                                     </li>
                                     <li class="nav-item flex-grow-1" role="presentation">
                                         <button class="nav-link w-100" :class="{ 'active': activeTab === 'live-swaps-tab-pane' }" @click="activeTab = 'live-swaps-tab-pane'" type="button" role="tab" aria-controls="live-swaps-tab-pane" aria-selected="false">
                                             <svg class="me-1" aria-hidden="true" width="20" height="20">
                                                 <use href="/img/icons/symbol/svg/sprite.css.svg#clipboard"></use>
                                             </svg>
-            Live Swaps
-          </button>
+                                            Live Swaps
+                                        </button>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -67,6 +73,8 @@
                     </div>
                 </div>
             </section>
+
+            {% include "../components/visit-broker-sticky.njk" %}
         </main>
 
         {% include "../components/footer.njk" %}

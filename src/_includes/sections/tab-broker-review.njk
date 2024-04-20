@@ -1,62 +1,64 @@
 <div class="tab-pane fade active py-16px" :class="{ 'show active': activeTab === 'review-tab-pane' }" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
     <div class="row mt-8px">
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Account Types</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Account Opening</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Trading Platform(s)</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Trade Execution</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Assets Traded</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Deposits/Withdrawals</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Fees</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">News and Research</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Trader Education</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Trading Tools</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Customer Service</h6>
             {% include "components/star-rating.njk" %}
         </div>
-        <div class="col-lg-3 mb-48px">
+        <div class="col-lg-3 mb-48px text-center text-lg-start">
             <h6 class="fw-medium mb-0">Safety/Regulation</h6>
             {% include "components/star-rating.njk" %}
         </div>
     </div>
 
-    <div class='forexchurch-tile bg-tertiary-light mb-24px'>
-        <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
-            <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
-        </svg>
+    <div class='forexchurch-tile flex-column flex-lg-row bg-tertiary-light mb-24px'>
         <div>
-            <p>it seems...</p>
-            <h3>{{ brokers[broker1].name }} accepts clients from Australia!</h3>
+            <p class="ms-64px">it seems...</p>
+            <div class="d-flex align-items-center gap-2">
+                <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+                </svg>
+                <h3 class="h2 w-50 w-lg-100">{{ brokers[broker1].name }} accepts clients from Australia!</h3>
+            </div>
         </div>
         <div>
             <a href="#" class="btn btn-primary w-100 mb-8px">
@@ -170,7 +172,7 @@
 
         <p>{{ brokers[broker1].name }} is recognized worldwide as a strong leader in the creation and development of financial industry technology. It offers clients advantages that include relatively low trading fees and competitive spreads. Finally, as a forex broker that is highly regulated in multiple jurisdictions, including the US, {{ brokers[broker1].name }} has a sterling reputation for being an honest, trustworthy broker. This review covers all the operational aspects of {{ brokers[broker1].name }} and provides a thorough explanation of all the services that it offers clients. Its trading platform, fees, account types offered, investor education resources, trading tools, customer service, and investor safety are all examined. Each category of client services is rated from 0 to 5, with 5 the best possible rating. Here are some of the key advantages and disadvantages of trading with {{ brokers[broker1].name }}:</p>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 pb-16px pb-lg-0">
                 <div class="forexchurch-tile flex-column align-items-start justify-content-start position-relative h-100 bg-success-subtle">
                     <svg class="position-absolute top-0 end-0 m-16px opacity-50" aria-hidden="true" width="52" height="52">
                         <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
@@ -420,11 +422,13 @@
         <h2 id="safety-regulation" class="forexchurch-anchor-offset">Safety/Regulation</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quibusdam repudiandae error, totam asperiores quisquam incidunt deserunt voluptas tempora distinctio excepturi quia, veritatis iure architecto quos nisi iusto? Distinctio, quo! Aliquid, officiis! Vel id ex temporibus in fugit nostrum atque, enim vitae blanditiis eum voluptatum nihil consequatur error asperiores ea repellendus. Ad eligendi, obcaecati cumque sed nisi aperiam quaerat laboriosam! Magni esse consectetur blanditiis dolorem, culpa voluptatibus deserunt animi quo hic nam aperiam harum totam perferendis alias. Nemo a fuga, vero facere provident necessitatibus ducimus, deleniti facilis expedita omnis exercitationem? Distinctio quia perspiciatis ea excepturi veritatis debitis fugiat molestias doloribus, maxime deserunt repellendus possimus corrupti ducimus quam saepe amet nobis impedit sapiente aut est eaque voluptatum fuga! Et, quos voluptas? Accusantium, necessitatibus repellendus omnis animi, non corporis.</p>
 
-        <div class='forexchurch-tile bg-tertiary-light mb-24px'>
-            <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
-                <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
-            </svg>
-            <h3 class="mb-0 text-success w-100">{{ brokers[broker1].name }} is available in Autralia</h3>
+        <div class='forexchurch-tile flex-column flex-lg-row bg-tertiary-light mb-24px'>
+            <div class="d-flex align-items-center gap-3">
+                <svg class="flex-shrink-0" aria-hidden="true" width="56" height="56">
+                    <use href="/img/icons/symbol/svg/sprite.css.svg#compare-positive-circle"></use>
+                </svg>
+                <h3 class="mb-0 text-success w-100">{{ brokers[broker1].name }} is available in Autralia</h3>
+            </div>
             <div>
                 <a href="#" class="btn btn-primary w-100 mb-8px">
                     <span>Visit Broker</span>
