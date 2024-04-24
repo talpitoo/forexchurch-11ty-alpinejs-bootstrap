@@ -39,7 +39,7 @@ const comparisonKeys = [
   "Customer Service",
 ];
 
-export function brokerComparisonTable() {
+export function brokerComparisonTable({ maxSelectableBrokers = 2 }) {  // default to 2 if not specified
   const brokerList = [
     { id: 'capital', name: 'Capital', originalIndex: 0 },
     { id: 'e-toro', name: 'eToro', originalIndex: 1 },
@@ -77,6 +77,7 @@ export function brokerComparisonTable() {
 
   return {
     brokerList,
+    maxSelectableBrokers,
     selectedBrokers: selectedBrokers,
     brokerDataUrls: brokerDataUrls,
     table: null,
@@ -241,13 +242,9 @@ export function brokerComparisonTable() {
     updateCheckboxState() {
       console.debug('disable the checkboxes if two are already selected');
       document.querySelectorAll('.dropdown-selected-brokers .form-check-input').forEach((checkbox) => {
-        if (this.selectedBrokers.length >= 2 && !this.selectedBrokers.includes(checkbox.value)) {
-          checkbox.disabled = true;
-        } else {
-          checkbox.disabled = false;
-        }
+        checkbox.disabled = this.maxSelectableBrokers !== 'unlimited' && this.selectedBrokers.length >= this.maxSelectableBrokers && !this.selectedBrokers.includes(checkbox.value);
       });
-    },    
+    },
 
     // NOTE: old toggleBroker() without sorting
     // toggleBroker(event) {
@@ -265,39 +262,36 @@ export function brokerComparisonTable() {
     // },
     toggleBroker(event, brokerId) {
       const isSelected = this.selectedBrokers.includes(brokerId);
-    
+
       if (isSelected) {
         // Remove the broker from selectedBrokers
         this.selectedBrokers.splice(this.selectedBrokers.indexOf(brokerId), 1);
+      } else if (this.maxSelectableBrokers === 'unlimited' || this.selectedBrokers.length < this.maxSelectableBrokers) {
+        this.selectedBrokers.push(brokerId);
       } else {
-        // Add the broker to selectedBrokers if less than 2 are already selected
-        if (this.selectedBrokers.length < 2) {
-          this.selectedBrokers.push(brokerId);
-        } else {
-          // Prevent checking the checkbox if already two are selected
-          event.preventDefault();
-          return;
-        }
+        // Prevent checking the checkbox if already two are selected
+        event.preventDefault();
+        return;
       }
-    
+
       // Re-enable or disable checkboxes based on the number of selected brokers
       this.updateCheckboxState();
-    
+
       // Sort the broker list based on the selection state and original index
       this.sortBrokers();
-    
+
       // The rest remains unchanged
       brokerDataUrls = generateBrokerDataUrls(this.selectedBrokers);
       this.loadSelectedBrokersData();
       this.updateUrlWithSelectedBrokers();
     },
-    
+
     sortBrokers() {
       // Sort selected brokers to the top
       this.brokerList.sort((a, b) => {
         const bothSelected = this.selectedBrokers.includes(a.id) && this.selectedBrokers.includes(b.id);
         const neitherSelected = !this.selectedBrokers.includes(a.id) && !this.selectedBrokers.includes(b.id);
-    
+
         if (bothSelected || neitherSelected) {
           // If both are selected or neither are selected, maintain original order
           return a.originalIndex - b.originalIndex;
@@ -376,7 +370,7 @@ export function brokerComparisonTable() {
         this.table.setColumns(columns);
         this.table.setData(tableData);
       }).catch(error => console.error('Unexpected error loading broker data:', error));
-    },    
+    },
 
 
     prepareDataForTable(brokersData) {

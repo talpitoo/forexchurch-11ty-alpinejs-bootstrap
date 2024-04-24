@@ -15,7 +15,7 @@ eleventyNavigation:
 <h1 class="visually-hidden">{{title}}</h1>
 {% include "components/breadcrumb.njk" %}
 
-<section class='pb-section' x-data="brokerComparisonTable()" x-init="initTable">
+<section class='pb-section' x-data="brokerComparisonTable({ maxSelectableBrokers: 'unlimited' })" x-init="initTable">
   <div class='px-12px'>
     <div class='d-flex flex-column flex-lg-row gap-3 pt-16px'>
       <div class='dropdown-max-multiple'>

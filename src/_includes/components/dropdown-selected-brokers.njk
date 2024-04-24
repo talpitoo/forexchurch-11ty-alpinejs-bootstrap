@@ -16,10 +16,10 @@
                 <input type="search" x-model="searchText" class="form-control border-start-0 shadow-none" placeholder="Search" aria-label="Search">
             </div>
 
-            <div class="js-selected-summary"><strong>Selected brokers</strong> (Max 2)</div>
+            <div class="js-selected-summary">
+                <strong>Selected brokers</strong> (Max 2)</div>
 
             <div class="overflow-y-auto overflow-x-hidden" style="max-height: 250px">
-
                 <template x-for="(broker, index) in brokerList" :key="broker.id">
                     <div class="form-check" x-show="!searchText || broker.name.toLowerCase().includes(searchText.toLowerCase())" 
                     :class="{'child-checked': selectedBrokers.includes(broker.id)}">

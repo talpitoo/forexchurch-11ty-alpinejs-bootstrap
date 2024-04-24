@@ -12,7 +12,7 @@
 
             {# NOTE: not used for now {{ content | safe }} #}
 
-            <section class='' x-data="brokerComparisonTable()" x-init="initTable">
+            <section class='' x-data="brokerComparisonTable({ maxSelectableBrokers: 2 })" x-init="initTable">
                 <div class='container-md container-max-xl'>
                     <div class='row pt-16px'>
                         <div class='col-lg-3'>
