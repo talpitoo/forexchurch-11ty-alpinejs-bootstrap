@@ -8,10 +8,12 @@
 
     <!-- Popover content -->
     <div x-ref="popoverCustom" style="display: none;" class="popover" role="tooltip">
-        <div x-ref="arrow" class="popover-arrow"></div>
+        <div x-ref="arrow" class="popover-arrow position-absolute"></div>
         <div class="popover-body">
-            <h6>Disclaimer title</h6>
-            <p class="mb-0">And here's some amazing content. It's very engaging. Right?</p>
+            {% if popoverTitle != '' %}
+                <h6>{{ popoverTitle | default('TODO') }}</h6>
+            {% endif %}
+            <p class="mb-0">{{ popoverContent | default('Lorem ipsum TODO.') }}</p>
         </div>
     </div>
 </span>

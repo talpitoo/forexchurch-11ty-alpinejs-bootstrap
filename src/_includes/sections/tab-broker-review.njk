@@ -67,6 +67,8 @@
                     <use href="/img/icons/symbol/svg/sprite.css.svg#arrow-right"></use>
                 </svg>
             </a>
+            {% set popoverTitle = "Disclaimer Title" %}
+            {% set popoverContent = "CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.85% of retail investor accounts lost money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money." %}
             <p class="fs-7">CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {% include "components/popover.njk" %}
             </p>
         </div>
@@ -142,11 +144,17 @@
                     </tr>
                     <tr>
                         <td>
+                            <span class="text-nowrap">
                             <svg class="me-1" aria-hidden="true" width="20" height="20">
                                 <use href="/img/icons/symbol/svg/sprite.css.svg#home"></use>
                             </svg>
-                    Deposits/Withdrawals</td>
-                        <td>Credit Cards, Bank Transfers,... {% include "components/popover.njk" %}</td>
+                    Deposits/Withdrawals</span></td>
+                        {# NOTE: no popover since the content can fit
+                        { % set popoverTitle = "" % }
+                        { % set popoverContent = "Credit Cards, Bank Transfers, Third-Party Payment Processors, eToro Money" % }
+                        <td>Credit Cards, Bank Transfers,... { % include "components/popover.njk" % }</td> #}
+
+                        <td>Credit Cards, Bank Transfers, Third-Party Payment Processors, eToro Money</td>
                     </tr>
                 </tbody>
             </table>
