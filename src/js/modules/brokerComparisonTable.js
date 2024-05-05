@@ -75,23 +75,61 @@ export function brokerComparisonTable({ maxSelectableBrokers = 2 }) {  // defaul
   selectedBrokers = selectedBrokers.length > 0 ? selectedBrokers : defaultBrokers;
   let brokerDataUrls = generateBrokerDataUrls(selectedBrokers);
 
+  let calculateColumnWidth = () => {
+
+    // Below 640px width
+    if (window.innerWidth < 640) {
+      if (selectedBrokers.length >= 3) {
+        console.debug('calculateColumnWidth: 1/2');
+        return (window.innerWidth - 20) / 2;
+      } else {
+        console.debug('calculateColumnWidth: 1/2');
+        return (window.innerWidth - 20) / 2;
+      }
+    }
+    // Between 640px and 768px width
+    else if (window.innerWidth >= 640 && window.innerWidth <= 768) {
+      if (selectedBrokers.length >= 3) {
+        console.debug('calculateColumnWidth: 1/3');
+        return (window.innerWidth - 20) / 3;
+      } else {
+        console.debug('calculateColumnWidth: ``');
+        return '';
+      }
+    }
+    // Above 768px width
+    else if (window.innerWidth > 768) {
+      if (selectedBrokers.length > 3) {
+        console.debug('calculateColumnWidth: 1/5');
+        return (window.innerWidth - 20) / 5;
+      } else {
+        console.debug('calculateColumnWidth: ``');
+        return '';
+      }
+    }
+    return ''; // Default case for unspecified conditions
+  };
+  calculateColumnWidth();
+
+
   return {
     brokerList,
     maxSelectableBrokers,
     selectedBrokers: selectedBrokers,
     brokerDataUrls: brokerDataUrls,
     table: null,
-    // tableHeight: window.innerWidth < 768 ? tableHeightMobile : 'auto', // TODO: for the full comparison use case only
+    // tableHeight: window.innerWidth <= 768 ? tableHeightMobile : 'auto', // TODO: for the full comparison use case only
     tableHeight: 'auto',
-    // columnWidth: window.innerWidth < 768 ? (window.innerWidth - 24) / 3 : "", // TODO: for the full comparison use case only
-    columnWidth: '',
+    columnWidth: calculateColumnWidth(), // TODO: for the full comparison use case only
+    // columnWidth: '',
     openSelectedBrokers: false,
     searchText: '',
 
     initTable() {
       // Pre-define the 'detail' column so it's always visible
       this.table = new Tabulator("#comparison-table", {
-        layout: "fitColumns", // window.innerWidth < 768 ? "" : "fitColumns",
+        layout: "fitColumns", // window.innerWidth <= 768 ? "" : "fitColumns",
+        // layoutColumnsOnNewData:true, // https://tabulator.info/docs/6.2/layout#layoutcolumnsonnewdata
         virtualDom: false, // TODO: debug if necessary https://tabulator.info/docs/5.6/virtual-dom
         frozenRows: 1,
         height: this.tableHeight,
@@ -191,6 +229,7 @@ export function brokerComparisonTable({ maxSelectableBrokers = 2 }) {  // defaul
         this.updateCheckboxState();
         this.cloneTableHeader(); // Clone the table header after toggling a broker 
         this.sortBrokers();
+        // this.handleResize(); // TODO debug
       }).bind(this));
 
       // window.addEventListener('resize', () => setTimeout(() => this.handleResize(), 100));
@@ -211,10 +250,10 @@ export function brokerComparisonTable({ maxSelectableBrokers = 2 }) {  // defaul
     handleResize() {
       tableHeightMobile = window.innerHeight - 85;
       tableHeightDesktop = window.innerHeight - (heightNavbar + heightDropdown + 32);
-      // this.tableHeight = window.innerWidth < 768 ? tableHeightMobile : 'auto'; // TODO: for the full comparison use case only
+      // this.tableHeight = window.innerWidth <= 768 ? tableHeightMobile : 'auto'; // TODO: for the full comparison use case only
       this.tableHeight = 'auto';
-      // this.columnWidth = window.innerWidth < 768 ? (window.innerWidth - 24) / 3 : ''; // TODO: for the full comparison use case only
-      this.columnWidth = '';
+      // this.columnWidth = '';
+      this.columnWidth = calculateColumnWidth();
       this.table.setHeight(this.tableHeight);
       this.loadSelectedBrokersData();
       this.table.redraw(true);
@@ -281,6 +320,7 @@ export function brokerComparisonTable({ maxSelectableBrokers = 2 }) {  // defaul
       this.sortBrokers();
 
       // The rest remains unchanged
+      // calculateColumnWidth(); TODO debug
       brokerDataUrls = generateBrokerDataUrls(this.selectedBrokers);
       this.loadSelectedBrokersData();
       this.updateUrlWithSelectedBrokers();
