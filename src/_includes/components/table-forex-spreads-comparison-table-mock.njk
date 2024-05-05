@@ -1,0 +1,61 @@
+<div class="table-responsive rounded-3 overflow-lg-hidden mb-32px py-1">
+    {# <div x-data="loadBreweriesMock()" x-init="getBreweriesMock"> #}
+    <table class="table table-striped table-highlight w-full fs-7 mb-0">
+        <thead class="table-dark">
+            <tr>
+                <th class="bg-primary"></th>
+                <th class="bg-primary cell-border-top text-center">
+                    {# NOTE: simple classes border-3 border-tertiary border-bottom-0 #}
+                    <span class="btn btn-underline p-0 text-white">
+                        <span>eToro</span>
+                    </span>
+                </th>
+                <th class="bg-primary text-center">IC Markets</th>
+                <th class="bg-primary text-center">Pepperstone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# <template x-for="brewery in breweries" :key="brewery.id"> #}
+            <tr>
+                <td>Comission per lot</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">
+                    {% set popoverTitle = "Comission per lot Title TODO" %}
+                    {% set popoverContent = "Comission per lot Text TODO" %}
+                    {% include "components/popover.njk" %}
+                </td>
+                <td class="text-center">
+                    {% set popoverTitle = "" %}
+                    {% set popoverContent = "Comission per lot Text TODO" %}
+                    {% include "components/popover.njk" %}
+                </td>
+                <td class="text-center">
+                    {% set popoverTitle = "" %}
+                    {% set popoverContent = "Comission per lot Text TODO" %}
+                    {% include "components/popover.njk" %}
+                </td>
+            </tr>
+            <tr>
+                <td>EURUSD spread</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">
+                    1.0
+                </td>
+                <td class="text-center">0.7</td>
+                <td class="text-center">0.6</td>
+            </tr>
+            <tr>
+                <td>GBPUSD spread</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">1.2</td>
+                <td class="text-center">0.9</td>
+                <td class="text-center">0.8</td>
+            </tr>
+            <tr>
+                <td>USDJPY spread</td>
+                <td class="cell-border-bottom text-center">1.1</td>
+                <td class="text-center">0.8</td>
+                <td class="text-center">0.7</td>
+            </tr>
+            {# </template> #}
+        </tbody>
+    </table>
+    {# </div> #}
+</div>

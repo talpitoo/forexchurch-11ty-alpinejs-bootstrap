@@ -1,0 +1,89 @@
+<div class="table-responsive rounded-3 overflow-lg-hidden mb-32px py-1">
+    {# <div x-data="loadBreweriesMock()" x-init="getBreweriesMock"> #}
+    <table class="table table-striped table-highlight w-full fs-7 mb-0">
+        <thead class="table-dark">
+            <tr>
+                <th class="bg-primary"></th>
+                <th class="bg-primary cell-border-top text-center">
+                    {# NOTE: simple classes border-3 border-tertiary border-bottom-0 #}
+                    <span class="btn btn-underline p-0 text-white">
+                        <span>eToro</span>
+                    </span>
+                </th>
+                <th class="bg-primary text-center">IC Markets</th>
+                <th class="bg-primary text-center">Pepperstone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# <template x-for="brewery in breweries" :key="brewery.id"> #}
+            <tr>
+                <td>US500</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">
+                    0.75
+                </td>
+                <td class="text-center">
+                    0.5
+                </td>
+                <td class="text-center">
+                    0.45
+                </td>
+            </tr>
+            <tr>
+                <td>UK 100</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">
+                    1
+                </td>
+                <td class="text-center">0.85</td>
+                <td class="text-center">0.8 {% set popoverTitle = "UK 100 Title TODO" %}
+                    {% set popoverContent = "UK 100 Text TODO" %}
+                    {% include "components/popover.njk" %}</td>
+            </tr>
+            <tr>
+                <td>Gold (XAUUSD)</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">1.2</td>
+                <td class="text-center">0.9</td>
+                <td class="text-center">0.8</td>
+            </tr>
+            <tr>
+                <td>Silver (XAGUSD)</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">1.2</td>
+                <td class="text-center">0.9</td>
+                <td class="text-center">0.8</td>
+            </tr>
+            <tr>
+                <td>Bitcoin (BTCUSD)</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">1.2</td>
+                <td class="text-center">0.9</td>
+                <td class="text-center">0.8</td>
+            </tr>
+            <tr>
+                <td>Ethereum (ETHUSD)</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">1.2</td>
+                <td class="text-center">0.9</td>
+                <td class="text-center">0.8</td>
+            </tr>
+            <tr>
+                <td>5Yr Treasury Note CFD</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">1.2</td>
+                <td class="text-center">0.9</td>
+                <td class="text-center">0.8</td>
+            </tr>
+            <tr>
+                <td>Tesla Inc CFD</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0 text-center">1.2</td>
+                <td class="text-center">0.9</td>
+                <td class="text-center">0.8</td>
+            </tr>
+            <tr>
+                <td>Alphabet Inc CFD</td>
+                <td class="cell-border-bottom text-center">1.2 {% set popoverTitle = "Alphabet Inc CFD Title TODO" %}
+                    {% set popoverContent = "Alphabet Inc CFD Text TODO" %}
+                    {% include "components/popover.njk" %}</td>
+                <td class="text-center">0.8</td>
+                <td class="text-center">0.7</td>
+            </tr>
+            {# </template> #}
+        </tbody>
+    </table>
+    {# </div> #}
+</div>
