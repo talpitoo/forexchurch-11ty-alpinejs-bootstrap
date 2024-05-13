@@ -1,66 +1,68 @@
 <div class="table-responsive rounded-3 overflow-lg-hidden mb-32px py-1">
-    {# <div x-data="loadBreweriesMock()" x-init="getBreweriesMock"> #}
     <table class="table table-striped table-highlight w-full fs-7 mb-0">
         <thead class="table-dark">
             <tr>
                 <th class="bg-primary"></th>
-                <th class="bg-primary cell-border-top">
-                    {# NOTE: simple classes border-3 border-tertiary border-bottom-0 #}
-                    <span class="btn btn-underline p-0 text-white">
-                        <span>eToro</span>
-                    </span>
-                </th>
-                <th class="bg-primary">IC Markets</th>
-                <th class="bg-primary">Pepperstone</th>
+                <th class="bg-primary"></th>
+                <th class="bg-primary text-center">Number of Assets</th>
+                <th class="bg-primary text-center">Max leverage</th>
             </tr>
         </thead>
         <tbody>
-            {# <template x-for="brewery in breweries" :key="brewery.id"> #}
             <tr>
                 <td>Forex</td>
-                <td class="border-3 border-tertiary border-top-0 border-bottom-0">55</td>
-                <td>37</td>
-                <td>29</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
             </tr>
             <tr>
-                <td>Indices CFDs</td>
-                <td class="border-3 border-tertiary border-top-0 border-bottom-0">70</td>
-                <td>42</td>
-                <td>30</td>
+                <td>Indices CFD’s</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
             </tr>
             <tr>
-                <td>Commodities CFDs</td>
-                <td class="border-3 border-tertiary border-top-0 border-bottom-0">48</td>
-                <td>30</td>
-                <td>25</td>
+                <td>Commodities CFD</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
             </tr>
             <tr>
-                <td>Stocks CFDs</td>
-                <td class="border-3 border-tertiary border-top-0 border-bottom-0">150</td>
-                <td>90</td>
-                <td>80</td>
+                <td>Stocks CFD’s</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
             </tr>
             <tr>
-                <td>Crypto CFDs</td>
-                <td class="border-3 border-tertiary border-top-0 border-bottom-0">55</td>
-                <td>0</td>
-                <td>29</td>
+                <td>Crypto CFD’s</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
             </tr>
             <tr>
-                <td>Futures CFDs</td>
-                <td class="border-3 border-tertiary border-top-0 border-bottom-0">3</td>
-                <td>37</td>
-                <td>20</td>
+                <td>Futures CFD’s</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
             </tr>
             <tr>
-                <td>ETF CFDs</td>
-                <td class="cell-border-bottom">55</td>
-                {# NOTE: simple classes border-3 border-tertiary border-top-0 #}
-                <td>37</td>
-                <td>29</td>
+                <td>Bond CFD’s</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
             </tr>
-            {# </template> #}
+            <tr>
+                <td>Forex</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
+            </tr>
+            <tr>
+                <td>ETF CFD’s</td>
+                <td class="text-start d-flex">{% include "components/table-cell-yes.njk" %}</td>
+                <td class="text-center">12</td>
+                <td class="text-center">100:1</td>
+            </tr>
         </tbody>
     </table>
-    {# </div> #}
 </div>
