@@ -1,0 +1,62 @@
+<div class="table-responsive rounded-3 overflow-lg-hidden mb-32px py-1">
+    {# <div x-data="loadBreweriesMock()" x-init="getBreweriesMock"> #}
+    <table class="table table-striped table-highlight w-full fs-7 mb-0">
+        <thead class="table-dark">
+            <tr>
+                <th class="bg-primary"></th>
+                <th class="bg-primary cell-border-top text-center">
+                    {# NOTE: simple classes border-3 border-tertiary border-bottom-0 #}
+                    <span class="btn btn-underline p-0 text-white">
+                        <span>eToro</span>
+                    </span>
+                </th>
+                <th class="bg-primary text-center">IC Markets</th>
+                <th class="bg-primary text-center">Pepperstone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# <template x-for="brewery in breweries" :key="brewery.id"> #}
+            <tr>
+                <td>Stocks</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0">
+                    {% include "components/table-cell-yes.njk" %}
+                </td>
+                <td>
+                    {% include "components/table-cell-yes.njk" %}
+                </td>
+                <td>
+                    {% include "components/table-cell-no.njk" %}
+                </td>
+            </tr>
+            <tr>
+                <td>Options</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0">
+                    {% include "components/table-cell-yes.njk" %}
+                </td>
+                <td>{% include "components/table-cell-no.njk" %}</td>
+                <td>{% include "components/table-cell-yes.njk" %}</td>
+            </tr>
+            <tr>
+                <td>Bonds</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0">{% include "components/table-cell-yes.njk" %}</td>
+                <td>{% include "components/table-cell-yes.njk" %}</td>
+                <td>{% include "components/table-cell-no.njk" %}</td>
+            </tr>
+            <tr>
+                <td>Futures</td>
+                <td class="border-3 border-tertiary border-top-0 border-bottom-0">{% include "components/table-cell-no.njk" %}</td>
+                <td>{% include "components/table-cell-yes.njk" %}</td>
+                <td>{% include "components/table-cell-yes.njk" %}</td>
+            </tr>
+            <tr>
+                <td>ETFs</td>
+                <td class="cell-border-bottom">{% include "components/table-cell-yes.njk" %}</td>
+                {# NOTE: simple classes border-3 border-tertiary border-top-0 #}
+                <td>{% include "components/table-cell-no.njk" %}</td>
+                <td>{% include "components/table-cell-yes.njk" %}</td>
+            </tr>
+            {# </template> #}
+        </tbody>
+    </table>
+    {# </div> #}
+</div>
